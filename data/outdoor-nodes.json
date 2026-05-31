@@ -1,0 +1,36 @@
+{
+  "description": "南京大学仙林校区室外路网图 — 主要步行道",
+  "nodes": [
+    { "id": "gate-south", "type": "poi", "lat": 32.1150, "lng": 118.9570, "label": "南门", "connections": ["road-s1"] },
+    { "id": "gate-west", "type": "poi", "lat": 32.1180, "lng": 118.9525, "label": "西门", "connections": ["road-w1"] },
+    { "id": "gate-east", "type": "poi", "lat": 32.1200, "lng": 118.9620, "label": "东门", "connections": ["road-e1"] },
+    { "id": "gate-north", "type": "poi", "lat": 32.1225, "lng": 118.9570, "label": "北门", "connections": ["road-n1"] },
+
+    { "id": "road-s1", "type": "road", "lat": 32.1158, "lng": 118.9570, "label": "南门大道南段", "connections": ["road-s2"] },
+    { "id": "road-s2", "type": "road", "lat": 32.1163, "lng": 118.9570, "label": "南门大道中段", "connections": ["road-s1", "road-center-south"] },
+
+    { "id": "road-center-south", "type": "road", "lat": 32.1170, "lng": 118.9570, "label": "中央大道南", "connections": ["road-s2", "road-center", "road-xian1"] },
+    { "id": "road-center", "type": "road", "lat": 32.1180, "lng": 118.9570, "label": "中央大道", "connections": ["road-center-south", "road-center-north", "road-library"] },
+    { "id": "road-center-north", "type": "road", "lat": 32.1195, "lng": 118.9570, "label": "中央大道北", "connections": ["road-center", "road-n1", "road-yifu"] },
+
+    { "id": "road-xian1", "type": "road", "lat": 32.1172, "lng": 118.9558, "label": "仙I教学楼前路", "connections": ["road-center-south", "road-xian2"] },
+    { "id": "road-xian2", "type": "road", "lat": 32.1181, "lng": 118.9558, "label": "仙II教学楼前路", "connections": ["road-xian1", "road-student-center"] },
+    { "id": "road-student-center", "type": "road", "lat": 32.1180, "lng": 118.9542, "label": "大活前路", "connections": ["road-xian2", "road-w1"] },
+
+    { "id": "road-library", "type": "road", "lat": 32.1188, "lng": 118.9565, "label": "图书馆前路", "connections": ["road-center", "road-library-east"] },
+    { "id": "road-library-east", "type": "road", "lat": 32.1190, "lng": 118.9582, "label": "图书馆东侧路", "connections": ["road-library", "road-yifu"] },
+
+    { "id": "road-yifu", "type": "road", "lat": 32.1199, "lng": 118.9580, "label": "逸夫楼前路", "connections": ["road-center-north", "road-library-east", "road-e1"] },
+
+    { "id": "road-w1", "type": "road", "lat": 32.1185, "lng": 118.9530, "label": "西门大道", "connections": ["road-student-center", "road-gym"] },
+    { "id": "road-gym", "type": "road", "lat": 32.1200, "lng": 118.9535, "label": "体育馆前路", "connections": ["road-w1", "road-center-north"] },
+
+    { "id": "road-n1", "type": "road", "lat": 32.1210, "lng": 118.9570, "label": "北门大道", "connections": ["road-center-north", "road-basic-lab"] },
+    { "id": "road-basic-lab", "type": "road", "lat": 32.1209, "lng": 118.9562, "label": "基础实验楼前路", "connections": ["road-n1"] },
+
+    { "id": "road-canteen1", "type": "road", "lat": 32.1161, "lng": 118.9578, "label": "一组团食堂前路", "connections": ["road-s2"] },
+
+    { "id": "road-e1", "type": "road", "lat": 32.1203, "lng": 118.9600, "label": "东门大道", "connections": ["road-yifu"] }
+  ],
+  "edges": []
+}

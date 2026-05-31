@@ -1,0 +1,130 @@
+[
+  {
+    "id": "xian1",
+    "name": "仙I教学楼",
+    "aliases": ["仙一", "仙林教学楼I"],
+    "description": "仙林校区主教学楼之一，共5层，主要为大教室和阶梯教室",
+    "center": { "lat": 32.1170, "lng": 118.9550 },
+    "entrance": { "lat": 32.1172, "lng": 118.9552, "nearestRoadNode": "road-xian1" },
+    "floors": [1, 2, 3, 4, 5],
+    "indoorAvailable": true,
+    "outline": [
+      { "lat": 32.1175, "lng": 118.9546 },
+      { "lat": 32.1176, "lng": 118.9556 },
+      { "lat": 32.1168, "lng": 118.9557 },
+      { "lat": 32.1167, "lng": 118.9547 }
+    ]
+  },
+  {
+    "id": "xian2",
+    "name": "仙II教学楼",
+    "aliases": ["仙二", "仙林教学楼II"],
+    "description": "仙林校区主教学楼之二，共5层，与仙I对称分布",
+    "center": { "lat": 32.1180, "lng": 118.9550 },
+    "entrance": { "lat": 32.1181, "lng": 118.9552, "nearestRoadNode": "road-xian2" },
+    "floors": [1, 2, 3, 4, 5],
+    "indoorAvailable": false,
+    "outline": [
+      { "lat": 32.1183, "lng": 118.9546 },
+      { "lat": 32.1184, "lng": 118.9556 },
+      { "lat": 32.1177, "lng": 118.9557 },
+      { "lat": 32.1176, "lng": 118.9547 }
+    ]
+  },
+  {
+    "id": "library",
+    "name": "杜厦图书馆",
+    "aliases": ["图书馆", "杜厦"],
+    "description": "南大仙林校区标志性建筑，共5层，藏书丰富",
+    "center": { "lat": 32.1190, "lng": 118.9570 },
+    "entrance": { "lat": 32.1188, "lng": 118.9568, "nearestRoadNode": "road-library" },
+    "floors": [1, 2, 3, 4, 5],
+    "indoorAvailable": true,
+    "outline": [
+      { "lat": 32.1195, "lng": 118.9564 },
+      { "lat": 32.1196, "lng": 118.9576 },
+      { "lat": 32.1185, "lng": 118.9578 },
+      { "lat": 32.1184, "lng": 118.9566 }
+    ]
+  },
+  {
+    "id": "yifu",
+    "name": "逸夫楼",
+    "aliases": ["逸夫教学楼"],
+    "description": "逸夫教学楼，共6层，含多间阶梯教室和实验室",
+    "center": { "lat": 32.1200, "lng": 118.9585 },
+    "entrance": { "lat": 32.1199, "lng": 118.9583, "nearestRoadNode": "road-yifu" },
+    "floors": [1, 2, 3, 4, 5, 6],
+    "indoorAvailable": true,
+    "outline": [
+      { "lat": 32.1205, "lng": 118.9580 },
+      { "lat": 32.1206, "lng": 118.9590 },
+      { "lat": 32.1195, "lng": 118.9592 },
+      { "lat": 32.1194, "lng": 118.9582 }
+    ]
+  },
+  {
+    "id": "gym",
+    "name": "方肇周体育馆",
+    "aliases": ["体育馆", "方肇周"],
+    "description": "综合体育馆，含篮球馆、游泳馆等",
+    "center": { "lat": 32.1200, "lng": 118.9530 },
+    "entrance": { "lat": 32.1200, "lng": 118.9532, "nearestRoadNode": "road-gym" },
+    "floors": [1, 2],
+    "indoorAvailable": false,
+    "outline": [
+      { "lat": 32.1203, "lng": 118.9524 },
+      { "lat": 32.1204, "lng": 118.9536 },
+      { "lat": 32.1195, "lng": 118.9537 },
+      { "lat": 32.1194, "lng": 118.9525 }
+    ]
+  },
+  {
+    "id": "canteen1",
+    "name": "一组团食堂",
+    "aliases": ["一组团", "一食堂"],
+    "description": "学生第一食堂，共3层",
+    "center": { "lat": 32.1160, "lng": 118.9580 },
+    "entrance": { "lat": 32.1161, "lng": 118.9581, "nearestRoadNode": "road-canteen1" },
+    "floors": [1, 2, 3],
+    "indoorAvailable": false,
+    "outline": [
+      { "lat": 32.1163, "lng": 118.9576 },
+      { "lat": 32.1164, "lng": 118.9584 },
+      { "lat": 32.1157, "lng": 118.9585 },
+      { "lat": 32.1156, "lng": 118.9577 }
+    ]
+  },
+  {
+    "id": "student-center",
+    "name": "大学生活动中心",
+    "aliases": ["大活", "活动中心"],
+    "description": "学生社团活动、文艺演出的主要场所",
+    "center": { "lat": 32.1180, "lng": 118.9535 },
+    "entrance": { "lat": 32.1180, "lng": 118.9537, "nearestRoadNode": "road-student-center" },
+    "floors": [1, 2, 3],
+    "indoorAvailable": false,
+    "outline": [
+      { "lat": 32.1183, "lng": 118.9530 },
+      { "lat": 32.1184, "lng": 118.9540 },
+      { "lat": 32.1176, "lng": 118.9541 },
+      { "lat": 32.1175, "lng": 118.9531 }
+    ]
+  },
+  {
+    "id": "basic-lab",
+    "name": "基础实验楼",
+    "aliases": ["实验楼", "基础实验"],
+    "description": "基础学科实验教学中心，共6层",
+    "center": { "lat": 32.1210, "lng": 118.9560 },
+    "entrance": { "lat": 32.1209, "lng": 118.9558, "nearestRoadNode": "road-basic-lab" },
+    "floors": [1, 2, 3, 4, 5, 6],
+    "indoorAvailable": false,
+    "outline": [
+      { "lat": 32.1215, "lng": 118.9554 },
+      { "lat": 32.1216, "lng": 118.9564 },
+      { "lat": 32.1206, "lng": 118.9566 },
+      { "lat": 32.1205, "lng": 118.9556 }
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+[
+  { "id": "poi-south-gate", "name": "南门", "aliases": ["正门", "南大门"], "type": "gate", "icon": "🚪", "lat": 32.1150, "lng": 118.9570, "label": "南京大学仙林校区南门" },
+  { "id": "poi-west-gate", "name": "西门", "aliases": [], "type": "gate", "icon": "🚪", "lat": 32.1180, "lng": 118.9525, "label": "西门" },
+  { "id": "poi-east-gate", "name": "东门", "aliases": [], "type": "gate", "icon": "🚪", "lat": 32.1200, "lng": 118.9620, "label": "东门" },
+  { "id": "poi-north-gate", "name": "北门", "aliases": [], "type": "gate", "icon": "🚪", "lat": 32.1225, "lng": 118.9570, "label": "北门" },
+  { "id": "poi-bus-south", "name": "南门公交站", "aliases": ["公交站", "南大仙林站"], "type": "bus", "icon": "🚌", "lat": 32.1148, "lng": 118.9570, "label": "南大仙林公交站" },
+  { "id": "poi-subway", "name": "南大仙林校区地铁站", "aliases": ["地铁站", "2号线"], "type": "subway", "icon": "🚇", "lat": 32.1140, "lng": 118.9570, "label": "地铁2号线 南大仙林校区站" },
+  { "id": "poi-canteen2", "name": "二组团食堂", "aliases": ["二食堂", "二组团"], "type": "canteen", "icon": "🍽️", "lat": 32.1210, "lng": 118.9590, "label": "二组团食堂" },
+  { "id": "poi-store", "name": "教育超市", "aliases": ["超市", "教超"], "type": "shop", "icon": "🛒", "lat": 32.1175, "lng": 118.9565, "label": "教育超市" }
+]

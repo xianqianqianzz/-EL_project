@@ -1,0 +1,107 @@
+{
+  "description": "逸夫楼室内图 — 精细导航数据",
+  "bounds": { "minLat": 32.1194, "maxLat": 32.1206, "minLng": 118.9580, "maxLng": 118.9592 },
+  "entranceLink": "yifu-1f-entrance",
+  "floors": [
+    {
+      "level": 1,
+      "label": "1F",
+      "rooms": [
+        { "x": -350, "y": -250, "w": 60, "h": 45, "label": "101", "color": "#e8f5e9" },
+        { "x": -350, "y": -195, "w": 60, "h": 45, "label": "102", "color": "#e8f5e9" },
+        { "x": -350, "y": -140, "w": 60, "h": 45, "label": "103", "color": "#e8f5e9" },
+        { "x": 290, "y": -250, "w": 60, "h": 45, "label": "104", "color": "#e8f5e9" },
+        { "x": 290, "y": -195, "w": 60, "h": 45, "label": "105", "color": "#e8f5e9" },
+        { "x": 290, "y": -140, "w": 60, "h": 45, "label": "106", "color": "#e8f5e9" },
+        { "x": -350, "y": 100, "w": 60, "h": 45, "label": "107", "color": "#e8f5e9" },
+        { "x": -350, "y": 155, "w": 60, "h": 45, "label": "108", "color": "#e8f5e9" },
+        { "x": 290, "y": 100, "w": 60, "h": 45, "label": "109", "color": "#e8f5e9" },
+        { "x": 290, "y": 155, "w": 60, "h": 45, "label": "A110", "color": "#fff3e0" }
+      ],
+      "corridors": [
+        { "x": -370, "y": -280, "w": 740, "h": 30, "label": "北走廊" },
+        { "x": -370, "y": 250, "w": 740, "h": 30, "label": "南走廊" },
+        { "x": -30, "y": -280, "w": 30, "h": 560, "label": "中央走廊" }
+      ],
+      "verticals": [
+        { "x": -30, "y": 20, "w": 30, "h": 30, "type": "stair", "label": "西楼梯" },
+        { "x": 220, "y": 20, "w": 30, "h": 30, "type": "elevator", "label": "电梯" },
+        { "x": -60, "y": -50, "w": 30, "h": 30, "type": "stair", "label": "东楼梯" }
+      ]
+    },
+    {
+      "level": 2,
+      "label": "2F",
+      "rooms": [
+        { "x": -350, "y": -250, "w": 60, "h": 45, "label": "201", "color": "#e8f5e9" },
+        { "x": -350, "y": -195, "w": 60, "h": 45, "label": "202", "color": "#e8f5e9" },
+        { "x": -350, "y": -140, "w": 60, "h": 45, "label": "203", "color": "#e8f5e9" },
+        { "x": 290, "y": -250, "w": 60, "h": 45, "label": "204", "color": "#e8f5e9" },
+        { "x": 290, "y": -195, "w": 60, "h": 45, "label": "205", "color": "#e8f5e9" },
+        { "x": 140, "y": -250, "w": 120, "h": 70, "label": "阶梯教室", "color": "#e3f2fd" },
+        { "x": -350, "y": 100, "w": 60, "h": 45, "label": "206", "color": "#e8f5e9" },
+        { "x": -350, "y": 155, "w": 60, "h": 45, "label": "207", "color": "#e8f5e9" },
+        { "x": 290, "y": 100, "w": 60, "h": 45, "label": "208", "color": "#e8f5e9" },
+        { "x": 140, "y": 100, "w": 120, "h": 100, "label": "报告厅", "color": "#fce4ec" }
+      ],
+      "corridors": [
+        { "x": -370, "y": -280, "w": 740, "h": 30, "label": "北走廊" },
+        { "x": -370, "y": 250, "w": 740, "h": 30, "label": "南走廊" },
+        { "x": -30, "y": -280, "w": 30, "h": 560, "label": "中央走廊" }
+      ],
+      "verticals": [
+        { "x": -30, "y": 20, "w": 30, "h": 30, "type": "stair", "label": "西楼梯" },
+        { "x": 220, "y": 20, "w": 30, "h": 30, "type": "elevator", "label": "电梯" },
+        { "x": -60, "y": -50, "w": 30, "h": 30, "type": "stair", "label": "东楼梯" }
+      ]
+    },
+    {
+      "level": 3,
+      "label": "3F",
+      "rooms": [
+        { "x": -350, "y": -250, "w": 60, "h": 45, "label": "301", "color": "#e8f5e9" },
+        { "x": -350, "y": -195, "w": 60, "h": 45, "label": "302", "color": "#e8f5e9" },
+        { "x": 290, "y": -250, "w": 60, "h": 45, "label": "303", "color": "#e8f5e9" },
+        { "x": 290, "y": -195, "w": 60, "h": 45, "label": "304", "color": "#e8f5e9" },
+        { "x": 100, "y": -250, "w": 150, "h": 70, "label": "计算机实验室", "color": "#f3e5f5" },
+        { "x": -350, "y": 100, "w": 60, "h": 45, "label": "305", "color": "#e8f5e9" },
+        { "x": 290, "y": 100, "w": 60, "h": 45, "label": "306", "color": "#e8f5e9" }
+      ],
+      "corridors": [
+        { "x": -370, "y": -280, "w": 740, "h": 30, "label": "北走廊" },
+        { "x": -370, "y": 250, "w": 740, "h": 30, "label": "南走廊" },
+        { "x": -30, "y": -280, "w": 30, "h": 560, "label": "中央走廊" }
+      ],
+      "verticals": [
+        { "x": -30, "y": 20, "w": 30, "h": 30, "type": "stair", "label": "西楼梯" },
+        { "x": 220, "y": 20, "w": 30, "h": 30, "type": "elevator", "label": "电梯" },
+        { "x": -60, "y": -50, "w": 30, "h": 30, "type": "stair", "label": "东楼梯" }
+      ]
+    }
+  ],
+  "nodes": [
+    { "id": "yifu-1f-entrance", "type": "entrance", "lat": 32.1199, "lng": 118.9583, "floor": 1, "label": "逸夫楼 入口大厅", "connections": ["yifu-1f-corridor-center-s"] },
+    { "id": "yifu-1f-corridor-center-s", "type": "corridor", "lat": 32.1198, "lng": 118.9584, "floor": 1, "label": "中央走廊南端", "connections": ["yifu-1f-corridor-north-s", "yifu-1f-entrance"] },
+    { "id": "yifu-1f-corridor-north-s", "type": "corridor", "lat": 32.1199, "lng": 118.9584, "floor": 1, "label": "北走廊-南走廊路口", "connections": ["yifu-1f-corridor-center-s", "yifu-1f-west-stair-1", "yifu-1f-east-stair-1", "yifu-1f-room-101", "yifu-1f-room-104"] },
+    { "id": "yifu-1f-room-101", "type": "room", "lat": 32.1201, "lng": 118.9581, "floor": 1, "label": "101教室", "connections": ["yifu-1f-corridor-north-s"] },
+    { "id": "yifu-1f-room-104", "type": "room", "lat": 32.1201, "lng": 118.9589, "floor": 1, "label": "104教室", "connections": ["yifu-1f-corridor-north-s"] },
+    { "id": "yifu-1f-west-stair-1", "type": "stair", "lat": 32.11985, "lng": 118.9583, "floor": 1, "label": "西楼梯 1F", "connections": ["yifu-1f-corridor-north-s", "yifu-2f-west-stair-2"] },
+    { "id": "yifu-1f-east-stair-1", "type": "stair", "lat": 32.11975, "lng": 118.9586, "floor": 1, "label": "东楼梯 1F", "connections": ["yifu-1f-corridor-north-s", "yifu-2f-east-stair-2"] },
+    { "id": "yifu-1f-elevator", "type": "elevator", "lat": 32.11988, "lng": 118.9587, "floor": 1, "label": "电梯 1F", "connections": ["yifu-1f-corridor-north-s", "yifu-2f-elevator", "yifu-3f-elevator"] },
+
+    { "id": "yifu-2f-west-stair-2", "type": "stair", "lat": 32.11985, "lng": 118.9583, "floor": 2, "label": "西楼梯 2F", "connections": ["yifu-2f-corridor-north", "yifu-3f-west-stair-3"] },
+    { "id": "yifu-2f-east-stair-2", "type": "stair", "lat": 32.11975, "lng": 118.9586, "floor": 2, "label": "东楼梯 2F", "connections": ["yifu-2f-corridor-north", "yifu-3f-east-stair-3"] },
+    { "id": "yifu-2f-elevator", "type": "elevator", "lat": 32.11988, "lng": 118.9587, "floor": 2, "label": "电梯 2F", "connections": ["yifu-2f-corridor-north"] },
+    { "id": "yifu-2f-corridor-north", "type": "corridor", "lat": 32.1199, "lng": 118.9584, "floor": 2, "label": "2F 北走廊", "connections": ["yifu-2f-west-stair-2", "yifu-2f-east-stair-2", "yifu-2f-room-201", "yifu-2f-room-204"] },
+    { "id": "yifu-2f-room-201", "type": "room", "lat": 32.1201, "lng": 118.9581, "floor": 2, "label": "201教室", "connections": ["yifu-2f-corridor-north"] },
+    { "id": "yifu-2f-room-204", "type": "room", "lat": 32.1201, "lng": 118.9589, "floor": 2, "label": "204教室", "connections": ["yifu-2f-corridor-north"] },
+
+    { "id": "yifu-3f-west-stair-3", "type": "stair", "lat": 32.11985, "lng": 118.9583, "floor": 3, "label": "西楼梯 3F", "connections": ["yifu-3f-corridor-north"] },
+    { "id": "yifu-3f-east-stair-3", "type": "stair", "lat": 32.11975, "lng": 118.9586, "floor": 3, "label": "东楼梯 3F", "connections": ["yifu-3f-corridor-north"] },
+    { "id": "yifu-3f-elevator", "type": "elevator", "lat": 32.11988, "lng": 118.9587, "floor": 3, "label": "电梯 3F", "connections": ["yifu-3f-corridor-north"] },
+    { "id": "yifu-3f-corridor-north", "type": "corridor", "lat": 32.1199, "lng": 118.9584, "floor": 3, "label": "3F 北走廊", "connections": ["yifu-3f-west-stair-3", "yifu-3f-east-stair-3", "yifu-3f-room-301", "yifu-3f-room-303"] },
+    { "id": "yifu-3f-room-301", "type": "room", "lat": 32.1201, "lng": 118.9581, "floor": 3, "label": "301教室", "connections": ["yifu-3f-corridor-north"] },
+    { "id": "yifu-3f-room-303", "type": "room", "lat": 32.1201, "lng": 118.9589, "floor": 3, "label": "303教室", "connections": ["yifu-3f-corridor-north"] }
+  ],
+  "edges": []
+}
