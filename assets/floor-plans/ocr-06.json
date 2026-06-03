@@ -1,0 +1,33 @@
+{
+  "06.jpg": {
+    "image_path": "D:/ELproject/nju-campus-map/assets/floor-plans/06.jpg",
+    "image_size": [
+      800,
+      533
+    ],
+    "texts": [
+      {
+        "text": "消防疏散 5F Scheme Of Fire-fighting Dispersal",
+        "box": [
+          [
+            145,
+            489
+          ],
+          [
+            271,
+            489
+          ],
+          [
+            271,
+            533
+          ],
+          [
+            145,
+            533
+          ]
+        ]
+      }
+    ],
+    "full_text": "消防疏散 5F Scheme Of Fire-fighting Dispersal"
+  }
+}

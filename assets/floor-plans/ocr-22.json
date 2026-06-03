@@ -1,0 +1,33 @@
+{
+  "22.jpg": {
+    "image_path": "D:/ELproject/nju-campus-map/assets/floor-plans/22.jpg",
+    "image_size": [
+      800,
+      533
+    ],
+    "texts": [
+      {
+        "text": "8",
+        "box": [
+          [
+            182,
+            529
+          ],
+          [
+            188,
+            517
+          ],
+          [
+            302,
+            520
+          ],
+          [
+            300,
+            533
+          ]
+        ]
+      }
+    ],
+    "full_text": "8"
+  }
+}

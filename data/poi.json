@@ -6,5 +6,15 @@
   { "id": "poi-bus-south", "name": "南门公交站", "aliases": ["公交站", "南大仙林站"], "type": "bus", "icon": "🚌", "lat": 32.1148, "lng": 118.9570, "label": "南大仙林公交站" },
   { "id": "poi-subway", "name": "南大仙林校区地铁站", "aliases": ["地铁站", "2号线"], "type": "subway", "icon": "🚇", "lat": 32.1140, "lng": 118.9570, "label": "地铁2号线 南大仙林校区站" },
   { "id": "poi-canteen2", "name": "二组团食堂", "aliases": ["二食堂", "二组团"], "type": "canteen", "icon": "🍽️", "lat": 32.1210, "lng": 118.9590, "label": "二组团食堂" },
-  { "id": "poi-store", "name": "教育超市", "aliases": ["超市", "教超"], "type": "shop", "icon": "🛒", "lat": 32.1175, "lng": 118.9565, "label": "教育超市" }
+  { "id": "poi-store", "name": "教育超市", "aliases": ["超市", "教超"], "type": "shop", "icon": "🛒", "lat": 32.1175, "lng": 118.9565, "label": "教育超市" },
+  { "id": "poi-bathroom-xian1", "name": "仙I卫生间", "aliases": ["仙一卫生间"], "type": "bathroom", "icon": "🚻", "lat": 32.1170, "lng": 118.9548, "label": "仙I教学楼卫生间" },
+  { "id": "poi-bathroom-library", "name": "图书馆卫生间", "aliases": [], "type": "bathroom", "icon": "🚻", "lat": 32.1187, "lng": 118.9567, "label": "杜厦图书馆卫生间" },
+  { "id": "poi-bathroom-yifu", "name": "逸夫楼卫生间", "aliases": [], "type": "bathroom", "icon": "🚻", "lat": 32.1197, "lng": 118.9582, "label": "逸夫楼卫生间" },
+  { "id": "poi-atm-library", "name": "ATM（图书馆）", "aliases": ["取款机", "ATM"], "type": "atm", "icon": "🏧", "lat": 32.1189, "lng": 118.9569, "label": "图书馆 ATM" },
+  { "id": "poi-atm-canteen1", "name": "ATM（一组团）", "aliases": ["取款机"], "type": "atm", "icon": "🏧", "lat": 32.1162, "lng": 118.9580, "label": "一组团 ATM" },
+  { "id": "poi-parking-south", "name": "南门停车场", "aliases": ["停车场"], "type": "parking", "icon": "🅿️", "lat": 32.1152, "lng": 118.9565, "label": "南门停车场" },
+  { "id": "poi-bike-library", "name": "图书馆自行车架", "aliases": ["自行车", "单车"], "type": "bike_rack", "icon": "🚲", "lat": 32.1186, "lng": 118.9566, "label": "图书馆自行车停放点" },
+  { "id": "poi-bike-xian1", "name": "仙I自行车架", "aliases": ["自行车"], "type": "bike_rack", "icon": "🚲", "lat": 32.1173, "lng": 118.9550, "label": "仙I自行车停放点" },
+  { "id": "poi-water-library", "name": "图书馆饮水机", "aliases": ["饮水", "热水"], "type": "water", "icon": "🚰", "lat": 32.1187, "lng": 118.9570, "label": "图书馆饮水机" },
+  { "id": "poi-water-yifu", "name": "逸夫楼饮水机", "aliases": ["饮水", "热水"], "type": "water", "icon": "🚰", "lat": 32.1198, "lng": 118.9584, "label": "逸夫楼饮水机" }
 ]

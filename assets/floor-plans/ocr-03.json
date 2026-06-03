@@ -1,0 +1,33 @@
+{
+  "03.jpg": {
+    "image_path": "D:/ELproject/nju-campus-map/assets/floor-plans/03.jpg",
+    "image_size": [
+      600,
+      414
+    ],
+    "texts": [
+      {
+        "text": "2F消防疏散图备份\nScheme of Fire-fighting Dispersal",
+        "box": [
+          [
+            140,
+            8
+          ],
+          [
+            600,
+            8
+          ],
+          [
+            600,
+            68
+          ],
+          [
+            140,
+            68
+          ]
+        ]
+      }
+    ],
+    "full_text": "2F消防疏散图备份\nScheme of Fire-fighting Dispersal"
+  }
+}
