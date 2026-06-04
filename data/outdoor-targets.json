@@ -1,0 +1,101 @@
+[
+  {
+    "id": "target-south-gate",
+    "name": "南门",
+    "aliases": ["正门", "南大门"],
+    "type": "gate",
+    "icon": "🚪",
+    "lat": 32.1150,
+    "lng": 118.9570,
+    "label": "南京大学仙林校区南门",
+    "routeNodeId": "gate-south"
+  },
+  {
+    "id": "target-west-gate",
+    "name": "西门",
+    "aliases": [],
+    "type": "gate",
+    "icon": "🚪",
+    "lat": 32.1180,
+    "lng": 118.9525,
+    "label": "西门",
+    "routeNodeId": "gate-west"
+  },
+  {
+    "id": "target-east-gate",
+    "name": "东门",
+    "aliases": [],
+    "type": "gate",
+    "icon": "🚪",
+    "lat": 32.1200,
+    "lng": 118.9620,
+    "label": "东门",
+    "routeNodeId": "gate-east"
+  },
+  {
+    "id": "target-north-gate",
+    "name": "北门",
+    "aliases": [],
+    "type": "gate",
+    "icon": "🚪",
+    "lat": 32.1225,
+    "lng": 118.9570,
+    "label": "北门",
+    "routeNodeId": "gate-north"
+  },
+  {
+    "id": "target-bus-south",
+    "name": "南门公交站",
+    "aliases": ["公交站", "南大仙林站"],
+    "type": "transit",
+    "icon": "🚌",
+    "lat": 32.1148,
+    "lng": 118.9570,
+    "label": "南大仙林公交站",
+    "routeNodeId": "gate-south"
+  },
+  {
+    "id": "target-subway",
+    "name": "南大仙林校区地铁站",
+    "aliases": ["地铁站", "2号线"],
+    "type": "transit",
+    "icon": "🚇",
+    "lat": 32.1140,
+    "lng": 118.9570,
+    "label": "地铁2号线 南大仙林校区站",
+    "routeNodeId": "gate-south"
+  },
+  {
+    "id": "target-canteen2",
+    "name": "二组团食堂",
+    "aliases": ["二食堂", "二组团"],
+    "type": "canteen",
+    "icon": "🍽️",
+    "lat": 32.1210,
+    "lng": 118.9590,
+    "label": "二组团食堂",
+    "routeNodeId": "road-e1"
+  },
+  {
+    "id": "target-store",
+    "name": "教育超市",
+    "aliases": ["超市", "教超"],
+    "type": "shop",
+    "icon": "🛒",
+    "lat": 32.1175,
+    "lng": 118.9565,
+    "label": "教育超市",
+    "routeNodeId": "road-center-south"
+  },
+  {
+    "id": "target-parking-south",
+    "name": "南门停车场",
+    "aliases": ["停车场"],
+    "type": "parking",
+    "icon": "🅿️",
+    "lat": 32.1152,
+    "lng": 118.9565,
+    "label": "南门停车场",
+    "routeNodeId": "gate-south"
+  }
+]

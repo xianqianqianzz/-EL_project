@@ -29,7 +29,7 @@ class IndoorMap {
   loadBuilding(buildingId, indoorData) {
     this.buildingId = buildingId;
     this.data = indoorData;
-    this.currentFloor = indoorData.floors[0] || 1;
+    this.currentFloor = this._getFloorLevels()[0] ?? 1;
     this.offsetX = 0;
     this.offsetY = 0;
     this.scale = 1;
@@ -103,7 +103,17 @@ class IndoorMap {
   // --- 私有绘制方法 ---
 
   _getFloorData() {
-    return (this.data.floors || []).find(f => f.level === this.currentFloor);
+    return (this.data.floors || []).find(f => {
+      const level = typeof f === 'number' ? f : f.level;
+      return level === this.currentFloor;
+    });
+  }
+
+  _getFloorLevels() {
+    return (this.data?.floors || [])
+      .map(f => typeof f === 'number' ? f : f.level)
+      .filter(f => typeof f === 'number')
+      .sort((a, b) => a - b);
   }
 
   _drawRoom(ctx, room) {
@@ -140,6 +150,7 @@ class IndoorMap {
   _drawNode(ctx, node) {
     const r = CONFIG.indoor.nodeRadius;
     ctx.fillStyle = node.type === 'room' ? '#e8734a' :
+                    node.type === 'facility' ? '#8e44ad' :
                     node.type === 'stair' ? '#ff9800' :
                     node.type === 'elevator' ? '#009688' : '#4a6fa5';
     const xy = this.latlngToXY(node);

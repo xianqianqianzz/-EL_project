@@ -145,6 +145,7 @@
     { "id": "lib-1f-1314-classroom", "type": "room", "lat": 32.1187, "lng": 118.9574, "floor": 1, "building": "library", "label": "1314 教室", "connections": ["lib-1f-corridor-center"] },
     { "id": "lib-1f-open-exhibit", "type": "room", "lat": 32.1191, "lng": 118.9574, "floor": 1, "building": "library", "label": "开放展厅", "connections": ["lib-1f-corridor-center"] },
     { "id": "lib-1f-1114-journal", "type": "room", "lat": 32.1188, "lng": 118.9566, "floor": 1, "building": "library", "label": "1114 期刊中心", "connections": ["lib-1f-corridor-center"] },
+    { "id": "lib-1f-facility-bathroom", "type": "facility", "lat": 32.1189, "lng": 118.9568, "floor": 1, "building": "library", "label": "图书馆 1F 卫生间", "connections": ["lib-1f-corridor-center"] },
 
     { "id": "lib-2f-west-stair", "type": "stair", "lat": 32.1192, "lng": 118.9567, "floor": 2, "building": "library", "label": "西楼梯 2F", "connections": ["lib-2f-corridor-center", "lib-3f-west-stair"] },
     { "id": "lib-2f-east-stair", "type": "stair", "lat": 32.1190, "lng": 118.9576, "floor": 2, "building": "library", "label": "东楼梯 2F", "connections": ["lib-2f-corridor-center", "lib-3f-east-stair"] },
@@ -157,6 +158,7 @@
     { "id": "lib-2f-open-shelf", "type": "room", "lat": 32.1193, "lng": 118.9574, "floor": 2, "building": "library", "label": "开架阅览区", "connections": ["lib-2f-corridor-center"] },
     { "id": "lib-2f-info-commons", "type": "room", "lat": 32.1188, "lng": 118.9574, "floor": 2, "building": "library", "label": "信息共享大厅", "connections": ["lib-2f-corridor-center"] },
     { "id": "lib-2f-2311-consult", "type": "room", "lat": 32.1187, "lng": 118.9567, "floor": 2, "building": "library", "label": "2311 咨询", "connections": ["lib-2f-corridor-center"] },
+    { "id": "lib-2f-facility-bathroom", "type": "facility", "lat": 32.1189, "lng": 118.9568, "floor": 2, "building": "library", "label": "图书馆 2F 卫生间", "connections": ["lib-2f-corridor-center"] },
 
     { "id": "lib-3f-west-stair", "type": "stair", "lat": 32.1192, "lng": 118.9567, "floor": 3, "building": "library", "label": "西楼梯 3F", "connections": ["lib-3f-corridor-center", "lib-4f-west-stair"] },
     { "id": "lib-3f-east-stair", "type": "stair", "lat": 32.1190, "lng": 118.9576, "floor": 3, "building": "library", "label": "东楼梯 3F", "connections": ["lib-3f-corridor-center", "lib-4f-east-stair"] },

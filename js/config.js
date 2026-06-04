@@ -20,7 +20,8 @@ const CONFIG = {
   dataPaths: {
     buildings: 'data/buildings.json',
     outdoorNodes: 'data/outdoor-nodes.json',
-    poi: 'data/poi.json',
+    outdoorPaths: 'data/outdoor-paths.json',
+    outdoorTargets: 'data/outdoor-targets.json',
     indoorDir: 'data/indoor/'
   },
 

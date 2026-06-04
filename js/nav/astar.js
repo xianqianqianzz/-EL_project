@@ -35,27 +35,31 @@ class AStar {
       let currentId = null;
       let minF = Infinity;
       for (const [id] of openSet) {
-        const f = fScore.get(id) || Infinity;
+        const f = fScore.has(id) ? fScore.get(id) : Infinity;
         if (f < minF) { minF = f; currentId = id; }
       }
+      if (currentId === null) break;
 
       if (currentId === goalId) {
         return {
           path: AStar.reconstructPath(cameFrom, currentId, graph),
-          distance: gScore.get(goalId) || 0
+          distance: gScore.get(goalId) ?? 0
         };
       }
 
       openSet.delete(currentId);
 
       for (const [neighborId, weight] of graph.getNeighbors(currentId)) {
-        const tentativeG = (gScore.get(currentId) || Infinity) + weight;
+        const currentG = gScore.has(currentId) ? gScore.get(currentId) : Infinity;
+        const tentativeG = currentG + weight;
+        const previousG = gScore.has(neighborId) ? gScore.get(neighborId) : Infinity;
 
-        if (tentativeG < (gScore.get(neighborId) || Infinity)) {
+        if (tentativeG < previousG) {
           cameFrom.set(neighborId, currentId);
           gScore.set(neighborId, tentativeG);
 
           const neighbor = graph.getNode(neighborId);
+          if (!neighbor) continue;
           const h = AStar.heuristic(neighbor, goal);
           fScore.set(neighborId, tentativeG + h);
 

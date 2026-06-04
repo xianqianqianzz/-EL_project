@@ -18,11 +18,30 @@ class Graph {
     if (!this.adjacency.has(node.id)) {
       this.adjacency.set(node.id, new Map());
     }
-    // 自动建立与 connections 列表中节点的边
-    if (node.connections) {
-      for (const targetId of node.connections) {
+    this.connectNodeConnections(node.id);
+  }
+
+  /**
+   * 根据节点自身的 connections 建边。目标节点尚未加载时先跳过，
+   * 等批量加载完成后由 connectAllConnections() 补齐。
+   * @param {string} nodeId
+   */
+  connectNodeConnections(nodeId) {
+    const node = this.nodes.get(nodeId);
+    if (!node || !node.connections) return;
+    for (const targetId of node.connections) {
+      if (this.nodes.has(targetId)) {
         this.addEdge(node.id, targetId);
       }
+    }
+  }
+
+  /**
+   * 批量补齐所有 nodes[].connections 推导出的边。
+   */
+  connectAllConnections() {
+    for (const nodeId of this.nodes.keys()) {
+      this.connectNodeConnections(nodeId);
     }
   }
 
@@ -32,24 +51,26 @@ class Graph {
    * @param {number} [weight] - 不传则自动按坐标计算距离
    */
   addEdge(fromId, toId, weight) {
+    const fromNode = this.nodes.get(fromId);
+    const toNode = this.nodes.get(toId);
+    if (!fromNode || !toNode) {
+      console.warn(`[Graph] 跳过不存在节点的边: ${fromId} <-> ${toId}`);
+      return false;
+    }
+
     if (!this.adjacency.has(fromId)) this.adjacency.set(fromId, new Map());
     if (!this.adjacency.has(toId)) this.adjacency.set(toId, new Map());
 
     if (weight === undefined) {
-      const fromNode = this.nodes.get(fromId);
-      const toNode = this.nodes.get(toId);
-      if (fromNode && toNode) {
-        weight = Graph.haversine(fromNode.lat, fromNode.lng, toNode.lat, toNode.lng) * 1000; // 米
-        // 跨楼层增加垂直开销
-        if (fromNode.floor !== toNode.floor) {
-          weight += Math.abs(fromNode.floor - toNode.floor) * 5; // 每层楼高约5米等效距离
-        }
-      } else {
-        weight = 1;
+      weight = Graph.haversine(fromNode.lat, fromNode.lng, toNode.lat, toNode.lng) * 1000; // 米
+      // 跨楼层增加垂直开销
+      if (fromNode.floor !== toNode.floor) {
+        weight += Math.abs(fromNode.floor - toNode.floor) * 5; // 每层楼高约5米等效距离
       }
     }
     this.adjacency.get(fromId).set(toId, weight);
     this.adjacency.get(toId).set(fromId, weight); // 无向图
+    return true;
   }
 
   getNode(id) {
@@ -80,7 +101,7 @@ class Graph {
 /**
  * @typedef {Object} GraphNode
  * @property {string} id       - 唯一标识
- * @property {string} type     - corridor|room|stair|elevator|entrance|road|path|poi
+ * @property {string} type     - corridor|room|facility|stair|elevator|entrance|road|path|target
  * @property {number} lat      - 纬度
  * @property {number} lng      - 经度
  * @property {number} floor    - 楼层（室外为 0）

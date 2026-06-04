@@ -9,7 +9,7 @@ class SearchBox {
     this.fromSuggest = document.getElementById('suggestions-from');
     this.toSuggest = document.getElementById('suggestions-to');
 
-    /** @type {SearchItem[]} 所有可搜索条目（建筑+房间+POI） */
+    /** @type {SearchItem[]} 所有可搜索条目（室外目标+室内目标） */
     this.index = [];
 
     this.fromNode = null;
@@ -108,6 +108,8 @@ class SearchBox {
  * @property {string} label
  * @property {string} type
  * @property {string} [building]
+ * @property {string} [buildingId]
+ * @property {string} [routeNodeId] - 实际送入 AStar 的 Graph 节点 ID
  * @property {string[]} [keywords]
  * @property {number} lat
  * @property {number} lng

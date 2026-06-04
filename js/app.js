@@ -2,6 +2,15 @@
  * 应用入口 — 模块协调与初始化
  */
 (async function() {
+  if (typeof L === 'undefined') {
+    console.error('Leaflet 未加载，室外地图无法初始化。请检查网络，或将 Leaflet 本地文件放入 lib/leaflet 后更新 index.html。');
+    const emptyPanel = document.getElementById('panel-empty');
+    if (emptyPanel) {
+      emptyPanel.textContent = '地图依赖 Leaflet 未加载，请检查网络连接或改用本地 Leaflet 文件。';
+    }
+    return;
+  }
+
   // ========== 初始化模块 ==========
   const graph = new Graph();
   const outdoorMap = new OutdoorMap('outdoor-map');
@@ -14,19 +23,27 @@
 
   const outdoorGraphBuilder = new OutdoorGraphBuilder(graph);
   const indoorGraphBuilder = new IndoorGraphBuilder(graph);
+  const indoorDataCache = new Map();
+  const indexedIndoorBuildings = new Set();
 
   // ========== 加载数据 ==========
-  let buildings, outdoorNodes, pois;
+  let buildings, outdoorNodes, outdoorPaths, outdoorTargets;
 
   try {
-    [buildings, outdoorNodes, pois] = await DataLoader.loadAll([
+    [buildings, outdoorNodes, outdoorPaths, outdoorTargets] = await DataLoader.loadAll([
       CONFIG.dataPaths.buildings,
       CONFIG.dataPaths.outdoorNodes,
-      CONFIG.dataPaths.poi
+      CONFIG.dataPaths.outdoorPaths,
+      CONFIG.dataPaths.outdoorTargets
     ]);
     DataValidator.report('建筑', buildings, DataValidator.validateBuilding);
     DataValidator.report('室外节点', outdoorNodes.nodes || [], DataValidator.validateGraphNode);
     DataValidator.report('室外边', outdoorNodes.edges || [], DataValidator.validateEdge);
+    DataValidator.reportUniqueIds('室外节点', outdoorNodes.nodes || []);
+    DataValidator.reportConnections('室外连接', outdoorNodes.nodes || []);
+    if (DataValidator.reportOutdoorPathNetwork) {
+      DataValidator.reportOutdoorPathNetwork(outdoorPaths);
+    }
   } catch (err) {
     console.error('数据加载失败:', err);
     document.getElementById('panel-empty').textContent = '数据加载失败，请检查 data 目录。';
@@ -38,29 +55,36 @@
   for (const b of buildings) {
     searchItems.push({
       id: b.id, label: b.name, type: 'building',
-      building: b.name, keywords: [b.name, ...(b.aliases || [])],
+      building: b.name, buildingId: b.id, routeNodeId: `entrance-${b.id}`,
+      keywords: [b.name, ...(b.aliases || [])],
       lat: b.entrance?.lat || b.center?.lat,
       lng: b.entrance?.lng || b.center?.lng,
       floor: 0
     });
   }
-  for (const p of pois) {
+  for (const target of outdoorTargets) {
+    const nearest = target.routeNodeId ? { id: target.routeNodeId } : findNearestOutdoorRouteNode(target);
     searchItems.push({
-      id: p.id, label: p.name, type: 'poi',
-      keywords: [p.name, ...(p.aliases || [])],
-      lat: p.lat, lng: p.lng, floor: 0
+      id: target.id, label: target.name, type: 'outdoor-target',
+      routeNodeId: target.routeNodeId || nearest?.id,
+      keywords: [target.name, target.label, target.type, ...(target.aliases || [])].filter(Boolean),
+      lat: target.lat, lng: target.lng, floor: 0
     });
   }
   searchBox.buildIndex(searchItems);
 
   // ========== 渲染地图 ==========
   outdoorMap.renderBuildings(buildings);
-  outdoorMap.renderPOIs(pois);
+  outdoorMap.renderOutdoorTargets(outdoorTargets);
+  pathRenderer.setOutdoorPathNetwork(outdoorPaths);
 
   // ========== 构建室外图 ==========
-  outdoorGraphBuilder.build(outdoorNodes.nodes || [], outdoorNodes.edges || []);
+  outdoorGraphBuilder.build(outdoorNodes.nodes || [], outdoorNodes.edges || [], outdoorPaths);
   for (const b of buildings) {
     outdoorGraphBuilder.registerBuildingEntrance(b);
+  }
+  if (DataValidator.reportRouteTargets) {
+    DataValidator.reportRouteTargets('搜索条目', searchItems, graph);
   }
 
   // ========== 事件绑定 ==========
@@ -91,11 +115,14 @@
   // 地图点击 → 设为起点/终点
   outdoorMap.map.on('click', (e) => {
     const { lat, lng } = e.latlng;
-    // 创建临时 POI 条目
+    const nearest = findNearestOutdoorRouteNode({ lat, lng });
+    // 创建临时室外选点条目，寻路时吸附到最近室外路网节点
     const item = {
       id: `map-point-${Date.now()}`,
-      label: `(${lat.toFixed(5)}, ${lng.toFixed(5)})`,
+      label: nearest ? `地图选点（靠近${nearest.label || nearest.id}）` :
+                       `(${lat.toFixed(5)}, ${lng.toFixed(5)})`,
       type: 'custom',
+      routeNodeId: nearest?.id,
       lat, lng, floor: 0
     };
     markerPopup.handleItemClick(item);
@@ -104,17 +131,7 @@
   // 进入室内地图
   infoPanel.onEnterBuilding(async (building) => {
     try {
-      const indoorData = await DataLoader.loadIndoor(building.id);
-      indoorGraphBuilder.build(building.id, indoorData);
-
-      // 将室内房间加入搜索索引
-      for (const n of (indoorData.nodes || [])) {
-        if (n.type === 'room') {
-          searchItems.push(MarkerPopup.nodeToItem(n));
-        }
-      }
-      searchBox.buildIndex(searchItems);
-
+      const indoorData = await loadIndoorForBuilding(building);
       layerSwitch.enterIndoor(building, indoorData);
     } catch (err) {
       console.error('加载室内数据失败:', err);
@@ -134,74 +151,132 @@
   });
 
   // ========== 核心：路径规划 ==========
-  function doRouteSearch() {
-    const fromId = searchBox.fromNode.id;
-    const toId = searchBox.toNode.id;
+  async function doRouteSearch() {
+    const fromItem = searchBox.fromNode;
+    const toItem = searchBox.toNode;
+    const fromId = resolveRouteNodeId(fromItem);
+    const toId = resolveRouteNodeId(toItem);
 
-    // 如果目标在室内但室内图未加载，自动加载
-    const toNode = graph.getNode(toId);
-    if (!toNode) {
-      // 目标节点不在图中（可能是室内房间未加载）
-      const building = buildings.find(b =>
-        searchBox.toNode.building === b.name || searchBox.toNode.building === b.id
-      );
+    if (!fromId || !toId) {
+      alert('起点或终点没有可用于寻路的节点，请重新选择。');
+      return;
+    }
+
+    try {
+      await ensureSearchItemLoaded(fromItem);
+      await ensureSearchItemLoaded(toItem);
+    } catch (err) {
+      console.error('自动加载室内数据失败:', err);
+      alert('室内数据加载失败，请先点击对应建筑进入室内地图。');
+      return;
+    }
+
+    const result = AStar.findPath(graph, fromId, toId);
+    if (!result) {
+      alert('未找到可达路径，请确认起终点之间的路网连通。');
+      return;
+    }
+
+    pathRenderer.drawOutdoor(outdoorMap.map, result.path);
+
+    const segs = PathRenderer.segmentPath(result.path);
+    const indoorSeg = segs.find(s => s.type === 'indoor');
+    if (indoorSeg && layerSwitch.mode === 'outdoor') {
+      const buildingId = indoorSeg.nodes[0]?.building;
+      const building = buildings.find(b => b.id === buildingId);
       if (building) {
-        DataLoader.loadIndoor(building.id).then(indoorData => {
-          indoorGraphBuilder.build(building.id, indoorData);
-          executeSearch();
-        }).catch(() => alert('请先点击建筑进入室内地图。'));
-        return;
-      }
-    }
-    executeSearch();
-
-    function executeSearch() {
-      // 如果起終點在室内但图中没有，尝试从建筑入口连接
-      _ensureIndoorLoaded(fromId, () => _ensureIndoorLoaded(toId, _doSearch));
-    }
-
-    function _doSearch() {
-      const result = AStar.findPath(graph, fromId, toId);
-      if (!result) {
-        alert('未找到可达路径，请确认起终点之间的路网连通。');
-        return;
-      }
-      // 渲染路径
-      pathRenderer.drawOutdoor(outdoorMap.map, result.path);
-
-      // 如果有室内段，自动进入室内视图
-      const segs = PathRenderer.segmentPath(result.path);
-      const indoorSeg = segs.find(s => s.type === 'indoor');
-      if (indoorSeg && layerSwitch.mode === 'outdoor') {
-        const buildingId = indoorSeg.nodes[0]?.building;
-        const building = buildings.find(b => b.id === buildingId);
-        if (building) {
-          DataLoader.loadIndoor(building.id).then(indoorData => {
-            indoorGraphBuilder.build(building.id, indoorData);
-            layerSwitch.enterIndoor(building, indoorData, indoorSeg.floor);
-            indoorMap.render(result.path);
-          });
-        }
-      }
-      if (layerSwitch.mode === 'indoor') {
+        const indoorData = await loadIndoorForBuilding(building);
+        layerSwitch.enterIndoor(building, indoorData, indoorSeg.floor);
         indoorMap.render(result.path);
       }
-
-      infoPanel.showRoute({ ...result, totalDistance: result.distance });
     }
+    if (layerSwitch.mode === 'indoor') {
+      indoorMap.render(result.path);
+    }
+
+    infoPanel.showRoute({ ...result, totalDistance: result.distance });
   }
 
-  function _ensureIndoorLoaded(nodeId, callback) {
-    const node = graph.getNode(nodeId);
-    if (node) { callback(); return; }
-    // 根据 nodeId 前缀猜建筑
-    const prefix = nodeId.split('-')[0];
-    const building = buildings.find(b => b.id === prefix || nodeId.startsWith(b.id));
-    if (!building) { callback(); return; }
-    DataLoader.loadIndoor(building.id).then(data => {
-      indoorGraphBuilder.build(building.id, data);
-      callback();
-    }).catch(() => callback());
+  function resolveRouteNodeId(item) {
+    return item?.routeNodeId || item?.id;
+  }
+
+  async function ensureSearchItemLoaded(item) {
+    const routeNodeId = resolveRouteNodeId(item);
+    if (!routeNodeId || graph.getNode(routeNodeId)) return;
+
+    const building = findBuildingForSearchItem(item, routeNodeId);
+    if (!building || !building.indoorAvailable) return;
+    await loadIndoorForBuilding(building);
+  }
+
+  async function loadIndoorForBuilding(building) {
+    let indoorData = indoorDataCache.get(building.id);
+    if (!indoorData) {
+      indoorData = await DataLoader.loadIndoor(building.id);
+      indoorDataCache.set(building.id, indoorData);
+      if (DataValidator.reportIndoorData) {
+        DataValidator.reportIndoorData(building.id, indoorData);
+      }
+    }
+    indoorGraphBuilder.build(building.id, indoorData);
+    indexIndoorTargets(building, indoorData);
+    return indoorData;
+  }
+
+  function indexIndoorTargets(building, indoorData) {
+    if (indexedIndoorBuildings.has(building.id)) return;
+    const existingIds = new Set(searchItems.map(item => item.id));
+    for (const n of (indoorData.nodes || [])) {
+      if (!['room', 'facility'].includes(n.type) || existingIds.has(n.id)) continue;
+      const item = MarkerPopup.nodeToItem({ ...n, building: building.id });
+      item.building = building.name;
+      item.buildingId = building.id;
+      item.routeNodeId = n.id;
+      item.keywords = [n.label, building.name, building.id].filter(Boolean);
+      searchItems.push(item);
+      existingIds.add(n.id);
+    }
+    indexedIndoorBuildings.add(building.id);
+    searchBox.buildIndex(searchItems);
+  }
+
+  function findBuildingForSearchItem(item, routeNodeId) {
+    return buildings.find(b =>
+      item?.buildingId === b.id ||
+      item?.building === b.name ||
+      item?.building === b.id ||
+      routeNodeId === `entrance-${b.id}` ||
+      routeNodeId.startsWith(`${b.id}-`)
+    );
+  }
+
+  function findNearestOutdoorRouteNode(point) {
+    const candidates = getOutdoorRouteCandidates();
+    let best = null;
+    let bestDist = Infinity;
+    for (const candidate of candidates) {
+      const dist = Graph.haversine(point.lat, point.lng, candidate.lat, candidate.lng);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = candidate;
+      }
+    }
+    return best;
+  }
+
+  function getOutdoorRouteCandidates() {
+    const roadNodes = (outdoorNodes.nodes || []).map(n => ({ ...n }));
+    const entrances = buildings
+      .filter(b => b.entrance)
+      .map(b => ({
+        id: `entrance-${b.id}`,
+        type: 'entrance',
+        lat: b.entrance.lat,
+        lng: b.entrance.lng,
+        label: `${b.name}入口`
+      }));
+    return [...roadNodes, ...entrances];
   }
 
   console.log('[App] 南京大学智能校园地图初始化完成');

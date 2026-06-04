@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>路径标注工具</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      color: #263238;
+      background: #eef2f4;
+    }
+
+    aside {
+      background: #ffffff;
+      border-right: 1px solid #d8dee3;
+      overflow: auto;
+      padding: 16px;
+    }
+
+    main {
+      position: relative;
+      overflow: hidden;
+      background: #dfe5e8;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    h2 {
+      margin: 18px 0 8px;
+      font-size: 13px;
+      color: #546e7a;
+      border-bottom: 1px solid #e0e6ea;
+      padding-bottom: 6px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      color: #546e7a;
+      margin: 10px 0 4px;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+      font: inherit;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #cfd8dc;
+      border-radius: 6px;
+      padding: 8px;
+      background: #ffffff;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 12px;
+    }
+
+    button {
+      border: 1px solid #b0bec5;
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: #ffffff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #f3f6f8;
+    }
+
+    button.primary {
+      background: #176b87;
+      color: #ffffff;
+      border-color: #176b87;
+    }
+
+    button.primary:hover {
+      background: #13586f;
+    }
+
+    button.active {
+      background: #263238;
+      color: #ffffff;
+      border-color: #263238;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .status {
+      margin-top: 12px;
+      padding: 8px;
+      border-radius: 6px;
+      background: #edf7ed;
+      color: #2e5d34;
+      font-size: 12px;
+      line-height: 1.5;
+      min-height: 34px;
+    }
+
+    .canvas-wrap {
+      position: absolute;
+      inset: 16px;
+      border: 1px solid #b0bec5;
+      background: #ffffff;
+      overflow: auto;
+    }
+
+    canvas {
+      display: block;
+      cursor: crosshair;
+      background: #fafafa;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    .summary div {
+      padding: 8px;
+      border-radius: 6px;
+      background: #f5f7f8;
+    }
+
+    @media (max-width: 860px) {
+      body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+      }
+
+      aside {
+        max-height: 48vh;
+        border-right: 0;
+        border-bottom: 1px solid #d8dee3;
+      }
+
+      .canvas-wrap {
+        inset: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <h1>路径标注工具</h1>
+
+    <h2>项目</h2>
+    <label for="map-name">地图名称</label>
+    <input id="map-name" value="yifu-1f">
+
+    <div class="row">
+      <div>
+        <label for="building-id">建筑 ID</label>
+        <input id="building-id" value="yifu">
+      </div>
+      <div>
+        <label for="floor">楼层</label>
+        <input id="floor" type="number" value="1">
+      </div>
+    </div>
+
+    <label for="image-input">图片</label>
+    <input id="image-input" type="file" accept="image/*">
+
+    <h2>模式</h2>
+    <div class="button-row">
+      <button id="mode-node" class="active" type="button">添加节点</button>
+      <button id="mode-edge" type="button">画边折线</button>
+    </div>
+
+    <h2>节点</h2>
+    <label for="node-type">类型</label>
+    <select id="node-type">
+      <option value="corridor">corridor</option>
+      <option value="door">door</option>
+      <option value="room">room</option>
+      <option value="facility">facility</option>
+      <option value="stair">stair</option>
+      <option value="elevator">elevator</option>
+      <option value="entrance">entrance</option>
+      <option value="road">road</option>
+      <option value="target">target</option>
+    </select>
+
+    <label for="node-label">标签</label>
+    <input id="node-label" placeholder="如 A101门口、北走廊转角">
+
+    <h2>边</h2>
+    <div class="row">
+      <div>
+        <label for="edge-from">from</label>
+        <select id="edge-from"></select>
+      </div>
+      <div>
+        <label for="edge-to">to</label>
+        <select id="edge-to"></select>
+      </div>
+    </div>
+
+    <label for="edge-type">类型</label>
+    <select id="edge-type">
+      <option value="corridor">corridor</option>
+      <option value="walkway">walkway</option>
+      <option value="entrance-link">entrance-link</option>
+      <option value="stair">stair</option>
+      <option value="elevator">elevator</option>
+      <option value="bridge">bridge</option>
+      <option value="crossing">crossing</option>
+    </select>
+
+    <label for="review-status">审核状态</label>
+    <select id="review-status">
+      <option value="draft">draft</option>
+      <option value="needs-review">needs-review</option>
+      <option value="reviewed">reviewed</option>
+    </select>
+
+    <div class="button-row">
+      <button id="finish-edge" class="primary" type="button">结束边</button>
+      <button id="undo" type="button">撤销</button>
+      <button id="clear" type="button">清空</button>
+    </div>
+
+    <div class="summary">
+      <div>节点：<span id="node-count">0</span></div>
+      <div>边：<span id="edge-count">0</span></div>
+    </div>
+
+    <div id="status" class="status">加载图片后开始标注。</div>
+
+    <h2>导出</h2>
+    <div class="button-row">
+      <button id="export-json" class="primary" type="button">生成 JSON</button>
+      <button id="download-json" type="button">下载</button>
+    </div>
+    <label for="output">JSON</label>
+    <textarea id="output" spellcheck="false"></textarea>
+  </aside>
+
+  <main>
+    <div class="canvas-wrap">
+      <canvas id="canvas" width="1200" height="800"></canvas>
+    </div>
+  </main>
+
+  <script>
+    const state = {
+      mode: 'node',
+      image: null,
+      imageName: '',
+      nodes: [],
+      edges: [],
+      currentPath: [],
+      history: []
+    };
+
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const statusEl = document.getElementById('status');
+    const outputEl = document.getElementById('output');
+
+    const fields = {
+      mapName: document.getElementById('map-name'),
+      buildingId: document.getElementById('building-id'),
+      floor: document.getElementById('floor'),
+      nodeType: document.getElementById('node-type'),
+      nodeLabel: document.getElementById('node-label'),
+      edgeFrom: document.getElementById('edge-from'),
+      edgeTo: document.getElementById('edge-to'),
+      edgeType: document.getElementById('edge-type'),
+      reviewStatus: document.getElementById('review-status')
+    };
+
+    function setStatus(text) {
+      statusEl.textContent = text;
+    }
+
+    function setMode(mode) {
+      state.mode = mode;
+      document.getElementById('mode-node').classList.toggle('active', mode === 'node');
+      document.getElementById('mode-edge').classList.toggle('active', mode === 'edge');
+      setStatus(mode === 'node' ? '节点模式：点击图片添加节点。' : '画边模式：连续点击形成折线，点“结束边”保存。');
+    }
+
+    function nextId(prefix) {
+      const safeName = fields.mapName.value.trim() || 'map';
+      const serial = String(state.nodes.length + state.edges.length + 1).padStart(3, '0');
+      return `${safeName}-${prefix}-${serial}`;
+    }
+
+    function getPoint(event) {
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      return {
+        x: Math.round((event.clientX - rect.left) * scaleX),
+        y: Math.round((event.clientY - rect.top) * scaleY)
+      };
+    }
+
+    function pushHistory() {
+      state.history.push(JSON.stringify({
+        nodes: state.nodes,
+        edges: state.edges,
+        currentPath: state.currentPath
+      }));
+      if (state.history.length > 50) state.history.shift();
+    }
+
+    function addNode(point) {
+      pushHistory();
+      const id = nextId('node');
+      const label = fields.nodeLabel.value.trim() || id;
+      state.nodes.push({
+        id,
+        type: fields.nodeType.value,
+        x: point.x,
+        y: point.y,
+        label
+      });
+      fields.nodeLabel.value = '';
+      updateNodeSelects();
+      render();
+      setStatus(`已添加节点 ${id}`);
+    }
+
+    function addPathPoint(point) {
+      pushHistory();
+      state.currentPath.push([point.x, point.y]);
+      render();
+      setStatus(`当前边已有 ${state.currentPath.length} 个折线点。`);
+    }
+
+    function finishEdge() {
+      if (state.currentPath.length < 2) {
+        setStatus('边至少需要两个折线点。');
+        return;
+      }
+      const from = fields.edgeFrom.value;
+      const to = fields.edgeTo.value;
+      if (!from || !to || from === to) {
+        setStatus('请选择不同的 from 和 to 节点。');
+        return;
+      }
+      pushHistory();
+      const id = nextId('edge');
+      state.edges.push({
+        id,
+        from,
+        to,
+        type: fields.edgeType.value,
+        walkable: true,
+        path: state.currentPath.slice(),
+        reviewStatus: fields.reviewStatus.value
+      });
+      state.currentPath = [];
+      render();
+      updateCounts();
+      setStatus(`已保存边 ${id}`);
+    }
+
+    function undo() {
+      const snapshot = state.history.pop();
+      if (!snapshot) {
+        setStatus('没有可撤销的操作。');
+        return;
+      }
+      const data = JSON.parse(snapshot);
+      state.nodes = data.nodes;
+      state.edges = data.edges;
+      state.currentPath = data.currentPath;
+      updateNodeSelects();
+      render();
+      setStatus('已撤销上一步。');
+    }
+
+    function clearAll() {
+      pushHistory();
+      state.nodes = [];
+      state.edges = [];
+      state.currentPath = [];
+      updateNodeSelects();
+      render();
+      setStatus('已清空标注。');
+    }
+
+    function updateNodeSelects() {
+      const options = state.nodes.map(node => `<option value="${node.id}">${node.id} - ${node.label}</option>`).join('');
+      fields.edgeFrom.innerHTML = options;
+      fields.edgeTo.innerHTML = options;
+      if (state.nodes.length > 1) fields.edgeTo.selectedIndex = 1;
+      updateCounts();
+    }
+
+    function updateCounts() {
+      document.getElementById('node-count').textContent = String(state.nodes.length);
+      document.getElementById('edge-count').textContent = String(state.edges.length);
+    }
+
+    function drawBase() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#fafafa';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      if (state.image) {
+        ctx.drawImage(state.image, 0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    function drawPath(points, color, width) {
+      if (points.length < 2) return;
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = width;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.beginPath();
+      ctx.moveTo(points[0][0], points[0][1]);
+      for (let i = 1; i < points.length; i++) {
+        ctx.lineTo(points[i][0], points[i][1]);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function render() {
+      drawBase();
+      for (const edge of state.edges) {
+        drawPath(edge.path, edge.reviewStatus === 'needs-review' ? '#d97706' : '#176b87', 4);
+      }
+      drawPath(state.currentPath, '#d32f2f', 3);
+
+      ctx.save();
+      ctx.font = '12px sans-serif';
+      ctx.textBaseline = 'top';
+      for (const node of state.nodes) {
+        ctx.beginPath();
+        ctx.fillStyle = node.type === 'facility' ? '#8e44ad' :
+                        node.type === 'stair' ? '#ef6c00' :
+                        node.type === 'elevator' ? '#00897b' :
+                        node.type === 'door' ? '#c62828' : '#263238';
+        ctx.arc(node.x, node.y, 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,0.86)';
+        ctx.fillRect(node.x + 7, node.y - 2, ctx.measureText(node.label).width + 8, 18);
+        ctx.fillStyle = '#263238';
+        ctx.fillText(node.label, node.x + 11, node.y);
+      }
+      ctx.restore();
+      updateCounts();
+    }
+
+    function buildExport() {
+      return {
+        version: 1,
+        coordinateSystem: 'image-pixel',
+        meta: {
+          mapName: fields.mapName.value.trim(),
+          imageName: state.imageName,
+          buildingId: fields.buildingId.value.trim(),
+          floor: Number(fields.floor.value)
+        },
+        nodes: state.nodes,
+        edges: state.edges
+      };
+    }
+
+    function exportJson() {
+      const data = buildExport();
+      outputEl.value = JSON.stringify(data, null, 2);
+      setStatus('JSON 已生成，可复制或下载。');
+    }
+
+    function downloadJson() {
+      exportJson();
+      const blob = new Blob([outputEl.value], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      const name = fields.mapName.value.trim() || 'path-annotation';
+      a.href = url;
+      a.download = `${name}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    document.getElementById('mode-node').addEventListener('click', () => setMode('node'));
+    document.getElementById('mode-edge').addEventListener('click', () => setMode('edge'));
+    document.getElementById('finish-edge').addEventListener('click', finishEdge);
+    document.getElementById('undo').addEventListener('click', undo);
+    document.getElementById('clear').addEventListener('click', clearAll);
+    document.getElementById('export-json').addEventListener('click', exportJson);
+    document.getElementById('download-json').addEventListener('click', downloadJson);
+
+    document.getElementById('image-input').addEventListener('change', event => {
+      const file = event.target.files[0];
+      if (!file) return;
+      const image = new Image();
+      image.onload = () => {
+        state.image = image;
+        state.imageName = file.name;
+        canvas.width = image.naturalWidth;
+        canvas.height = image.naturalHeight;
+        render();
+        setStatus(`已加载图片 ${file.name}，尺寸 ${canvas.width} x ${canvas.height}`);
+      };
+      image.src = URL.createObjectURL(file);
+    });
+
+    canvas.addEventListener('click', event => {
+      const point = getPoint(event);
+      if (state.mode === 'node') addNode(point);
+      else addPathPoint(point);
+    });
+
+    updateNodeSelects();
+    render();
+  </script>
+</body>
+</html>

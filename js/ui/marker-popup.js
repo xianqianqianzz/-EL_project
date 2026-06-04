@@ -31,6 +31,8 @@ class MarkerPopup {
       label: node.label || node.id,
       type: node.type,
       building: node.building || undefined,
+      buildingId: node.building || undefined,
+      routeNodeId: node.id,
       lat: node.lat,
       lng: node.lng,
       floor: node.floor || 0

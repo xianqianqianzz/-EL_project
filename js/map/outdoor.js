@@ -20,8 +20,8 @@ class OutdoorMap {
 
     /** @type {Map<string, L.Layer>} 建筑多边形图层 */
     this.buildingLayers = new Map();
-    /** @type {Map<string, L.Marker>} POI 标记 */
-    this.poiMarkers = new Map();
+    /** @type {Map<string, L.Marker>} 室外目标标记 */
+    this.outdoorTargetMarkers = new Map();
 
     this._onBuildingClick = null;
     this._onMapClick = null;
@@ -55,19 +55,19 @@ class OutdoorMap {
           title: `${b.name} 入口`
         }).addTo(this.map);
         marker.bindPopup(`<b>${b.name}</b><br>入口`);
-        this.poiMarkers.set(`entrance-${b.id}`, marker);
+        this.outdoorTargetMarkers.set(`entrance-${b.id}`, marker);
       }
     }
   }
 
   /**
-   * 渲染 POI（校门、餐厅等）
-   * @param {Object[]} pois
+   * 渲染总地图室外目标（校门、公交站、食堂等）
+   * @param {Object[]} targets
    */
-  renderPOIs(pois) {
-    for (const p of pois) {
+  renderOutdoorTargets(targets) {
+    for (const p of targets) {
       const icon = L.divIcon({
-        className: 'poi-icon',
+        className: 'outdoor-target-icon',
         html: p.icon || '📍',
         iconSize: [20, 20]
       });
@@ -76,7 +76,7 @@ class OutdoorMap {
       marker.on('click', () => {
         if (this._onMapClick) this._onMapClick(p);
       });
-      this.poiMarkers.set(p.id, marker);
+      this.outdoorTargetMarkers.set(p.id, marker);
     }
   }
 

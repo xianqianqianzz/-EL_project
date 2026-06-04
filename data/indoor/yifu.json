@@ -204,6 +204,7 @@
     { "id": "yifu-1f-room-A101", "type": "room", "lat": 32.1202, "lng": 118.9580, "floor": 1, "building": "yifu", "label": "A101教室", "connections": ["yifu-1f-corridor-center"] },
     { "id": "yifu-1f-room-C101", "type": "room", "lat": 32.1202, "lng": 118.9590, "floor": 1, "building": "yifu", "label": "C101教室", "connections": ["yifu-1f-corridor-center"] },
     { "id": "yifu-1f-room-B101", "type": "room", "lat": 32.1198, "lng": 118.9584, "floor": 1, "building": "yifu", "label": "B101 中庭", "connections": ["yifu-1f-corridor-center"] },
+    { "id": "yifu-1f-facility-bathroom", "type": "facility", "lat": 32.1198, "lng": 118.9582, "floor": 1, "building": "yifu", "label": "逸夫楼 1F 卫生间", "connections": ["yifu-1f-corridor-center"] },
 
     { "id": "yifu-2f-west-stair", "type": "stair", "lat": 32.11995, "lng": 118.9582, "floor": 2, "building": "yifu", "label": "A区西楼梯 2F", "connections": ["yifu-2f-corridor-center", "yifu-3f-west-stair"] },
     { "id": "yifu-2f-east-stair", "type": "stair", "lat": 32.11985, "lng": 118.9589, "floor": 2, "building": "yifu", "label": "C区东楼梯 2F", "connections": ["yifu-2f-corridor-c", "yifu-3f-east-stair"] },
@@ -226,6 +227,7 @@
     { "id": "yifu-3f-room-C301", "type": "room", "lat": 32.1202, "lng": 118.9590, "floor": 3, "building": "yifu", "label": "C301教室", "connections": ["yifu-3f-corridor-c"] },
     { "id": "yifu-3f-room-computer", "type": "room", "lat": 32.1201, "lng": 118.9588, "floor": 3, "building": "yifu", "label": "计算机实验室", "connections": ["yifu-3f-corridor-center"] },
     { "id": "yifu-3f-room-B301", "type": "room", "lat": 32.1198, "lng": 118.9584, "floor": 3, "building": "yifu", "label": "B301 中庭", "connections": ["yifu-3f-corridor-center"] },
+    { "id": "yifu-3f-facility-bathroom", "type": "facility", "lat": 32.1198, "lng": 118.9582, "floor": 3, "building": "yifu", "label": "逸夫楼 3F 卫生间", "connections": ["yifu-3f-corridor-center"] },
 
     { "id": "yifu-4f-west-stair", "type": "stair", "lat": 32.11995, "lng": 118.9582, "floor": 4, "building": "yifu", "label": "A区楼梯 4F", "connections": ["yifu-4f-corridor-ab", "yifu-5f-west-stair"] },
     { "id": "yifu-4f-east-stair", "type": "stair", "lat": 32.11985, "lng": 118.9589, "floor": 4, "building": "yifu", "label": "C区楼梯 4F (独立)", "connections": ["yifu-4f-corridor-c-only", "yifu-5f-east-stair"] },

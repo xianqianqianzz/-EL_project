@@ -1,10 +1,10 @@
 {
   "description": "南京大学仙林校区室外路网图 — 主要步行道（含真实道路名称）",
   "nodes": [
-    { "id": "gate-south", "type": "poi", "lat": 32.1150, "lng": 118.9570, "label": "南门", "connections": ["road-s1"] },
-    { "id": "gate-west", "type": "poi", "lat": 32.1180, "lng": 118.9525, "label": "西门", "connections": ["road-w1"] },
-    { "id": "gate-east", "type": "poi", "lat": 32.1200, "lng": 118.9620, "label": "东门", "connections": ["road-e1"] },
-    { "id": "gate-north", "type": "poi", "lat": 32.1225, "lng": 118.9570, "label": "北门", "connections": ["road-n1"] },
+    { "id": "gate-south", "type": "target", "lat": 32.1150, "lng": 118.9570, "label": "南门", "connections": ["road-s1"] },
+    { "id": "gate-west", "type": "target", "lat": 32.1180, "lng": 118.9525, "label": "西门", "connections": ["road-w1"] },
+    { "id": "gate-east", "type": "target", "lat": 32.1200, "lng": 118.9620, "label": "东门", "connections": ["road-e1"] },
+    { "id": "gate-north", "type": "target", "lat": 32.1225, "lng": 118.9570, "label": "北门", "connections": ["road-n1"] },
 
     { "id": "road-s1", "type": "road", "lat": 32.1158, "lng": 118.9570, "label": "中大路南段（南门内）", "connections": ["road-s2"] },
     { "id": "road-s2", "type": "road", "lat": 32.1163, "lng": 118.9570, "label": "中大路中段", "connections": ["road-s1", "road-center-south"] },

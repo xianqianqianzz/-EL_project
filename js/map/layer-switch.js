@@ -23,7 +23,8 @@ class LayerSwitch {
   enterIndoor(building, indoorData, floor) {
     this.mode = 'indoor';
     this.currentBuilding = building;
-    this.currentFloor = floor || 1;
+    const availableFloors = indoorData.floors || building.floors || [];
+    this.currentFloor = floor ?? this._getFloorLevels(availableFloors)[0] ?? 1;
 
     document.getElementById('outdoor-map').classList.add('hidden');
     document.getElementById('indoor-map').classList.remove('hidden');
@@ -33,7 +34,7 @@ class LayerSwitch {
     this.indoor.switchFloor(this.currentFloor);
 
     // 渲染楼层选择器
-    this._renderFloorSelector(building.floors || indoorData.floors);
+    this._renderFloorSelector(availableFloors);
 
     // 更新信息面板
     if (this._onSwitch) this._onSwitch('indoor', building);
@@ -58,8 +59,7 @@ class LayerSwitch {
     container.innerHTML = '';
 
     // floors 可能是 [1,2,3] 或 [{ level:1, label:'1F' }, ...]
-    const levels = floors.map(f => typeof f === 'number' ? f : f.level || f);
-    levels.sort((a, b) => a - b);
+    const levels = this._getFloorLevels(floors);
 
     for (const lv of levels) {
       const btn = document.createElement('button');
@@ -72,6 +72,13 @@ class LayerSwitch {
       });
       container.appendChild(btn);
     }
+  }
+
+  _getFloorLevels(floors) {
+    return (floors || [])
+      .map(f => typeof f === 'number' ? f : f.level)
+      .filter(f => typeof f === 'number')
+      .sort((a, b) => a - b);
   }
 
   onSwitch(fn) { this._onSwitch = fn; }

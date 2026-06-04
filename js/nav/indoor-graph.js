@@ -19,11 +19,14 @@ class IndoorGraphBuilder {
    */
   build(buildingId, indoorData) {
     const ids = [];
-    for (const n of indoorData.nodes) {
+    for (const n of (indoorData.nodes || [])) {
       this.graph.addNode({ ...n, building: buildingId });
       ids.push(n.id);
     }
-    for (const e of indoorData.edges) {
+    for (const id of ids) {
+      this.graph.connectNodeConnections(id);
+    }
+    for (const e of (indoorData.edges || [])) {
       this.graph.addEdge(e.from, e.to, e.weight);
     }
     this.buildingNodes.set(buildingId, ids);
