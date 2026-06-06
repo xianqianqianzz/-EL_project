@@ -62,10 +62,9 @@ class Graph {
     if (!this.adjacency.has(toId)) this.adjacency.set(toId, new Map());
 
     if (weight === undefined) {
-      weight = Graph.haversine(fromNode.lat, fromNode.lng, toNode.lat, toNode.lng) * 1000; // 米
-      // 跨楼层增加垂直开销
+      weight = Graph.distanceMeters(fromNode, toNode);
       if (fromNode.floor !== toNode.floor) {
-        weight += Math.abs(fromNode.floor - toNode.floor) * 5; // 每层楼高约5米等效距离
+        weight += Math.abs(fromNode.floor - toNode.floor) * 5;
       }
     }
     this.adjacency.get(fromId).set(toId, weight);
@@ -91,6 +90,17 @@ class Graph {
     const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) *
               Math.cos(lat2*Math.PI/180) * Math.sin(dLng/2)**2;
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
+  static distanceMeters(a, b) {
+    if ([a?.x, a?.y, b?.x, b?.y].every(Number.isFinite)) {
+      const scale = a.metersPerPixel ?? b.metersPerPixel ?? 1;
+      return Math.hypot(a.x - b.x, a.y - b.y) * scale;
+    }
+    if ([a?.lat, a?.lng, b?.lat, b?.lng].every(Number.isFinite)) {
+      return Graph.haversine(a.lat, a.lng, b.lat, b.lng) * 1000;
+    }
+    return 0;
   }
 
   size() {

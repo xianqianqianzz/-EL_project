@@ -77,7 +77,7 @@ class AStar {
    * 启发函数：用 Haversine 距离 + 楼层差作为估值
    */
   static heuristic(node, goal) {
-    let h = Graph.haversine(node.lat, node.lng, goal.lat, goal.lng) * 1000; // 米
+    let h = Graph.distanceMeters(node, goal);
     // 楼层差异惩罚
     if (node.floor !== goal.floor) {
       h += Math.abs(node.floor - goal.floor) * 5;

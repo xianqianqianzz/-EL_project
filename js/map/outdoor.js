@@ -1,93 +1,74 @@
-/**
- * 室外地图模块
- * 使用 Leaflet 渲染校园室外地图
- */
 class OutdoorMap {
-  constructor(containerId) {
-    /** @type {L.Map} */
+  constructor(containerId, area, areaPath) {
+    this.area = area;
+    this.bounds = [[-area.image.height, 0], [0, area.image.width]];
     this.map = L.map(containerId, {
-      center: CONFIG.center,
-      zoom: CONFIG.defaultZoom,
-      maxZoom: CONFIG.maxZoom,
-      minZoom: CONFIG.minZoom,
-      zoomControl: true
+      crs: L.CRS.Simple,
+      minZoom: -4,
+      maxZoom: 2,
+      zoomSnap: 0.25,
+      attributionControl: false
     });
 
-    L.tileLayer(CONFIG.tileUrl, {
-      attribution: CONFIG.tileAttribution,
-      maxZoom: CONFIG.maxZoom
-    }).addTo(this.map);
+    const baseDir = areaPath.slice(0, areaPath.lastIndexOf('/') + 1);
+    L.imageOverlay(`${baseDir}${area.image.path}`, this.bounds).addTo(this.map);
+    this.map.fitBounds(this.bounds, { padding: [12, 12] });
+    this.map.setMaxBounds(this.bounds);
 
-    /** @type {Map<string, L.Layer>} 建筑多边形图层 */
-    this.buildingLayers = new Map();
-    /** @type {Map<string, L.Marker>} 室外目标标记 */
-    this.outdoorTargetMarkers = new Map();
-
-    this._onBuildingClick = null;
-    this._onMapClick = null;
+    this.placeLayer = L.layerGroup().addTo(this.map);
+    this.selectableNodeLayer = L.layerGroup().addTo(this.map);
+    this._onPlaceClick = null;
   }
 
-  /**
-   * 从 buildings.json 渲染所有建筑轮廓
-   * @param {Object[]} buildings
-   */
-  renderBuildings(buildings) {
-    for (const b of buildings) {
-      if (b.outline && b.outline.length > 0) {
-        const latlngs = b.outline.map(p => [p.lat, p.lng]);
-        const polygon = L.polygon(latlngs, {
-          color: '#4a6fa5',
-          weight: 2,
-          fillColor: '#c8d6e5',
-          fillOpacity: 0.5
-        }).addTo(this.map);
-        polygon.bindPopup(`<b>${b.name}</b>`);
-        if (b.indoorAvailable) {
-          polygon.on('click', () => {
-            if (this._onBuildingClick) this._onBuildingClick(b);
-          });
-        }
-        this.buildingLayers.set(b.id, polygon);
-      }
-      // 入口标记
-      if (b.entrance) {
-        const marker = L.marker([b.entrance.lat, b.entrance.lng], {
-          title: `${b.name} 入口`
-        }).addTo(this.map);
-        marker.bindPopup(`<b>${b.name}</b><br>入口`);
-        this.outdoorTargetMarkers.set(`entrance-${b.id}`, marker);
-      }
+  point(x, y) {
+    return L.latLng(-y, x);
+  }
+
+  renderPlaces(places) {
+    this.placeLayer.clearLayers();
+    for (const place of places) {
+      const marker = L.marker(this.point(place.x, place.y), {
+        icon: L.divIcon({ className: 'place-marker', iconSize: [18, 18] }),
+        title: place.label
+      }).addTo(this.placeLayer);
+      marker.bindTooltip(place.label, {
+        permanent: true,
+        direction: 'right',
+        offset: [8, 0],
+        className: 'place-tooltip'
+      });
+      marker.on('click', event => {
+        L.DomEvent.stopPropagation(event);
+        if (this._onPlaceClick) this._onPlaceClick(place);
+      });
     }
   }
 
-  /**
-   * 渲染总地图室外目标（校门、公交站、食堂等）
-   * @param {Object[]} targets
-   */
-  renderOutdoorTargets(targets) {
-    for (const p of targets) {
-      const icon = L.divIcon({
-        className: 'outdoor-target-icon',
-        html: p.icon || '📍',
-        iconSize: [20, 20]
+  showSelectableNodes(items, role, onSelect) {
+    this.hideSelectableNodes();
+    this.map.getContainer().classList.add('map-selecting');
+    for (const item of items) {
+      const marker = L.circleMarker(this.point(item.x, item.y), {
+        radius: 7,
+        weight: 3,
+        opacity: 1,
+        fillOpacity: .86,
+        className: `selectable-route-node ${role}-node`
+      }).addTo(this.selectableNodeLayer);
+      marker.bindTooltip(item.label, { direction: 'top', offset: [0, -6] });
+      marker.on('click', event => {
+        L.DomEvent.stopPropagation(event);
+        onSelect(item);
       });
-      const marker = L.marker([p.lat, p.lng], { icon }).addTo(this.map);
-      marker.bindPopup(`<b>${p.name}</b>`);
-      marker.on('click', () => {
-        if (this._onMapClick) this._onMapClick(p);
-      });
-      this.outdoorTargetMarkers.set(p.id, marker);
     }
   }
 
-  setView(lat, lng, zoom) {
-    this.map.setView([lat, lng], zoom || 18);
+  hideSelectableNodes() {
+    this.selectableNodeLayer.clearLayers();
+    this.map.getContainer().classList.remove('map-selecting');
   }
 
-  /** 注册建筑点击回调 */
-  onBuildingClick(fn) { this._onBuildingClick = fn; }
-  /** 注册地图点击回调（选点用） */
-  onMapClick(fn) { this._onMapClick = fn; }
-
-  getMap() { return this.map; }
+  onPlaceClick(fn) {
+    this._onPlaceClick = fn;
+  }
 }
