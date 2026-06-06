@@ -80,9 +80,54 @@
   overflow: hidden;
 }
 
+.map-selection-banner {
+  position: absolute;
+  z-index: 900;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px 8px 14px;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  color: var(--primary-dark);
+  background: #ffffff;
+  box-shadow: var(--shadow);
+  font-size: 13px;
+}
+
+.map-selection-banner button {
+  border: 0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #ffffff;
+  background: var(--primary);
+  cursor: pointer;
+}
+
 #outdoor-map {
   width: 100%;
   height: 100%;
+}
+
+.leaflet-container.map-selecting {
+  cursor: crosshair;
+}
+
+.selectable-route-node {
+  cursor: pointer;
+}
+
+.selectable-route-node.from-node {
+  stroke: #15803d;
+  fill: #22c55e;
+}
+
+.selectable-route-node.to-node {
+  stroke: #b91c1c;
+  fill: #ef4444;
 }
 
 /* 响应式 */
@@ -97,10 +142,22 @@
     border-bottom: 1px solid var(--border);
   }
   .search-row {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 32px minmax(0, 1fr);
+    gap: 6px;
   }
   .search-field {
-    min-width: 100px;
+    min-width: 0;
+  }
+  .search-field-control {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .btn-select-map {
+    min-height: 32px;
+  }
+  .btn-route {
+    grid-column: 1 / -1;
+    width: 100%;
   }
   #header {
     flex-direction: column;

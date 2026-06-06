@@ -62,7 +62,7 @@ class Graph {
     if (!this.adjacency.has(toId)) this.adjacency.set(toId, new Map());
 
     if (weight === undefined) {
-      weight = Graph.haversine(fromNode.lat, fromNode.lng, toNode.lat, toNode.lng) * 1000; // 米
+      weight = Graph.distanceMeters(fromNode, toNode);
       // 跨楼层增加垂直开销
       if (fromNode.floor !== toNode.floor) {
         weight += Math.abs(fromNode.floor - toNode.floor) * 5; // 每层楼高约5米等效距离
@@ -93,6 +93,22 @@ class Graph {
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   }
 
+  /**
+   * 根据节点坐标系估算距离（米）。
+   * 图片像素节点使用 metersPerPixel；经纬度节点使用 Haversine。
+   * 不同坐标系之间应通过显式权重边连接，因此启发距离返回 0。
+   */
+  static distanceMeters(a, b) {
+    if ([a?.x, a?.y, b?.x, b?.y].every(Number.isFinite)) {
+      const scale = a.metersPerPixel ?? b.metersPerPixel ?? 1;
+      return Math.hypot(a.x - b.x, a.y - b.y) * scale;
+    }
+    if ([a?.lat, a?.lng, b?.lat, b?.lng].every(Number.isFinite)) {
+      return Graph.haversine(a.lat, a.lng, b.lat, b.lng) * 1000;
+    }
+    return 0;
+  }
+
   size() {
     return this.nodes.size;
   }
@@ -101,9 +117,12 @@ class Graph {
 /**
  * @typedef {Object} GraphNode
  * @property {string} id       - 唯一标识
- * @property {string} type     - corridor|room|facility|stair|elevator|entrance|road|path|target
- * @property {number} lat      - 纬度
- * @property {number} lng      - 经度
+ * @property {string} type     - 路网节点固定为 node
+ * @property {number} [x]      - 图片像素 x（区域图片坐标）
+ * @property {number} [y]      - 图片像素 y（区域图片坐标）
+ * @property {number} [metersPerPixel] - 图片像素换算比例
+ * @property {number} [lat]    - 非正式区域数据的兼容坐标
+ * @property {number} [lng]    - 非正式区域数据的兼容坐标
  * @property {number} floor    - 楼层（室外为 0）
  * @property {string} [building] - 所属建筑ID（室外为 null）
  * @property {string} label    - 显示名称

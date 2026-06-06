@@ -27,7 +27,45 @@ class DataLoader {
    * @param {string} buildingId
    * @returns {Promise<Object>}
    */
-  static async loadIndoor(buildingId) {
-    return DataLoader.loadJSON(`${CONFIG.dataPaths.indoorDir}${buildingId}.json`);
+  static async loadIndoor(buildingId, areaIndex) {
+    const entry = (areaIndex?.areas || []).find(area =>
+      area.buildingId === buildingId && area.type === 'indoor'
+    );
+    if (!entry?.path) throw new Error(`区域索引中不存在建筑 ${buildingId} 的室内 area.json`);
+    return DataLoader.loadJSON(entry.path);
+  }
+
+  /**
+   * 将区域文件夹模型转换为当前室外运行时数据。
+   * @param {Object} areaData - data/areas/<area-id>/area.json
+   */
+  static normalizeOutdoorArea(areaData) {
+    const nodes = areaData.nodes || [];
+    const edges = areaData.edges || [];
+    return {
+      outdoorTargets: areaData.places || [],
+      outdoorNodes: {
+        description: areaData.name || areaData.areaId,
+        nodes,
+        edges: edges.map(edge => ({
+          from: edge.from,
+          to: edge.to,
+          weight: edge.weight
+        }))
+      },
+      outdoorPaths: {
+        version: areaData.version || 1,
+        coordinateSystem: areaData.coordinateSystem,
+        metersPerPixel: areaData.image?.metersPerPixel ?? 1,
+        source: areaData.source,
+        nodes: nodes.map(node => ({
+          id: node.id,
+          type: node.type,
+          x: node.x,
+          y: node.y
+        })),
+        edges
+      }
+    };
   }
 }

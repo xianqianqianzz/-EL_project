@@ -70,107 +70,176 @@ function edgeKey(a, b) {
   return [a, b].sort().join('::');
 }
 
-function sameLatLng(point, node) {
-  return Array.isArray(point) &&
-    Math.abs(point[0] - node.lat) < 1e-6 &&
-    Math.abs(point[1] - node.lng) < 1e-6;
+function normalizeOutdoorArea(areaData) {
+  const nodes = areaData.nodes || [];
+  const edges = areaData.edges || [];
+  return {
+    outdoorTargets: areaData.places || [],
+    outdoorNodes: {
+      description: areaData.name || areaData.areaId,
+      nodes,
+      edges: edges.map(edge => ({
+        from: edge.from,
+        to: edge.to,
+        weight: edge.weight
+      }))
+    },
+    outdoorPaths: {
+      version: areaData.version || 1,
+      coordinateSystem: areaData.coordinateSystem,
+      metersPerPixel: areaData.image?.metersPerPixel ?? 1,
+      source: areaData.source,
+      nodes: nodes.map(node => ({
+        id: node.id,
+        type: node.type,
+        x: node.x,
+        y: node.y
+      })),
+      edges
+    }
+  };
 }
 
-function checkOutdoorPathNetwork(outdoorPaths, outdoorNodes, outdoorTargets) {
-  if (outdoorPaths.version !== 1) fail('[outdoor-paths.json] version 必须为 1');
-  if (outdoorPaths.coordinateSystem !== 'wgs84') {
-    fail('[outdoor-paths.json] coordinateSystem 必须为 wgs84');
+function checkAreaIndex(areaIndex) {
+  if (areaIndex.version !== 1) fail('[data/areas/index.json] version 必须为 1');
+  const areas = areaIndex.areas || [];
+  const ids = checkUniqueIds('data/areas/index.json areas', areas);
+  if (!areaIndex.defaultOutdoorAreaId) {
+    fail('[data/areas/index.json] 缺少 defaultOutdoorAreaId');
+  } else if (!ids.has(areaIndex.defaultOutdoorAreaId)) {
+    fail(`[data/areas/index.json] defaultOutdoorAreaId 不存在: ${areaIndex.defaultOutdoorAreaId}`);
+  }
+  for (const area of areas) {
+    if (!area.path) fail(`[data/areas/index.json] 区域 ${area.id} 缺少 path`);
+  }
+}
+
+function checkAreaData(areaData, relativeDir) {
+  const label = `data/areas/${areaData.areaId || '?'}/area.json`;
+  if (![1, 2].includes(areaData.version)) fail(`[${label}] version 必须为 1 或 2`);
+  if (!areaData.areaId) fail(`[${label}] 缺少 areaId`);
+  if (!['outdoor', 'indoor'].includes(areaData.layer)) {
+    fail(`[${label}] layer 必须为 outdoor 或 indoor`);
+  }
+  if ('type' in areaData) fail(`[${label}] 区域层级请使用 layer，不要使用根级 type`);
+  if (areaData.source && 'type' in areaData.source) {
+    fail(`[${label}] source.type 应移除，来源说明请写入 source.label`);
+  }
+  if (areaData.coordinateSystem !== 'image-pixel') {
+    fail(`[${label}] coordinateSystem 必须为 image-pixel`);
+  }
+  if (!areaData.image?.path) {
+    fail(`[${label}] 缺少 image.path`);
+  } else {
+    const imagePath = path.join(root, relativeDir, areaData.image.path);
+    if (!fs.existsSync(imagePath)) fail(`[${label}] image.path 指向的图片不存在: ${areaData.image.path}`);
+  }
+  if (!Number.isFinite(areaData.image?.width) || !Number.isFinite(areaData.image?.height)) {
+    fail(`[${label}] 缺少有效 image.width/image.height`);
+  }
+  if (!Number.isFinite(areaData.image?.metersPerPixel)) {
+    fail(`[${label}] 缺少有效 image.metersPerPixel`);
+  }
+  if (!Array.isArray(areaData.places)) fail(`[${label}] places 必须是数组`);
+  if (!Array.isArray(areaData.nodes)) fail(`[${label}] nodes 必须是数组`);
+  if (!Array.isArray(areaData.edges)) fail(`[${label}] edges 必须是数组`);
+  if (!Array.isArray(areaData.links)) fail(`[${label}] links 必须是数组`);
+  checkUniqueIds(`${label} places`, areaData.places || []);
+  checkUniqueIds(`${label} nodes`, areaData.nodes || []);
+  checkUniqueIds(`${label} edges`, areaData.edges || []);
+  for (const item of [...(areaData.places || []), ...(areaData.nodes || [])]) {
+    if (!Number.isFinite(item.x) || !Number.isFinite(item.y)) {
+      fail(`[${label}] ${item.id} 缺少有效 x/y`);
+    }
+    if ('lat' in item || 'lng' in item) {
+      fail(`[${label}] ${item.id} 不应再包含 lat/lng`);
+    }
+  }
+  for (const place of (areaData.places || [])) {
+    if (place.type !== 'place') fail(`[${label}] ${place.id}.type 必须为 place`);
+    if (!place.label) fail(`[${label}] ${place.id} 缺少 label`);
+  }
+  for (const node of (areaData.nodes || [])) {
+    if (node.type !== 'node') fail(`[${label}] ${node.id}.type 必须为 node`);
+    if ('label' in node) fail(`[${label}] ${node.id} node 不应包含 label`);
+    if ('connections' in node) fail(`[${label}] ${node.id} node 不应包含 connections，连接关系应写入 edges`);
+  }
+  for (const edge of (areaData.edges || [])) {
+    if (edge.type !== 'edge') fail(`[${label}] ${edge.id}.type 必须为 edge`);
+    if ('label' in edge) fail(`[${label}] ${edge.id} edge 不应包含 label`);
+    if ('path' in edge) fail(`[${label}] ${edge.id} edge 不应包含 path，弯路应拆成多个 node 和 edge`);
+  }
+  for (const link of (areaData.links || [])) {
+    if ('type' in link) fail(`[${label}] ${link.id}.type 应移除，连接说明请写入 label`);
+    if (!link.label) fail(`[${label}] ${link.id} 缺少 label`);
+  }
+  report(
+    `[${label}] ${areaData.places?.length || 0} 个地点，` +
+    `${areaData.nodes?.length || 0} 个节点，${areaData.edges?.length || 0} 条边`
+  );
+}
+
+function checkOutdoorPathNetwork(outdoorPaths, outdoorNodes, outdoorTargets, label = 'area.json') {
+  if (![1, 2].includes(outdoorPaths.version)) fail(`[${label}] version 必须为 1 或 2`);
+  if (outdoorPaths.coordinateSystem !== 'image-pixel') {
+    fail(`[${label}] coordinateSystem 必须为 image-pixel`);
   }
 
   const nodes = outdoorPaths.nodes || [];
   const edges = outdoorPaths.edges || [];
-  const nodeIds = checkUniqueIds('outdoor-paths.json nodes', nodes);
-  checkUniqueIds('outdoor-paths.json edges', edges);
+  const nodeIds = checkUniqueIds(`${label} nodes`, nodes);
+  checkUniqueIds(`${label} edges`, edges);
 
-  const nodeById = new Map(nodes.map(node => [node.id, node]));
   const allowedStatus = new Set(['draft', 'reviewed', 'needs-review']);
-  const allowedTypes = new Set(['walkway', 'road', 'crossing', 'stair', 'ramp', 'bridge', 'entrance-link']);
   const statusCount = { draft: 0, reviewed: 0, 'needs-review': 0 };
-  const pathEdgeKeys = new Set();
 
   for (const node of nodes) {
-    if (typeof node.lat !== 'number' || typeof node.lng !== 'number') {
-      fail(`[outdoor-paths.json] 节点 ${node.id} 缺少有效 lat/lng`);
+    if (!Number.isFinite(node.x) || !Number.isFinite(node.y)) {
+      fail(`[${label}] 节点 ${node.id} 缺少有效 x/y`);
     }
   }
 
   for (const edge of edges) {
     if (!edge.id) continue;
-    if (!nodeIds.has(edge.from)) fail(`[outdoor-paths.json] ${edge.id}.from 不存在: ${edge.from}`);
-    if (!nodeIds.has(edge.to)) fail(`[outdoor-paths.json] ${edge.id}.to 不存在: ${edge.to}`);
-    if (!allowedTypes.has(edge.type)) fail(`[outdoor-paths.json] ${edge.id}.type 不合法: ${edge.type}`);
+    if (!nodeIds.has(edge.from)) fail(`[${label}] ${edge.id}.from 不存在: ${edge.from}`);
+    if (!nodeIds.has(edge.to)) fail(`[${label}] ${edge.id}.to 不存在: ${edge.to}`);
+    if (edge.type !== 'edge') fail(`[${label}] ${edge.id}.type 必须为 edge`);
     if (!allowedStatus.has(edge.reviewStatus)) {
-      fail(`[outdoor-paths.json] ${edge.id}.reviewStatus 不合法: ${edge.reviewStatus}`);
+      fail(`[${label}] ${edge.id}.reviewStatus 不合法: ${edge.reviewStatus}`);
     } else {
       statusCount[edge.reviewStatus]++;
     }
-    if (!Array.isArray(edge.path) || edge.path.length < 2) {
-      fail(`[outdoor-paths.json] ${edge.id}.path 至少需要两个 [lat, lng] 点`);
-      continue;
+    if ('label' in edge) {
+      fail(`[${label}] ${edge.id} 不应包含 label`);
     }
-    for (const point of edge.path) {
-      if (!Array.isArray(point) || point.length !== 2 || !point.every(Number.isFinite)) {
-        fail(`[outdoor-paths.json] ${edge.id}.path 点格式必须为 [lat, lng]`);
-        break;
-      }
+    if ('path' in edge) {
+      fail(`[${label}] ${edge.id} 不应包含 path`);
     }
-
-    const fromNode = nodeById.get(edge.from);
-    const toNode = nodeById.get(edge.to);
-    if (fromNode && toNode) {
-      pathEdgeKeys.add(edgeKey(edge.from, edge.to));
-      if (!sameLatLng(edge.path[0], fromNode)) {
-        warn(`[outdoor-paths.json] ${edge.id}.path 首点未贴合 from 节点 ${edge.from}`);
-      }
-      if (!sameLatLng(edge.path[edge.path.length - 1], toNode)) {
-        warn(`[outdoor-paths.json] ${edge.id}.path 末点未贴合 to 节点 ${edge.to}`);
-      }
-    }
-  }
-
-  const oldEdgeKeys = new Set((outdoorNodes.edges || []).map(edge => edgeKey(edge.from, edge.to)));
-  const missingPathEdges = [...oldEdgeKeys].filter(key => !pathEdgeKeys.has(key));
-  if (missingPathEdges.length) {
-    warn(`[outdoor-paths.json] 有 ${missingPathEdges.length} 条 outdoor-nodes.json 边尚未提供 edge.path，渲染会退回直线`);
   }
 
   for (const target of outdoorTargets) {
     if (target.routeNodeId && !nodeIds.has(target.routeNodeId)) {
-      fail(`[outdoor-targets.json] ${target.id}.routeNodeId 未出现在 outdoor-paths.json nodes: ${target.routeNodeId}`);
+      fail(`[${label}] 地点 ${target.id}.routeNodeId 未出现在路径节点中: ${target.routeNodeId}`);
     }
   }
 
   report(
-    `[outdoor-paths.json] ${nodes.length} 个节点，${edges.length} 条路径边；` +
+    `[${label}] ${nodes.length} 个节点，${edges.length} 条边；` +
     `${statusCount.reviewed} reviewed，${statusCount.draft} draft，${statusCount['needs-review']} needs-review`
   );
-  if (statusCount.draft) warn(`[outdoor-paths.json] 存在 ${statusCount.draft} 条 draft 路径边，演示前建议人工审核主要路线`);
-  if (statusCount['needs-review']) warn(`[outdoor-paths.json] 存在 ${statusCount['needs-review']} 条 needs-review 路径边，需要小组复核`);
+  if (statusCount.draft) warn(`[${label}] 存在 ${statusCount.draft} 条 draft 边，演示前建议人工审核主要路线`);
+  if (statusCount['needs-review']) warn(`[${label}] 存在 ${statusCount['needs-review']} 条 needs-review 边，需要小组复核`);
 }
 
-function getOutdoorRouteCandidates(buildings, outdoorNodes) {
-  const roads = (outdoorNodes.nodes || []).map(node => ({ ...node }));
-  const entrances = buildings
-    .filter(building => building.entrance)
-    .map(building => ({
-      id: `entrance-${building.id}`,
-      lat: building.entrance.lat,
-      lng: building.entrance.lng,
-      label: `${building.name}入口`
-    }));
-  return [...roads, ...entrances];
+function getOutdoorRouteCandidates(outdoorNodes) {
+  return (outdoorNodes.nodes || []).map(node => ({ ...node }));
 }
 
 function findNearestOutdoorRouteNode(point, candidates) {
   let best = null;
   let bestDist = Infinity;
   for (const candidate of candidates) {
-    const dist = Graph.haversine(point.lat, point.lng, candidate.lat, candidate.lng);
+    const dist = Graph.distanceMeters(point, candidate);
     if (dist < bestDist) {
       bestDist = dist;
       best = candidate;
@@ -179,27 +248,17 @@ function findNearestOutdoorRouteNode(point, candidates) {
   return best;
 }
 
-function buildSearchItems(buildings, outdoorTargets, routeCandidates) {
-  const items = [];
-  for (const building of buildings) {
-    items.push({
-      id: building.id,
-      label: building.name,
-      type: 'building',
-      routeNodeId: `entrance-${building.id}`
-    });
-  }
-  for (const target of outdoorTargets) {
+function buildSearchItems(outdoorTargets, routeCandidates) {
+  return outdoorTargets.map(target => {
     const nearest = target.routeNodeId ? { id: target.routeNodeId } :
       findNearestOutdoorRouteNode(target, routeCandidates);
-    items.push({
+    return {
       id: target.id,
-      label: target.name,
+      label: target.label,
       type: 'outdoor-target',
       routeNodeId: target.routeNodeId || nearest?.id
-    });
-  }
-  return items;
+    };
+  });
 }
 
 function checkRouteTargets(searchItems, graph) {
@@ -209,17 +268,26 @@ function checkRouteTargets(searchItems, graph) {
       fail(`[搜索映射] ${item.id} 无法映射到 Graph 节点 ${routeNodeId}`);
     }
   }
-  report('[搜索映射] 建筑与室外目标均可映射到 Graph 节点');
+  report('[搜索映射] area.json 中的地点均可映射到 Graph 节点');
 }
 
-function checkOutdoorTargets(targets) {
-  const allowedTypes = new Set(['gate', 'transit', 'canteen', 'shop', 'parking', 'landmark']);
+function checkOutdoorTargets(targets, label = 'area.json places') {
   for (const target of targets) {
-    if (!allowedTypes.has(target.type)) {
-      fail(`[outdoor-targets.json] ${target.id} 使用了不允许的总地图目标类型: ${target.type}`);
-    }
+    if (target.type !== 'place') fail(`[${label}] ${target.id}.type 必须为 place`);
+    if (!target.label) fail(`[${label}] ${target.id} 缺少 label`);
     if (!target.routeNodeId) {
-      fail(`[outdoor-targets.json] ${target.id} 缺少 routeNodeId`);
+      fail(`[${label}] ${target.id} 缺少 routeNodeId`);
+    }
+  }
+}
+
+function checkAreaBuildingLinks(targets, areaIndex, label) {
+  const buildingIds = new Set(
+    (areaIndex.areas || []).map(area => area.buildingId).filter(Boolean)
+  );
+  for (const target of targets) {
+    if (target.buildingId && !buildingIds.has(target.buildingId)) {
+      fail(`[${label}] ${target.id}.buildingId 未在 areas/index.json 注册: ${target.buildingId}`);
     }
   }
 }
@@ -236,61 +304,59 @@ function checkRoute(graph, fromId, toId, label) {
 loadScript('js/nav/graph.js');
 loadScript('js/nav/astar.js');
 loadScript('js/nav/outdoor-graph.js');
-loadScript('js/nav/indoor-graph.js');
 
-const buildings = readJson('data/buildings.json');
-const outdoorNodes = readJson('data/outdoor-nodes.json');
-const outdoorPaths = readJson('data/outdoor-paths.json');
-const outdoorTargets = readJson('data/outdoor-targets.json');
-const indoorDir = path.join(root, 'data/indoor');
-const indoorFiles = fs.readdirSync(indoorDir).filter(file => file.endsWith('.json'));
+const areaIndex = readJson('data/areas/index.json');
+const outdoorAreaEntry = (areaIndex.areas || []).find(area => area.id === areaIndex.defaultOutdoorAreaId);
+const outdoorArea = outdoorAreaEntry ? readJson(outdoorAreaEntry.path) : null;
+const {
+  outdoorNodes,
+  outdoorPaths,
+  outdoorTargets
+} = outdoorArea ? normalizeOutdoorArea(outdoorArea) : {
+  outdoorNodes: { nodes: [], edges: [] },
+  outdoorPaths: { nodes: [], edges: [] },
+  outdoorTargets: []
+};
 
-checkUniqueIds('buildings.json', buildings);
-checkUniqueIds('outdoor-targets.json', outdoorTargets);
-checkOutdoorTargets(outdoorTargets);
-checkUniqueIds('outdoor-nodes.json', outdoorNodes.nodes || []);
-checkConnections('outdoor-nodes.json', outdoorNodes.nodes || []);
-checkOutdoorPathNetwork(outdoorPaths, outdoorNodes, outdoorTargets);
+checkAreaIndex(areaIndex);
+if (!outdoorAreaEntry) {
+  fail(`[data/areas/index.json] 找不到默认室外区域: ${areaIndex.defaultOutdoorAreaId}`);
+}
+
+function checkAreaPlaceRoutes(graph, places) {
+  if (places.length < 2) {
+    warn('[路线测试] area.json 少于两个地点，无法测试地点间路径');
+    return;
+  }
+  const from = places[0];
+  for (const to of places.slice(1)) {
+    checkRoute(graph, from.routeNodeId, to.routeNodeId, `${from.label}到${to.label}`);
+  }
+}
+for (const areaEntry of (areaIndex.areas || [])) {
+  if (!areaEntry.path) continue;
+  const areaData = readJson(areaEntry.path);
+  checkAreaData(areaData, path.dirname(areaEntry.path));
+  if (areaData.areaId !== areaEntry.id) {
+    fail(`[data/areas/index.json] ${areaEntry.id} 指向的 area.json.areaId 为 ${areaData.areaId}`);
+  }
+}
+checkOutdoorTargets(outdoorTargets, `${outdoorAreaEntry?.path || 'outdoor area'} places`);
+checkAreaBuildingLinks(outdoorTargets, areaIndex, `${outdoorAreaEntry?.path || 'outdoor area'} places`);
+checkUniqueIds(`${outdoorAreaEntry?.path || 'outdoor area'} nodes`, outdoorNodes.nodes || []);
+checkConnections(`${outdoorAreaEntry?.path || 'outdoor area'} nodes`, outdoorNodes.nodes || []);
+checkOutdoorPathNetwork(outdoorPaths, outdoorNodes, outdoorTargets, outdoorAreaEntry?.path || 'outdoor area');
 
 const graph = new Graph();
 const outdoorGraphBuilder = new OutdoorGraphBuilder(graph);
-const indoorGraphBuilder = new IndoorGraphBuilder(graph);
 
 outdoorGraphBuilder.build(outdoorNodes.nodes || [], outdoorNodes.edges || [], outdoorPaths);
-for (const building of buildings) {
-  if (building.entrance?.nearestRoadNode && !graph.getNode(building.entrance.nearestRoadNode)) {
-    fail(`[建筑入口] ${building.id}.entrance.nearestRoadNode 不存在: ${building.entrance.nearestRoadNode}`);
-  }
-  outdoorGraphBuilder.registerBuildingEntrance(building);
-}
 
-for (const file of indoorFiles) {
-  const buildingId = path.basename(file, '.json');
-  const indoorData = readJson(path.join('data/indoor', file));
-  const nodes = indoorData.nodes || [];
-  const floors = indoorData.floors || [];
-  const floorLevels = floors
-    .map(floor => typeof floor === 'number' ? floor : floor.level)
-    .filter(floor => typeof floor === 'number');
-
-  checkUniqueIds(`indoor/${file}`, nodes);
-  checkConnections(`indoor/${file}`, nodes);
-  if (!floorLevels.length) fail(`[indoor/${file}] floors 缺少有效 level`);
-  if (indoorData.entranceLink && !nodes.some(node => node.id === indoorData.entranceLink)) {
-    fail(`[indoor/${file}] entranceLink 不存在: ${indoorData.entranceLink}`);
-  }
-  indoorGraphBuilder.build(buildingId, indoorData);
-}
-
-const routeCandidates = getOutdoorRouteCandidates(buildings, outdoorNodes);
-const searchItems = buildSearchItems(buildings, outdoorTargets, routeCandidates);
+const routeCandidates = getOutdoorRouteCandidates(outdoorNodes);
+const searchItems = buildSearchItems(outdoorTargets, routeCandidates);
 checkRouteTargets(searchItems, graph);
 
-checkRoute(graph, 'gate-south', 'entrance-yifu', '南门到逸夫楼入口');
-checkRoute(graph, 'gate-south', 'yifu-3f-room-A301', '南门到逸夫楼 A301');
-checkRoute(graph, 'yifu-1f-entrance', 'yifu-3f-facility-bathroom', '逸夫楼入口到 3F 卫生间');
-checkRoute(graph, 'lib-1f-entrance', 'lib-5f-5333-donation', '图书馆 1F 到 5F 名人赠阅区');
-checkRoute(graph, 'entrance-library', 'entrance-xian1', '图书馆到仙I教学楼');
+checkAreaPlaceRoutes(graph, outdoorTargets);
 
 report(`\n校验完成：${fatal.length} 个致命问题，${warnings.length} 个建议项。`);
 if (fatal.length) process.exit(1);

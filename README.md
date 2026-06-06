@@ -36,7 +36,7 @@ http://localhost:8080/index.html
 
 当前 Leaflet 通过 CDN 加载。演示前请提前打开页面确认底图能显示；若演示环境网络不稳定，应下载 Leaflet 1.9.4 到 `lib/leaflet/` 并同步修改 `index.html` 的引用。
 
-路径标注工具访问：
+地图节点与边标注工具访问：
 
 ```text
 http://localhost:8080/tools/path-editor.html
@@ -60,18 +60,18 @@ nju-campus-map/
 │   ├── data/                   # 数据加载和浏览器侧校验
 │   ├── map/                    # 室外 Leaflet 与室内 Canvas 渲染
 │   ├── nav/                    # Graph、A*、路径构建和渲染
-│   └── ui/                     # 搜索、信息面板、标记弹窗
+│   └── ui/                     # 搜索和信息面板
 ├── data/
-│   ├── buildings.json          # 建筑物目标
-│   ├── outdoor-targets.json    # 非建筑的重要室外目标
-│   ├── outdoor-nodes.json      # 兼容旧寻路节点和连接
-│   ├── outdoor-paths.json      # 真实室外可通行折线网络
-│   └── indoor/                 # 各建筑室内数据
+│   ├── areas/
+│   │   ├── index.json
+│   │   └── outdoor-xianlin/
+│   │       ├── map.png
+│   │       └── area.json       # 该区域唯一数据文件
 ├── docs/
 ├── scripts/
 │   └── validate-data.js
 └── tools/
-    └── path-editor.html        # 图片路径标注工具
+    └── path-editor.html        # 图片节点与边标注工具
 ```
 
 ## 数据模型
@@ -80,15 +80,21 @@ nju-campus-map/
 
 总地图只保留用户会直接搜索和导航的重要目标：
 
-- 大型建筑物：来自 `data/buildings.json`
-- 校门、公交/地铁、食堂、停车场、广场等室外目标：来自 `data/outdoor-targets.json`
-- 可通行路线折线：来自 `data/outdoor-paths.json`
+- 所有区域均在 `data/areas/index.json` 注册
+- 仙林室外区域：来自 `data/areas/outdoor-xianlin/area.json`
+- 校门、公交/地铁、食堂、停车场、广场等室外目标：来自区域 JSON 的 `places`
+- 可通行路线：由区域 JSON 的无标签 `nodes` 和端点 `edges` 组成
+- 室外地点和路线统一使用 `map.png` 的 `x/y` 像素坐标，不使用经纬度
 
 饮水机、楼内厕所、单个教室、自习室、楼内 ATM 等细节不得放入总地图目标文件。
 
+网站的底图、可搜索地点和路径规划均以 `data/areas/index.json` 注册的 `area.json` 为唯一来源。一个区域文件夹只保留一张 `map.png` 和一个 `area.json`，不再维护旧式混合数据文件。
+
+网站选择起终点时，先点击对应输入框旁的“选择起点”或“选择终点”按钮。进入选择状态后，地图会显示该区域全部可选路网节点；点击节点或已标注地点即可完成选择。
+
 ### 建筑室内层
 
-室内数据位于 `data/indoor/<building-id>.json`。室内以房间或设施为目标，路径应连接到门口、走廊、楼梯或电梯节点。
+室内区域也必须建立 `data/areas/<area-id>/area.json`，并在 `data/areas/index.json` 中注册。室内以房间或设施为目标，路径应连接到门口、走廊、楼梯或电梯节点。
 
 室内可搜索目标类型：
 
@@ -102,11 +108,13 @@ nju-campus-map/
 路径规划最难的部分是从地图图片中获得“人能走的线”。本项目采用人机协作流程：
 
 1. D 组收集室外地图和楼层平面图。
-2. D 组使用 `tools/path-editor.html` 在图片上标注节点和可通行边。
-3. AI 或 B 组把导出的像素坐标标注转换为正式 JSON。
-4. B 组运行 `npm.cmd run validate:data` 检查断边、重复 ID、不可达路线和审核状态。
-5. A 组在地图上按 `edge.path` 渲染真实折线。
-6. 四人共同审核示例路线，确认不穿墙、不乱绕、不走不可通行区域。
+2. 每个区域建立一个文件夹，例如 `data/areas/outdoor-xianlin/`。
+3. 区域文件夹中只保留一张标注底图 `map.png`。
+4. D 组使用 `tools/path-editor.html` 标注 `place`、无标签 `node`，再点击两个节点创建可通行 `edge`。
+5. 标注工具直接导出可运行的像素坐标 `area.json`。
+6. B 组运行 `npm.cmd run validate:data` 检查断边、重复 ID、不可达路线和审核状态。
+7. A 组按 A* 返回的连续节点坐标渲染路线。
+8. 四人共同审核示例路线，确认不穿墙、不乱绕、不走不可通行区域。
 
 详见：
 
@@ -118,7 +126,7 @@ nju-campus-map/
 
 | 角色 | 主要范围 | 目录 |
 |------|----------|------|
-| A 地图渲染 | 室外地图、室内 Canvas、路径折线显示、标注工具维护 | `js/map/`, `tools/` |
+| A 地图渲染 | 室外地图、室内 Canvas、节点连线显示、标注工具维护 | `js/map/`, `tools/` |
 | B 路径规划 | Graph、A*、边权、数据校验、路线测试 | `js/nav/`, `scripts/` |
 | C UI 交互 | 搜索、路线说明、信息面板、错误提示 | `js/ui/`, `css/` |
 | D 数据文档 | 图片整理、路径标注、JSON 数据、说明文档 | `data/`, `docs/` |
@@ -142,8 +150,8 @@ nju-campus-map/
 - JSON 能否读取
 - 各类 `id` 是否唯一
 - 室外目标 `routeNodeId` 是否能接入 Graph
-- `outdoor-paths.json` 的节点、边、折线和审核状态是否有效
-- 室内入口、楼层、房间/设施节点是否可用
+- 默认室外区域 `area.json` 的节点、边和审核状态是否有效
+- 索引内每个区域是否存在且符合统一格式
 - 示例路线是否可达
 
 如果出现“致命问题”，不要合并数据。若只有 `draft` 或单向 `connections` 建议，可以先记录为后续修正任务，但演示主路线应尽量达到 `reviewed`。

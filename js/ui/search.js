@@ -89,6 +89,11 @@ class SearchBox {
     if (this._onChange) this._onChange('to', item);
   }
 
+  setRole(role, item) {
+    if (role === 'from') this.setFrom(item);
+    else this.setTo(item);
+  }
+
   swap() {
     const tmpI = this.fromNode;
     const tmpV = this.fromInput.value;
@@ -111,7 +116,9 @@ class SearchBox {
  * @property {string} [buildingId]
  * @property {string} [routeNodeId] - 实际送入 AStar 的 Graph 节点 ID
  * @property {string[]} [keywords]
- * @property {number} lat
- * @property {number} lng
+ * @property {number} [x] - 区域图片像素 x
+ * @property {number} [y] - 区域图片像素 y
+ * @property {number} [lat] - 非正式区域数据的兼容坐标
+ * @property {number} [lng] - 非正式区域数据的兼容坐标
  * @property {number} floor
  */

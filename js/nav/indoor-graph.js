@@ -1,6 +1,6 @@
 /**
  * 室内走廊图构建器
- * 从 data/indoor/<buildingId>.json 加载室内节点与边
+ * 从区域索引注册的室内 area.json 加载节点与边
  */
 class IndoorGraphBuilder {
   /**
@@ -16,8 +16,9 @@ class IndoorGraphBuilder {
    * @param {string} buildingId
    * @param {Object} indoorData - 来自 indoor/*.json
    *   { nodes: [...], edges: [...], floors: [...] }
+   * @param {string} [outdoorEntranceId] - area.json 中建筑地点的 routeNodeId
    */
-  build(buildingId, indoorData) {
+  build(buildingId, indoorData, outdoorEntranceId) {
     const ids = [];
     for (const n of (indoorData.nodes || [])) {
       this.graph.addNode({ ...n, building: buildingId });
@@ -33,7 +34,6 @@ class IndoorGraphBuilder {
 
     // 连接室内入口到室外入口
     if (indoorData.entranceLink) {
-      const outdoorEntranceId = `entrance-${buildingId}`;
       const indoorEntranceId = indoorData.entranceLink;
       if (this.graph.getNode(outdoorEntranceId) && this.graph.getNode(indoorEntranceId)) {
         // 入口边权重为0或极小（视为同一位置）

@@ -85,6 +85,28 @@ body {
   transition: border-color 0.2s;
 }
 
+.search-field-control {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) auto;
+  gap: 6px;
+}
+
+.btn-select-map {
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 0 10px;
+  color: var(--primary);
+  background: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-select-map:hover,
+.btn-select-map.active {
+  color: #ffffff;
+  background: var(--primary);
+}
+
 .search-field input:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 2px rgba(74,111,165,0.15);

@@ -8,7 +8,7 @@
 
 | 层面 | 选择 | 原因 |
 |------|------|------|
-| 地图渲染 | Leaflet.js + Canvas | Leaflet 成熟稳定，Canvas 灵活适合室内 |
+| 地图渲染 | Leaflet CRS.Simple + Canvas | 室外直接显示区域底图像素，Canvas 灵活适合室内 |
 | 路径规划 | A* 算法（自实现） | 可控、可优化，适合校园级图规模 |
 | 数据格式 | JSON + 路径标注导出 JSON | 简单直观，前后端通用；图片标注结果可逐步合并 |
 | 架构模式 | 模块化原生 JS | 初期不引入框架，降低学习成本 |
@@ -37,15 +37,17 @@
 
 ## 核心数据流
 
-1. D 组提供 `buildings.json`、`outdoor-targets.json`、`outdoor-nodes.json`、`outdoor-paths.json` 和室内 JSON。
-2. `app.js` 将建筑和室外目标转成 `SearchItem`，其中 `routeNodeId` 指向实际 Graph 节点。
-3. `OutdoorGraphBuilder` 优先用 `outdoor-paths.json` 的 `edge.path` 计算室外边权。
-4. 用户输入起终点 → `search.js` 返回 `SearchItem`。
-5. `app.js` 取起终点的 `routeNodeId`，必要时自动加载室内数据。
-6. `app.js` 调用 `AStar.findPath(graph, fromId, toId)`。
-7. 路径结果 → `path-renderer.js` 分段渲染；室外段优先沿 `edge.path` 折线绘制。
-8. 若含室内段 → `layer-switch.js` 自动切换至室内视图。
-9. `panel.js` 展示路线详情。
+1. D 组在 `data/areas/index.json` 注册区域；每个区域只提供自己的 `map.png` 和 `area.json`。
+2. `DataLoader.normalizeOutdoorArea()` 将区域 `area.json` 转成当前运行所需的室外目标、节点和边。
+3. `app.js` 将 `area.json.places` 转成 `SearchItem`，其中 `routeNodeId` 指向实际 Graph 节点；可选 `buildingId` 用于关联建筑详情和室内数据。
+4. `OutdoorGraphBuilder` 用每条边两端节点的像素距离乘 `image.metersPerPixel` 计算室外边权。
+5. 用户输入起终点 → `search.js` 返回 `SearchItem`。
+   用户也可以点击“地图选择”进入起点或终点选择状态，此时 `OutdoorMap.showSelectableNodes()` 显示区域全部路网节点。
+6. `app.js` 取起终点的 `routeNodeId`，必要时自动加载室内数据。
+7. `app.js` 调用 `AStar.findPath(graph, fromId, toId)`。
+8. 路径结果 → `path-renderer.js` 分段渲染；室外段按连续节点坐标绘制。
+9. 若含室内段 → `layer-switch.js` 自动切换至室内视图。
+10. `panel.js` 展示路线详情。
 
 ## 模块接口
 
@@ -53,9 +55,12 @@
 
 ```js
 // 室外
-outdoorMap.renderBuildings(buildings);
+outdoorMap.renderBuildings(buildings, outdoorTargets);
 outdoorMap.renderOutdoorTargets(outdoorTargets);
-outdoorMap.setView(lat, lng, zoom);
+outdoorMap.configureArea(areaData, areaPath);
+outdoorMap.setView(x, y, zoom);
+outdoorMap.showSelectableNodes(items, role, onSelect);
+outdoorMap.hideSelectableNodes();
 
 // 室内
 indoorMap.loadBuilding(buildingId, indoorData);
@@ -72,16 +77,24 @@ layerSwitch.exitToOutdoor();
 ```js
 // 构建
 outdoorGraphBuilder.build(nodes, edges, outdoorPathNetwork);
-outdoorGraphBuilder.registerBuildingEntrance(building);
-indoorGraphBuilder.build(buildingId, indoorData);
+indoorGraphBuilder.build(buildingId, indoorData, outdoorPlace.routeNodeId);
 
 // 寻路
 AStar.findPath(graph, startId, goalId) → { path, distance }
 
 // 渲染
-pathRenderer.setOutdoorPathNetwork(outdoorPathNetwork);
+outdoorGraphBuilder.build(outdoorNodes.nodes, outdoorNodes.edges, outdoorPathNetwork);
 pathRenderer.drawOutdoor(leafletMap, pathNodes);
 pathRenderer.drawIndoor(canvasCtx, pathNodes, floor, coordFn);
+```
+
+### 数据模块 (data/) → 供 app.js 调用
+
+```js
+DataLoader.loadJSON(CONFIG.dataPaths.areasIndex);
+DataLoader.loadJSON(defaultAreaEntry.path);
+DataLoader.normalizeOutdoorArea(areaData)
+// → { outdoorTargets, outdoorNodes, outdoorPaths }
 ```
 
 ### UI 模块 (ui/) → 供 app.js 调用
@@ -102,8 +115,8 @@ infoPanel.showBuilding(building);
   type: 'building|outdoor-target|room|facility|custom',
   buildingId: 'yifu',           // 室内目标才需要
   routeNodeId: 'gate-south',    // A* 真正使用的 Graph 节点
-  lat: 32.115,
-  lng: 118.957,
+  x: 2200,
+  y: 5900,
   floor: 0
 }
 ```
@@ -112,22 +125,21 @@ infoPanel.showBuilding(building);
 
 | 模块 | 状态 | 说明 |
 |------|------|------|
-| 室外地图渲染 | 开发中 | Leaflet 底图 + 建筑多边形 + 室外目标标记 |
+| 室外地图渲染 | 开发中 | Leaflet CRS.Simple + 区域 map.png + 像素目标标记 |
 | 室内地图渲染 | 开发中 | Canvas 绘制走廊/房间/楼梯，支持楼层切换 |
 | A* 路径规划 | 开发中 | 室外路网 + 室内走廊图 + 跨层连接 |
 | 搜索 | 开发中 | 模糊匹配总地图目标、室内房间、室内设施 |
-| 建筑数据 | ✅ 完成 | 8 栋建筑，含坐标和轮廓 |
-| 室外路网 | ✅ 完成 | 21 个节点覆盖主要道路 |
-| 室外路径折线 | 初版完成 | `outdoor-paths.json` 已接入边权和渲染，部分边仍需人工审核 |
-| 室外目标数据 | ✅ 完成 | 9 个重要目标（校门/公交/地铁/食堂/超市/停车场） |
-| 室内数据 | 部分完成 | 逸夫楼、图书馆已录入房间目标，并添加少量卫生间示例 |
+| 区域数据入口 | ✅ 完成 | 所有区域只通过 `data/areas/index.json` 注册 |
+| 室外区域数据 | 初版完成 | `outdoor-xianlin/area.json` 包含 2 个地点、14 个节点、17 条边 |
+| 地图选点 | ✅ 完成 | 显式进入选择起点/终点状态，并显示全部可选节点 |
+| 室内区域 | 待标注 | 后续按相同的区域文件夹和 `area.json` 规范添加 |
 
 ## 已知限制
 
-- **地图瓦片速度**：OpenStreetMap 国内加载可能较慢，可替换为高德/天地图瓦片
-- **室内数据覆盖**：初期仅逸夫楼和图书馆有室内数据，其余 6 栋建筑待补充
+- **区域比例误差**：`metersPerPixel` 是近似值，距离和时间需要通过实际路线校准
+- **室内数据覆盖**：旧室内样例已删除，后续需要按统一区域格式重新标注
 - **室外目标粒度**：总地图只保留重要目标，楼内细节必须进入室内数据
-- **路径折线审核**：`outdoor-paths.json` 目前是起步样例，主演示路线应先人工审核为 `reviewed`
+- **节点与边审核**：`outdoor-xianlin/area.json` 目前是起步样例，主演示路线应先人工审核为 `reviewed`
 - **无后端服务**：纯静态 JSON 文件，不支持用户数据持久化
 - **无移动端优化**：初期以桌面端为主，移动端适配待后期处理
 

@@ -41,12 +41,14 @@ class InfoPanel {
     for (let i = 0; i < routeResult.path.length; i++) {
       const n = routeResult.path[i];
       const li = document.createElement('li');
-      if (i === 0) li.textContent = `起点：${n.label}`;
-      else if (i === routeResult.path.length - 1) li.textContent = `终点：${n.label}`;
+      const nodeLabel = n.label || n.id;
+      if (i === 0) li.textContent = `起点：${routeResult.fromLabel || nodeLabel}`;
+      else if (i === routeResult.path.length - 1) li.textContent = `终点：${routeResult.toLabel || nodeLabel}`;
       else if (n.type === 'stair') li.textContent = `走楼梯至 ${n.label}`;
       else if (n.type === 'elevator') li.textContent = `乘电梯至 ${n.label}`;
       else if (n.type === 'entrance') li.textContent = `进入 ${n.label}`;
-      else li.textContent = `沿${n.label}前行`;
+      else if (n.floor === 0) li.textContent = '沿已标注边前行';
+      else li.textContent = `沿${nodeLabel}前行`;
       stepsEl.appendChild(li);
     }
   }

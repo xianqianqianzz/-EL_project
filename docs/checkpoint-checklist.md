@@ -24,7 +24,7 @@
 - [ ] Leaflet 底图正常加载
 - [ ] 演示电脑可访问 Leaflet CDN，或已改成本地 `lib/leaflet/` 引用
 - [ ] 8 栋建筑多边形正确显示
-- [ ] `outdoor-targets.json` 中的重要室外目标图标标记正确显示
+- [ ] `outdoor-xianlin/area.json` 中的重要室外目标图标标记正确显示
 - [ ] 点击建筑弹出信息面板
 
 ### 室内地图（至少 1 栋）
@@ -35,8 +35,8 @@
 
 ### A* 路径规划
 - [ ] 室外两点间寻路成功
-- [ ] 室外路径按 `outdoor-paths.json` 的 `edge.path` 折线显示，不只是节点直线
-- [ ] 室外边权优先来自 `edge.path` 折线长度
+- [ ] 室外路径按 A* 返回的连续节点坐标显示
+- [ ] 室外边权来自边两端节点的像素距离
 - [ ] 室内两点间寻路成功
 - [ ] 跨室内外寻路成功（室外→室内）
 - [ ] 跨楼层寻路成功（1F→3F 经楼梯/电梯）
@@ -48,12 +48,17 @@
 - [ ] 起点/终点选择后触发路径规划
 
 ### 数据规范
+- [ ] `data/areas/index.json` 存在，并能找到默认室外区域 `outdoor-xianlin`
+- [ ] `data/areas/outdoor-xianlin/map.png` 是该区域唯一标注底图
+- [ ] `data/areas/outdoor-xianlin/area.json` 同时包含 `places`、`nodes`、`edges`
+- [ ] 标注对象只使用 `place`、`node`、`edge` 三种类型，只有 `place` 使用 `label`
 - [ ] 总地图目标只包含大型建筑和重要室外目标
-- [ ] 楼内厕所、饮水机、教室等细节没有出现在 `outdoor-targets.json`
+- [ ] 楼内厕所、饮水机、教室等细节没有出现在室外区域 `places`
 - [ ] 每个室外目标都有可用的 `routeNodeId`
-- [ ] `outdoor-paths.json` 每条边都有至少两个路径点
-- [ ] 主演示路线涉及的室外路径边均为 `reviewed`
-- [ ] `tools/path-editor.html` 能导入图片、标节点、画边、导出 JSON
+- [ ] 室外区域中 `node` 无标签，`edge` 只连接两个存在的节点且不含 `path`
+- [ ] 主演示路线涉及的室外边均为 `reviewed`
+- [ ] `tools/path-editor.html` 能导入图片、添加节点、点击两个节点连边、导出 JSON
+- [ ] 网站点击“选择起点/终点”后显示全部可选节点，并能分别完成选择
 - [ ] 室内可搜索目标使用 `room` 或 `facility`
 - [ ] `npm.cmd run validate:data` 通过
 

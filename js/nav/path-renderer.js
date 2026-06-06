@@ -10,21 +10,6 @@ class PathRenderer {
     this.markers = [];
     /** 室内 Canvas 路径缓存 */
     this.indoorSegments = [];
-    /** @type {Map<string, number[][]>} 室外边折线索引 */
-    this.outdoorEdgePaths = new Map();
-  }
-
-  /**
-   * 注册室外路径折线网络。每条边同时建立正向和反向索引。
-   * @param {Object} pathNetwork - data/outdoor-paths.json
-   */
-  setOutdoorPathNetwork(pathNetwork) {
-    this.outdoorEdgePaths.clear();
-    for (const edge of (pathNetwork?.edges || [])) {
-      if (edge.walkable === false || !Array.isArray(edge.path)) continue;
-      this.outdoorEdgePaths.set(PathRenderer.edgeKey(edge.from, edge.to), edge.path);
-      this.outdoorEdgePaths.set(PathRenderer.edgeKey(edge.to, edge.from), [...edge.path].reverse());
-    }
   }
 
   /**
@@ -48,10 +33,10 @@ class PathRenderer {
     // 起点和终点大头针
     const startIcon = L.divIcon({ className: 'marker-start', html: '📍', iconSize: [24, 24] });
     const endIcon = L.divIcon({ className: 'marker-end', html: '🎯', iconSize: [24, 24] });
-    const first = pathNodes[0];
-    const last = pathNodes[pathNodes.length - 1];
-    this.markers.push(L.marker([first.lat, first.lng], { icon: startIcon }).addTo(map));
-    this.markers.push(L.marker([last.lat, last.lng], { icon: endIcon }).addTo(map));
+    const first = outdoorPoints[0];
+    const last = outdoorPoints[outdoorPoints.length - 1];
+    this.markers.push(L.marker(this.nodeToLeafletPoint(first), { icon: startIcon }).addTo(map));
+    this.markers.push(L.marker(this.nodeToLeafletPoint(last), { icon: endIcon }).addTo(map));
 
     // 适配视野
     const bounds = L.latLngBounds(latlngs);
@@ -65,36 +50,14 @@ class PathRenderer {
   }
 
   getOutdoorLatLngs(outdoorPoints) {
-    const latlngs = [];
-    for (let i = 1; i < outdoorPoints.length; i++) {
-      const from = outdoorPoints[i - 1];
-      const to = outdoorPoints[i];
-      const edgePath = this.getEdgePath(from.id, to.id) || [
-        [from.lat, from.lng],
-        [to.lat, to.lng]
-      ];
-      for (const point of edgePath) {
-        const last = latlngs[latlngs.length - 1];
-        if (!last || !PathRenderer.samePoint(last, point)) {
-          latlngs.push(point);
-        }
-      }
+    return outdoorPoints.map(node => this.nodeToLeafletPoint(node));
+  }
+
+  nodeToLeafletPoint(node) {
+    if (Number.isFinite(node?.x) && Number.isFinite(node?.y)) {
+      return [-node.y, node.x];
     }
-    return latlngs;
-  }
-
-  getEdgePath(fromId, toId) {
-    return this.outdoorEdgePaths.get(PathRenderer.edgeKey(fromId, toId)) || null;
-  }
-
-  static edgeKey(a, b) {
-    return `${a}::${b}`;
-  }
-
-  static samePoint(a, b) {
-    return Array.isArray(a) && Array.isArray(b) &&
-      Math.abs(a[0] - b[0]) < 1e-9 &&
-      Math.abs(a[1] - b[1]) < 1e-9;
+    return [node.lat, node.lng];
   }
 
   /**
