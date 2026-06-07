@@ -6,7 +6,7 @@ class PathRenderer {
 
   drawOutdoor(map, pathNodes) {
     this.clearOutdoor(map);
-    const points = pathNodes.filter(node => node.floor === 0).map(PathRenderer.nodeToLeafletPoint);
+    const points = pathNodes.filter(node => (node.floor ?? 0) === 0).map(PathRenderer.nodeToLeafletPoint);
     if (points.length < 2) return;
 
     this.outdoorLine = L.polyline(points, {
@@ -38,9 +38,9 @@ class PathRenderer {
     const segments = [];
     let current = null;
     for (const node of pathNodes) {
-      const type = node.floor === 0 ? 'outdoor' : 'indoor';
+      const type = (node.floor ?? 0) === 0 ? 'outdoor' : 'indoor';
       if (!current || current.type !== type || (type === 'indoor' && current.floor !== node.floor)) {
-        current = { type, floor: node.floor, nodes: [] };
+        current = { type, floor: node.floor ?? 0, nodes: [] };
         segments.push(current);
       }
       current.nodes.push(node);

@@ -18,31 +18,6 @@ class Graph {
     if (!this.adjacency.has(node.id)) {
       this.adjacency.set(node.id, new Map());
     }
-    this.connectNodeConnections(node.id);
-  }
-
-  /**
-   * 根据节点自身的 connections 建边。目标节点尚未加载时先跳过，
-   * 等批量加载完成后由 connectAllConnections() 补齐。
-   * @param {string} nodeId
-   */
-  connectNodeConnections(nodeId) {
-    const node = this.nodes.get(nodeId);
-    if (!node || !node.connections) return;
-    for (const targetId of node.connections) {
-      if (this.nodes.has(targetId)) {
-        this.addEdge(node.id, targetId);
-      }
-    }
-  }
-
-  /**
-   * 批量补齐所有 nodes[].connections 推导出的边。
-   */
-  connectAllConnections() {
-    for (const nodeId of this.nodes.keys()) {
-      this.connectNodeConnections(nodeId);
-    }
   }
 
   /**
@@ -63,8 +38,8 @@ class Graph {
 
     if (weight === undefined) {
       weight = Graph.distanceMeters(fromNode, toNode);
-      if (fromNode.floor !== toNode.floor) {
-        weight += Math.abs(fromNode.floor - toNode.floor) * 5;
+      if ((fromNode.floor ?? 0) !== (toNode.floor ?? 0)) {
+        weight += Math.abs((fromNode.floor ?? 0) - (toNode.floor ?? 0)) * 5;
       }
     }
     this.adjacency.get(fromId).set(toId, weight);
@@ -111,11 +86,11 @@ class Graph {
 /**
  * @typedef {Object} GraphNode
  * @property {string} id       - 唯一标识
- * @property {string} type     - corridor|room|facility|stair|elevator|entrance|road|path|target
- * @property {number} lat      - 纬度
- * @property {number} lng      - 经度
- * @property {number} floor    - 楼层（室外为 0）
+ * @property {string} type     - node|corridor|room|facility|stair|elevator|entrance|road|path|target
+ * @property {number} x        - 像素坐标 X（室外）或相对坐标 X（室内）
+ * @property {number} y        - 像素坐标 Y（室外）或相对坐标 Y（室内）
+ * @property {number} [floor]  - 楼层（室外为 0）
  * @property {string} [building] - 所属建筑ID（室外为 null）
- * @property {string} label    - 显示名称
- * @property {string[]} [connections] - 邻接节点ID（可选，也可通过 addEdge 添加）
+ * @property {string} [label]  - 显示名称
+ * @property {number} [metersPerPixel] - 米/像素比例
  */

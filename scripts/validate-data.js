@@ -67,9 +67,11 @@ function validateArea(entry, area) {
   if (draftEdges) suggest(`[${name}] ${draftEdges} 条边仍为 draft，演示前应人工复核`);
 }
 
+// 加载 JS 导航模块（用于路径可达性校验）
 loadScript('js/nav/graph.js');
 loadScript('js/nav/astar.js');
 loadScript('js/nav/outdoor-graph.js');
+loadScript('js/nav/indoor-graph.js');
 
 const index = readJson('data/areas/index.json');
 if (index.version !== 1) fail('[data/areas/index.json] version 必须为 1');
@@ -79,17 +81,24 @@ if (!defaultEntry) fail('[data/areas/index.json] defaultOutdoorAreaId 无效');
 
 for (const entry of entries) validateArea(entry, readJson(entry.path));
 
+// 对默认室外区域进行路径可达性校验
 if (defaultEntry) {
   const area = readJson(defaultEntry.path);
   const graph = new Graph();
   new OutdoorGraphBuilder(graph).build(area.nodes || [], area.edges || [], area.image?.metersPerPixel || 1);
   const places = area.places || [];
-  if (places.length >= 2) {
-    const from = places[0];
-    for (const to of places.slice(1)) {
+
+  // 遍历所有 place 组合，校验两两之间是否可达
+  for (let i = 0; i < places.length; i++) {
+    for (let j = i + 1; j < places.length; j++) {
+      const from = places[i];
+      const to = places[j];
       const result = AStar.findPath(graph, from.routeNodeId, to.routeNodeId);
-      if (!result) fail(`[route] ${from.label}到${to.label}不可达`);
-      else console.log(`[route] ${from.label}到${to.label}: ${result.path.length} nodes, approx ${Math.round(result.distance)} m`);
+      if (!result) {
+        fail(`[route] ${from.label}(${from.routeNodeId}) 到 ${to.label}(${to.routeNodeId}) 不可达`);
+      } else {
+        console.log(`[route] ${from.label} → ${to.label}: ${result.path.length} nodes, approx ${Math.round(result.distance)} m`);
+      }
     }
   }
 }

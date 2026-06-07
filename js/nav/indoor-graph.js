@@ -1,6 +1,7 @@
 /**
  * 室内走廊图构建器
- * 从 data/indoor/<buildingId>.json 加载室内节点与边
+ * 从 area.json 格式的室内数据加载室内节点与边
+ * 室内区域也遵守"一张图片 + 一个 area.json"规范
  */
 class IndoorGraphBuilder {
   /**
@@ -14,30 +15,33 @@ class IndoorGraphBuilder {
 
   /**
    * @param {string} buildingId
-   * @param {Object} indoorData - 来自 indoor/*.json
-   *   { nodes: [...], edges: [...], floors: [...] }
+   * @param {Object} indoorData - 符合 area.json v2 规范的室内数据
+   *   { nodes: [...], edges: [...], links: [...], floor: N }
    */
   build(buildingId, indoorData) {
     const ids = [];
+    const floor = indoorData.floor ?? 0;
     for (const n of (indoorData.nodes || [])) {
-      this.graph.addNode({ ...n, building: buildingId });
+      this.graph.addNode({
+        ...n,
+        floor: floor,
+        building: buildingId,
+        metersPerPixel: n.metersPerPixel ?? indoorData.image?.metersPerPixel ?? 1
+      });
       ids.push(n.id);
     }
-    for (const id of ids) {
-      this.graph.connectNodeConnections(id);
-    }
     for (const e of (indoorData.edges || [])) {
+      if (e.walkable === false) continue;
       this.graph.addEdge(e.from, e.to, e.weight);
     }
     this.buildingNodes.set(buildingId, ids);
 
-    // 连接室内入口到室外入口
-    if (indoorData.entranceLink) {
-      const outdoorEntranceId = `entrance-${buildingId}`;
-      const indoorEntranceId = indoorData.entranceLink;
-      if (this.graph.getNode(outdoorEntranceId) && this.graph.getNode(indoorEntranceId)) {
-        // 入口边权重为0或极小（视为同一位置）
-        this.graph.addEdge(outdoorEntranceId, indoorEntranceId, 0.5);
+    // 通过 links 连接室内入口到室外节点
+    if (indoorData.links) {
+      for (const link of indoorData.links) {
+        if (this.graph.getNode(link.from) && this.graph.getNode(link.to)) {
+          this.graph.addEdge(link.from, link.to, link.weight ?? 0.5);
+        }
       }
     }
     return ids;
@@ -50,7 +54,7 @@ class IndoorGraphBuilder {
     const ids = this.buildingNodes.get(buildingId) || [];
     return ids
       .map(id => this.graph.getNode(id))
-      .filter(n => n && n.floor === floor);
+      .filter(n => n && (n.floor ?? 0) === floor);
   }
 
   /**
@@ -59,7 +63,7 @@ class IndoorGraphBuilder {
   getFloorRange(buildingId) {
     const ids = this.buildingNodes.get(buildingId) || [];
     const floors = ids.map(id => this.graph.getNode(id)?.floor)
-                      .filter(f => f !== undefined);
+                      .filter(f => f !== undefined && f !== null);
     return { min: Math.min(...floors), max: Math.max(...floors) };
   }
 }
