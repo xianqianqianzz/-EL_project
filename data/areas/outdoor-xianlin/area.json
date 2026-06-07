@@ -1,0 +1,75 @@
+{
+  "version": 2,
+  "areaId": "outdoor-xianlin",
+  "name": "南京大学仙林校区室外总图",
+  "layer": "outdoor",
+  "coordinateSystem": "image-pixel",
+  "image": {
+    "path": "map.png",
+    "width": 4252,
+    "height": 6378,
+    "metersPerPixel": 0.21
+  },
+  "floor": 0,
+  "source": {
+    "label": "地图节点与边标注工具",
+    "reviewStatus": "draft",
+    "notes": "直接基于 map.png 标注"
+  },
+  "places": [
+    {
+      "id": "outdoor-xianlin-place-001",
+      "type": "place",
+      "label": "南大门",
+      "routeNodeId": "outdoor-xianlin-node-001",
+      "x": 2726,
+      "y": 5160,
+      "reviewStatus": "draft"
+    },
+    {
+      "id": "outdoor-xianlin-place-002",
+      "type": "place",
+      "label": "图书馆",
+      "routeNodeId": "outdoor-xianlin-node-002",
+      "x": 2716,
+      "y": 4228,
+      "reviewStatus": "draft"
+    }
+  ],
+  "nodes": [
+    { "id": "outdoor-xianlin-node-001", "type": "node", "x": 2726, "y": 5160 },
+    { "id": "outdoor-xianlin-node-002", "type": "node", "x": 2716, "y": 4228 },
+    { "id": "outdoor-xianlin-node-003", "type": "node", "x": 2672, "y": 5159 },
+    { "id": "outdoor-xianlin-node-004", "type": "node", "x": 2631, "y": 4925 },
+    { "id": "outdoor-xianlin-node-005", "type": "node", "x": 2611, "y": 4798 },
+    { "id": "outdoor-xianlin-node-006", "type": "node", "x": 2716, "y": 4783 },
+    { "id": "outdoor-xianlin-node-007", "type": "node", "x": 2740, "y": 4916 },
+    { "id": "outdoor-xianlin-node-008", "type": "node", "x": 2771, "y": 5152 },
+    { "id": "outdoor-xianlin-node-009", "type": "node", "x": 2670, "y": 4492 },
+    { "id": "outdoor-xianlin-node-010", "type": "node", "x": 2558, "y": 4512 },
+    { "id": "outdoor-xianlin-node-011", "type": "node", "x": 2673, "y": 4365 },
+    { "id": "outdoor-xianlin-node-012", "type": "node", "x": 2530, "y": 4388 },
+    { "id": "outdoor-xianlin-node-013", "type": "node", "x": 2746, "y": 4348 },
+    { "id": "outdoor-xianlin-node-014", "type": "node", "x": 2736, "y": 4225 }
+  ],
+  "edges": [
+    { "id": "outdoor-xianlin-edge-001", "from": "outdoor-xianlin-node-001", "to": "outdoor-xianlin-node-008", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-002", "from": "outdoor-xianlin-node-008", "to": "outdoor-xianlin-node-007", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-003", "from": "outdoor-xianlin-node-007", "to": "outdoor-xianlin-node-006", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-004", "from": "outdoor-xianlin-node-007", "to": "outdoor-xianlin-node-004", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-005", "from": "outdoor-xianlin-node-005", "to": "outdoor-xianlin-node-004", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-006", "from": "outdoor-xianlin-node-003", "to": "outdoor-xianlin-node-004", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-007", "from": "outdoor-xianlin-node-001", "to": "outdoor-xianlin-node-003", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-008", "from": "outdoor-xianlin-node-006", "to": "outdoor-xianlin-node-009", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-009", "from": "outdoor-xianlin-node-005", "to": "outdoor-xianlin-node-006", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-010", "from": "outdoor-xianlin-node-010", "to": "outdoor-xianlin-node-009", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-011", "from": "outdoor-xianlin-node-010", "to": "outdoor-xianlin-node-005", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-012", "from": "outdoor-xianlin-node-011", "to": "outdoor-xianlin-node-009", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-013", "from": "outdoor-xianlin-node-011", "to": "outdoor-xianlin-node-013", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-014", "from": "outdoor-xianlin-node-013", "to": "outdoor-xianlin-node-014", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-015", "from": "outdoor-xianlin-node-002", "to": "outdoor-xianlin-node-014", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-016", "from": "outdoor-xianlin-node-012", "to": "outdoor-xianlin-node-011", "type": "edge", "walkable": true, "reviewStatus": "draft" },
+    { "id": "outdoor-xianlin-edge-017", "from": "outdoor-xianlin-node-012", "to": "outdoor-xianlin-node-010", "type": "edge", "walkable": true, "reviewStatus": "draft" }
+  ],
+  "links": []
+}

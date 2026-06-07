@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>南京大学仙林校区地图</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/main.css?v=area-v5">
+  <link rel="stylesheet" href="css/map.css?v=area-v4">
+  <link rel="stylesheet" href="css/indoor.css">
+</head>
+<body>
+  <header id="header">
+    <div class="logo">南大校园地图</div>
+    <div class="search-container">
+      <div class="search-row">
+        <div class="search-field">
+          <label for="search-from">起点</label>
+          <div class="search-field-control">
+            <input type="text" id="search-from" placeholder="搜索地点..." autocomplete="off">
+            <button type="button" class="btn-select-map" id="btn-select-from">选择起点</button>
+          </div>
+          <ul class="suggestions" id="suggestions-from"></ul>
+        </div>
+        <button class="swap-btn" id="btn-swap" title="交换起终点" aria-label="交换起终点">⇄</button>
+        <div class="search-field">
+          <label for="search-to">终点</label>
+          <div class="search-field-control">
+            <input type="text" id="search-to" placeholder="搜索地点..." autocomplete="off">
+            <button type="button" class="btn-select-map" id="btn-select-to">选择终点</button>
+          </div>
+          <ul class="suggestions" id="suggestions-to"></ul>
+        </div>
+        <button id="btn-route" class="btn-route">规划路线</button>
+      </div>
+    </div>
+  </header>
+
+  <div id="main-container">
+    <aside id="info-panel">
+      <div class="panel-section" id="panel-empty">
+        <p class="hint">搜索地点，或点击“选择起点/终点”后选择路网节点</p>
+      </div>
+      <div class="panel-section hidden" id="panel-route">
+        <h3>路线信息</h3>
+        <div class="route-summary">
+          <span class="route-dist"></span>
+          <span class="route-time"></span>
+        </div>
+        <div class="route-segments"></div>
+        <h4>途经节点</h4>
+        <ol class="route-steps"></ol>
+      </div>
+    </aside>
+
+    <main id="map-container">
+      <div id="map-selection-banner" class="map-selection-banner hidden">
+        <span id="map-selection-text"></span>
+        <button type="button" id="btn-cancel-selection">取消</button>
+      </div>
+      <div id="outdoor-map"></div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/config.js?v=area-v4"></script>
+  <script src="js/data/validator.js?v=area-v4"></script>
+  <script src="js/data/loader.js?v=area-v4"></script>
+  <script src="js/nav/graph.js?v=area-v4"></script>
+  <script src="js/nav/astar.js?v=area-v4"></script>
+  <script src="js/nav/outdoor-graph.js?v=area-v4"></script>
+  <script src="js/nav/path-renderer.js?v=area-v4"></script>
+  <script src="js/map/outdoor.js?v=area-v4"></script>
+  <script src="js/ui/search.js?v=area-v4"></script>
+  <script src="js/ui/panel.js?v=area-v4"></script>
+  <script src="js/app.js?v=area-v4"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "defaultOutdoorAreaId": "outdoor-xianlin",
+  "areas": [
+    {
+      "id": "outdoor-xianlin",
+      "name": "南京大学仙林校区室外总图",
+      "type": "outdoor",
+      "path": "data/areas/outdoor-xianlin/area.json"
+    }
+  ]
+}

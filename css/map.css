@@ -1,0 +1,77 @@
+.leaflet-container {
+  background: #dce2e5;
+  font-family: inherit;
+}
+
+.place-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px !important;
+  height: 18px !important;
+  margin: -9px 0 0 -9px !important;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #d45b3e;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .45);
+}
+
+.place-tooltip {
+  border: 1px solid #cbd5db;
+  border-radius: 4px;
+  color: #263238;
+  font-weight: 600;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .14);
+}
+
+.map-selection-banner {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px 8px 14px;
+  border: 1px solid #c9d4db;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 2px 12px rgba(28, 43, 54, .18);
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.map-selection-banner button {
+  padding: 4px 8px;
+  border: 1px solid #c9d4db;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.leaflet-container.map-selecting { cursor: crosshair; }
+.selectable-route-node { stroke-width: 3; cursor: pointer; }
+.selectable-route-node.from-node { stroke: #126b43; fill: #36a269; }
+.selectable-route-node.to-node { stroke: #a93d29; fill: #e06349; }
+
+.marker-start, .marker-end {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px !important;
+  height: 24px !important;
+  margin: -12px 0 0 -12px !important;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .45);
+}
+.marker-start { background: #238558; }
+.marker-end { background: #d45038; }
+
+@media (max-width: 768px) {
+  .map-selection-banner {
+    top: 7px;
+    max-width: calc(100% - 14px);
+    font-size: 12px;
+    white-space: normal;
+  }
+}
