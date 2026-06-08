@@ -5,179 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>地图节点与边标注工具</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       height: 100vh;
       display: grid;
-      grid-template-columns: 320px 1fr;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      grid-template-columns: 330px 1fr;
       color: #263238;
-      background: #eef2f4;
+      background: #e7ecef;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
     }
-
-    aside {
-      background: #ffffff;
-      border-right: 1px solid #d8dee3;
-      overflow: auto;
-      padding: 16px;
-    }
-
-    main {
-      position: relative;
-      overflow: hidden;
-      background: #dfe5e8;
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: 18px;
-    }
-
-    h2 {
-      margin: 18px 0 8px;
-      font-size: 13px;
-      color: #546e7a;
-      border-bottom: 1px solid #e0e6ea;
-      padding-bottom: 6px;
-    }
-
-    label {
-      display: block;
-      font-size: 12px;
-      color: #546e7a;
-      margin: 10px 0 4px;
-    }
-
-    input,
-    select,
-    textarea,
-    button {
-      font: inherit;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      border: 1px solid #cfd8dc;
-      border-radius: 6px;
-      padding: 8px;
-      background: #ffffff;
-    }
-
-    textarea {
-      min-height: 140px;
-      resize: vertical;
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 12px;
-    }
-
-    button {
-      border: 1px solid #b0bec5;
-      border-radius: 6px;
-      padding: 8px 10px;
-      background: #ffffff;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #f3f6f8;
-    }
-
-    button.primary {
-      background: #176b87;
-      color: #ffffff;
-      border-color: #176b87;
-    }
-
-    button.primary:hover {
-      background: #13586f;
-    }
-
-    button.active {
-      background: #263238;
-      color: #ffffff;
-      border-color: #263238;
-    }
-
-    .row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-
-    .button-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .status {
-      margin-top: 12px;
-      padding: 8px;
-      border-radius: 6px;
-      background: #edf7ed;
-      color: #2e5d34;
-      font-size: 12px;
-      line-height: 1.5;
-      min-height: 34px;
-    }
-
-    .hint {
-      margin: 0;
-      color: #546e7a;
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    .canvas-wrap {
-      position: absolute;
-      inset: 16px;
-      border: 1px solid #b0bec5;
-      background: #ffffff;
-      overflow: auto;
-    }
-
-    canvas {
-      display: block;
-      cursor: crosshair;
-      background: #fafafa;
-    }
-
-    .summary {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 10px;
-      font-size: 12px;
-    }
-
-    .summary div {
-      padding: 8px;
-      border-radius: 6px;
-      background: #f5f7f8;
-    }
-
-    @media (max-width: 860px) {
-      body {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
-      }
-
-      aside {
-        max-height: 48vh;
-        border-right: 0;
-        border-bottom: 1px solid #d8dee3;
-      }
-
-      .canvas-wrap {
-        inset: 8px;
-      }
+    aside { overflow: auto; padding: 15px; border-right: 1px solid #cbd5db; background: #fff; }
+    main { position: relative; overflow: hidden; }
+    h1 { margin: 0 0 12px; font-size: 18px; }
+    h2 { margin: 16px 0 7px; padding-bottom: 5px; border-bottom: 1px solid #e3e8eb; color: #52646f; font-size: 13px; }
+    label { display: block; margin: 8px 0 3px; color: #60717b; font-size: 12px; }
+    input, select, button, textarea { font: inherit; }
+    input, select, textarea { width: 100%; padding: 7px; border: 1px solid #cbd5db; border-radius: 5px; }
+    textarea { min-height: 130px; font: 11px Consolas, monospace; resize: vertical; }
+    button { padding: 7px 9px; border: 1px solid #b7c3ca; border-radius: 5px; background: #fff; cursor: pointer; }
+    button.active, button.primary { border-color: #315f8c; color: #fff; background: #315f8c; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+    .status { min-height: 38px; margin-top: 10px; padding: 8px; border-radius: 5px; background: #eef5f8; color: #375565; font-size: 12px; line-height: 1.45; }
+    .counts { display: flex; gap: 7px; margin-top: 8px; font-size: 12px; }
+    .counts span { padding: 5px 7px; border-radius: 4px; background: #f0f3f5; }
+    .canvas-wrap { position: absolute; inset: 12px; overflow: auto; border: 1px solid #aebcc4; background: #fff; }
+    canvas { display: block; cursor: crosshair; }
+    @media (max-width: 850px) {
+      body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+      aside { max-height: 50vh; border-right: 0; border-bottom: 1px solid #cbd5db; }
     }
   </style>
 </head>
@@ -185,96 +42,67 @@
   <aside>
     <h1>地图节点与边标注工具</h1>
 
-    <h2>项目</h2>
+    <h2>区域</h2>
     <label for="area-id">区域 ID</label>
     <input id="area-id" value="outdoor-xianlin">
-
-    <label for="map-name">地图名称</label>
-    <input id="map-name" value="outdoor-xianlin">
-
+    <label for="area-name">区域名称</label>
+    <input id="area-name" value="南京大学仙林校区室外总图">
     <div class="row">
-      <div>
-        <label for="building-id">建筑 ID</label>
-        <input id="building-id" value="">
-      </div>
-      <div>
-        <label for="floor">楼层</label>
-        <input id="floor" type="number" value="0">
-      </div>
+      <div><label for="layer">图层</label><select id="layer"><option value="outdoor">outdoor</option><option value="indoor">indoor</option></select></div>
+      <div><label for="floor">楼层</label><input id="floor" type="number" value="0"></div>
     </div>
-
-    <label for="image-input">图片</label>
+    <label for="meters-per-pixel">米/像素</label>
+    <input id="meters-per-pixel" type="number" step="0.001" value="0.21">
+    <label for="image-input">加载地图图片</label>
     <input id="image-input" type="file" accept="image/*">
+    <label for="json-input">导入已有 area.json</label>
+    <input id="json-input" type="file" accept=".json,application/json">
 
-    <label for="import-json">继续编辑已有 area.json</label>
-    <input id="import-json" type="file" accept=".json,application/json">
-
-    <label for="meters-per-pixel">每像素米数</label>
-    <input id="meters-per-pixel" type="number" min="0.001" step="0.001" value="0.21">
-
-    <h2>模式</h2>
-    <div class="button-row">
-      <button id="mode-place" class="active" type="button">地点 place</button>
-      <button id="mode-node" type="button">路网节点 node</button>
+    <h2>标注模式</h2>
+    <div class="buttons">
+      <button id="mode-place" type="button">地点 place</button>
+      <button id="mode-node" class="active" type="button">节点 node</button>
       <button id="mode-edge" type="button">连边 edge</button>
     </div>
 
     <div id="place-fields">
-      <h2>地点 place</h2>
-      <label for="point-label">地点标签</label>
-      <input id="point-label" placeholder="如 南门、逸夫楼入口">
-
-      <label for="place-building-id">关联建筑 ID（可选）</label>
-      <input id="place-building-id" placeholder="如 library；需要进入室内时填写">
+      <label for="place-label">地点标签</label>
+      <input id="place-label" placeholder="如：图书馆">
+      <label for="building-id">建筑 ID（可选）</label>
+      <input id="building-id" placeholder="如：library">
     </div>
 
-    <h2>边 edge</h2>
-    <p class="hint">连边模式下，依次点击两个节点即可创建边。弯路请先添加多个节点，再逐段连边。</p>
-
-    <label for="review-status">审核状态</label>
-    <select id="review-status">
-      <option value="draft">draft</option>
-      <option value="needs-review">needs-review</option>
-      <option value="reviewed">reviewed</option>
-    </select>
-
-    <div class="button-row">
+    <div class="buttons">
       <button id="undo" type="button">撤销</button>
-      <button id="clear" type="button">清空</button>
+      <button id="clear-edge-selection" type="button">取消当前连边</button>
+      <button id="clear" type="button">清空全部</button>
     </div>
-
-    <div class="summary">
-      <div>地点：<span id="place-count">0</span></div>
-      <div>节点：<span id="node-count">0</span></div>
-      <div>边：<span id="edge-count">0</span></div>
+    <div class="counts">
+      <span>地点：<b id="place-count">0</b></span>
+      <span>节点：<b id="node-count">0</b></span>
+      <span>边：<b id="edge-count">0</b></span>
     </div>
-
-    <div id="status" class="status">加载图片后开始标注。</div>
+    <div id="status" class="status">加载图片后开始标注。node 不需要标签；edge 通过依次点击两个已有节点创建。</div>
 
     <h2>导出</h2>
-    <div class="button-row">
+    <div class="buttons">
       <button id="export-json" class="primary" type="button">生成 JSON</button>
-      <button id="download-json" type="button">下载</button>
+      <button id="download-json" type="button">下载 area.json</button>
     </div>
-    <label for="output">JSON</label>
+    <label for="output">JSON 预览</label>
     <textarea id="output" spellcheck="false"></textarea>
   </aside>
 
-  <main>
-    <div class="canvas-wrap">
-      <canvas id="canvas" width="1200" height="800"></canvas>
-    </div>
-  </main>
+  <main><div class="canvas-wrap"><canvas id="canvas" width="1200" height="800"></canvas></div></main>
 
   <script>
     const state = {
-      mode: 'place',
+      mode: 'node',
       image: null,
-      imageName: '',
+      imageName: 'map.png',
       places: [],
       nodes: [],
       edges: [],
-      links: [],
       selectedEdgeNodeId: null,
       history: []
     };
@@ -283,425 +111,218 @@
     const ctx = canvas.getContext('2d');
     const statusEl = document.getElementById('status');
     const outputEl = document.getElementById('output');
-
     const fields = {
       areaId: document.getElementById('area-id'),
-      mapName: document.getElementById('map-name'),
-      buildingId: document.getElementById('building-id'),
+      areaName: document.getElementById('area-name'),
+      layer: document.getElementById('layer'),
       floor: document.getElementById('floor'),
-      metersPerPixel: document.getElementById('meters-per-pixel'),
-      pointLabel: document.getElementById('point-label'),
-      placeBuildingId: document.getElementById('place-building-id'),
-      reviewStatus: document.getElementById('review-status')
+      scale: document.getElementById('meters-per-pixel'),
+      placeLabel: document.getElementById('place-label'),
+      buildingId: document.getElementById('building-id')
     };
 
-    function setStatus(text) {
-      statusEl.textContent = text;
+    function setStatus(text) { statusEl.textContent = text; }
+    function serial(prefix, items) {
+      const used = new Set(items.map(item => item.id));
+      let number = 1;
+      while (used.has(`${fields.areaId.value.trim() || 'area'}-${prefix}-${String(number).padStart(3, '0')}`)) number++;
+      return `${fields.areaId.value.trim() || 'area'}-${prefix}-${String(number).padStart(3, '0')}`;
     }
-
-    function normalizePlaceLabel(place) {
-      const base = place.label || place.name || place.id;
-      const aliases = (place.aliases || []).filter(alias => alias && !base.includes(alias));
-      return aliases.length ? `${base}（${aliases.join('、')}）` : base;
+    function snapshot() {
+      state.history.push(JSON.stringify({ places: state.places, nodes: state.nodes, edges: state.edges }));
+      if (state.history.length > 60) state.history.shift();
     }
-
-    function setMode(mode) {
-      state.mode = mode;
-      document.getElementById('mode-place').classList.toggle('active', mode === 'place');
-      document.getElementById('mode-node').classList.toggle('active', mode === 'node');
-      document.getElementById('mode-edge').classList.toggle('active', mode === 'edge');
-      document.getElementById('place-fields').hidden = mode !== 'place';
-      if (mode !== 'edge') state.selectedEdgeNodeId = null;
-      setStatus(
-        mode === 'place' ? '地点模式：填写标签后点击图片。地点会自动生成同位置的路网节点。' :
-        mode === 'node' ? '节点模式：点击图片添加自动编号节点，不需要填写标签。' :
-        '连边模式：先点击一个节点，再点击另一个节点即可创建边。'
-      );
-      render();
-    }
-
-    function nextId(prefix) {
-      const safeName = (fields.areaId.value.trim() || 'area').replace(/[^a-zA-Z0-9_-]+/g, '-');
-      const used = new Set([
-        ...state.places.map(item => item.id),
-        ...state.nodes.map(item => item.id),
-        ...state.edges.map(item => item.id)
-      ]);
-      let serial = 1;
-      let id;
-      do {
-        id = `${safeName}-${prefix}-${String(serial).padStart(3, '0')}`;
-        serial++;
-      } while (used.has(id));
-      return id;
-    }
-
-    function getPoint(event) {
+    function pointFromEvent(event) {
       const rect = canvas.getBoundingClientRect();
-      const scaleX = canvas.width / rect.width;
-      const scaleY = canvas.height / rect.height;
       return {
-        x: Math.round((event.clientX - rect.left) * scaleX),
-        y: Math.round((event.clientY - rect.top) * scaleY)
+        x: Math.round((event.clientX - rect.left) * canvas.width / rect.width),
+        y: Math.round((event.clientY - rect.top) * canvas.height / rect.height)
       };
     }
-
-    function pushHistory() {
-      state.history.push(JSON.stringify({
-        places: state.places,
-        nodes: state.nodes,
-        edges: state.edges,
-        links: state.links,
-        selectedEdgeNodeId: state.selectedEdgeNodeId
-      }));
-      if (state.history.length > 50) state.history.shift();
-    }
-
-    function addPoint(point) {
-      const placeLabel = fields.pointLabel.value.trim();
-      if (state.mode === 'place' && !placeLabel) {
-        setStatus('请先填写标签，再点击图片。');
-        return;
-      }
-      pushHistory();
-      const nodeId = nextId('node');
-      state.nodes.push({
-        id: nodeId,
-        type: 'node',
-        x: point.x,
-        y: point.y
-      });
-      if (state.mode === 'place') {
-        const placeId = nextId('place');
-        const buildingId = fields.placeBuildingId.value.trim();
-        state.places.push({
-          id: placeId,
-          type: 'place',
-          label: placeLabel,
-          ...(buildingId ? { buildingId } : {}),
-          routeNodeId: nodeId,
-          x: point.x,
-          y: point.y,
-          reviewStatus: 'draft'
-        });
-      }
-      fields.pointLabel.value = '';
-      fields.placeBuildingId.value = '';
-      render();
-      setStatus(state.mode === 'place' ?
-        `已添加地点 ${placeLabel}，对应节点为 ${nodeId}` :
-        `已添加节点 ${nodeId}`);
-    }
-
-    function findNodeAt(point) {
-      const hitRadius = Math.max(10, Math.round(Math.min(canvas.width, canvas.height) * 0.004));
-      let best = null;
-      let bestDistance = hitRadius;
+    function nearestNode(point, maxDistance = 24) {
+      let result = null;
+      let distance = maxDistance;
       for (const node of state.nodes) {
-        const distance = Math.hypot(node.x - point.x, node.y - point.y);
-        if (distance <= bestDistance) {
-          best = node;
-          bestDistance = distance;
-        }
+        const candidate = Math.hypot(node.x - point.x, node.y - point.y);
+        if (candidate <= distance) { result = node; distance = candidate; }
       }
-      return best;
+      return result;
     }
-
-    function handleEdgeNodeClick(point) {
-      const node = findNodeAt(point);
-      if (!node) {
-        setStatus('请点击已有节点；弯路需要先切换到 node 模式添加节点。');
-        return;
-      }
+    function setMode(mode) {
+      state.mode = mode;
+      state.selectedEdgeNodeId = null;
+      for (const name of ['place', 'node', 'edge']) document.getElementById(`mode-${name}`).classList.toggle('active', name === mode);
+      document.getElementById('place-fields').style.display = mode === 'place' ? 'block' : 'none';
+      setStatus(mode === 'place' ? '地点模式：填写标签后点击图片；工具会同时创建同位置路网节点。' :
+        mode === 'node' ? '节点模式：点击图片创建无标签路网节点。' :
+        '连边模式：依次点击两个已有节点，边的两端将严格使用节点坐标。');
+      render();
+    }
+    function addNode(point) {
+      snapshot();
+      const node = { id: serial('node', state.nodes), type: 'node', x: point.x, y: point.y };
+      state.nodes.push(node);
+      setStatus(`已创建 ${node.id}`);
+      render();
+    }
+    function addPlace(point) {
+      const label = fields.placeLabel.value.trim();
+      if (!label) { setStatus('请先填写地点标签。'); return; }
+      snapshot();
+      const node = { id: serial('node', state.nodes), type: 'node', x: point.x, y: point.y };
+      const place = {
+        id: serial('place', state.places),
+        type: 'place',
+        label,
+        routeNodeId: node.id,
+        x: point.x,
+        y: point.y,
+        reviewStatus: 'draft'
+      };
+      const buildingId = fields.buildingId.value.trim();
+      if (buildingId) place.buildingId = buildingId;
+      state.nodes.push(node);
+      state.places.push(place);
+      fields.placeLabel.value = '';
+      fields.buildingId.value = '';
+      setStatus(`已创建地点 ${place.label}，并绑定 ${node.id}`);
+      render();
+    }
+    function selectEdgeNode(point) {
+      const node = nearestNode(point);
+      if (!node) { setStatus('请点击已有节点；当前点击位置附近没有节点。'); return; }
       if (!state.selectedEdgeNodeId) {
         state.selectedEdgeNodeId = node.id;
+        setStatus(`已选择起点 ${node.id}；请点击终点节点。`);
         render();
-        setStatus(`已选择第一个节点 ${node.id}；请点击第二个节点完成连边。`);
         return;
       }
-      if (state.selectedEdgeNodeId === node.id) {
-        setStatus('不能连接同一个节点，请点击另一个节点。');
-        return;
-      }
-      const from = state.selectedEdgeNodeId;
-      const to = node.id;
+      if (state.selectedEdgeNodeId === node.id) { setStatus('起点和终点不能是同一个节点。'); return; }
       const duplicate = state.edges.some(edge =>
-        (edge.from === from && edge.to === to) || (edge.from === to && edge.to === from)
+        (edge.from === state.selectedEdgeNodeId && edge.to === node.id) ||
+        (edge.to === state.selectedEdgeNodeId && edge.from === node.id)
       );
-      if (duplicate) {
-        state.selectedEdgeNodeId = null;
-        render();
-        setStatus(`节点 ${from} 与 ${to} 已存在边。`);
-        return;
-      }
-      pushHistory();
-      const id = nextId('edge');
-      state.edges.push({
-        id,
-        from,
-        to,
+      if (duplicate) { setStatus('这两个节点之间已经存在边。'); state.selectedEdgeNodeId = null; render(); return; }
+      snapshot();
+      const edge = {
+        id: serial('edge', state.edges),
+        from: state.selectedEdgeNodeId,
+        to: node.id,
         type: 'edge',
         walkable: true,
-        reviewStatus: fields.reviewStatus.value
-      });
+        reviewStatus: 'draft'
+      };
+      state.edges.push(edge);
       state.selectedEdgeNodeId = null;
+      setStatus(`已创建边 ${edge.id}：${edge.from} → ${edge.to}`);
       render();
-      updateCounts();
-      setStatus(`已创建边 ${id}: ${from} ↔ ${to}`);
     }
-
     function undo() {
-      const snapshot = state.history.pop();
-      if (!snapshot) {
-        setStatus('没有可撤销的操作。');
-        return;
-      }
-      const data = JSON.parse(snapshot);
-      state.nodes = data.nodes;
-      state.edges = data.edges;
-      state.selectedEdgeNodeId = data.selectedEdgeNodeId || null;
-      state.places = data.places || [];
-      state.links = data.links || [];
-      render();
+      const previous = state.history.pop();
+      if (!previous) { setStatus('没有可撤销的操作。'); return; }
+      Object.assign(state, JSON.parse(previous), { selectedEdgeNodeId: null });
       setStatus('已撤销上一步。');
-    }
-
-    function clearAll() {
-      pushHistory();
-      state.nodes = [];
-      state.edges = [];
-      state.places = [];
-      state.links = [];
-      state.selectedEdgeNodeId = null;
       render();
-      setStatus('已清空标注。');
     }
-
-    function updateCounts() {
-      document.getElementById('place-count').textContent = String(state.places.length);
-      document.getElementById('node-count').textContent = String(state.nodes.length);
-      document.getElementById('edge-count').textContent = String(state.edges.length);
+    function clearAll() {
+      if (!confirm('确认清空当前全部标注？')) return;
+      snapshot();
+      state.places = []; state.nodes = []; state.edges = []; state.selectedEdgeNodeId = null;
+      render(); setStatus('已清空全部标注。');
     }
-
-    function drawBase() {
+    function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#fafafa';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      if (state.image) {
-        ctx.drawImage(state.image, 0, 0, canvas.width, canvas.height);
-      }
-    }
-
-    function drawPath(points, color, width, dash = []) {
-      if (points.length < 2) return;
+      ctx.fillStyle = '#fafafa'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+      if (state.image) ctx.drawImage(state.image, 0, 0, canvas.width, canvas.height);
       ctx.save();
-      ctx.strokeStyle = color;
-      ctx.lineWidth = width;
-      ctx.setLineDash(dash);
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.beginPath();
-      ctx.moveTo(points[0][0], points[0][1]);
-      for (let i = 1; i < points.length; i++) {
-        ctx.lineTo(points[i][0], points[i][1]);
-      }
-      ctx.stroke();
-      ctx.restore();
-    }
-
-    function drawSelectedEndpoint(node, color, text) {
-      if (!node) return;
-      ctx.save();
-      ctx.lineWidth = 4;
-      ctx.strokeStyle = '#ffffff';
-      ctx.fillStyle = color;
-      ctx.beginPath();
-      ctx.arc(node.x, node.y, 13, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 13px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(text, node.x, node.y + 1);
-      ctx.restore();
-    }
-
-    function render() {
-      drawBase();
+      ctx.lineWidth = 5; ctx.strokeStyle = 'rgba(49,95,140,.78)';
       for (const edge of state.edges) {
-        const fromNode = state.nodes.find(node => node.id === edge.from);
-        const toNode = state.nodes.find(node => node.id === edge.to);
-        if (fromNode && toNode) {
-          drawPath(
-            [[fromNode.x, fromNode.y], [toNode.x, toNode.y]],
-            edge.reviewStatus === 'needs-review' ? '#d97706' : '#176b87',
-            4
-          );
-        }
+        const from = state.nodes.find(node => node.id === edge.from);
+        const to = state.nodes.find(node => node.id === edge.to);
+        if (!from || !to) continue;
+        ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.lineTo(to.x, to.y); ctx.stroke();
       }
-
-      ctx.save();
-      ctx.font = '12px sans-serif';
-      ctx.textBaseline = 'top';
-      const placeNodeIds = new Set(state.places.map(place => place.routeNodeId));
       for (const node of state.nodes) {
-        ctx.beginPath();
-        ctx.fillStyle = placeNodeIds.has(node.id) ? '#c62828' : '#263238';
-        ctx.arc(node.x, node.y, placeNodeIds.has(node.id) ? 7 : 5, 0, Math.PI * 2);
-        ctx.fill();
+        const selected = node.id === state.selectedEdgeNodeId;
+        ctx.beginPath(); ctx.fillStyle = selected ? '#1b8d58' : '#263238'; ctx.arc(node.x, node.y, selected ? 10 : 6, 0, Math.PI * 2); ctx.fill();
+        if (selected) { ctx.fillStyle = '#fff'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('1', node.x, node.y); }
+      }
+      ctx.textAlign = 'left'; ctx.textBaseline = 'top'; ctx.font = 'bold 15px sans-serif';
+      for (const place of state.places) {
+        ctx.fillStyle = '#d45038'; ctx.beginPath(); ctx.arc(place.x, place.y, 9, 0, Math.PI * 2); ctx.fill();
+        const width = ctx.measureText(place.label).width;
+        ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.fillRect(place.x + 11, place.y - 3, width + 8, 21);
+        ctx.fillStyle = '#263238'; ctx.fillText(place.label, place.x + 15, place.y);
       }
       ctx.restore();
-      if (state.mode === 'edge' && state.selectedEdgeNodeId) {
-        drawSelectedEndpoint(
-          state.nodes.find(node => node.id === state.selectedEdgeNodeId),
-          '#15803d',
-          '1'
-        );
-      }
-      updateCounts();
     }
-
+    function render() {
+      draw();
+      document.getElementById('place-count').textContent = state.places.length;
+      document.getElementById('node-count').textContent = state.nodes.length;
+      document.getElementById('edge-count').textContent = state.edges.length;
+    }
     function buildExport() {
       return {
         version: 2,
         areaId: fields.areaId.value.trim(),
-        name: fields.mapName.value.trim(),
-        layer: Number(fields.floor.value) === 0 ? 'outdoor' : 'indoor',
+        name: fields.areaName.value.trim(),
+        layer: fields.layer.value,
         coordinateSystem: 'image-pixel',
-        image: {
-          path: 'map.png',
-          width: canvas.width,
-          height: canvas.height,
-          metersPerPixel: Number(fields.metersPerPixel.value)
-        },
-        buildingId: fields.buildingId.value.trim() || undefined,
+        image: { path: 'map.png', width: canvas.width, height: canvas.height, metersPerPixel: Number(fields.scale.value) },
         floor: Number(fields.floor.value),
-        source: {
-          label: '地图节点与边标注工具',
-          reviewStatus: 'draft',
-          notes: `直接基于 ${state.imageName || 'map.png'} 标注`
-        },
-        places: state.places.map(place => {
-          const { name, aliases, icon, ...cleanPlace } = place;
-          return { ...cleanPlace, type: 'place', label: normalizePlaceLabel(place) };
-        }),
-        nodes: state.nodes.map(node => {
-          const { label, connections, ...cleanNode } = node;
-          return { ...cleanNode, type: 'node' };
-        }),
-        edges: state.edges.map(edge => {
-          const { path, label, ...cleanEdge } = edge;
-          return { ...cleanEdge, type: 'edge' };
-        }),
-        links: state.links.map(link => {
-          const { type, ...cleanLink } = link;
-          return { ...cleanLink, label: link.label || '区域入口连接' };
-        })
+        source: { label: '地图节点与边标注工具', reviewStatus: 'draft', notes: '直接基于 map.png 标注' },
+        places: state.places,
+        nodes: state.nodes.map(({ id, type, x, y }) => ({ id, type: type === 'node' ? type : 'node', x, y })),
+        edges: state.edges.map(({ id, from, to, walkable, reviewStatus }) => ({ id, from, to, type: 'edge', walkable: walkable !== false, reviewStatus: reviewStatus || 'draft' })),
+        links: []
       };
     }
-
-    function exportJson() {
-      const data = buildExport();
-      outputEl.value = JSON.stringify(data, null, 2);
-      setStatus('JSON 已生成，可复制或下载。');
-    }
-
+    function exportJson() { outputEl.value = JSON.stringify(buildExport(), null, 2); setStatus('已生成规范 area.json。'); }
     function downloadJson() {
       exportJson();
-      const blob = new Blob([outputEl.value], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'area.json';
-      a.click();
-      URL.revokeObjectURL(url);
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(new Blob([outputEl.value], { type: 'application/json' }));
+      link.download = 'area.json'; link.click(); URL.revokeObjectURL(link.href);
+    }
+    function importArea(area) {
+      snapshot();
+      fields.areaId.value = area.areaId || fields.areaId.value;
+      fields.areaName.value = area.name || fields.areaName.value;
+      fields.layer.value = area.layer || 'outdoor';
+      fields.floor.value = area.floor ?? 0;
+      fields.scale.value = area.image?.metersPerPixel ?? .21;
+      state.places = (area.places || []).map(place => ({ ...place, type: 'place' }));
+      state.nodes = (area.nodes || []).map(node => ({ id: node.id, type: 'node', x: node.x, y: node.y }));
+      state.edges = (area.edges || []).map(edge => ({ id: edge.id, from: edge.from, to: edge.to, type: 'edge', walkable: edge.walkable !== false, reviewStatus: edge.reviewStatus || 'draft' }));
+      state.selectedEdgeNodeId = null;
+      render(); setStatus(`已导入：${state.places.length} 地点、${state.nodes.length} 节点、${state.edges.length} 边。`);
     }
 
-    document.getElementById('mode-place').addEventListener('click', () => setMode('place'));
-    document.getElementById('mode-node').addEventListener('click', () => setMode('node'));
-    document.getElementById('mode-edge').addEventListener('click', () => setMode('edge'));
+    for (const mode of ['place', 'node', 'edge']) document.getElementById(`mode-${mode}`).addEventListener('click', () => setMode(mode));
     document.getElementById('undo').addEventListener('click', undo);
+    document.getElementById('clear-edge-selection').addEventListener('click', () => { state.selectedEdgeNodeId = null; render(); setStatus('已取消当前连边。'); });
     document.getElementById('clear').addEventListener('click', clearAll);
     document.getElementById('export-json').addEventListener('click', exportJson);
     document.getElementById('download-json').addEventListener('click', downloadJson);
-
-    document.getElementById('import-json').addEventListener('change', event => {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        try {
-          const data = JSON.parse(reader.result);
-          if (data.coordinateSystem !== 'image-pixel') {
-            throw new Error('只支持 image-pixel 区域数据');
-          }
-          state.places = (data.places || []).map(place => ({
-            ...Object.fromEntries(
-              Object.entries(place).filter(([key]) => !['name', 'aliases', 'icon'].includes(key))
-            ),
-            type: 'place',
-            label: normalizePlaceLabel(place)
-          }));
-          state.nodes = (data.nodes || []).map(node => ({
-            ...Object.fromEntries(
-              Object.entries(node).filter(([key]) => !['label', 'connections'].includes(key))
-            ),
-            type: 'node'
-          }));
-          state.edges = (data.edges || []).map(edge => ({
-            ...Object.fromEntries(
-              Object.entries(edge).filter(([key]) => !['path', 'label'].includes(key))
-            ),
-            type: 'edge'
-          }));
-          state.links = (data.links || []).map(link => {
-            const { type, ...cleanLink } = link;
-            return { ...cleanLink, label: link.label || '区域入口连接' };
-          });
-          state.selectedEdgeNodeId = null;
-          state.history = [];
-          fields.areaId.value = data.areaId || fields.areaId.value;
-          fields.mapName.value = data.name || data.areaId || fields.mapName.value;
-          fields.buildingId.value = data.buildingId || '';
-          fields.floor.value = data.floor ?? ((data.layer || data.type) === 'outdoor' ? 0 : 1);
-          fields.metersPerPixel.value = data.image?.metersPerPixel ?? fields.metersPerPixel.value;
-          if (Number.isFinite(data.image?.width) && Number.isFinite(data.image?.height)) {
-            canvas.width = data.image.width;
-            canvas.height = data.image.height;
-          }
-          render();
-          setStatus(`已导入 ${file.name}；请继续选择同一张 map.png 后编辑。`);
-        } catch (error) {
-          setStatus(`导入失败：${error.message}`);
-        }
-      };
-      reader.readAsText(file, 'utf-8');
-    });
-
     document.getElementById('image-input').addEventListener('change', event => {
-      const file = event.target.files[0];
-      if (!file) return;
+      const file = event.target.files[0]; if (!file) return;
       const image = new Image();
-      image.onload = () => {
-        state.image = image;
-        state.imageName = file.name;
-        canvas.width = image.naturalWidth;
-        canvas.height = image.naturalHeight;
-        render();
-        setStatus(`已加载图片 ${file.name}，尺寸 ${canvas.width} x ${canvas.height}`);
-      };
+      image.onload = () => { state.image = image; state.imageName = file.name; canvas.width = image.naturalWidth; canvas.height = image.naturalHeight; render(); setStatus(`已加载 ${file.name}：${canvas.width} × ${canvas.height}`); };
       image.src = URL.createObjectURL(file);
     });
-
+    document.getElementById('json-input').addEventListener('change', async event => {
+      const file = event.target.files[0]; if (!file) return;
+      try { importArea(JSON.parse(await file.text())); } catch (error) { setStatus(`JSON 导入失败：${error.message}`); }
+    });
     canvas.addEventListener('click', event => {
-      const point = getPoint(event);
-      if (state.mode === 'place' || state.mode === 'node') addPoint(point);
-      else handleEdgeNodeClick(point);
+      const point = pointFromEvent(event);
+      if (state.mode === 'place') addPlace(point);
+      else if (state.mode === 'node') addNode(point);
+      else selectEdgeNode(point);
     });
 
-    setMode('place');
-    render();
+    setMode('node');
   </script>
 </body>
 </html>
