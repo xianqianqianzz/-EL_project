@@ -1,42 +1,43 @@
 /**
  * 图层切换控制器
- * 管理室外地图 ↔ 室内地图的切换和状态
+ * 管理室外地图 / 室内地图的切换和状态
  */
 class LayerSwitch {
   constructor(outdoorMap, indoorMap) {
     this.outdoor = outdoorMap;
     this.indoor = indoorMap;
-    this.mode = 'outdoor';         // 'outdoor' | 'indoor'
-    this.currentBuilding = null;   // 当前进入的建筑对象
-    this.currentFloor = 1;
-
-    /** @type {Function|null} 图层切换回调 */
+    this.mode = 'outdoor';
+    this.currentBuilding = null;
+    this.buildings = [];
     this._onSwitch = null;
   }
 
   /**
-   * 进入室内地图
-   * @param {Object} building  - 建筑对象 { id, name, floors, ... }
-   * @param {Object} indoorData - 室内数据 { floors, nodes, edges, ... }
-   * @param {number} [floor=1]  - 进入显示的楼层
+   * 加载建筑注册表
+   * @param {Array} buildings - buildings.json 的数据
    */
-  enterIndoor(building, indoorData, floor) {
+  loadBuildings(buildings) {
+    this.buildings = buildings || [];
+  }
+
+  /**
+   * 进入室内地图
+   * @param {Object} building - 建筑对象 { id, name, floors }
+   */
+  enterIndoor(building) {
+    if (!building) return;
     this.mode = 'indoor';
     this.currentBuilding = building;
-    const availableFloors = indoorData.floors || building.floors || [];
-    this.currentFloor = floor ?? this._getFloorLevels(availableFloors)[0] ?? 1;
 
     document.getElementById('outdoor-map').classList.add('hidden');
     document.getElementById('indoor-map').classList.remove('hidden');
 
-    document.querySelector('.indoor-title').textContent = building.name;
-    this.indoor.loadBuilding(building.id, indoorData);
-    this.indoor.switchFloor(this.currentFloor);
+    var titleEl = document.querySelector('.indoor-title');
+    if (titleEl) titleEl.textContent = building.name;
 
-    // 渲染楼层选择器
-    this._renderFloorSelector(availableFloors);
+    this.indoor.loadBuilding(building);
+    this._renderFloorSelector();
 
-    // 更新信息面板
     if (this._onSwitch) this._onSwitch('indoor', building);
   }
 
@@ -47,38 +48,63 @@ class LayerSwitch {
     document.getElementById('outdoor-map').classList.remove('hidden');
     document.getElementById('indoor-map').classList.add('hidden');
 
-    // 触发地图 resize（Leaflet 在 hidden 变 visible 时需要）
-    setTimeout(() => this.outdoor.map.invalidateSize(), 100);
+    this.indoor.destroy();
+
+    setTimeout(function() {
+      if (this.outdoor && this.outdoor.map) this.outdoor.map.invalidateSize();
+    }.bind(this), 100);
 
     if (this._onSwitch) this._onSwitch('outdoor', null);
   }
 
-  _renderFloorSelector(floors) {
-    const container = document.getElementById('floor-selector');
+  /**
+   * 通过建筑名搜索匹配的建筑
+   */
+  findBuildingByName(name) {
+    if (!name) return null;
+    var q = name.toLowerCase();
+    for (var i = 0; i < this.buildings.length; i++) {
+      var b = this.buildings[i];
+      if (b.name.toLowerCase().indexOf(q) !== -1 || b.id.toLowerCase().indexOf(q) !== -1) {
+        return b;
+      }
+      // Also search aliases
+      var aliases = b.aliases || [];
+      for (var j = 0; j < aliases.length; j++) {
+        if (aliases[j].toLowerCase().indexOf(q) !== -1) {
+          return b;
+        }
+      }
+    }
+    return null;
+  }
+
+  _renderFloorSelector() {
+    var container = document.getElementById('floor-selector');
     if (!container) return;
     container.innerHTML = '';
 
-    // floors 可能是 [1,2,3] 或 [{ level:1, label:'1F' }, ...]
-    const levels = this._getFloorLevels(floors);
+    var floorCount = this.indoor.getFloorCount();
+    if (floorCount <= 1) {
+      container.style.display = 'none';
+      return;
+    }
+    container.style.display = 'flex';
 
-    for (const lv of levels) {
-      const btn = document.createElement('button');
-      btn.className = 'floor-btn' + (lv === this.currentFloor ? ' active' : '');
-      btn.textContent = lv <= 0 ? `B${-lv}` : `${lv}F`;
-      btn.addEventListener('click', () => {
-        this.currentFloor = lv;
-        this.indoor.switchFloor(lv);
-        this._renderFloorSelector(levels);
-      });
+    var self = this;
+    for (var i = 0; i < floorCount; i++) {
+      var floor = this.currentBuilding.floors[i];
+      var btn = document.createElement('button');
+      btn.className = 'floor-btn' + (i === this.indoor.currentFloorIdx ? ' active' : '');
+      btn.textContent = (floor.level || '') + 'F';
+      (function(idx) {
+        btn.addEventListener('click', function() {
+          self.indoor.switchFloor(idx);
+          self._renderFloorSelector();
+        });
+      })(i);
       container.appendChild(btn);
     }
-  }
-
-  _getFloorLevels(floors) {
-    return (floors || [])
-      .map(f => typeof f === 'number' ? f : f.level)
-      .filter(f => typeof f === 'number')
-      .sort((a, b) => a - b);
   }
 
   onSwitch(fn) { this._onSwitch = fn; }

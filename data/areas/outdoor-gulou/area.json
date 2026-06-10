@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "areaId": "outdoor-gulou",
+  "name": "南京大学鼓楼校区室外总图",
+  "layer": "outdoor",
+  "coordinateSystem": "image-pixel",
+  "image": {
+    "path": "map.png",
+    "width": 5103,
+    "height": 7654,
+    "metersPerPixel": 0.21
+  },
+  "floor": 0,
+  "source": {
+    "type": "manual",
+    "description": "鼓楼校区底图，路网节点与边待标注"
+  },
+  "places": [],
+  "nodes": [],
+  "edges": [],
+  "links": []
+}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>南京大学仙林校区地图</title>
+  <title>南京大学校园地图</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link rel="stylesheet" href="css/main.css?v=area-v5">
   <link rel="stylesheet" href="css/map.css?v=area-v4">
@@ -12,6 +12,11 @@
 <body>
   <header id="header">
     <div class="logo">南大校园地图</div>
+    <select id="campus-switcher" class="campus-switcher">
+      <option value="outdoor-xianlin">仙林校区</option>
+      <option value="outdoor-gulou">鼓楼校区</option>
+    </select>
+    <button class="theme-toggle" id="btn-theme" title="切换深色模式" aria-label="切换深色模式">☀</button>
     <div class="search-container">
       <div class="search-row">
         <div class="search-field">
@@ -48,6 +53,7 @@
           <span class="route-time"></span>
         </div>
         <div class="route-segments"></div>
+        <button class="btn-share hidden" id="btn-share-route">📋 复制分享链接</button>
         <h4>途经节点</h4>
         <ol class="route-steps"></ol>
       </div>
@@ -59,6 +65,17 @@
         <button type="button" id="btn-cancel-selection">取消</button>
       </div>
       <div id="outdoor-map"></div>
+      <div id="indoor-map" class="hidden">
+        <div class="indoor-toolbar">
+          <button id="btn-back-outdoor">&#8592; 返回室外</button>
+          <span class="indoor-title"></span>
+          <div id="floor-selector" class="floor-selector"></div>
+        </div>
+        <div id="indoor-map-inner"></div>
+      </div>
+      <div class="map-controls">
+        <button type="button" class="map-ctrl-btn" id="btn-measure" title="测距">📏</button>
+      </div>
     </main>
   </div>
 
@@ -73,6 +90,9 @@
   <script src="js/map/outdoor.js?v=area-v4"></script>
   <script src="js/ui/search.js?v=area-v4"></script>
   <script src="js/ui/panel.js?v=area-v4"></script>
+  <script src="js/nav/indoor-graph.js?v=area-v4"></script>
+  <script src="js/map/indoor.js?v=area-v4"></script>
+  <script src="js/map/layer-switch.js?v=area-v4"></script>
   <script src="js/app.js?v=area-v4"></script>
 </body>
 </html>
