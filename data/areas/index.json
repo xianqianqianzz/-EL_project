@@ -7,6 +7,12 @@
       "name": "南京大学仙林校区室外总图",
       "type": "outdoor",
       "path": "data/areas/outdoor-xianlin/area.json"
+    },
+    {
+      "id": "outdoor-gulou",
+      "name": "南京大学鼓楼校区室外总图",
+      "type": "outdoor",
+      "path": "data/areas/outdoor-gulou/area.json"
     }
   ]
 }
