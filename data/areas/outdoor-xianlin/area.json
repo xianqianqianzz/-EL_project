@@ -13,7 +13,7 @@
   "floor": 0,
   "source": {
     "label": "地图节点与边标注工具",
-    "reviewStatus": "draft",
+    "reviewStatus": "reviewed",
     "notes": "直接基于 map.png 标注"
   },
   "places": [
@@ -24,7 +24,7 @@
       "routeNodeId": "outdoor-xianlin-node-001",
       "x": 2726,
       "y": 5160,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-002",
@@ -33,7 +33,7 @@
       "routeNodeId": "outdoor-xianlin-node-002",
       "x": 2716,
       "y": 4228,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-003",
@@ -42,7 +42,7 @@
       "routeNodeId": "outdoor-xianlin-node-038",
       "x": 1672,
       "y": 5105,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-004",
@@ -51,7 +51,7 @@
       "routeNodeId": "outdoor-xianlin-node-039",
       "x": 1538,
       "y": 4844,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-005",
@@ -60,7 +60,7 @@
       "routeNodeId": "outdoor-xianlin-node-040",
       "x": 1579,
       "y": 4941,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-006",
@@ -69,7 +69,7 @@
       "routeNodeId": "outdoor-xianlin-node-041",
       "x": 1463,
       "y": 4637,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-007",
@@ -78,7 +78,7 @@
       "routeNodeId": "outdoor-xianlin-node-042",
       "x": 1215,
       "y": 4412,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-008",
@@ -87,7 +87,7 @@
       "routeNodeId": "outdoor-xianlin-node-043",
       "x": 1489,
       "y": 4290,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-009",
@@ -96,7 +96,7 @@
       "routeNodeId": "outdoor-xianlin-node-307",
       "x": 1530,
       "y": 4607,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-010",
@@ -105,7 +105,7 @@
       "routeNodeId": "outdoor-xianlin-node-308",
       "x": 1901,
       "y": 4620,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-011",
@@ -114,7 +114,7 @@
       "routeNodeId": "outdoor-xianlin-node-338",
       "x": 1265,
       "y": 2720,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-012",
@@ -123,7 +123,7 @@
       "routeNodeId": "outdoor-xianlin-node-348",
       "x": 1443,
       "y": 4311,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-013",
@@ -132,7 +132,7 @@
       "routeNodeId": "outdoor-xianlin-node-349",
       "x": 1097,
       "y": 4133,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-014",
@@ -141,7 +141,7 @@
       "routeNodeId": "outdoor-xianlin-node-351",
       "x": 1372,
       "y": 4026,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-015",
@@ -150,7 +150,7 @@
       "routeNodeId": "outdoor-xianlin-node-353",
       "x": 1406,
       "y": 3842,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-016",
@@ -159,7 +159,7 @@
       "routeNodeId": "outdoor-xianlin-node-354",
       "x": 1215,
       "y": 3800,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-017",
@@ -168,7 +168,7 @@
       "routeNodeId": "outdoor-xianlin-node-356",
       "x": 1096,
       "y": 3661,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-018",
@@ -177,7 +177,7 @@
       "routeNodeId": "outdoor-xianlin-node-358",
       "x": 823,
       "y": 3431,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-019",
@@ -186,7 +186,7 @@
       "routeNodeId": "outdoor-xianlin-node-359",
       "x": 909,
       "y": 3491,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-020",
@@ -195,7 +195,7 @@
       "routeNodeId": "outdoor-xianlin-node-361",
       "x": 842,
       "y": 3266,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-021",
@@ -204,7 +204,7 @@
       "routeNodeId": "outdoor-xianlin-node-363",
       "x": 1138,
       "y": 2991,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-022",
@@ -213,7 +213,7 @@
       "routeNodeId": "outdoor-xianlin-node-365",
       "x": 733,
       "y": 2929,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-023",
@@ -222,7 +222,7 @@
       "routeNodeId": "outdoor-xianlin-node-366",
       "x": 715,
       "y": 2790,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-024",
@@ -231,7 +231,7 @@
       "routeNodeId": "outdoor-xianlin-node-367",
       "x": 715,
       "y": 2547,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-025",
@@ -240,7 +240,7 @@
       "routeNodeId": "outdoor-xianlin-node-370",
       "x": 978,
       "y": 2717,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-026",
@@ -249,7 +249,7 @@
       "routeNodeId": "outdoor-xianlin-node-371",
       "x": 776,
       "y": 2169,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-027",
@@ -258,7 +258,7 @@
       "routeNodeId": "outdoor-xianlin-node-373",
       "x": 967,
       "y": 2240,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-028",
@@ -267,7 +267,7 @@
       "routeNodeId": "outdoor-xianlin-node-374",
       "x": 881,
       "y": 2153,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-029",
@@ -276,7 +276,7 @@
       "routeNodeId": "outdoor-xianlin-node-375",
       "x": 787,
       "y": 2007,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-030",
@@ -285,7 +285,7 @@
       "routeNodeId": "outdoor-xianlin-node-377",
       "x": 812,
       "y": 1787,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-031",
@@ -294,7 +294,7 @@
       "routeNodeId": "outdoor-xianlin-node-379",
       "x": 963,
       "y": 1782,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-032",
@@ -303,7 +303,7 @@
       "routeNodeId": "outdoor-xianlin-node-381",
       "x": 1124,
       "y": 1777,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-033",
@@ -312,7 +312,7 @@
       "routeNodeId": "outdoor-xianlin-node-383",
       "x": 1289,
       "y": 1765,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-034",
@@ -321,7 +321,7 @@
       "routeNodeId": "outdoor-xianlin-node-385",
       "x": 1631,
       "y": 4577,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-035",
@@ -330,7 +330,7 @@
       "routeNodeId": "outdoor-xianlin-node-386",
       "x": 1069,
       "y": 2335,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-036",
@@ -339,7 +339,7 @@
       "routeNodeId": "outdoor-xianlin-node-387",
       "x": 834,
       "y": 2320,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-037",
@@ -348,7 +348,7 @@
       "routeNodeId": "outdoor-xianlin-node-388",
       "x": 1103,
       "y": 2175,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-038",
@@ -357,7 +357,7 @@
       "routeNodeId": "outdoor-xianlin-node-390",
       "x": 1274,
       "y": 2190,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-039",
@@ -366,7 +366,7 @@
       "routeNodeId": "outdoor-xianlin-node-393",
       "x": 1141,
       "y": 1966,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-040",
@@ -375,7 +375,7 @@
       "routeNodeId": "outdoor-xianlin-node-394",
       "x": 1023,
       "y": 1957,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-041",
@@ -384,7 +384,7 @@
       "routeNodeId": "outdoor-xianlin-node-395",
       "x": 1448,
       "y": 1922,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-042",
@@ -393,7 +393,7 @@
       "routeNodeId": "outdoor-xianlin-node-396",
       "x": 1437,
       "y": 2082,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-043",
@@ -402,7 +402,7 @@
       "routeNodeId": "outdoor-xianlin-node-397",
       "x": 1371,
       "y": 2231,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-044",
@@ -411,7 +411,7 @@
       "routeNodeId": "outdoor-xianlin-node-398",
       "x": 1575,
       "y": 2273,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-045",
@@ -420,7 +420,7 @@
       "routeNodeId": "outdoor-xianlin-node-399",
       "x": 1557,
       "y": 2619,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-046",
@@ -429,7 +429,7 @@
       "routeNodeId": "outdoor-xianlin-node-400",
       "x": 1775,
       "y": 2483,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-047",
@@ -438,7 +438,7 @@
       "routeNodeId": "outdoor-xianlin-node-402",
       "x": 1426,
       "y": 2830,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-048",
@@ -447,7 +447,7 @@
       "routeNodeId": "outdoor-xianlin-node-404",
       "x": 1406,
       "y": 3049,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-049",
@@ -456,7 +456,7 @@
       "routeNodeId": "outdoor-xianlin-node-406",
       "x": 1728,
       "y": 2795,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-050",
@@ -465,7 +465,7 @@
       "routeNodeId": "outdoor-xianlin-node-407",
       "x": 1843,
       "y": 2937,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-051",
@@ -474,7 +474,7 @@
       "routeNodeId": "outdoor-xianlin-node-408",
       "x": 1895,
       "y": 2800,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-052",
@@ -483,7 +483,7 @@
       "routeNodeId": "outdoor-xianlin-node-410",
       "x": 1919,
       "y": 2677,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-053",
@@ -492,7 +492,7 @@
       "routeNodeId": "outdoor-xianlin-node-411",
       "x": 1935,
       "y": 2609,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-054",
@@ -501,7 +501,7 @@
       "routeNodeId": "outdoor-xianlin-node-412",
       "x": 1939,
       "y": 2510,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-055",
@@ -510,7 +510,7 @@
       "routeNodeId": "outdoor-xianlin-node-416",
       "x": 2033,
       "y": 3303,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-056",
@@ -519,7 +519,7 @@
       "routeNodeId": "outdoor-xianlin-node-417",
       "x": 2031,
       "y": 3214,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-057",
@@ -528,7 +528,7 @@
       "routeNodeId": "outdoor-xianlin-node-418",
       "x": 2506,
       "y": 2835,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-058",
@@ -537,7 +537,7 @@
       "routeNodeId": "outdoor-xianlin-node-419",
       "x": 2364,
       "y": 3145,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-059",
@@ -546,7 +546,7 @@
       "routeNodeId": "outdoor-xianlin-node-420",
       "x": 2498,
       "y": 3257,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-060",
@@ -555,7 +555,7 @@
       "routeNodeId": "outdoor-xianlin-node-422",
       "x": 2467,
       "y": 3408,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-061",
@@ -564,7 +564,7 @@
       "routeNodeId": "outdoor-xianlin-node-423",
       "x": 2557,
       "y": 3525,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-062",
@@ -573,7 +573,7 @@
       "routeNodeId": "outdoor-xianlin-node-425",
       "x": 2615,
       "y": 3569,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-063",
@@ -582,7 +582,7 @@
       "routeNodeId": "outdoor-xianlin-node-426",
       "x": 2594,
       "y": 3679,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-064",
@@ -591,7 +591,7 @@
       "routeNodeId": "outdoor-xianlin-node-428",
       "x": 2664,
       "y": 3699,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-065",
@@ -600,7 +600,7 @@
       "routeNodeId": "outdoor-xianlin-node-430",
       "x": 2633,
       "y": 3631,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-066",
@@ -609,7 +609,7 @@
       "routeNodeId": "outdoor-xianlin-node-432",
       "x": 2315,
       "y": 3657,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-067",
@@ -618,7 +618,7 @@
       "routeNodeId": "outdoor-xianlin-node-434",
       "x": 2523,
       "y": 3750,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-068",
@@ -627,7 +627,7 @@
       "routeNodeId": "outdoor-xianlin-node-435",
       "x": 2271,
       "y": 3730,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-069",
@@ -636,7 +636,7 @@
       "routeNodeId": "outdoor-xianlin-node-436",
       "x": 2464,
       "y": 3901,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-070",
@@ -645,7 +645,7 @@
       "routeNodeId": "outdoor-xianlin-node-437",
       "x": 2645,
       "y": 3881,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-071",
@@ -654,7 +654,7 @@
       "routeNodeId": "outdoor-xianlin-node-438",
       "x": 2476,
       "y": 4052,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-072",
@@ -663,7 +663,7 @@
       "routeNodeId": "outdoor-xianlin-node-441",
       "x": 2658,
       "y": 4000,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-073",
@@ -672,7 +672,7 @@
       "routeNodeId": "outdoor-xianlin-node-442",
       "x": 2788,
       "y": 3735,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-074",
@@ -681,7 +681,7 @@
       "routeNodeId": "outdoor-xianlin-node-443",
       "x": 2977,
       "y": 3798,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-075",
@@ -690,7 +690,7 @@
       "routeNodeId": "outdoor-xianlin-node-445",
       "x": 3120,
       "y": 3744,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-076",
@@ -699,7 +699,7 @@
       "routeNodeId": "outdoor-xianlin-node-447",
       "x": 3284,
       "y": 3741,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-077",
@@ -708,7 +708,7 @@
       "routeNodeId": "outdoor-xianlin-node-449",
       "x": 3396,
       "y": 3001,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-078",
@@ -717,7 +717,7 @@
       "routeNodeId": "outdoor-xianlin-node-450",
       "x": 2714,
       "y": 2416,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-079",
@@ -726,7 +726,7 @@
       "routeNodeId": "outdoor-xianlin-node-451",
       "x": 2383,
       "y": 1731,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-080",
@@ -735,7 +735,7 @@
       "routeNodeId": "outdoor-xianlin-node-452",
       "x": 2556,
       "y": 1628,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-081",
@@ -744,7 +744,7 @@
       "routeNodeId": "outdoor-xianlin-node-453",
       "x": 2429,
       "y": 1562,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-082",
@@ -753,7 +753,7 @@
       "routeNodeId": "outdoor-xianlin-node-454",
       "x": 2894,
       "y": 3906,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-083",
@@ -762,7 +762,7 @@
       "routeNodeId": "outdoor-xianlin-node-456",
       "x": 3068,
       "y": 3900,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-084",
@@ -771,7 +771,7 @@
       "routeNodeId": "outdoor-xianlin-node-457",
       "x": 3232,
       "y": 3913,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-085",
@@ -780,7 +780,7 @@
       "routeNodeId": "outdoor-xianlin-node-459",
       "x": 2909,
       "y": 4123,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-086",
@@ -789,7 +789,7 @@
       "routeNodeId": "outdoor-xianlin-node-461",
       "x": 3205,
       "y": 4006,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-087",
@@ -798,7 +798,7 @@
       "routeNodeId": "outdoor-xianlin-node-462",
       "x": 3204,
       "y": 4048,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-088",
@@ -807,7 +807,7 @@
       "routeNodeId": "outdoor-xianlin-node-463",
       "x": 3208,
       "y": 4081,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-089",
@@ -816,7 +816,7 @@
       "routeNodeId": "outdoor-xianlin-node-465",
       "x": 3117,
       "y": 4188,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-090",
@@ -825,7 +825,7 @@
       "routeNodeId": "outdoor-xianlin-node-466",
       "x": 3114,
       "y": 4224,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-091",
@@ -834,7 +834,7 @@
       "routeNodeId": "outdoor-xianlin-node-467",
       "x": 3264,
       "y": 4282,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-092",
@@ -843,7 +843,7 @@
       "routeNodeId": "outdoor-xianlin-node-468",
       "x": 2763,
       "y": 4224,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-093",
@@ -852,7 +852,7 @@
       "routeNodeId": "outdoor-xianlin-node-469",
       "x": 3166,
       "y": 4535,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-094",
@@ -861,7 +861,7 @@
       "routeNodeId": "outdoor-xianlin-node-472",
       "x": 3181,
       "y": 4701,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-095",
@@ -870,7 +870,7 @@
       "routeNodeId": "outdoor-xianlin-node-474",
       "x": 1793,
       "y": 4957,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-096",
@@ -879,7 +879,7 @@
       "routeNodeId": "outdoor-xianlin-node-475",
       "x": 2169,
       "y": 4590,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-097",
@@ -888,7 +888,7 @@
       "routeNodeId": "outdoor-xianlin-node-476",
       "x": 2474,
       "y": 4842,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-098",
@@ -897,7 +897,7 @@
       "routeNodeId": "outdoor-xianlin-node-478",
       "x": 2295,
       "y": 4618,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-099",
@@ -906,7 +906,7 @@
       "routeNodeId": "outdoor-xianlin-node-479",
       "x": 2339,
       "y": 5090,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-100",
@@ -915,7 +915,7 @@
       "routeNodeId": "outdoor-xianlin-node-483",
       "x": 2576,
       "y": 5053,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-101",
@@ -924,7 +924,7 @@
       "routeNodeId": "outdoor-xianlin-node-484",
       "x": 2407,
       "y": 5028,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-102",
@@ -933,7 +933,7 @@
       "routeNodeId": "outdoor-xianlin-node-485",
       "x": 2825,
       "y": 4969,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-103",
@@ -942,7 +942,7 @@
       "routeNodeId": "outdoor-xianlin-node-487",
       "x": 2905,
       "y": 5068,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-104",
@@ -951,7 +951,7 @@
       "routeNodeId": "outdoor-xianlin-node-490",
       "x": 3225,
       "y": 4916,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-105",
@@ -960,7 +960,7 @@
       "routeNodeId": "outdoor-xianlin-node-491",
       "x": 3222,
       "y": 5020,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-106",
@@ -969,7 +969,7 @@
       "routeNodeId": "outdoor-xianlin-node-495",
       "x": 2791,
       "y": 4781,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-107",
@@ -978,7 +978,7 @@
       "routeNodeId": "outdoor-xianlin-node-496",
       "x": 2798,
       "y": 4658,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-108",
@@ -987,7 +987,7 @@
       "routeNodeId": "outdoor-xianlin-node-498",
       "x": 2630,
       "y": 4571,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-109",
@@ -996,7 +996,7 @@
       "routeNodeId": "outdoor-xianlin-node-502",
       "x": 1474,
       "y": 3399,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-110",
@@ -1005,7 +1005,7 @@
       "routeNodeId": "outdoor-xianlin-node-504",
       "x": 1747,
       "y": 3556,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-111",
@@ -1014,7 +1014,7 @@
       "routeNodeId": "outdoor-xianlin-node-506",
       "x": 1849,
       "y": 3738,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-112",
@@ -1023,7 +1023,7 @@
       "routeNodeId": "outdoor-xianlin-node-507",
       "x": 1936,
       "y": 3846,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-113",
@@ -1032,7 +1032,7 @@
       "routeNodeId": "outdoor-xianlin-node-508",
       "x": 1705,
       "y": 3872,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-114",
@@ -1041,7 +1041,7 @@
       "routeNodeId": "outdoor-xianlin-node-509",
       "x": 2067,
       "y": 3957,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-115",
@@ -1050,7 +1050,7 @@
       "routeNodeId": "outdoor-xianlin-node-510",
       "x": 1587,
       "y": 3625,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-116",
@@ -1059,7 +1059,7 @@
       "routeNodeId": "outdoor-xianlin-node-512",
       "x": 1827,
       "y": 4230,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-117",
@@ -1068,7 +1068,7 @@
       "routeNodeId": "outdoor-xianlin-node-513",
       "x": 1893,
       "y": 4159,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-118",
@@ -1077,7 +1077,7 @@
       "routeNodeId": "outdoor-xianlin-node-514",
       "x": 1809,
       "y": 4086,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-119",
@@ -1086,7 +1086,7 @@
       "routeNodeId": "outdoor-xianlin-node-518",
       "x": 2206,
       "y": 4184,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-120",
@@ -1095,7 +1095,7 @@
       "routeNodeId": "outdoor-xianlin-node-519",
       "x": 2024,
       "y": 4302,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-121",
@@ -1104,7 +1104,7 @@
       "routeNodeId": "outdoor-xianlin-node-520",
       "x": 2169,
       "y": 4374,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-place-122",
@@ -1113,7 +1113,7 @@
       "routeNodeId": "outdoor-xianlin-node-521",
       "x": 2342,
       "y": 4353,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     }
   ],
   "nodes": [
@@ -4251,7 +4251,7 @@
       "to": "outdoor-xianlin-node-008",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-002",
@@ -4259,7 +4259,7 @@
       "to": "outdoor-xianlin-node-007",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-003",
@@ -4267,7 +4267,7 @@
       "to": "outdoor-xianlin-node-006",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-004",
@@ -4275,7 +4275,7 @@
       "to": "outdoor-xianlin-node-004",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-005",
@@ -4283,7 +4283,7 @@
       "to": "outdoor-xianlin-node-004",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-006",
@@ -4291,7 +4291,7 @@
       "to": "outdoor-xianlin-node-004",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-007",
@@ -4299,7 +4299,7 @@
       "to": "outdoor-xianlin-node-003",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-008",
@@ -4307,7 +4307,7 @@
       "to": "outdoor-xianlin-node-009",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-009",
@@ -4315,7 +4315,7 @@
       "to": "outdoor-xianlin-node-006",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-010",
@@ -4323,7 +4323,7 @@
       "to": "outdoor-xianlin-node-009",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-011",
@@ -4331,7 +4331,7 @@
       "to": "outdoor-xianlin-node-005",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-012",
@@ -4339,7 +4339,7 @@
       "to": "outdoor-xianlin-node-009",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-013",
@@ -4347,7 +4347,7 @@
       "to": "outdoor-xianlin-node-013",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-014",
@@ -4355,7 +4355,7 @@
       "to": "outdoor-xianlin-node-014",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-015",
@@ -4363,7 +4363,7 @@
       "to": "outdoor-xianlin-node-014",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-016",
@@ -4371,7 +4371,7 @@
       "to": "outdoor-xianlin-node-011",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-017",
@@ -4379,7 +4379,7 @@
       "to": "outdoor-xianlin-node-010",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-018",
@@ -4387,7 +4387,7 @@
       "to": "outdoor-xianlin-node-027",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-019",
@@ -4395,7 +4395,7 @@
       "to": "outdoor-xianlin-node-027",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-020",
@@ -4403,7 +4403,7 @@
       "to": "outdoor-xianlin-node-032",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-021",
@@ -4411,7 +4411,7 @@
       "to": "outdoor-xianlin-node-032",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-022",
@@ -4419,7 +4419,7 @@
       "to": "outdoor-xianlin-node-033",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-023",
@@ -4427,7 +4427,7 @@
       "to": "outdoor-xianlin-node-026",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-024",
@@ -4435,7 +4435,7 @@
       "to": "outdoor-xianlin-node-025",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-025",
@@ -4443,7 +4443,7 @@
       "to": "outdoor-xianlin-node-024",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-026",
@@ -4451,7 +4451,7 @@
       "to": "outdoor-xianlin-node-023",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-027",
@@ -4459,7 +4459,7 @@
       "to": "outdoor-xianlin-node-018",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-028",
@@ -4467,7 +4467,7 @@
       "to": "outdoor-xianlin-node-017",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-029",
@@ -4475,7 +4475,7 @@
       "to": "outdoor-xianlin-node-008",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-030",
@@ -4483,7 +4483,7 @@
       "to": "outdoor-xianlin-node-021",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-031",
@@ -4491,7 +4491,7 @@
       "to": "outdoor-xianlin-node-021",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-032",
@@ -4499,7 +4499,7 @@
       "to": "outdoor-xianlin-node-022",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-033",
@@ -4507,7 +4507,7 @@
       "to": "outdoor-xianlin-node-206",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-034",
@@ -4515,7 +4515,7 @@
       "to": "outdoor-xianlin-node-260",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-035",
@@ -4523,7 +4523,7 @@
       "to": "outdoor-xianlin-node-259",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-036",
@@ -4531,7 +4531,7 @@
       "to": "outdoor-xianlin-node-258",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-037",
@@ -4539,7 +4539,7 @@
       "to": "outdoor-xianlin-node-258",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-038",
@@ -4547,7 +4547,7 @@
       "to": "outdoor-xianlin-node-257",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-039",
@@ -4555,7 +4555,7 @@
       "to": "outdoor-xianlin-node-255",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-040",
@@ -4563,7 +4563,7 @@
       "to": "outdoor-xianlin-node-254",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-041",
@@ -4571,7 +4571,7 @@
       "to": "outdoor-xianlin-node-254",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-042",
@@ -4579,7 +4579,7 @@
       "to": "outdoor-xianlin-node-252",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-043",
@@ -4587,7 +4587,7 @@
       "to": "outdoor-xianlin-node-251",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-044",
@@ -4595,7 +4595,7 @@
       "to": "outdoor-xianlin-node-251",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-045",
@@ -4603,7 +4603,7 @@
       "to": "outdoor-xianlin-node-158",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-046",
@@ -4611,7 +4611,7 @@
       "to": "outdoor-xianlin-node-261",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-047",
@@ -4619,7 +4619,7 @@
       "to": "outdoor-xianlin-node-155",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-048",
@@ -4627,7 +4627,7 @@
       "to": "outdoor-xianlin-node-156",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-049",
@@ -4635,7 +4635,7 @@
       "to": "outdoor-xianlin-node-154",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-050",
@@ -4643,7 +4643,7 @@
       "to": "outdoor-xianlin-node-151",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-051",
@@ -4651,7 +4651,7 @@
       "to": "outdoor-xianlin-node-153",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-052",
@@ -4659,7 +4659,7 @@
       "to": "outdoor-xianlin-node-154",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-053",
@@ -4667,7 +4667,7 @@
       "to": "outdoor-xianlin-node-156",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-054",
@@ -4675,7 +4675,7 @@
       "to": "outdoor-xianlin-node-151",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-055",
@@ -4683,7 +4683,7 @@
       "to": "outdoor-xianlin-node-149",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-056",
@@ -4691,7 +4691,7 @@
       "to": "outdoor-xianlin-node-262",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-057",
@@ -4699,7 +4699,7 @@
       "to": "outdoor-xianlin-node-152",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-058",
@@ -4707,7 +4707,7 @@
       "to": "outdoor-xianlin-node-148",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-059",
@@ -4715,7 +4715,7 @@
       "to": "outdoor-xianlin-node-142",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-060",
@@ -4723,7 +4723,7 @@
       "to": "outdoor-xianlin-node-141",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-061",
@@ -4731,7 +4731,7 @@
       "to": "outdoor-xianlin-node-157",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-062",
@@ -4739,7 +4739,7 @@
       "to": "outdoor-xianlin-node-156",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-063",
@@ -4747,7 +4747,7 @@
       "to": "outdoor-xianlin-node-140",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-064",
@@ -4755,7 +4755,7 @@
       "to": "outdoor-xianlin-node-263",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-065",
@@ -4763,7 +4763,7 @@
       "to": "outdoor-xianlin-node-153",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-066",
@@ -4771,7 +4771,7 @@
       "to": "outdoor-xianlin-node-141",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-067",
@@ -4779,7 +4779,7 @@
       "to": "outdoor-xianlin-node-138",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-068",
@@ -4787,7 +4787,7 @@
       "to": "outdoor-xianlin-node-137",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-069",
@@ -4795,7 +4795,7 @@
       "to": "outdoor-xianlin-node-136",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-070",
@@ -4803,7 +4803,7 @@
       "to": "outdoor-xianlin-node-143",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-071",
@@ -4811,7 +4811,7 @@
       "to": "outdoor-xianlin-node-144",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-072",
@@ -4819,7 +4819,7 @@
       "to": "outdoor-xianlin-node-142",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-073",
@@ -4827,7 +4827,7 @@
       "to": "outdoor-xianlin-node-145",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-074",
@@ -4835,7 +4835,7 @@
       "to": "outdoor-xianlin-node-146",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-075",
@@ -4843,7 +4843,7 @@
       "to": "outdoor-xianlin-node-148",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-076",
@@ -4851,7 +4851,7 @@
       "to": "outdoor-xianlin-node-146",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-077",
@@ -4859,7 +4859,7 @@
       "to": "outdoor-xianlin-node-149",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-078",
@@ -4867,7 +4867,7 @@
       "to": "outdoor-xianlin-node-147",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-079",
@@ -4875,7 +4875,7 @@
       "to": "outdoor-xianlin-node-143",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-080",
@@ -4883,7 +4883,7 @@
       "to": "outdoor-xianlin-node-160",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-081",
@@ -4891,7 +4891,7 @@
       "to": "outdoor-xianlin-node-136",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-082",
@@ -4899,7 +4899,7 @@
       "to": "outdoor-xianlin-node-161",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-083",
@@ -4907,7 +4907,7 @@
       "to": "outdoor-xianlin-node-139",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-084",
@@ -4915,7 +4915,7 @@
       "to": "outdoor-xianlin-node-140",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-085",
@@ -4923,7 +4923,7 @@
       "to": "outdoor-xianlin-node-138",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-086",
@@ -4931,7 +4931,7 @@
       "to": "outdoor-xianlin-node-240",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-087",
@@ -4939,7 +4939,7 @@
       "to": "outdoor-xianlin-node-239",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-088",
@@ -4947,7 +4947,7 @@
       "to": "outdoor-xianlin-node-238",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-089",
@@ -4955,7 +4955,7 @@
       "to": "outdoor-xianlin-node-237",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-090",
@@ -4963,7 +4963,7 @@
       "to": "outdoor-xianlin-node-243",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-091",
@@ -4971,7 +4971,7 @@
       "to": "outdoor-xianlin-node-249",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-092",
@@ -4979,7 +4979,7 @@
       "to": "outdoor-xianlin-node-139",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-093",
@@ -4987,7 +4987,7 @@
       "to": "outdoor-xianlin-node-134",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-094",
@@ -4995,7 +4995,7 @@
       "to": "outdoor-xianlin-node-264",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-095",
@@ -5003,7 +5003,7 @@
       "to": "outdoor-xianlin-node-248",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-096",
@@ -5011,7 +5011,7 @@
       "to": "outdoor-xianlin-node-243",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-097",
@@ -5019,7 +5019,7 @@
       "to": "outdoor-xianlin-node-244",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-098",
@@ -5027,7 +5027,7 @@
       "to": "outdoor-xianlin-node-245",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-099",
@@ -5035,7 +5035,7 @@
       "to": "outdoor-xianlin-node-246",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-100",
@@ -5043,7 +5043,7 @@
       "to": "outdoor-xianlin-node-247",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-101",
@@ -5051,7 +5051,7 @@
       "to": "outdoor-xianlin-node-135",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-102",
@@ -5059,7 +5059,7 @@
       "to": "outdoor-xianlin-node-265",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-103",
@@ -5067,7 +5067,7 @@
       "to": "outdoor-xianlin-node-133",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-104",
@@ -5075,7 +5075,7 @@
       "to": "outdoor-xianlin-node-132",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-105",
@@ -5083,7 +5083,7 @@
       "to": "outdoor-xianlin-node-134",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-106",
@@ -5091,7 +5091,7 @@
       "to": "outdoor-xianlin-node-130",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-107",
@@ -5099,7 +5099,7 @@
       "to": "outdoor-xianlin-node-129",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-108",
@@ -5107,7 +5107,7 @@
       "to": "outdoor-xianlin-node-128",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-109",
@@ -5115,7 +5115,7 @@
       "to": "outdoor-xianlin-node-131",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-110",
@@ -5123,7 +5123,7 @@
       "to": "outdoor-xianlin-node-163",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-111",
@@ -5131,7 +5131,7 @@
       "to": "outdoor-xianlin-node-120",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-112",
@@ -5139,7 +5139,7 @@
       "to": "outdoor-xianlin-node-058",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-113",
@@ -5147,7 +5147,7 @@
       "to": "outdoor-xianlin-node-118",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-114",
@@ -5155,7 +5155,7 @@
       "to": "outdoor-xianlin-node-117",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-115",
@@ -5163,7 +5163,7 @@
       "to": "outdoor-xianlin-node-116",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-116",
@@ -5171,7 +5171,7 @@
       "to": "outdoor-xianlin-node-115",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-117",
@@ -5179,7 +5179,7 @@
       "to": "outdoor-xianlin-node-114",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-118",
@@ -5187,7 +5187,7 @@
       "to": "outdoor-xianlin-node-266",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-119",
@@ -5195,7 +5195,7 @@
       "to": "outdoor-xianlin-node-113",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-120",
@@ -5203,7 +5203,7 @@
       "to": "outdoor-xianlin-node-267",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-121",
@@ -5211,7 +5211,7 @@
       "to": "outdoor-xianlin-node-109",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-122",
@@ -5219,7 +5219,7 @@
       "to": "outdoor-xianlin-node-110",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-123",
@@ -5227,7 +5227,7 @@
       "to": "outdoor-xianlin-node-112",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-124",
@@ -5235,7 +5235,7 @@
       "to": "outdoor-xianlin-node-111",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-125",
@@ -5243,7 +5243,7 @@
       "to": "outdoor-xianlin-node-108",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-126",
@@ -5251,7 +5251,7 @@
       "to": "outdoor-xianlin-node-107",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-127",
@@ -5259,7 +5259,7 @@
       "to": "outdoor-xianlin-node-268",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-128",
@@ -5267,7 +5267,7 @@
       "to": "outdoor-xianlin-node-106",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-129",
@@ -5275,7 +5275,7 @@
       "to": "outdoor-xianlin-node-105",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-130",
@@ -5283,7 +5283,7 @@
       "to": "outdoor-xianlin-node-104",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-131",
@@ -5291,7 +5291,7 @@
       "to": "outdoor-xianlin-node-070",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-132",
@@ -5299,7 +5299,7 @@
       "to": "outdoor-xianlin-node-102",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-133",
@@ -5307,7 +5307,7 @@
       "to": "outdoor-xianlin-node-098",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-134",
@@ -5315,7 +5315,7 @@
       "to": "outdoor-xianlin-node-097",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-135",
@@ -5323,7 +5323,7 @@
       "to": "outdoor-xianlin-node-096",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-136",
@@ -5331,7 +5331,7 @@
       "to": "outdoor-xianlin-node-069",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-137",
@@ -5339,7 +5339,7 @@
       "to": "outdoor-xianlin-node-068",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-138",
@@ -5347,7 +5347,7 @@
       "to": "outdoor-xianlin-node-066",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-139",
@@ -5355,7 +5355,7 @@
       "to": "outdoor-xianlin-node-192",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-140",
@@ -5363,7 +5363,7 @@
       "to": "outdoor-xianlin-node-188",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-141",
@@ -5371,7 +5371,7 @@
       "to": "outdoor-xianlin-node-094",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-142",
@@ -5379,7 +5379,7 @@
       "to": "outdoor-xianlin-node-095",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-143",
@@ -5387,7 +5387,7 @@
       "to": "outdoor-xianlin-node-096",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-144",
@@ -5395,7 +5395,7 @@
       "to": "outdoor-xianlin-node-093",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-145",
@@ -5403,7 +5403,7 @@
       "to": "outdoor-xianlin-node-092",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-146",
@@ -5411,7 +5411,7 @@
       "to": "outdoor-xianlin-node-091",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-147",
@@ -5419,7 +5419,7 @@
       "to": "outdoor-xianlin-node-090",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-148",
@@ -5427,7 +5427,7 @@
       "to": "outdoor-xianlin-node-189",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-149",
@@ -5435,7 +5435,7 @@
       "to": "outdoor-xianlin-node-093",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-150",
@@ -5443,7 +5443,7 @@
       "to": "outdoor-xianlin-node-089",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-151",
@@ -5451,7 +5451,7 @@
       "to": "outdoor-xianlin-node-190",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-152",
@@ -5459,7 +5459,7 @@
       "to": "outdoor-xianlin-node-087",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-153",
@@ -5467,7 +5467,7 @@
       "to": "outdoor-xianlin-node-189",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-154",
@@ -5475,7 +5475,7 @@
       "to": "outdoor-xianlin-node-188",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-155",
@@ -5483,7 +5483,7 @@
       "to": "outdoor-xianlin-node-192",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-156",
@@ -5491,7 +5491,7 @@
       "to": "outdoor-xianlin-node-067",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-157",
@@ -5499,7 +5499,7 @@
       "to": "outdoor-xianlin-node-067",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-158",
@@ -5507,7 +5507,7 @@
       "to": "outdoor-xianlin-node-067",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-159",
@@ -5515,7 +5515,7 @@
       "to": "outdoor-xianlin-node-063",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-160",
@@ -5523,7 +5523,7 @@
       "to": "outdoor-xianlin-node-064",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-161",
@@ -5531,7 +5531,7 @@
       "to": "outdoor-xianlin-node-119",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-162",
@@ -5539,7 +5539,7 @@
       "to": "outdoor-xianlin-node-269",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-163",
@@ -5547,7 +5547,7 @@
       "to": "outdoor-xianlin-node-118",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-164",
@@ -5555,7 +5555,7 @@
       "to": "outdoor-xianlin-node-057",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-165",
@@ -5563,7 +5563,7 @@
       "to": "outdoor-xianlin-node-058",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-166",
@@ -5571,7 +5571,7 @@
       "to": "outdoor-xianlin-node-270",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-167",
@@ -5579,7 +5579,7 @@
       "to": "outdoor-xianlin-node-064",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-168",
@@ -5587,7 +5587,7 @@
       "to": "outdoor-xianlin-node-057",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-169",
@@ -5595,7 +5595,7 @@
       "to": "outdoor-xianlin-node-054",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-170",
@@ -5603,7 +5603,7 @@
       "to": "outdoor-xianlin-node-271",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-171",
@@ -5611,7 +5611,7 @@
       "to": "outdoor-xianlin-node-054",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-172",
@@ -5619,7 +5619,7 @@
       "to": "outdoor-xianlin-node-055",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-173",
@@ -5627,7 +5627,7 @@
       "to": "outdoor-xianlin-node-055",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-174",
@@ -5635,7 +5635,7 @@
       "to": "outdoor-xianlin-node-167",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-175",
@@ -5643,7 +5643,7 @@
       "to": "outdoor-xianlin-node-171",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-176",
@@ -5651,7 +5651,7 @@
       "to": "outdoor-xianlin-node-053",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-177",
@@ -5659,7 +5659,7 @@
       "to": "outdoor-xianlin-node-172",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-178",
@@ -5667,7 +5667,7 @@
       "to": "outdoor-xianlin-node-169",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-179",
@@ -5675,7 +5675,7 @@
       "to": "outdoor-xianlin-node-170",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-180",
@@ -5683,7 +5683,7 @@
       "to": "outdoor-xianlin-node-168",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-181",
@@ -5691,7 +5691,7 @@
       "to": "outdoor-xianlin-node-167",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-182",
@@ -5699,7 +5699,7 @@
       "to": "outdoor-xianlin-node-173",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-183",
@@ -5707,7 +5707,7 @@
       "to": "outdoor-xianlin-node-174",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-184",
@@ -5715,7 +5715,7 @@
       "to": "outdoor-xianlin-node-172",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-185",
@@ -5723,7 +5723,7 @@
       "to": "outdoor-xianlin-node-175",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-186",
@@ -5731,7 +5731,7 @@
       "to": "outdoor-xianlin-node-176",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-187",
@@ -5739,7 +5739,7 @@
       "to": "outdoor-xianlin-node-046",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-188",
@@ -5747,7 +5747,7 @@
       "to": "outdoor-xianlin-node-047",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-189",
@@ -5755,7 +5755,7 @@
       "to": "outdoor-xianlin-node-053",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-190",
@@ -5763,7 +5763,7 @@
       "to": "outdoor-xianlin-node-271",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-191",
@@ -5771,7 +5771,7 @@
       "to": "outdoor-xianlin-node-048",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-192",
@@ -5779,7 +5779,7 @@
       "to": "outdoor-xianlin-node-049",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-193",
@@ -5787,7 +5787,7 @@
       "to": "outdoor-xianlin-node-050",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-194",
@@ -5795,7 +5795,7 @@
       "to": "outdoor-xianlin-node-051",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-195",
@@ -5803,7 +5803,7 @@
       "to": "outdoor-xianlin-node-052",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-196",
@@ -5811,7 +5811,7 @@
       "to": "outdoor-xianlin-node-052",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-197",
@@ -5819,7 +5819,7 @@
       "to": "outdoor-xianlin-node-060",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-198",
@@ -5827,7 +5827,7 @@
       "to": "outdoor-xianlin-node-061",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-199",
@@ -5835,7 +5835,7 @@
       "to": "outdoor-xianlin-node-010",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-200",
@@ -5843,7 +5843,7 @@
       "to": "outdoor-xianlin-node-059",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-201",
@@ -5851,7 +5851,7 @@
       "to": "outdoor-xianlin-node-272",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-202",
@@ -5859,7 +5859,7 @@
       "to": "outdoor-xianlin-node-049",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-203",
@@ -5867,7 +5867,7 @@
       "to": "outdoor-xianlin-node-012",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-204",
@@ -5875,7 +5875,7 @@
       "to": "outdoor-xianlin-node-273",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-205",
@@ -5883,7 +5883,7 @@
       "to": "outdoor-xianlin-node-059",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-206",
@@ -5891,7 +5891,7 @@
       "to": "outdoor-xianlin-node-274",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-207",
@@ -5899,7 +5899,7 @@
       "to": "outdoor-xianlin-node-193",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-208",
@@ -5907,7 +5907,7 @@
       "to": "outdoor-xianlin-node-062",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-209",
@@ -5915,7 +5915,7 @@
       "to": "outdoor-xianlin-node-275",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-210",
@@ -5923,7 +5923,7 @@
       "to": "outdoor-xianlin-node-087",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-211",
@@ -5931,7 +5931,7 @@
       "to": "outdoor-xianlin-node-088",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-212",
@@ -5939,7 +5939,7 @@
       "to": "outdoor-xianlin-node-090",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-213",
@@ -5947,7 +5947,7 @@
       "to": "outdoor-xianlin-node-195",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-214",
@@ -5955,7 +5955,7 @@
       "to": "outdoor-xianlin-node-194",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-215",
@@ -5963,7 +5963,7 @@
       "to": "outdoor-xianlin-node-193",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-216",
@@ -5971,7 +5971,7 @@
       "to": "outdoor-xianlin-node-031",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-217",
@@ -5979,7 +5979,7 @@
       "to": "outdoor-xianlin-node-076",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-218",
@@ -5987,7 +5987,7 @@
       "to": "outdoor-xianlin-node-080",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-219",
@@ -5995,7 +5995,7 @@
       "to": "outdoor-xianlin-node-088",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-220",
@@ -6003,7 +6003,7 @@
       "to": "outdoor-xianlin-node-085",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-221",
@@ -6011,7 +6011,7 @@
       "to": "outdoor-xianlin-node-086",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-222",
@@ -6019,7 +6019,7 @@
       "to": "outdoor-xianlin-node-033",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-223",
@@ -6027,7 +6027,7 @@
       "to": "outdoor-xianlin-node-077",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-224",
@@ -6035,7 +6035,7 @@
       "to": "outdoor-xianlin-node-078",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-225",
@@ -6043,7 +6043,7 @@
       "to": "outdoor-xianlin-node-081",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-226",
@@ -6051,7 +6051,7 @@
       "to": "outdoor-xianlin-node-081",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-227",
@@ -6059,7 +6059,7 @@
       "to": "outdoor-xianlin-node-187",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-228",
@@ -6067,7 +6067,7 @@
       "to": "outdoor-xianlin-node-082",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-229",
@@ -6075,7 +6075,7 @@
       "to": "outdoor-xianlin-node-083",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-230",
@@ -6083,7 +6083,7 @@
       "to": "outdoor-xianlin-node-075",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-231",
@@ -6091,7 +6091,7 @@
       "to": "outdoor-xianlin-node-074",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-232",
@@ -6099,7 +6099,7 @@
       "to": "outdoor-xianlin-node-079",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-233",
@@ -6107,7 +6107,7 @@
       "to": "outdoor-xianlin-node-078",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-234",
@@ -6115,7 +6115,7 @@
       "to": "outdoor-xianlin-node-074",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-235",
@@ -6123,7 +6123,7 @@
       "to": "outdoor-xianlin-node-073",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-236",
@@ -6131,7 +6131,7 @@
       "to": "outdoor-xianlin-node-072",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-237",
@@ -6139,7 +6139,7 @@
       "to": "outdoor-xianlin-node-032",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-238",
@@ -6147,7 +6147,7 @@
       "to": "outdoor-xianlin-node-075",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-239",
@@ -6155,7 +6155,7 @@
       "to": "outdoor-xianlin-node-071",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-240",
@@ -6163,7 +6163,7 @@
       "to": "outdoor-xianlin-node-029",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-241",
@@ -6171,7 +6171,7 @@
       "to": "outdoor-xianlin-node-028",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-242",
@@ -6179,7 +6179,7 @@
       "to": "outdoor-xianlin-node-027",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-243",
@@ -6187,7 +6187,7 @@
       "to": "outdoor-xianlin-node-028",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-244",
@@ -6195,7 +6195,7 @@
       "to": "outdoor-xianlin-node-036",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-245",
@@ -6203,7 +6203,7 @@
       "to": "outdoor-xianlin-node-035",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-246",
@@ -6211,7 +6211,7 @@
       "to": "outdoor-xianlin-node-025",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-247",
@@ -6219,7 +6219,7 @@
       "to": "outdoor-xianlin-node-035",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-248",
@@ -6227,7 +6227,7 @@
       "to": "outdoor-xianlin-node-037",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-249",
@@ -6235,7 +6235,7 @@
       "to": "outdoor-xianlin-node-185",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-250",
@@ -6243,7 +6243,7 @@
       "to": "outdoor-xianlin-node-071",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-251",
@@ -6251,7 +6251,7 @@
       "to": "outdoor-xianlin-node-185",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-252",
@@ -6259,7 +6259,7 @@
       "to": "outdoor-xianlin-node-071",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-253",
@@ -6267,7 +6267,7 @@
       "to": "outdoor-xianlin-node-184",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-254",
@@ -6275,7 +6275,7 @@
       "to": "outdoor-xianlin-node-183",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-255",
@@ -6283,7 +6283,7 @@
       "to": "outdoor-xianlin-node-034",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-256",
@@ -6291,7 +6291,7 @@
       "to": "outdoor-xianlin-node-023",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-257",
@@ -6299,7 +6299,7 @@
       "to": "outdoor-xianlin-node-022",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-258",
@@ -6307,7 +6307,7 @@
       "to": "outdoor-xianlin-node-183",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-259",
@@ -6315,7 +6315,7 @@
       "to": "outdoor-xianlin-node-015",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-260",
@@ -6323,7 +6323,7 @@
       "to": "outdoor-xianlin-node-182",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-261",
@@ -6331,7 +6331,7 @@
       "to": "outdoor-xianlin-node-020",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-262",
@@ -6339,7 +6339,7 @@
       "to": "outdoor-xianlin-node-019",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-263",
@@ -6347,7 +6347,7 @@
       "to": "outdoor-xianlin-node-016",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-264",
@@ -6355,7 +6355,7 @@
       "to": "outdoor-xianlin-node-003",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-265",
@@ -6363,7 +6363,7 @@
       "to": "outdoor-xianlin-node-182",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-266",
@@ -6371,7 +6371,7 @@
       "to": "outdoor-xianlin-node-044",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-267",
@@ -6379,7 +6379,7 @@
       "to": "outdoor-xianlin-node-046",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-268",
@@ -6387,7 +6387,7 @@
       "to": "outdoor-xianlin-node-045",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-269",
@@ -6395,7 +6395,7 @@
       "to": "outdoor-xianlin-node-177",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-270",
@@ -6403,7 +6403,7 @@
       "to": "outdoor-xianlin-node-178",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-271",
@@ -6411,7 +6411,7 @@
       "to": "outdoor-xianlin-node-180",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-272",
@@ -6419,7 +6419,7 @@
       "to": "outdoor-xianlin-node-179",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-273",
@@ -6427,7 +6427,7 @@
       "to": "outdoor-xianlin-node-181",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-274",
@@ -6435,7 +6435,7 @@
       "to": "outdoor-xianlin-node-276",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-275",
@@ -6443,7 +6443,7 @@
       "to": "outdoor-xianlin-node-020",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-276",
@@ -6451,7 +6451,7 @@
       "to": "outdoor-xianlin-node-016",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-277",
@@ -6459,7 +6459,7 @@
       "to": "outdoor-xianlin-node-015",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-278",
@@ -6467,7 +6467,7 @@
       "to": "outdoor-xianlin-node-005",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-279",
@@ -6475,7 +6475,7 @@
       "to": "outdoor-xianlin-node-015",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-280",
@@ -6483,7 +6483,7 @@
       "to": "outdoor-xianlin-node-278",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-281",
@@ -6491,7 +6491,7 @@
       "to": "outdoor-xianlin-node-060",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-282",
@@ -6499,7 +6499,7 @@
       "to": "outdoor-xianlin-node-052",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-283",
@@ -6507,7 +6507,7 @@
       "to": "outdoor-xianlin-node-280",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-284",
@@ -6515,7 +6515,7 @@
       "to": "outdoor-xianlin-node-279",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-285",
@@ -6523,7 +6523,7 @@
       "to": "outdoor-xianlin-node-063",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-286",
@@ -6531,7 +6531,7 @@
       "to": "outdoor-xianlin-node-056",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-287",
@@ -6539,7 +6539,7 @@
       "to": "outdoor-xianlin-node-054",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-288",
@@ -6547,7 +6547,7 @@
       "to": "outdoor-xianlin-node-284",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-289",
@@ -6555,7 +6555,7 @@
       "to": "outdoor-xianlin-node-065",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-290",
@@ -6563,7 +6563,7 @@
       "to": "outdoor-xianlin-node-283",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-291",
@@ -6571,7 +6571,7 @@
       "to": "outdoor-xianlin-node-066",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-292",
@@ -6579,7 +6579,7 @@
       "to": "outdoor-xianlin-node-285",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-293",
@@ -6587,7 +6587,7 @@
       "to": "outdoor-xianlin-node-069",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-294",
@@ -6595,7 +6595,7 @@
       "to": "outdoor-xianlin-node-099",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-295",
@@ -6603,7 +6603,7 @@
       "to": "outdoor-xianlin-node-100",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-296",
@@ -6611,7 +6611,7 @@
       "to": "outdoor-xianlin-node-101",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-297",
@@ -6619,7 +6619,7 @@
       "to": "outdoor-xianlin-node-102",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-298",
@@ -6627,7 +6627,7 @@
       "to": "outdoor-xianlin-node-103",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-299",
@@ -6635,7 +6635,7 @@
       "to": "outdoor-xianlin-node-288",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-300",
@@ -6643,7 +6643,7 @@
       "to": "outdoor-xianlin-node-287",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-301",
@@ -6651,7 +6651,7 @@
       "to": "outdoor-xianlin-node-286",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-302",
@@ -6659,7 +6659,7 @@
       "to": "outdoor-xianlin-node-070",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-303",
@@ -6667,7 +6667,7 @@
       "to": "outdoor-xianlin-node-236",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-304",
@@ -6675,7 +6675,7 @@
       "to": "outdoor-xianlin-node-221",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-305",
@@ -6683,7 +6683,7 @@
       "to": "outdoor-xianlin-node-222",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-306",
@@ -6691,7 +6691,7 @@
       "to": "outdoor-xianlin-node-220",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-307",
@@ -6699,7 +6699,7 @@
       "to": "outdoor-xianlin-node-223",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-308",
@@ -6707,7 +6707,7 @@
       "to": "outdoor-xianlin-node-224",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-309",
@@ -6715,7 +6715,7 @@
       "to": "outdoor-xianlin-node-225",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-310",
@@ -6723,7 +6723,7 @@
       "to": "outdoor-xianlin-node-289",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-311",
@@ -6731,7 +6731,7 @@
       "to": "outdoor-xianlin-node-226",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-312",
@@ -6739,7 +6739,7 @@
       "to": "outdoor-xianlin-node-227",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-313",
@@ -6747,7 +6747,7 @@
       "to": "outdoor-xianlin-node-228",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-314",
@@ -6755,7 +6755,7 @@
       "to": "outdoor-xianlin-node-229",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-315",
@@ -6763,7 +6763,7 @@
       "to": "outdoor-xianlin-node-230",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-316",
@@ -6771,7 +6771,7 @@
       "to": "outdoor-xianlin-node-231",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-317",
@@ -6779,7 +6779,7 @@
       "to": "outdoor-xianlin-node-232",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-318",
@@ -6787,7 +6787,7 @@
       "to": "outdoor-xianlin-node-233",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-319",
@@ -6795,7 +6795,7 @@
       "to": "outdoor-xianlin-node-234",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-320",
@@ -6803,7 +6803,7 @@
       "to": "outdoor-xianlin-node-235",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-321",
@@ -6811,7 +6811,7 @@
       "to": "outdoor-xianlin-node-219",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-322",
@@ -6819,7 +6819,7 @@
       "to": "outdoor-xianlin-node-218",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-323",
@@ -6827,7 +6827,7 @@
       "to": "outdoor-xianlin-node-218",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-324",
@@ -6835,7 +6835,7 @@
       "to": "outdoor-xianlin-node-216",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-325",
@@ -6843,7 +6843,7 @@
       "to": "outdoor-xianlin-node-215",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-326",
@@ -6851,7 +6851,7 @@
       "to": "outdoor-xianlin-node-214",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-327",
@@ -6859,7 +6859,7 @@
       "to": "outdoor-xianlin-node-213",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-328",
@@ -6867,7 +6867,7 @@
       "to": "outdoor-xianlin-node-212",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-329",
@@ -6875,7 +6875,7 @@
       "to": "outdoor-xianlin-node-211",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-330",
@@ -6883,7 +6883,7 @@
       "to": "outdoor-xianlin-node-207",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-331",
@@ -6891,7 +6891,7 @@
       "to": "outdoor-xianlin-node-209",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-332",
@@ -6899,7 +6899,7 @@
       "to": "outdoor-xianlin-node-206",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-333",
@@ -6907,7 +6907,7 @@
       "to": "outdoor-xianlin-node-208",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-334",
@@ -6915,7 +6915,7 @@
       "to": "outdoor-xianlin-node-208",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-335",
@@ -6923,7 +6923,7 @@
       "to": "outdoor-xianlin-node-206",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-336",
@@ -6931,7 +6931,7 @@
       "to": "outdoor-xianlin-node-205",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-337",
@@ -6939,7 +6939,7 @@
       "to": "outdoor-xianlin-node-204",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-338",
@@ -6947,7 +6947,7 @@
       "to": "outdoor-xianlin-node-204",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-339",
@@ -6955,7 +6955,7 @@
       "to": "outdoor-xianlin-node-203",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-340",
@@ -6963,7 +6963,7 @@
       "to": "outdoor-xianlin-node-202",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-341",
@@ -6971,7 +6971,7 @@
       "to": "outdoor-xianlin-node-201",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-342",
@@ -6979,7 +6979,7 @@
       "to": "outdoor-xianlin-node-200",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-343",
@@ -6987,7 +6987,7 @@
       "to": "outdoor-xianlin-node-198",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-344",
@@ -6995,7 +6995,7 @@
       "to": "outdoor-xianlin-node-199",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-345",
@@ -7003,7 +7003,7 @@
       "to": "outdoor-xianlin-node-197",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-346",
@@ -7011,7 +7011,7 @@
       "to": "outdoor-xianlin-node-196",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-347",
@@ -7019,7 +7019,7 @@
       "to": "outdoor-xianlin-node-084",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-348",
@@ -7027,7 +7027,7 @@
       "to": "outdoor-xianlin-node-083",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-349",
@@ -7035,7 +7035,7 @@
       "to": "outdoor-xianlin-node-045",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-350",
@@ -7043,7 +7043,7 @@
       "to": "outdoor-xianlin-node-044",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-351",
@@ -7051,7 +7051,7 @@
       "to": "outdoor-xianlin-node-302",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-352",
@@ -7059,7 +7059,7 @@
       "to": "outdoor-xianlin-node-303",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-353",
@@ -7067,7 +7067,7 @@
       "to": "outdoor-xianlin-node-295",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-354",
@@ -7075,7 +7075,7 @@
       "to": "outdoor-xianlin-node-294",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-355",
@@ -7083,7 +7083,7 @@
       "to": "outdoor-xianlin-node-293",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-356",
@@ -7091,7 +7091,7 @@
       "to": "outdoor-xianlin-node-292",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-357",
@@ -7099,7 +7099,7 @@
       "to": "outdoor-xianlin-node-298",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-358",
@@ -7107,7 +7107,7 @@
       "to": "outdoor-xianlin-node-296",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-359",
@@ -7115,7 +7115,7 @@
       "to": "outdoor-xianlin-node-297",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-360",
@@ -7123,7 +7123,7 @@
       "to": "outdoor-xianlin-node-298",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-361",
@@ -7131,7 +7131,7 @@
       "to": "outdoor-xianlin-node-045",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-362",
@@ -7139,7 +7139,7 @@
       "to": "outdoor-xianlin-node-301",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-363",
@@ -7147,7 +7147,7 @@
       "to": "outdoor-xianlin-node-299",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-364",
@@ -7155,7 +7155,7 @@
       "to": "outdoor-xianlin-node-304",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-365",
@@ -7163,7 +7163,7 @@
       "to": "outdoor-xianlin-node-299",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-366",
@@ -7171,7 +7171,7 @@
       "to": "outdoor-xianlin-node-038",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-367",
@@ -7179,7 +7179,7 @@
       "to": "outdoor-xianlin-node-045",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-368",
@@ -7187,7 +7187,7 @@
       "to": "outdoor-xianlin-node-290",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-369",
@@ -7195,7 +7195,7 @@
       "to": "outdoor-xianlin-node-305",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-370",
@@ -7203,7 +7203,7 @@
       "to": "outdoor-xianlin-node-174",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-371",
@@ -7211,7 +7211,7 @@
       "to": "outdoor-xianlin-node-041",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-372",
@@ -7219,7 +7219,7 @@
       "to": "outdoor-xianlin-node-306",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-373",
@@ -7227,7 +7227,7 @@
       "to": "outdoor-xianlin-node-173",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-374",
@@ -7235,7 +7235,7 @@
       "to": "outdoor-xianlin-node-171",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-375",
@@ -7243,7 +7243,7 @@
       "to": "outdoor-xianlin-node-308",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-376",
@@ -7251,7 +7251,7 @@
       "to": "outdoor-xianlin-node-047",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-377",
@@ -7259,7 +7259,7 @@
       "to": "outdoor-xianlin-node-051",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-378",
@@ -7267,7 +7267,7 @@
       "to": "outdoor-xianlin-node-309",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-379",
@@ -7275,7 +7275,7 @@
       "to": "outdoor-xianlin-node-311",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-380",
@@ -7283,7 +7283,7 @@
       "to": "outdoor-xianlin-node-309",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-381",
@@ -7291,7 +7291,7 @@
       "to": "outdoor-xianlin-node-047",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-382",
@@ -7299,7 +7299,7 @@
       "to": "outdoor-xianlin-node-163",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-383",
@@ -7307,7 +7307,7 @@
       "to": "outdoor-xianlin-node-129",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-384",
@@ -7315,7 +7315,7 @@
       "to": "outdoor-xianlin-node-162",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-385",
@@ -7323,7 +7323,7 @@
       "to": "outdoor-xianlin-node-165",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-386",
@@ -7331,7 +7331,7 @@
       "to": "outdoor-xianlin-node-164",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-387",
@@ -7339,7 +7339,7 @@
       "to": "outdoor-xianlin-node-166",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-388",
@@ -7347,7 +7347,7 @@
       "to": "outdoor-xianlin-node-312",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-389",
@@ -7355,7 +7355,7 @@
       "to": "outdoor-xianlin-node-162",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-390",
@@ -7363,7 +7363,7 @@
       "to": "outdoor-xianlin-node-313",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-391",
@@ -7371,7 +7371,7 @@
       "to": "outdoor-xianlin-node-128",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-392",
@@ -7379,7 +7379,7 @@
       "to": "outdoor-xianlin-node-161",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-393",
@@ -7387,7 +7387,7 @@
       "to": "outdoor-xianlin-node-315",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-394",
@@ -7395,7 +7395,7 @@
       "to": "outdoor-xianlin-node-314",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-395",
@@ -7403,7 +7403,7 @@
       "to": "outdoor-xianlin-node-316",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-396",
@@ -7411,7 +7411,7 @@
       "to": "outdoor-xianlin-node-317",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-397",
@@ -7419,7 +7419,7 @@
       "to": "outdoor-xianlin-node-318",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-398",
@@ -7427,7 +7427,7 @@
       "to": "outdoor-xianlin-node-319",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-399",
@@ -7435,7 +7435,7 @@
       "to": "outdoor-xianlin-node-320",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-400",
@@ -7443,7 +7443,7 @@
       "to": "outdoor-xianlin-node-118",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-401",
@@ -7451,7 +7451,7 @@
       "to": "outdoor-xianlin-node-241",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-402",
@@ -7459,7 +7459,7 @@
       "to": "outdoor-xianlin-node-242",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-403",
@@ -7467,7 +7467,7 @@
       "to": "outdoor-xianlin-node-321",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-404",
@@ -7475,7 +7475,7 @@
       "to": "outdoor-xianlin-node-322",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-405",
@@ -7483,7 +7483,7 @@
       "to": "outdoor-xianlin-node-242",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-406",
@@ -7491,7 +7491,7 @@
       "to": "outdoor-xianlin-node-324",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-407",
@@ -7499,7 +7499,7 @@
       "to": "outdoor-xianlin-node-325",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-408",
@@ -7507,7 +7507,7 @@
       "to": "outdoor-xianlin-node-210",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-409",
@@ -7515,7 +7515,7 @@
       "to": "outdoor-xianlin-node-211",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-410",
@@ -7523,7 +7523,7 @@
       "to": "outdoor-xianlin-node-327",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-411",
@@ -7531,7 +7531,7 @@
       "to": "outdoor-xianlin-node-210",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-412",
@@ -7539,7 +7539,7 @@
       "to": "outdoor-xianlin-node-328",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-413",
@@ -7547,7 +7547,7 @@
       "to": "outdoor-xianlin-node-326",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-414",
@@ -7555,7 +7555,7 @@
       "to": "outdoor-xianlin-node-330",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-415",
@@ -7563,7 +7563,7 @@
       "to": "outdoor-xianlin-node-331",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-416",
@@ -7571,7 +7571,7 @@
       "to": "outdoor-xianlin-node-018",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-417",
@@ -7579,7 +7579,7 @@
       "to": "outdoor-xianlin-node-332",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-418",
@@ -7587,7 +7587,7 @@
       "to": "outdoor-xianlin-node-018",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-419",
@@ -7595,7 +7595,7 @@
       "to": "outdoor-xianlin-node-027",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-420",
@@ -7603,7 +7603,7 @@
       "to": "outdoor-xianlin-node-167",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-421",
@@ -7611,7 +7611,7 @@
       "to": "outdoor-xianlin-node-120",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-422",
@@ -7619,7 +7619,7 @@
       "to": "outdoor-xianlin-node-122",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-423",
@@ -7627,7 +7627,7 @@
       "to": "outdoor-xianlin-node-127",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-424",
@@ -7635,7 +7635,7 @@
       "to": "outdoor-xianlin-node-126",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-425",
@@ -7643,7 +7643,7 @@
       "to": "outdoor-xianlin-node-125",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-426",
@@ -7651,7 +7651,7 @@
       "to": "outdoor-xianlin-node-168",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-427",
@@ -7659,7 +7659,7 @@
       "to": "outdoor-xianlin-node-124",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-428",
@@ -7667,7 +7667,7 @@
       "to": "outdoor-xianlin-node-123",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-429",
@@ -7675,7 +7675,7 @@
       "to": "outdoor-xianlin-node-126",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-430",
@@ -7683,7 +7683,7 @@
       "to": "outdoor-xianlin-node-166",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-431",
@@ -7691,7 +7691,7 @@
       "to": "outdoor-xianlin-node-333",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-432",
@@ -7699,7 +7699,7 @@
       "to": "outdoor-xianlin-node-188",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-433",
@@ -7707,7 +7707,7 @@
       "to": "outdoor-xianlin-node-334",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-434",
@@ -7715,7 +7715,7 @@
       "to": "outdoor-xianlin-node-335",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-435",
@@ -7723,7 +7723,7 @@
       "to": "outdoor-xianlin-node-336",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-436",
@@ -7731,7 +7731,7 @@
       "to": "outdoor-xianlin-node-337",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-437",
@@ -7739,7 +7739,7 @@
       "to": "outdoor-xianlin-node-190",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-438",
@@ -7747,7 +7747,7 @@
       "to": "outdoor-xianlin-node-087",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-439",
@@ -7755,7 +7755,7 @@
       "to": "outdoor-xianlin-node-095",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-440",
@@ -7763,7 +7763,7 @@
       "to": "outdoor-xianlin-node-345",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-441",
@@ -7771,7 +7771,7 @@
       "to": "outdoor-xianlin-node-344",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-442",
@@ -7779,7 +7779,7 @@
       "to": "outdoor-xianlin-node-343",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-443",
@@ -7787,7 +7787,7 @@
       "to": "outdoor-xianlin-node-342",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-444",
@@ -7795,7 +7795,7 @@
       "to": "outdoor-xianlin-node-341",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-445",
@@ -7803,7 +7803,7 @@
       "to": "outdoor-xianlin-node-340",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-446",
@@ -7811,7 +7811,7 @@
       "to": "outdoor-xianlin-node-339",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-447",
@@ -7819,7 +7819,7 @@
       "to": "outdoor-xianlin-node-331",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-448",
@@ -7827,7 +7827,7 @@
       "to": "outdoor-xianlin-node-346",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-449",
@@ -7835,7 +7835,7 @@
       "to": "outdoor-xianlin-node-172",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-450",
@@ -7843,7 +7843,7 @@
       "to": "outdoor-xianlin-node-042",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-451",
@@ -7851,7 +7851,7 @@
       "to": "outdoor-xianlin-node-347",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-452",
@@ -7859,7 +7859,7 @@
       "to": "outdoor-xianlin-node-171",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-453",
@@ -7867,7 +7867,7 @@
       "to": "outdoor-xianlin-node-043",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-454",
@@ -7875,7 +7875,7 @@
       "to": "outdoor-xianlin-node-347",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-455",
@@ -7883,7 +7883,7 @@
       "to": "outdoor-xianlin-node-350",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-456",
@@ -7891,7 +7891,7 @@
       "to": "outdoor-xianlin-node-169",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-457",
@@ -7899,7 +7899,7 @@
       "to": "outdoor-xianlin-node-349",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-458",
@@ -7907,7 +7907,7 @@
       "to": "outdoor-xianlin-node-352",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-459",
@@ -7915,7 +7915,7 @@
       "to": "outdoor-xianlin-node-170",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-460",
@@ -7923,7 +7923,7 @@
       "to": "outdoor-xianlin-node-351",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-461",
@@ -7931,7 +7931,7 @@
       "to": "outdoor-xianlin-node-353",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-462",
@@ -7939,7 +7939,7 @@
       "to": "outdoor-xianlin-node-355",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-463",
@@ -7947,7 +7947,7 @@
       "to": "outdoor-xianlin-node-167",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-464",
@@ -7955,7 +7955,7 @@
       "to": "outdoor-xianlin-node-354",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-465",
@@ -7963,7 +7963,7 @@
       "to": "outdoor-xianlin-node-357",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-466",
@@ -7971,7 +7971,7 @@
       "to": "outdoor-xianlin-node-121",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-467",
@@ -7979,7 +7979,7 @@
       "to": "outdoor-xianlin-node-356",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-468",
@@ -7987,7 +7987,7 @@
       "to": "outdoor-xianlin-node-164",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-469",
@@ -7995,7 +7995,7 @@
       "to": "outdoor-xianlin-node-165",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-470",
@@ -8003,7 +8003,7 @@
       "to": "outdoor-xianlin-node-166",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-471",
@@ -8011,7 +8011,7 @@
       "to": "outdoor-xianlin-node-166",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-472",
@@ -8019,7 +8019,7 @@
       "to": "outdoor-xianlin-node-164",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-473",
@@ -8027,7 +8027,7 @@
       "to": "outdoor-xianlin-node-359",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-474",
@@ -8035,7 +8035,7 @@
       "to": "outdoor-xianlin-node-165",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-475",
@@ -8043,7 +8043,7 @@
       "to": "outdoor-xianlin-node-162",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-476",
@@ -8051,7 +8051,7 @@
       "to": "outdoor-xianlin-node-361",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-477",
@@ -8059,7 +8059,7 @@
       "to": "outdoor-xianlin-node-363",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-478",
@@ -8067,7 +8067,7 @@
       "to": "outdoor-xianlin-node-364",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-479",
@@ -8075,7 +8075,7 @@
       "to": "outdoor-xianlin-node-132",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-480",
@@ -8083,7 +8083,7 @@
       "to": "outdoor-xianlin-node-338",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-481",
@@ -8091,7 +8091,7 @@
       "to": "outdoor-xianlin-node-368",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-482",
@@ -8099,7 +8099,7 @@
       "to": "outdoor-xianlin-node-162",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-483",
@@ -8107,7 +8107,7 @@
       "to": "outdoor-xianlin-node-365",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-484",
@@ -8115,7 +8115,7 @@
       "to": "outdoor-xianlin-node-366",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-485",
@@ -8123,7 +8123,7 @@
       "to": "outdoor-xianlin-node-369",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-486",
@@ -8131,7 +8131,7 @@
       "to": "outdoor-xianlin-node-312",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-487",
@@ -8139,7 +8139,7 @@
       "to": "outdoor-xianlin-node-367",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-488",
@@ -8147,7 +8147,7 @@
       "to": "outdoor-xianlin-node-370",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-489",
@@ -8155,7 +8155,7 @@
       "to": "outdoor-xianlin-node-372",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-490",
@@ -8163,7 +8163,7 @@
       "to": "outdoor-xianlin-node-144",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-491",
@@ -8171,7 +8171,7 @@
       "to": "outdoor-xianlin-node-371",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-492",
@@ -8179,7 +8179,7 @@
       "to": "outdoor-xianlin-node-137",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-493",
@@ -8187,7 +8187,7 @@
       "to": "outdoor-xianlin-node-374",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-494",
@@ -8195,7 +8195,7 @@
       "to": "outdoor-xianlin-node-142",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-495",
@@ -8203,7 +8203,7 @@
       "to": "outdoor-xianlin-node-376",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-496",
@@ -8211,7 +8211,7 @@
       "to": "outdoor-xianlin-node-148",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-497",
@@ -8219,7 +8219,7 @@
       "to": "outdoor-xianlin-node-375",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-498",
@@ -8227,7 +8227,7 @@
       "to": "outdoor-xianlin-node-378",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-499",
@@ -8235,7 +8235,7 @@
       "to": "outdoor-xianlin-node-149",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-500",
@@ -8243,7 +8243,7 @@
       "to": "outdoor-xianlin-node-377",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-501",
@@ -8251,7 +8251,7 @@
       "to": "outdoor-xianlin-node-380",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-502",
@@ -8259,7 +8259,7 @@
       "to": "outdoor-xianlin-node-151",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-503",
@@ -8267,7 +8267,7 @@
       "to": "outdoor-xianlin-node-379",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-504",
@@ -8275,7 +8275,7 @@
       "to": "outdoor-xianlin-node-382",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-505",
@@ -8283,7 +8283,7 @@
       "to": "outdoor-xianlin-node-154",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-506",
@@ -8291,7 +8291,7 @@
       "to": "outdoor-xianlin-node-381",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-507",
@@ -8299,7 +8299,7 @@
       "to": "outdoor-xianlin-node-384",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-508",
@@ -8307,7 +8307,7 @@
       "to": "outdoor-xianlin-node-155",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-509",
@@ -8315,7 +8315,7 @@
       "to": "outdoor-xianlin-node-383",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-510",
@@ -8323,7 +8323,7 @@
       "to": "outdoor-xianlin-node-385",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-511",
@@ -8331,7 +8331,7 @@
       "to": "outdoor-xianlin-node-387",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-512",
@@ -8339,7 +8339,7 @@
       "to": "outdoor-xianlin-node-386",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-513",
@@ -8347,7 +8347,7 @@
       "to": "outdoor-xianlin-node-141",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-514",
@@ -8355,7 +8355,7 @@
       "to": "outdoor-xianlin-node-138",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-515",
@@ -8363,7 +8363,7 @@
       "to": "outdoor-xianlin-node-388",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-516",
@@ -8371,7 +8371,7 @@
       "to": "outdoor-xianlin-node-140",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-517",
@@ -8379,7 +8379,7 @@
       "to": "outdoor-xianlin-node-391",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-518",
@@ -8387,7 +8387,7 @@
       "to": "outdoor-xianlin-node-390",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-519",
@@ -8395,7 +8395,7 @@
       "to": "outdoor-xianlin-node-392",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-520",
@@ -8403,7 +8403,7 @@
       "to": "outdoor-xianlin-node-141",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-521",
@@ -8411,7 +8411,7 @@
       "to": "outdoor-xianlin-node-393",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-522",
@@ -8419,7 +8419,7 @@
       "to": "outdoor-xianlin-node-392",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-523",
@@ -8427,7 +8427,7 @@
       "to": "outdoor-xianlin-node-395",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-524",
@@ -8435,7 +8435,7 @@
       "to": "outdoor-xianlin-node-396",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-525",
@@ -8443,7 +8443,7 @@
       "to": "outdoor-xianlin-node-397",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-526",
@@ -8451,7 +8451,7 @@
       "to": "outdoor-xianlin-node-249",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-527",
@@ -8459,7 +8459,7 @@
       "to": "outdoor-xianlin-node-134",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-528",
@@ -8467,7 +8467,7 @@
       "to": "outdoor-xianlin-node-401",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-529",
@@ -8475,7 +8475,7 @@
       "to": "outdoor-xianlin-node-248",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-530",
@@ -8483,7 +8483,7 @@
       "to": "outdoor-xianlin-node-401",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-531",
@@ -8491,7 +8491,7 @@
       "to": "outdoor-xianlin-node-403",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-532",
@@ -8499,7 +8499,7 @@
       "to": "outdoor-xianlin-node-133",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-533",
@@ -8507,7 +8507,7 @@
       "to": "outdoor-xianlin-node-402",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-534",
@@ -8515,7 +8515,7 @@
       "to": "outdoor-xianlin-node-405",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-535",
@@ -8523,7 +8523,7 @@
       "to": "outdoor-xianlin-node-131",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-536",
@@ -8531,7 +8531,7 @@
       "to": "outdoor-xianlin-node-404",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-537",
@@ -8539,7 +8539,7 @@
       "to": "outdoor-xianlin-node-265",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-538",
@@ -8547,7 +8547,7 @@
       "to": "outdoor-xianlin-node-407",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-539",
@@ -8555,7 +8555,7 @@
       "to": "outdoor-xianlin-node-409",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-540",
@@ -8563,7 +8563,7 @@
       "to": "outdoor-xianlin-node-135",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-541",
@@ -8571,7 +8571,7 @@
       "to": "outdoor-xianlin-node-408",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-542",
@@ -8579,7 +8579,7 @@
       "to": "outdoor-xianlin-node-247",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-543",
@@ -8587,7 +8587,7 @@
       "to": "outdoor-xianlin-node-246",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-544",
@@ -8595,7 +8595,7 @@
       "to": "outdoor-xianlin-node-410",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-545",
@@ -8603,7 +8603,7 @@
       "to": "outdoor-xianlin-node-246",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-546",
@@ -8611,7 +8611,7 @@
       "to": "outdoor-xianlin-node-411",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-547",
@@ -8619,7 +8619,7 @@
       "to": "outdoor-xianlin-node-245",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-548",
@@ -8627,7 +8627,7 @@
       "to": "outdoor-xianlin-node-413",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-549",
@@ -8635,7 +8635,7 @@
       "to": "outdoor-xianlin-node-244",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-550",
@@ -8643,7 +8643,7 @@
       "to": "outdoor-xianlin-node-412",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-551",
@@ -8651,7 +8651,7 @@
       "to": "outdoor-xianlin-node-416",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-552",
@@ -8659,7 +8659,7 @@
       "to": "outdoor-xianlin-node-417",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-553",
@@ -8667,7 +8667,7 @@
       "to": "outdoor-xianlin-node-417",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-554",
@@ -8675,7 +8675,7 @@
       "to": "outdoor-xianlin-node-100",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-555",
@@ -8683,7 +8683,7 @@
       "to": "outdoor-xianlin-node-419",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-556",
@@ -8691,7 +8691,7 @@
       "to": "outdoor-xianlin-node-421",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-557",
@@ -8699,7 +8699,7 @@
       "to": "outdoor-xianlin-node-420",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-558",
@@ -8707,7 +8707,7 @@
       "to": "outdoor-xianlin-node-097",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-559",
@@ -8715,7 +8715,7 @@
       "to": "outdoor-xianlin-node-422",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-560",
@@ -8723,7 +8723,7 @@
       "to": "outdoor-xianlin-node-424",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-561",
@@ -8731,7 +8731,7 @@
       "to": "outdoor-xianlin-node-424",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-562",
@@ -8739,7 +8739,7 @@
       "to": "outdoor-xianlin-node-094",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-563",
@@ -8747,7 +8747,7 @@
       "to": "outdoor-xianlin-node-425",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-564",
@@ -8755,7 +8755,7 @@
       "to": "outdoor-xianlin-node-427",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-565",
@@ -8763,7 +8763,7 @@
       "to": "outdoor-xianlin-node-089",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-566",
@@ -8771,7 +8771,7 @@
       "to": "outdoor-xianlin-node-426",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-567",
@@ -8779,7 +8779,7 @@
       "to": "outdoor-xianlin-node-429",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-568",
@@ -8787,7 +8787,7 @@
       "to": "outdoor-xianlin-node-189",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-569",
@@ -8795,7 +8795,7 @@
       "to": "outdoor-xianlin-node-093",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-570",
@@ -8803,7 +8803,7 @@
       "to": "outdoor-xianlin-node-424",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-571",
@@ -8811,7 +8811,7 @@
       "to": "outdoor-xianlin-node-188",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-572",
@@ -8819,7 +8819,7 @@
       "to": "outdoor-xianlin-node-430",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-573",
@@ -8827,7 +8827,7 @@
       "to": "outdoor-xianlin-node-433",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-574",
@@ -8835,7 +8835,7 @@
       "to": "outdoor-xianlin-node-067",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-575",
@@ -8843,7 +8843,7 @@
       "to": "outdoor-xianlin-node-432",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-576",
@@ -8851,7 +8851,7 @@
       "to": "outdoor-xianlin-node-434",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-577",
@@ -8859,7 +8859,7 @@
       "to": "outdoor-xianlin-node-435",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-578",
@@ -8867,7 +8867,7 @@
       "to": "outdoor-xianlin-node-436",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-579",
@@ -8875,7 +8875,7 @@
       "to": "outdoor-xianlin-node-437",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-580",
@@ -8883,7 +8883,7 @@
       "to": "outdoor-xianlin-node-439",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-581",
@@ -8891,7 +8891,7 @@
       "to": "outdoor-xianlin-node-438",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-582",
@@ -8899,7 +8899,7 @@
       "to": "outdoor-xianlin-node-440",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-583",
@@ -8907,7 +8907,7 @@
       "to": "outdoor-xianlin-node-194",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-584",
@@ -8915,7 +8915,7 @@
       "to": "outdoor-xianlin-node-440",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-585",
@@ -8923,7 +8923,7 @@
       "to": "outdoor-xianlin-node-090",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-586",
@@ -8931,7 +8931,7 @@
       "to": "outdoor-xianlin-node-092",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-587",
@@ -8939,7 +8939,7 @@
       "to": "outdoor-xianlin-node-080",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-588",
@@ -8947,7 +8947,7 @@
       "to": "outdoor-xianlin-node-444",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-589",
@@ -8955,7 +8955,7 @@
       "to": "outdoor-xianlin-node-085",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-590",
@@ -8963,7 +8963,7 @@
       "to": "outdoor-xianlin-node-086",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-591",
@@ -8971,7 +8971,7 @@
       "to": "outdoor-xianlin-node-445",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-592",
@@ -8979,7 +8979,7 @@
       "to": "outdoor-xianlin-node-187",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-593",
@@ -8987,7 +8987,7 @@
       "to": "outdoor-xianlin-node-447",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-594",
@@ -8995,7 +8995,7 @@
       "to": "outdoor-xianlin-node-199",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-595",
@@ -9003,7 +9003,7 @@
       "to": "outdoor-xianlin-node-235",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-596",
@@ -9011,7 +9011,7 @@
       "to": "outdoor-xianlin-node-216",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-597",
@@ -9019,7 +9019,7 @@
       "to": "outdoor-xianlin-node-213",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-598",
@@ -9027,7 +9027,7 @@
       "to": "outdoor-xianlin-node-214",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-599",
@@ -9035,7 +9035,7 @@
       "to": "outdoor-xianlin-node-455",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-600",
@@ -9043,7 +9043,7 @@
       "to": "outdoor-xianlin-node-076",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-601",
@@ -9051,7 +9051,7 @@
       "to": "outdoor-xianlin-node-454",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-602",
@@ -9059,7 +9059,7 @@
       "to": "outdoor-xianlin-node-456",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-603",
@@ -9067,7 +9067,7 @@
       "to": "outdoor-xianlin-node-458",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-604",
@@ -9075,7 +9075,7 @@
       "to": "outdoor-xianlin-node-077",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-605",
@@ -9083,7 +9083,7 @@
       "to": "outdoor-xianlin-node-457",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-606",
@@ -9091,7 +9091,7 @@
       "to": "outdoor-xianlin-node-460",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-607",
@@ -9099,7 +9099,7 @@
       "to": "outdoor-xianlin-node-030",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-608",
@@ -9107,7 +9107,7 @@
       "to": "outdoor-xianlin-node-459",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-609",
@@ -9115,7 +9115,7 @@
       "to": "outdoor-xianlin-node-461",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-610",
@@ -9123,7 +9123,7 @@
       "to": "outdoor-xianlin-node-462",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-611",
@@ -9131,7 +9131,7 @@
       "to": "outdoor-xianlin-node-464",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-612",
@@ -9139,7 +9139,7 @@
       "to": "outdoor-xianlin-node-463",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-613",
@@ -9147,7 +9147,7 @@
       "to": "outdoor-xianlin-node-073",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-614",
@@ -9155,7 +9155,7 @@
       "to": "outdoor-xianlin-node-465",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-615",
@@ -9163,7 +9163,7 @@
       "to": "outdoor-xianlin-node-466",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-616",
@@ -9171,7 +9171,7 @@
       "to": "outdoor-xianlin-node-029",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-617",
@@ -9179,7 +9179,7 @@
       "to": "outdoor-xianlin-node-468",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-618",
@@ -9187,7 +9187,7 @@
       "to": "outdoor-xianlin-node-470",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-619",
@@ -9195,7 +9195,7 @@
       "to": "outdoor-xianlin-node-025",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-620",
@@ -9203,7 +9203,7 @@
       "to": "outdoor-xianlin-node-469",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-621",
@@ -9211,7 +9211,7 @@
       "to": "outdoor-xianlin-node-471",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-622",
@@ -9219,7 +9219,7 @@
       "to": "outdoor-xianlin-node-028",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-623",
@@ -9227,7 +9227,7 @@
       "to": "outdoor-xianlin-node-469",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-624",
@@ -9235,7 +9235,7 @@
       "to": "outdoor-xianlin-node-473",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-625",
@@ -9243,7 +9243,7 @@
       "to": "outdoor-xianlin-node-035",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-626",
@@ -9251,7 +9251,7 @@
       "to": "outdoor-xianlin-node-472",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-627",
@@ -9259,7 +9259,7 @@
       "to": "outdoor-xianlin-node-037",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-628",
@@ -9267,7 +9267,7 @@
       "to": "outdoor-xianlin-node-044",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-629",
@@ -9275,7 +9275,7 @@
       "to": "outdoor-xianlin-node-474",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-630",
@@ -9283,7 +9283,7 @@
       "to": "outdoor-xianlin-node-048",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-631",
@@ -9291,7 +9291,7 @@
       "to": "outdoor-xianlin-node-277",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-632",
@@ -9299,7 +9299,7 @@
       "to": "outdoor-xianlin-node-477",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-633",
@@ -9307,7 +9307,7 @@
       "to": "outdoor-xianlin-node-182",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-634",
@@ -9315,7 +9315,7 @@
       "to": "outdoor-xianlin-node-475",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-635",
@@ -9323,7 +9323,7 @@
       "to": "outdoor-xianlin-node-478",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-636",
@@ -9331,7 +9331,7 @@
       "to": "outdoor-xianlin-node-477",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-637",
@@ -9339,7 +9339,7 @@
       "to": "outdoor-xianlin-node-480",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-638",
@@ -9347,7 +9347,7 @@
       "to": "outdoor-xianlin-node-020",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-639",
@@ -9355,7 +9355,7 @@
       "to": "outdoor-xianlin-node-479",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-640",
@@ -9363,7 +9363,7 @@
       "to": "outdoor-xianlin-node-484",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-641",
@@ -9371,7 +9371,7 @@
       "to": "outdoor-xianlin-node-482",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-642",
@@ -9379,7 +9379,7 @@
       "to": "outdoor-xianlin-node-015",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-643",
@@ -9387,7 +9387,7 @@
       "to": "outdoor-xianlin-node-019",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-644",
@@ -9395,7 +9395,7 @@
       "to": "outdoor-xianlin-node-182",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-645",
@@ -9403,7 +9403,7 @@
       "to": "outdoor-xianlin-node-015",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-646",
@@ -9411,7 +9411,7 @@
       "to": "outdoor-xianlin-node-018",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-647",
@@ -9419,7 +9419,7 @@
       "to": "outdoor-xianlin-node-017",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-648",
@@ -9427,7 +9427,7 @@
       "to": "outdoor-xianlin-node-485",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-649",
@@ -9435,7 +9435,7 @@
       "to": "outdoor-xianlin-node-488",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-650",
@@ -9443,7 +9443,7 @@
       "to": "outdoor-xianlin-node-017",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-651",
@@ -9451,7 +9451,7 @@
       "to": "outdoor-xianlin-node-487",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-652",
@@ -9459,7 +9459,7 @@
       "to": "outdoor-xianlin-node-489",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-653",
@@ -9467,7 +9467,7 @@
       "to": "outdoor-xianlin-node-017",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-654",
@@ -9475,7 +9475,7 @@
       "to": "outdoor-xianlin-node-021",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-655",
@@ -9483,7 +9483,7 @@
       "to": "outdoor-xianlin-node-492",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-656",
@@ -9491,7 +9491,7 @@
       "to": "outdoor-xianlin-node-490",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-657",
@@ -9499,7 +9499,7 @@
       "to": "outdoor-xianlin-node-034",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-658",
@@ -9507,7 +9507,7 @@
       "to": "outdoor-xianlin-node-494",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-659",
@@ -9515,7 +9515,7 @@
       "to": "outdoor-xianlin-node-021",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-660",
@@ -9523,7 +9523,7 @@
       "to": "outdoor-xianlin-node-021",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-661",
@@ -9531,7 +9531,7 @@
       "to": "outdoor-xianlin-node-491",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-662",
@@ -9539,7 +9539,7 @@
       "to": "outdoor-xianlin-node-493",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-663",
@@ -9547,7 +9547,7 @@
       "to": "outdoor-xianlin-node-022",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-664",
@@ -9555,7 +9555,7 @@
       "to": "outdoor-xianlin-node-495",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-665",
@@ -9563,7 +9563,7 @@
       "to": "outdoor-xianlin-node-497",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-666",
@@ -9571,7 +9571,7 @@
       "to": "outdoor-xianlin-node-006",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-667",
@@ -9579,7 +9579,7 @@
       "to": "outdoor-xianlin-node-496",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-668",
@@ -9587,7 +9587,7 @@
       "to": "outdoor-xianlin-node-499",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-669",
@@ -9595,7 +9595,7 @@
       "to": "outdoor-xianlin-node-009",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-670",
@@ -9603,7 +9603,7 @@
       "to": "outdoor-xianlin-node-498",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-671",
@@ -9611,7 +9611,7 @@
       "to": "outdoor-xianlin-node-500",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-672",
@@ -9619,7 +9619,7 @@
       "to": "outdoor-xianlin-node-497",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-673",
@@ -9627,7 +9627,7 @@
       "to": "outdoor-xianlin-node-010",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-674",
@@ -9635,7 +9635,7 @@
       "to": "outdoor-xianlin-node-005",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-675",
@@ -9643,7 +9643,7 @@
       "to": "outdoor-xianlin-node-503",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-676",
@@ -9651,7 +9651,7 @@
       "to": "outdoor-xianlin-node-120",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-677",
@@ -9659,7 +9659,7 @@
       "to": "outdoor-xianlin-node-502",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-678",
@@ -9667,7 +9667,7 @@
       "to": "outdoor-xianlin-node-269",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-679",
@@ -9675,7 +9675,7 @@
       "to": "outdoor-xianlin-node-505",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-680",
@@ -9683,7 +9683,7 @@
       "to": "outdoor-xianlin-node-057",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-681",
@@ -9691,7 +9691,7 @@
       "to": "outdoor-xianlin-node-504",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-682",
@@ -9699,7 +9699,7 @@
       "to": "outdoor-xianlin-node-270",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-683",
@@ -9707,7 +9707,7 @@
       "to": "outdoor-xianlin-node-507",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-684",
@@ -9715,7 +9715,7 @@
       "to": "outdoor-xianlin-node-056",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-685",
@@ -9723,7 +9723,7 @@
       "to": "outdoor-xianlin-node-509",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-686",
@@ -9731,7 +9731,7 @@
       "to": "outdoor-xianlin-node-061",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-687",
@@ -9739,7 +9739,7 @@
       "to": "outdoor-xianlin-node-505",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-688",
@@ -9747,7 +9747,7 @@
       "to": "outdoor-xianlin-node-511",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-689",
@@ -9755,7 +9755,7 @@
       "to": "outdoor-xianlin-node-510",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-690",
@@ -9763,7 +9763,7 @@
       "to": "outdoor-xianlin-node-271",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-691",
@@ -9771,7 +9771,7 @@
       "to": "outdoor-xianlin-node-052",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-692",
@@ -9779,7 +9779,7 @@
       "to": "outdoor-xianlin-node-278",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-693",
@@ -9787,7 +9787,7 @@
       "to": "outdoor-xianlin-node-517",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-694",
@@ -9795,7 +9795,7 @@
       "to": "outdoor-xianlin-node-516",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-695",
@@ -9803,7 +9803,7 @@
       "to": "outdoor-xianlin-node-271",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-696",
@@ -9811,7 +9811,7 @@
       "to": "outdoor-xianlin-node-514",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-697",
@@ -9819,7 +9819,7 @@
       "to": "outdoor-xianlin-node-515",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-698",
@@ -9827,7 +9827,7 @@
       "to": "outdoor-xianlin-node-512",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-699",
@@ -9835,7 +9835,7 @@
       "to": "outdoor-xianlin-node-273",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-700",
@@ -9843,7 +9843,7 @@
       "to": "outdoor-xianlin-node-051",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-701",
@@ -9851,7 +9851,7 @@
       "to": "outdoor-xianlin-node-519",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-702",
@@ -9859,7 +9859,7 @@
       "to": "outdoor-xianlin-node-049",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-703",
@@ -9867,7 +9867,7 @@
       "to": "outdoor-xianlin-node-050",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-704",
@@ -9875,7 +9875,7 @@
       "to": "outdoor-xianlin-node-049",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-705",
@@ -9883,7 +9883,7 @@
       "to": "outdoor-xianlin-node-272",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     },
     {
       "id": "outdoor-xianlin-edge-706",
@@ -9891,7 +9891,7 @@
       "to": "outdoor-xianlin-node-059",
       "type": "edge",
       "walkable": true,
-      "reviewStatus": "draft"
+      "reviewStatus": "reviewed"
     }
   ],
   "links": []
