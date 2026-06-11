@@ -59,6 +59,7 @@ GitHub Actions 会对 Pull Request 和正式分支推送执行同一套检查。
 - [第 0 阶段基线](docs/phase-0-baseline.md)
 - [第 1 阶段全栈基础](docs/phase-1-foundation.md)
 - [第 2 阶段账号、权限与数据库基础](docs/phase-2-auth-database.md)
+- [第 3 阶段行程与出发提醒](docs/phase-3-trips-reminders.md)
 - [API 接口契约](docs/api-contract.md)
 - [阶段路线图](docs/staged-roadmap.md)
 

@@ -126,5 +126,18 @@
     return Boolean(item);
   });
 
+  window.MAP_CONTEXT = {
+    areaId: area.areaId,
+    places: area.places.map(place => ({ id: place.id, label: place.label }))
+  };
+  window.addEventListener('trip:show-route', event => {
+    const from = searchItems.find(item => item.id === event.detail.fromPlaceId);
+    const to = searchItems.find(item => item.id === event.detail.toPlaceId);
+    if (!from || !to) return;
+    searchBox.setRole('from', from);
+    searchBox.setRole('to', to);
+    doRouteSearch();
+  });
+  window.dispatchEvent(new CustomEvent('map:ready', { detail: window.MAP_CONTEXT }));
   console.log(`[App] 已加载 ${area.name}：${area.places.length} places，${area.nodes.length} nodes，${area.edges.length} edges`);
 })();

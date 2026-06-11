@@ -34,6 +34,7 @@
         <button id="btn-route" class="btn-route">规划路线</button>
       </div>
     </div>
+    <button type="button" id="btn-trips" class="btn-trips hidden">行程</button>
     <div class="account">
       <button type="button" id="btn-account" class="btn-account">登录</button>
       <div id="account-menu" class="account-menu hidden">
@@ -59,6 +60,24 @@
         <h4>途经节点</h4>
         <ol class="route-steps"></ol>
       </div>
+    </aside>
+
+    <aside id="trip-drawer" class="trip-drawer hidden">
+      <div class="trip-drawer-header">
+        <h2>我的行程</h2>
+        <div>
+          <button type="button" id="btn-add-trip" title="添加行程" aria-label="添加行程" disabled>＋</button>
+          <button type="button" id="btn-close-trips" title="关闭" aria-label="关闭">×</button>
+        </div>
+      </div>
+      <section>
+        <h3>今天</h3>
+        <div id="today-trip-list" class="trip-list"></div>
+      </section>
+      <section>
+        <h3>全部行程</h3>
+        <div id="all-trip-list" class="trip-list"></div>
+      </section>
     </aside>
 
     <main id="map-container">
@@ -94,6 +113,38 @@
     </form>
   </dialog>
 
+  <dialog id="trip-dialog" class="auth-dialog trip-dialog">
+    <div class="auth-dialog-header">
+      <h2 id="trip-dialog-title">添加行程</h2>
+      <button type="button" id="btn-close-trip-dialog" class="dialog-close" aria-label="关闭">×</button>
+    </div>
+    <p id="trip-status" class="auth-status" aria-live="polite"></p>
+    <form id="trip-form" class="auth-form">
+      <label>行程名称<input name="title" maxlength="80" required></label>
+      <div class="trip-form-grid">
+        <label>起点<select name="from_place_id" required></select></label>
+        <label>终点<select name="to_place_id" required></select></label>
+      </div>
+      <div class="trip-form-grid">
+        <label>开始日期<input name="start_date" type="date" required></label>
+        <label>最晚到达时间<input name="latest_arrival_time" type="time" required></label>
+      </div>
+      <div class="trip-form-grid">
+        <label>重复
+          <select name="recurrence" id="trip-recurrence">
+            <option value="once">一次性</option>
+            <option value="daily">每天</option>
+            <option value="weekly">每周</option>
+            <option value="monthly">每月</option>
+          </select>
+        </label>
+        <label>结束日期<input name="end_date" type="date" disabled></label>
+      </div>
+      <label>提前提醒（分钟）<input name="reminder_minutes" type="number" min="0" max="120" value="10" required></label>
+      <button type="submit" id="btn-save-trip" class="btn-auth-submit">保存行程</button>
+    </form>
+  </dialog>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/config.js?v=phase1-v1"></script>
   <script src="js/data/validator.js?v=area-v4"></script>
@@ -105,7 +156,8 @@
   <script src="js/map/outdoor.js?v=phase1-v1"></script>
   <script src="js/ui/search.js?v=area-v4"></script>
   <script src="js/ui/panel.js?v=area-v4"></script>
-  <script src="js/app.js?v=phase1-v1"></script>
-  <script src="js/auth.js?v=phase2-v1"></script>
+  <script src="js/app.js?v=phase3-v1"></script>
+  <script src="js/auth.js?v=phase3-v1"></script>
+  <script src="js/trips.js?v=phase3-v1"></script>
 </body>
 </html>

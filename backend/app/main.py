@@ -11,6 +11,7 @@ from backend.app.area_repository import (
 )
 from backend.app.models import AreaIndexResponse, HealthResponse
 from backend.app.auth_routes import router as auth_router
+from backend.app.trip_routes import router as trip_router
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -19,9 +20,10 @@ repository = AreaRepository(PROJECT_ROOT)
 app = FastAPI(
     title="NJU Campus Map API",
     description="南京大学校园地图的版本化后端接口。",
-    version="0.2.0",
+    version="0.3.0",
 )
 app.include_router(auth_router)
+app.include_router(trip_router)
 
 
 def api_error(error: Exception) -> HTTPException:

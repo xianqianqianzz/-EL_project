@@ -102,9 +102,54 @@
 
 后端使用统一角色依赖校验权限。公开注册和普通用户接口不得接受角色字段。
 
+## 行程
+
+所有行程接口都要求 bearer token，并且只能访问当前用户自己的行程。
+
+### `POST /api/v1/trips`
+
+创建行程。请求字段：
+
+```json
+{
+  "title": "去图书馆自习",
+  "area_id": "outdoor-xianlin",
+  "from_place_id": "outdoor-xianlin-place-001",
+  "to_place_id": "outdoor-xianlin-place-002",
+  "start_date": "2026-06-11",
+  "end_date": null,
+  "latest_arrival_time": "18:00",
+  "recurrence": "weekly",
+  "reminder_minutes": 10
+}
+```
+
+`recurrence` 只允许 `once`、`daily`、`weekly`、`monthly`。响应包含当前地图计算出的地点名称、距离和预计分钟数。
+
+### `GET /api/v1/trips`
+
+返回当前用户保存的全部行程。
+
+### `PUT /api/v1/trips/{trip_id}`
+
+完整更新当前用户的一条行程。
+
+### `DELETE /api/v1/trips/{trip_id}`
+
+删除当前用户的一条行程，成功返回 `204`。
+
+### `GET /api/v1/trips/today`
+
+按 `Asia/Shanghai` 的真实当前日期返回当天所有有效行程，包含：
+
+- `latest_arrival_at`
+- `suggested_departure_at`
+- `estimated_distance_meters`
+- `estimated_duration_minutes`
+- `status`：`upcoming`、`leave_soon`、`leave_now` 或 `late`
+
 ## 当前明确不提供的接口
 
-- 行程增删改查与提醒。
 - 用户路径修改申请。
 - 工作人员审核与直接修改主地图。
 - 一键更新 GitHub。

@@ -5,7 +5,7 @@ from sqlalchemy import engine_from_config, pool
 
 from backend.app.config import get_settings
 from backend.app.database import Base
-from backend.app import user_model  # noqa: F401
+from backend.app import trip_model, user_model  # noqa: F401
 
 
 config = context.config

@@ -21,6 +21,7 @@ class AuthClient {
       const payload = await response.json().catch(() => ({}));
       throw new Error(payload.detail || `请求失败：${response.status}`);
     }
+    if (response.status === 204) return null;
     return response.json();
   }
 
@@ -61,6 +62,9 @@ class AuthClient {
       ? `@${this.user.username} · ${this.user.role}`
       : '';
     this.accountMenu.classList.toggle('hidden', !this.user);
+    window.dispatchEvent(new CustomEvent('auth:changed', {
+      detail: { user: this.user, client: this }
+    }));
   }
 
   setupEvents() {
@@ -126,4 +130,4 @@ class AuthClient {
   }
 }
 
-new AuthClient();
+window.authClient = new AuthClient();

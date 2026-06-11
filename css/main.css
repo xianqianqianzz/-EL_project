@@ -67,6 +67,26 @@ button { cursor: pointer; }
   white-space: nowrap;
 }
 
+.btn-trips {
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  color: #fff;
+  background: var(--primary);
+  white-space: nowrap;
+}
+
+.btn-trips.trip-alert {
+  border-color: #b42318;
+  background: #b42318;
+  animation: trip-button-pulse 1s ease-in-out infinite;
+}
+
+@keyframes trip-button-pulse {
+  50% { box-shadow: 0 0 0 4px rgba(180, 35, 24, .22); }
+}
+
 .account-menu {
   position: absolute;
   top: calc(100% + 8px);
@@ -329,6 +349,158 @@ button { cursor: pointer; }
   background: #fff;
 }
 
+.trip-drawer {
+  z-index: 550;
+  width: 370px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+  background: #f7f9fa;
+}
+
+.trip-drawer-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+
+.trip-drawer-header h2,
+.trip-dialog h2 {
+  font-size: 16px;
+}
+
+.trip-drawer-header button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--primary);
+  background: #fff;
+  font-size: 18px;
+}
+
+.trip-drawer-header button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.trip-drawer section {
+  padding: 13px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.trip-drawer section h3 {
+  margin-bottom: 9px;
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+.trip-list {
+  display: grid;
+  gap: 8px;
+}
+
+.trip-item {
+  padding: 11px;
+  border: 1px solid var(--border);
+  border-left: 4px solid #9aa8b0;
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.trip-item-heading,
+.trip-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.trip-item-heading strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+.trip-item-heading span,
+.trip-meta {
+  color: var(--text-light);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.trip-item p {
+  margin-top: 7px;
+  font-size: 13px;
+}
+
+.trip-item dl {
+  display: grid;
+  gap: 3px;
+  margin-top: 8px;
+}
+
+.trip-item dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.trip-item dt { color: var(--text-light); }
+.trip-item dd { text-align: right; }
+
+.trip-item button {
+  margin-top: 9px;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--primary);
+  background: #fff;
+  font-size: 12px;
+}
+
+.trip-upcoming { border-left-color: var(--primary); }
+.trip-leave-soon {
+  border-left-color: #c88300;
+  background: #fff9e9;
+  animation: trip-reminder-pulse 1.8s ease-in-out infinite;
+}
+.trip-leave-now {
+  border-left-color: #c63c2f;
+  background: #fff0ed;
+  animation: trip-reminder-pulse .8s ease-in-out infinite;
+}
+.trip-late { border-left-color: #69757c; opacity: .76; }
+.trip-empty, .trip-error { padding: 8px 2px; color: var(--text-light); font-size: 13px; }
+.trip-error { color: #b42318; }
+
+@keyframes trip-reminder-pulse {
+  50% { box-shadow: 0 0 0 3px rgba(200, 131, 0, .16); }
+}
+
+.trip-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.auth-form select {
+  height: 38px;
+  min-width: 0;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: #fff;
+}
+
 .panel-section { padding: 17px; }
 .panel-section h3 { margin-bottom: 11px; color: var(--primary); font-size: 16px; }
 .panel-section h4 { margin: 16px 0 8px; color: var(--text-light); font-size: 13px; }
@@ -351,6 +523,7 @@ button { cursor: pointer; }
   .logo { margin-bottom: 5px; font-size: 15px; }
   .account { position: absolute; top: 7px; right: 8px; }
   .btn-account { height: 28px; }
+  .btn-trips { position: absolute; top: 7px; right: 88px; height: 28px; }
   .search-row {
     grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr);
     gap: 5px;
@@ -371,5 +544,13 @@ button { cursor: pointer; }
     border-right: 0;
     border-bottom: 1px solid var(--border);
   }
+  .trip-drawer {
+    position: absolute;
+    inset: 0;
+    z-index: 900;
+    width: 100%;
+    border-right: 0;
+  }
+  .trip-form-grid { grid-template-columns: 1fr; }
   .hint { margin-top: 15px; }
 }
