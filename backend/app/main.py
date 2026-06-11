@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
@@ -21,7 +22,17 @@ repository = AreaRepository(PROJECT_ROOT)
 app = FastAPI(
     title="NJU Campus Map API",
     description="南京大学校园地图的版本化后端接口。",
-    version="0.4.0",
+    version="0.5.0",
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:8080",
+        "http://127.0.0.1:8080",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 app.include_router(auth_router)
 app.include_router(trip_router)
@@ -69,6 +80,13 @@ def get_area_map(area_id: str) -> FileResponse:
 @app.get("/", include_in_schema=False)
 def frontend() -> FileResponse:
     return FileResponse(PROJECT_ROOT / "index.html", headers={"Cache-Control": "no-store"})
+
+
+@app.get("/{page_name}.html", include_in_schema=False)
+def frontend_page(page_name: str) -> FileResponse:
+    if page_name not in {"index", "login", "schedule"}:
+        raise HTTPException(status_code=404, detail="页面不存在")
+    return FileResponse(PROJECT_ROOT / f"{page_name}.html", headers={"Cache-Control": "no-store"})
 
 
 for static_directory in ("css", "js", "data", "tools", "assets"):

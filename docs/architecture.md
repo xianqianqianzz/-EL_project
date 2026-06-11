@@ -1,5 +1,13 @@
 # 项目架构
 
+## 前端页面边界
+
+- `index.html`：公共地图与路线规划，游客可访问。
+- `login.html`：独立登录与注册页面，成功后进入地图。
+- `schedule.html`：独立个人日程页面，必须登录。
+- 前端由 `scripts/start-frontend.*` 独立启动，通过 `CONFIG.apiBase` 调用后端。
+- 后端由 `scripts/start-backend.*` 独立启动，并通过 CORS 允许本地前端开发地址访问。
+
 ## 第 1 阶段技术结构
 
 ```text

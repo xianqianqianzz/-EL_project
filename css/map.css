@@ -1,5 +1,5 @@
 .leaflet-container {
-  background: #dce2e5;
+  background: #eee9e7;
   font-family: inherit;
 }
 
@@ -12,14 +12,14 @@
   margin: -9px 0 0 -9px !important;
   border: 3px solid #fff;
   border-radius: 50%;
-  background: #d45b3e;
+  background: #6f1d77;
   box-shadow: 0 1px 5px rgba(0, 0, 0, .45);
 }
 
 .place-tooltip {
-  border: 1px solid #cbd5db;
-  border-radius: 4px;
-  color: #263238;
+  border: 1px solid #ded5de;
+  border-radius: 5px;
+  color: #241f25;
   font-weight: 600;
   box-shadow: 0 1px 5px rgba(0, 0, 0, .14);
 }
@@ -33,8 +33,8 @@
   align-items: center;
   gap: 12px;
   padding: 8px 10px 8px 14px;
-  border: 1px solid #c9d4db;
-  border-radius: 6px;
+  border: 1px solid #ded5de;
+  border-radius: 5px;
   background: rgba(255, 255, 255, .96);
   box-shadow: 0 2px 12px rgba(28, 43, 54, .18);
   transform: translateX(-50%);
@@ -43,7 +43,7 @@
 
 .map-selection-banner button {
   padding: 4px 8px;
-  border: 1px solid #c9d4db;
+  border: 1px solid #ded5de;
   border-radius: 4px;
   background: #fff;
 }
@@ -64,8 +64,8 @@
   border-radius: 50%;
   box-shadow: 0 1px 6px rgba(0, 0, 0, .45);
 }
-.marker-start { background: #238558; }
-.marker-end { background: #d45038; }
+.marker-start { background: #32765a; }
+.marker-end { background: #c8453c; }
 
 @media (max-width: 768px) {
   .map-selection-banner {

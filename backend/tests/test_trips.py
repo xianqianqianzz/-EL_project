@@ -135,6 +135,21 @@ async def test_today_returns_occurrence_for_active_daily_trip() -> None:
     assert response.json()[0]["suggested_departure_at"].endswith("+08:00")
 
 
+@pytest.mark.asyncio
+async def test_demo_trips_are_created_once_for_empty_account() -> None:
+    token = await token_for("demo_trip_user")
+    headers = {"Authorization": f"Bearer {token}"}
+
+    first = await request("/api/v1/trips/demo", "POST", headers=headers)
+    second = await request("/api/v1/trips/demo", "POST", headers=headers)
+    listed = await request("/api/v1/trips", headers=headers)
+
+    assert first.status_code == 200
+    assert [trip["title"] for trip in first.json()] == ["教学楼课程", "图书馆还书", "体育馆训练"]
+    assert second.json() == []
+    assert len(listed.json()) == 3
+
+
 def bare_trip(recurrence: str, start_date: date, end_date: date | None = None) -> Trip:
     return Trip(
         id=1,

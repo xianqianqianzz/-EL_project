@@ -347,14 +347,17 @@
       render(); setStatus(`已导入：${state.places.length} 地点、${state.nodes.length} 节点、${state.edges.length} 边。`);
     }
 
+    const API_BASE = 'http://localhost:8000';
+    const apiUrl = path => path.startsWith('/api/') ? `${API_BASE}${path}` : path;
+
     async function loadOfficialArea() {
       try {
-        const indexResponse = await fetch('/api/v1/areas', { cache: 'no-store' });
+        const indexResponse = await fetch(apiUrl('/api/v1/areas'), { cache: 'no-store' });
         if (!indexResponse.ok) throw new Error('无法访问后端区域接口');
         const index = await indexResponse.json();
         const entry = index.areas.find(area => area.id === index.defaultOutdoorAreaId);
         if (!entry) throw new Error('没有默认室外区域');
-        const areaResponse = await fetch(entry.dataUrl, { cache: 'no-store' });
+        const areaResponse = await fetch(apiUrl(entry.dataUrl), { cache: 'no-store' });
         if (!areaResponse.ok) throw new Error('正式区域数据加载失败');
         importArea(await areaResponse.json());
         const image = new Image();
@@ -365,7 +368,7 @@
           render();
           setStatus(`已加载当前正式区域。请标注修改后填写说明并提交申请。`);
         };
-        image.src = `${entry.mapUrl}?v=${Date.now()}`;
+        image.src = `${apiUrl(entry.mapUrl)}?v=${Date.now()}`;
       } catch (error) {
         setStatus(`正式区域加载失败：${error.message}`);
       }
@@ -394,7 +397,7 @@
       }
       const payload = { area_id: fields.areaId.value.trim(), title, description, changes: buildProposalChanges() };
       try {
-        const response = await fetch('/api/v1/proposals', {
+        const response = await fetch(apiUrl('/api/v1/proposals'), {
           method: 'POST',
           headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)

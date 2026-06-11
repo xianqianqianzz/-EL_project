@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, time
 
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 from sqlalchemy import select
@@ -16,6 +16,12 @@ from backend.app.user_model import User
 
 router = APIRouter(prefix="/api/v1/trips", tags=["trips"])
 
+DEMO_TRIPS = (
+    ("教学楼课程", "outdoor-xianlin-place-001", "outdoor-xianlin-place-003", time(8, 30), "daily", 15),
+    ("图书馆还书", "outdoor-xianlin-place-010", "outdoor-xianlin-place-002", time(12, 10), "weekly", 10),
+    ("体育馆训练", "outdoor-xianlin-place-002", "outdoor-xianlin-place-010", time(18, 20), "weekly", 10),
+)
+
 
 def get_route_service() -> RouteService:
     from backend.app.main import PROJECT_ROOT
@@ -28,6 +34,44 @@ def estimate_or_422(route_service: RouteService, area_id: str, from_id: str, to_
         return route_service.estimate(area_id, from_id, to_id)
     except (PlaceNotFoundError, RouteNotFoundError) as error:
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_CONTENT, detail=str(error)) from error
+
+
+@router.post("/demo", response_model=list[TripPublic])
+def create_demo_trips(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+    route_service: RouteService = Depends(get_route_service),
+) -> list[TripPublic]:
+    existing = db.scalar(select(Trip.id).where(Trip.user_id == current_user.id).limit(1))
+    if existing:
+        return []
+
+    today = datetime.now(APP_TIMEZONE).date()
+    trips = [
+        Trip(
+            user_id=current_user.id,
+            title=title,
+            area_id="outdoor-xianlin",
+            from_place_id=from_id,
+            to_place_id=to_id,
+            start_date=today,
+            latest_arrival_time=arrival,
+            recurrence=recurrence,
+            reminder_minutes=reminder,
+        )
+        for title, from_id, to_id, arrival, recurrence, reminder in DEMO_TRIPS
+    ]
+    db.add_all(trips)
+    db.commit()
+    for trip in trips:
+        db.refresh(trip)
+    return [
+        trip_public(
+            trip,
+            estimate_or_422(route_service, trip.area_id, trip.from_place_id, trip.to_place_id),
+        )
+        for trip in trips
+    ]
 
 
 @router.post("", response_model=TripPublic, status_code=status.HTTP_201_CREATED)

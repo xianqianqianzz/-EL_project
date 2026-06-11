@@ -3,171 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>南京大学仙林校区地图</title>
+  <title>仙林校区地图 | 南京大学</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="css/main.css?v=phase2-v1">
-  <link rel="stylesheet" href="css/map.css?v=area-v6">
-  <link rel="stylesheet" href="css/indoor.css">
+  <link rel="stylesheet" href="css/main.css?v=ceremony-v1">
+  <link rel="stylesheet" href="css/map.css?v=ceremony-v1">
 </head>
-<body>
-  <header id="header">
-    <div class="logo">南大校园地图</div>
-    <div class="search-container">
-      <div class="search-row">
-        <div class="search-field">
-          <label for="search-from">起点</label>
-          <div class="search-field-control">
-            <input type="text" id="search-from" placeholder="搜索地点..." autocomplete="off">
-            <button type="button" class="btn-select-map" id="btn-select-from">选择起点</button>
-          </div>
-          <ul class="suggestions" id="suggestions-from"></ul>
-        </div>
-        <button class="swap-btn" id="btn-swap" title="交换起终点" aria-label="交换起终点">⇄</button>
-        <div class="search-field">
-          <label for="search-to">终点</label>
-          <div class="search-field-control">
-            <input type="text" id="search-to" placeholder="搜索地点..." autocomplete="off">
-            <button type="button" class="btn-select-map" id="btn-select-to">选择终点</button>
-          </div>
-          <ul class="suggestions" id="suggestions-to"></ul>
-        </div>
-        <button id="btn-route" class="btn-route">规划路线</button>
-      </div>
-    </div>
-    <button type="button" id="btn-trips" class="btn-trips hidden">行程</button>
-    <button type="button" id="btn-proposals" class="btn-secondary-nav hidden">路径申请</button>
-    <div class="account">
-      <button type="button" id="btn-account" class="btn-account">登录</button>
-      <div id="account-menu" class="account-menu hidden">
-        <strong id="account-name"></strong>
-        <span id="account-role"></span>
-        <button type="button" id="btn-logout">退出登录</button>
-      </div>
+<body class="map-page">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="返回地图主页">
+      <span class="brand-mark">NJU</span>
+      <span><strong>南京大学</strong><small>仙林校区地图与日程系统</small></span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a class="active" href="index.html">校园地图</a>
+      <a id="nav-schedule" class="auth-only hidden" href="schedule.html">我的日程</a>
+      <a id="nav-proposals" class="auth-only hidden" href="tools/path-editor.html">路径反馈</a>
+    </nav>
+    <div class="header-account">
+      <span id="header-greeting" class="header-greeting hidden"></span>
+      <a id="login-link" class="button button-primary" href="login.html">登录</a>
+      <button id="logout-button" class="button button-quiet hidden" type="button">退出</button>
     </div>
   </header>
 
-  <div id="main-container">
-    <aside id="info-panel">
+  <main class="map-workspace">
+    <section class="route-console" aria-label="路线规划">
+      <div class="console-heading">
+        <div>
+          <span class="eyebrow">仙林校区 · 室外导航</span>
+          <h1>从此刻，向校园出发</h1>
+        </div>
+        <span class="live-badge">地图已就绪</span>
+      </div>
+      <div class="search-row">
+        <div class="search-field">
+          <label for="search-from"><span class="point point-from"></span>起点</label>
+          <div class="search-field-control">
+            <input type="text" id="search-from" placeholder="搜索地点" autocomplete="off">
+            <button type="button" class="btn-select-map" id="btn-select-from">地图选点</button>
+          </div>
+          <ul class="suggestions" id="suggestions-from"></ul>
+        </div>
+        <button class="swap-btn" id="btn-swap" title="交换起终点" aria-label="交换起终点">⇅</button>
+        <div class="search-field">
+          <label for="search-to"><span class="point point-to"></span>终点</label>
+          <div class="search-field-control">
+            <input type="text" id="search-to" placeholder="搜索地点" autocomplete="off">
+            <button type="button" class="btn-select-map" id="btn-select-to">地图选点</button>
+          </div>
+          <ul class="suggestions" id="suggestions-to"></ul>
+        </div>
+        <button id="btn-route" class="button button-primary route-button">规划路线</button>
+      </div>
+    </section>
+
+    <aside id="info-panel" class="route-panel">
       <div class="panel-section" id="panel-empty">
-        <p class="hint">搜索地点，或点击“选择起点/终点”后选择路网节点</p>
+        <span class="eyebrow">路线助手</span>
+        <h2>准备好探索仙林了吗？</h2>
+        <p class="hint">搜索地点，或使用“地图选点”选择路网节点。游客可以完整使用地图导航，登录后可规划个人日程。</p>
+        <a id="guest-schedule-cta" class="text-link" href="login.html">登录后查看个人日程 →</a>
       </div>
       <div class="panel-section hidden" id="panel-route">
-        <h3>路线信息</h3>
+        <span class="eyebrow">推荐路线</span>
+        <h2>路线信息</h2>
         <div class="route-summary">
           <span class="route-dist"></span>
           <span class="route-time"></span>
         </div>
         <div class="route-segments"></div>
-        <h4>途经节点</h4>
+        <h3>途经节点</h3>
         <ol class="route-steps"></ol>
       </div>
     </aside>
 
-    <aside id="trip-drawer" class="trip-drawer hidden">
-      <div class="trip-drawer-header">
-        <h2>我的行程</h2>
-        <div>
-          <button type="button" id="btn-add-trip" title="添加行程" aria-label="添加行程" disabled>＋</button>
-          <button type="button" id="btn-close-trips" title="关闭" aria-label="关闭">×</button>
-        </div>
-      </div>
-      <section>
-        <h3>今天</h3>
-        <div id="today-trip-list" class="trip-list"></div>
-      </section>
-      <section>
-        <h3>全部行程</h3>
-        <div id="all-trip-list" class="trip-list"></div>
-      </section>
-    </aside>
-
-    <aside id="proposal-drawer" class="trip-drawer hidden">
-      <div class="trip-drawer-header">
-        <h2>路径修改申请</h2>
-        <button type="button" id="btn-close-proposals" title="关闭" aria-label="关闭">×</button>
-      </div>
-      <section>
-        <a class="proposal-editor-link" href="tools/path-editor.html">进入路径标注并提交申请</a>
-      </section>
-      <section>
-        <h3>我的申请</h3>
-        <div id="my-proposal-list" class="trip-list"></div>
-      </section>
-      <section id="proposal-review-section" class="hidden">
-        <h3>审核队列</h3>
-        <div id="proposal-review-list" class="trip-list"></div>
-      </section>
-    </aside>
-
-    <main id="map-container">
+    <section id="map-container">
       <div id="map-selection-banner" class="map-selection-banner hidden">
         <span id="map-selection-text"></span>
         <button type="button" id="btn-cancel-selection">取消</button>
       </div>
       <div id="outdoor-map"></div>
-    </main>
-  </div>
-
-  <dialog id="auth-dialog" class="auth-dialog">
-    <div class="auth-dialog-header">
-      <div class="auth-tabs" aria-label="账号操作">
-        <button type="button" id="tab-login" class="active">登录</button>
-        <button type="button" id="tab-register">注册</button>
-      </div>
-      <button type="button" id="btn-close-auth" class="dialog-close" aria-label="关闭">×</button>
-    </div>
-    <p id="auth-status" class="auth-status" aria-live="polite"></p>
-    <form id="login-form" class="auth-form">
-      <label>用户名<input name="username" autocomplete="username" required></label>
-      <label>密码<input name="password" type="password" autocomplete="current-password" required></label>
-      <button type="submit" class="btn-auth-submit">登录</button>
-    </form>
-    <form id="register-form" class="auth-form hidden">
-      <label>用户名<input name="username" minlength="3" maxlength="32" pattern="[A-Za-z0-9_]+" autocomplete="username" required></label>
-      <label>邮箱<input name="email" type="email" autocomplete="email" required></label>
-      <label>显示名称<input name="display_name" maxlength="50" autocomplete="name" required></label>
-      <label>密码<input name="password" type="password" minlength="8" maxlength="128" autocomplete="new-password" required></label>
-      <label>确认密码<input name="password_confirm" type="password" minlength="8" maxlength="128" autocomplete="new-password" required></label>
-      <button type="submit" class="btn-auth-submit">创建账号</button>
-    </form>
-  </dialog>
-
-  <dialog id="trip-dialog" class="auth-dialog trip-dialog">
-    <div class="auth-dialog-header">
-      <h2 id="trip-dialog-title">添加行程</h2>
-      <button type="button" id="btn-close-trip-dialog" class="dialog-close" aria-label="关闭">×</button>
-    </div>
-    <p id="trip-status" class="auth-status" aria-live="polite"></p>
-    <form id="trip-form" class="auth-form">
-      <label>行程名称<input name="title" maxlength="80" required></label>
-      <div class="trip-form-grid">
-        <label>起点<select name="from_place_id" required></select></label>
-        <label>终点<select name="to_place_id" required></select></label>
-      </div>
-      <div class="trip-form-grid">
-        <label>开始日期<input name="start_date" type="date" required></label>
-        <label>最晚到达时间<input name="latest_arrival_time" type="time" required></label>
-      </div>
-      <div class="trip-form-grid">
-        <label>重复
-          <select name="recurrence" id="trip-recurrence">
-            <option value="once">一次性</option>
-            <option value="daily">每天</option>
-            <option value="weekly">每周</option>
-            <option value="monthly">每月</option>
-          </select>
-        </label>
-        <label>结束日期<input name="end_date" type="date" disabled></label>
-      </div>
-      <label>提前提醒（分钟）<input name="reminder_minutes" type="number" min="0" max="120" value="10" required></label>
-      <button type="submit" id="btn-save-trip" class="btn-auth-submit">保存行程</button>
-    </form>
-  </dialog>
+    </section>
+  </main>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="js/config.js?v=phase1-v1"></script>
+  <script src="js/config.js?v=separated-v1"></script>
+  <script src="js/auth-client.js?v=separated-v1"></script>
   <script src="js/data/validator.js?v=area-v4"></script>
-  <script src="js/data/loader.js?v=phase1-v1"></script>
+  <script src="js/data/loader.js?v=separated-v1"></script>
   <script src="js/nav/graph.js?v=area-v4"></script>
   <script src="js/nav/astar.js?v=area-v4"></script>
   <script src="js/nav/outdoor-graph.js?v=area-v4"></script>
@@ -175,9 +98,7 @@
   <script src="js/map/outdoor.js?v=phase1-v1"></script>
   <script src="js/ui/search.js?v=area-v4"></script>
   <script src="js/ui/panel.js?v=area-v4"></script>
-  <script src="js/app.js?v=phase3-v1"></script>
-  <script src="js/auth.js?v=phase3-v1"></script>
-  <script src="js/trips.js?v=phase3-v1"></script>
-  <script src="js/proposals.js?v=phase4-v1"></script>
+  <script src="js/app.js?v=separated-v1"></script>
+  <script src="js/map-session.js?v=separated-v1"></script>
 </body>
 </html>

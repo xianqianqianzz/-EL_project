@@ -1,5 +1,6 @@
 class DataLoader {
   static async loadJSON(path) {
+    if (path.startsWith('/api/')) path = `${CONFIG.apiBase}${path}`;
     const separator = path.includes('?') ? '&' : '?';
     const requestPath = `${path}${separator}dataVersion=${Date.now()}`;
     const resp = await fetch(requestPath, { cache: 'no-store' });
@@ -25,6 +26,7 @@ class DataLoader {
   }
 
   static resolveAssetPath(dataPath, assetPath) {
+    if (assetPath.startsWith('/api/')) return `${CONFIG.apiBase}${assetPath}`;
     if (/^(?:https?:)?\/\//.test(assetPath) || assetPath.startsWith('/')) return assetPath;
     const cleanPath = dataPath.split('?')[0];
     return `${cleanPath.slice(0, cleanPath.lastIndexOf('/') + 1)}${assetPath}`;

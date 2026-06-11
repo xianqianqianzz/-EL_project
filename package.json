@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "python -m uvicorn backend.app.main:app --reload --port 8000",
+    "dev:backend": "python -m uvicorn backend.app.main:app --reload --port 8000",
+    "dev:frontend": "python -m http.server 8080 --bind 127.0.0.1",
     "start": "python -m uvicorn backend.app.main:app --port 8000",
     "db:upgrade": "python -m alembic upgrade head",
     "check:encoding": "node scripts/check-encoding.js",

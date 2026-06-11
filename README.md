@@ -1,5 +1,16 @@
 # 南京大学校园地图
 
+## 前后端分离启动
+
+开发时分别启动前端与后端：
+
+```powershell
+.\scripts\start-backend.ps1
+.\scripts\start-frontend.ps1
+```
+
+前端位于 `http://localhost:8080`，后端 API 位于 `http://localhost:8000`。详细说明见 [前后端分离启动说明](docs/frontend-backend-startup.md)。
+
 项目使用“一个区域文件夹对应一张地图图片和一个 `area.json`”的数据形式。当前演示区域为仙林校区室外总图。
 
 ## 首次安装

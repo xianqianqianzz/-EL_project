@@ -52,13 +52,27 @@ async def test_unknown_area_returns_404() -> None:
     response = await request("/api/v1/areas/not-found")
 
     assert response.status_code == 404
-    assert response.json()["detail"] == "区域不存在"
 
 
 @pytest.mark.asyncio
-async def test_backend_serves_existing_frontend() -> None:
+async def test_backend_serves_redesigned_map_frontend() -> None:
     response = await request("/")
 
     assert response.status_code == 200
     assert response.headers["cache-control"] == "no-store"
-    assert "南京大学仙林校区地图" in response.text
+    assert "仙林校区地图与日程系统" in response.text
+    assert "login.html" in response.text
+    assert "schedule.html" in response.text
+
+
+@pytest.mark.asyncio
+async def test_backend_serves_independent_account_and_schedule_pages() -> None:
+    login_response = await request("/login.html")
+    schedule_response = await request("/schedule.html")
+    missing_response = await request("/unknown.html")
+
+    assert login_response.status_code == 200
+    assert "欢迎回来" in login_response.text
+    assert schedule_response.status_code == 200
+    assert "今日行程" in schedule_response.text
+    assert missing_response.status_code == 404

@@ -1,7 +1,8 @@
 const CONFIG = {
+  apiBase: 'http://localhost:8000',
   walkingSpeed: 1.2,
   dataPaths: {
-    areasIndex: ['/api/v1/areas', 'data/areas/index.json']
+    areasIndex: ['http://localhost:8000/api/v1/areas', 'data/areas/index.json']
   },
   indoor: {
     pixelsPerMeter: 6,

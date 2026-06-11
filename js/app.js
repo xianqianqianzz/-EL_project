@@ -26,8 +26,9 @@
 
   const graph = new Graph();
   const graphBuilder = new OutdoorGraphBuilder(graph);
-  const imagePath = areaEntry.mapUrl ||
+  const rawImagePath = areaEntry.mapUrl ||
     DataLoader.resolveAssetPath(areaEntry.resolvedDataPath, area.image.path);
+  const imagePath = rawImagePath.startsWith('/api/') ? `${CONFIG.apiBase}${rawImagePath}` : rawImagePath;
   const map = new OutdoorMap('outdoor-map', area, imagePath);
   const searchBox = new SearchBox();
   const infoPanel = new InfoPanel();
@@ -139,5 +140,21 @@
     doRouteSearch();
   });
   window.dispatchEvent(new CustomEvent('map:ready', { detail: window.MAP_CONTEXT }));
+  const routeRequest = sessionStorage.getItem('nju-campus-route-request');
+  if (routeRequest) {
+    sessionStorage.removeItem('nju-campus-route-request');
+    try {
+      const request = JSON.parse(routeRequest);
+      const from = searchItems.find(item => item.id === request.from);
+      const to = searchItems.find(item => item.id === request.to);
+      if (from && to) {
+        searchBox.setRole('from', from);
+        searchBox.setRole('to', to);
+        doRouteSearch();
+      }
+    } catch (error) {
+      console.warn('[App] 无法读取日程路线请求', error);
+    }
+  }
   console.log(`[App] 已加载 ${area.name}：${area.places.length} places，${area.nodes.length} nodes，${area.edges.length} edges`);
 })();

@@ -1,0 +1,71 @@
+.schedule-page { background: var(--paper); }
+.schedule-shell { display: grid; grid-template-columns: 250px minmax(0, 1fr); min-height: calc(100vh - 76px); }
+.schedule-sidebar { display: flex; flex-direction: column; border-right: 1px solid var(--line); background: #f8f5f1; }
+.date-monogram { display: grid; justify-items: center; gap: 2px; padding: 34px 20px; border-bottom: 1px solid var(--line); color: var(--nju); }
+.date-monogram strong { font-family: Georgia, serif; font-size: 58px; line-height: 1; }
+.date-monogram span { color: var(--muted); font-size: 13px; font-weight: 700; }
+.sidebar-section { padding: 28px 18px; }
+.schedule-nav { display: grid; gap: 6px; margin-top: 12px; }
+.schedule-nav button { padding: 12px 13px; border: 0; border-left: 3px solid transparent; color: var(--muted); background: transparent; text-align: left; }
+.schedule-nav button:hover, .schedule-nav button.active { border-left-color: var(--nju); color: var(--nju); background: var(--nju-soft); font-weight: 700; }
+.sidebar-quote { margin-top: auto; padding: 24px; border-top: 1px solid var(--line); }
+.sidebar-quote p { margin-top: 10px; color: var(--muted); font-family: "Noto Serif SC", "Songti SC", serif; font-size: 15px; line-height: 1.9; }
+.schedule-content { width: min(1040px, calc(100% - 56px)); margin: 0 auto; padding: 44px 0 64px; }
+.schedule-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+.schedule-heading h1 { margin: 6px 0 4px; font-family: "Noto Serif SC", "Songti SC", serif; font-size: 38px; }
+.schedule-heading p { color: var(--muted); }
+.focus-strip { display: grid; grid-template-columns: repeat(3, 1fr); margin: 34px 0 38px; border-block: 1px solid var(--line); }
+.focus-strip div { padding: 20px 24px; border-right: 1px solid var(--line); }
+.focus-strip div:last-child { border-right: 0; }
+.focus-strip span { display: block; color: var(--muted); font-size: 13px; font-weight: 700; }
+.focus-strip strong { display: block; margin-top: 4px; color: var(--nju); font-family: Georgia, "Noto Serif SC", serif; font-size: 26px; }
+.section-heading { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
+.section-heading h2 { font-family: "Noto Serif SC", "Songti SC", serif; font-size: 24px; }
+.section-heading span { color: var(--muted); font-size: 13px; }
+.timeline-list { position: relative; display: grid; gap: 10px; margin-bottom: 48px; padding-left: 86px; }
+.timeline-list::before { position: absolute; top: 9px; bottom: 9px; left: 64px; width: 1px; background: var(--line); content: ""; }
+.timeline-item { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 6px; background: var(--white); box-shadow: var(--shadow-soft); }
+.timeline-time { position: absolute; top: 17px; left: -86px; width: 54px; color: var(--ink); font-family: Georgia, serif; font-size: 17px; font-weight: 700; text-align: right; }
+.timeline-dot { position: absolute; top: 23px; left: -27px; width: 10px; height: 10px; border: 2px solid var(--paper); border-radius: 50%; background: var(--nju); box-shadow: 0 0 0 1px var(--nju); }
+.timeline-item h3, .saved-trip h3 { font-size: 17px; }
+.timeline-item p, .saved-trip p { margin-top: 5px; color: var(--muted); font-size: 14px; }
+.timeline-route { text-align: right; }
+.timeline-route strong { display: block; color: var(--nju); font-size: 14px; }
+.timeline-route span { color: var(--muted); font-size: 12px; }
+.status-pill { display: inline-block; margin-top: 8px; padding: 3px 8px; border-radius: 3px; color: var(--nju); background: var(--nju-soft); font-size: 11px; font-weight: 800; }
+.timeline-item.trip-leave-now, .timeline-item.trip-leave-soon { border-color: #e4b1ad; background: #fff8f6; animation: schedule-pulse 1.6s ease-in-out infinite; }
+@keyframes schedule-pulse { 50% { box-shadow: 0 0 0 4px rgba(200, 69, 60, .12); } }
+.all-trip-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 6px; }
+.saved-trip { padding: 18px; border-bottom: 1px solid var(--line); }
+.saved-trip:nth-child(odd) { border-right: 1px solid var(--line); }
+.trip-actions { display: flex; gap: 8px; margin-top: 13px; }
+.trip-actions button { padding: 5px 9px; border: 1px solid var(--line); border-radius: 4px; color: var(--nju); background: var(--paper); font-size: 12px; font-weight: 700; }
+.empty-message { padding: 28px; color: var(--muted); text-align: center; }
+.trip-dialog { width: min(620px, calc(100vw - 28px)); padding: 0; border: 1px solid var(--line); border-radius: 8px; background: var(--white); box-shadow: var(--shadow); }
+.trip-dialog::backdrop { background: rgba(36, 31, 37, .55); }
+.trip-dialog form { display: grid; gap: 14px; padding: 28px; }
+.dialog-heading { display: flex; align-items: start; justify-content: space-between; margin-bottom: 4px; }
+.dialog-heading h2 { font-family: "Noto Serif SC", "Songti SC", serif; font-size: 27px; }
+.dialog-heading button { width: 36px; height: 36px; border: 0; color: var(--muted); background: transparent; font-size: 26px; }
+.trip-dialog label { display: grid; gap: 6px; color: var(--muted); font-size: 13px; font-weight: 700; }
+.trip-dialog input, .trip-dialog select { width: 100%; height: 44px; padding: 0 11px; border: 1px solid var(--line); border-radius: 5px; color: var(--ink); background: var(--paper); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-status { min-height: 20px; color: var(--vermillion); font-size: 13px; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; }
+
+@media (max-width: 900px) {
+  .schedule-shell { display: block; min-height: calc(100vh - 68px - 58px); }
+  .schedule-sidebar { display: none; }
+  .schedule-content { width: calc(100% - 28px); padding: 28px 0 80px; }
+  .schedule-heading h1 { font-size: 30px; }
+  .focus-strip div { padding: 14px 8px; }
+  .focus-strip strong { font-size: 19px; }
+  .timeline-list { padding-left: 70px; }
+  .timeline-list::before { left: 52px; }
+  .timeline-time { left: -70px; width: 43px; }
+  .timeline-dot { left: -23px; }
+  .timeline-item { display: block; }
+  .timeline-route { margin-top: 12px; text-align: left; }
+  .all-trip-list, .form-grid { grid-template-columns: 1fr; }
+  .saved-trip:nth-child(odd) { border-right: 0; }
+}

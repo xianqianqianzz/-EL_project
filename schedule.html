@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的日程 | 仙林校区地图</title>
+  <link rel="stylesheet" href="css/main.css?v=ceremony-v1">
+  <link rel="stylesheet" href="css/schedule.css?v=ceremony-v1">
+</head>
+<body class="schedule-page">
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">NJU</span>
+      <span><strong>南京大学</strong><small>仙林校区地图与日程系统</small></span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a href="index.html">校园地图</a>
+      <a class="active" href="schedule.html">我的日程</a>
+      <a href="tools/path-editor.html">路径反馈</a>
+    </nav>
+    <div class="header-account">
+      <span id="header-greeting" class="header-greeting"></span>
+      <button id="logout-button" class="button button-quiet" type="button">退出</button>
+    </div>
+  </header>
+
+  <main class="schedule-shell">
+    <aside class="schedule-sidebar">
+      <div class="date-monogram">
+        <span id="date-month"></span>
+        <strong id="date-day"></strong>
+        <span id="date-weekday"></span>
+      </div>
+      <div class="sidebar-section">
+        <span class="eyebrow">日程视图</span>
+        <nav class="schedule-nav">
+          <button class="active" type="button">今日日程</button>
+          <button type="button" data-scroll-target="all-schedules">全部日程</button>
+        </nav>
+      </div>
+      <div class="sidebar-quote">
+        <span class="eyebrow">今日寄语</span>
+        <p>把时间留给重要的事，也为路途留出从容。</p>
+      </div>
+    </aside>
+
+    <section class="schedule-content">
+      <div class="schedule-heading">
+        <div>
+          <span class="eyebrow">PERSONAL CAMPUS PLANNER</span>
+          <h1>今日行程</h1>
+          <p id="today-summary">正在读取你的校园节奏…</p>
+        </div>
+        <button id="add-trip-button" class="button button-primary" type="button">添加日程</button>
+      </div>
+
+      <section class="focus-strip" aria-label="今日提醒">
+        <div><span>下一次出发</span><strong id="next-departure">--:--</strong></div>
+        <div><span>今日行程</span><strong id="today-count">0 项</strong></div>
+        <div><span>预计步行</span><strong id="walking-total">0 分钟</strong></div>
+      </section>
+
+      <section class="timeline-section">
+        <div class="section-heading">
+          <h2>今天</h2>
+          <span>按建议出发时间排列</span>
+        </div>
+        <div id="today-trip-list" class="timeline-list"></div>
+      </section>
+
+      <section id="all-schedules" class="all-section">
+        <div class="section-heading">
+          <h2>全部日程</h2>
+          <span>固定与一次性行程</span>
+        </div>
+        <div id="all-trip-list" class="all-trip-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="trip-dialog" class="trip-dialog">
+    <form id="trip-form" method="dialog">
+      <div class="dialog-heading">
+        <div><span class="eyebrow">校园日程</span><h2 id="trip-dialog-title">添加日程</h2></div>
+        <button id="close-trip-dialog" type="button" aria-label="关闭">×</button>
+      </div>
+      <p id="trip-status" class="form-status"></p>
+      <label>日程名称<input name="title" maxlength="80" required></label>
+      <div class="form-grid">
+        <label>起点<select name="from_place_id" required></select></label>
+        <label>终点<select name="to_place_id" required></select></label>
+      </div>
+      <div class="form-grid">
+        <label>开始日期<input name="start_date" type="date" required></label>
+        <label>最晚到达时间<input name="latest_arrival_time" type="time" required></label>
+      </div>
+      <div class="form-grid">
+        <label>重复方式
+          <select name="recurrence" id="trip-recurrence">
+            <option value="once">一次性</option>
+            <option value="daily">每天</option>
+            <option value="weekly">每周</option>
+            <option value="monthly">每月</option>
+          </select>
+        </label>
+        <label>提醒提前量（分钟）<input name="reminder_minutes" type="number" min="0" max="120" value="10" required></label>
+      </div>
+      <label>结束日期<input name="end_date" type="date" disabled></label>
+      <div class="dialog-actions">
+        <button id="cancel-trip-dialog" class="button button-quiet" type="button">取消</button>
+        <button class="button button-primary" type="submit">保存日程</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="js/config.js?v=separated-v1"></script>
+  <script src="js/auth-client.js?v=separated-v1"></script>
+  <script src="js/data/loader.js?v=separated-v1"></script>
+  <script src="js/schedule-page.js?v=separated-v1"></script>
+</body>
+</html>
