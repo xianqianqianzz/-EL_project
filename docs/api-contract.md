@@ -61,12 +61,52 @@
 
 返回 `area.json.image.path` 指向的图片。后端会限制图片只能位于对应区域文件夹内。
 
+## 用户注册
+
+### `POST /api/v1/auth/register`
+
+请求为 JSON，包含 `username`、`email`、`display_name`、`password`。公开注册固定创建 `user` 角色，响应不包含密码或密码哈希。
+
+- `201`：注册成功。
+- `409`：用户名或邮箱已使用。
+- `422`：字段格式不符合要求。
+
+## 用户登录
+
+### `POST /api/v1/auth/token`
+
+使用 `application/x-www-form-urlencoded` 提交 `username` 和 `password`，返回 bearer access token。
+
+```json
+{
+  "access_token": "<jwt>",
+  "token_type": "bearer",
+  "expires_in": 3600
+}
+```
+
+## 当前用户
+
+### `GET /api/v1/users/me`
+
+请求头必须包含 `Authorization: Bearer <jwt>`。返回当前用户公开信息及角色。
+
+- `200`：登录状态有效。
+- `401`：token 缺失、无效、过期，或用户已停用。
+
+## 权限角色
+
+- `user`：普通注册用户。
+- `staff`：未来负责审核地图修改申请。
+- `admin`：未来负责系统管理。
+
+后端使用统一角色依赖校验权限。公开注册和普通用户接口不得接受角色字段。
+
 ## 当前明确不提供的接口
 
-- 注册、登录与用户资料。
 - 行程增删改查与提醒。
 - 用户路径修改申请。
 - 工作人员审核与直接修改主地图。
 - 一键更新 GitHub。
 
-这些能力必须在后续阶段单独设计权限、数据库结构和审核流程，不得临时塞入区域只读接口。
+这些能力必须在后续阶段单独设计权限和审核流程，不得临时塞入区域只读接口。

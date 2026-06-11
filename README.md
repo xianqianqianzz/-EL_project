@@ -20,6 +20,14 @@ npm.cmd run dev
 
 打开 `http://localhost:8000/`。后端会托管现有地图前端，并通过 `/api/v1` 提供区域数据接口；接口调试页面位于 `http://localhost:8000/docs`。
 
+首次启动或数据库结构更新后，运行迁移：
+
+```powershell
+npm.cmd run db:upgrade
+```
+
+复制 [.env.example](.env.example) 中需要的设置到本地 `.env`。部署前必须替换 `NJU_JWT_SECRET`；`.env` 和数据库运行文件不会进入 Git。Windows 默认数据库位于 `%LOCALAPPDATA%\nju-campus-map\app.db`，可通过 `NJU_DATABASE_URL` 改为 PostgreSQL 等正式数据库。
+
 ## 纯前端应急启动
 
 在项目根目录启动静态服务器：
@@ -50,6 +58,7 @@ GitHub Actions 会对 Pull Request 和正式分支推送执行同一套检查。
 
 - [第 0 阶段基线](docs/phase-0-baseline.md)
 - [第 1 阶段全栈基础](docs/phase-1-foundation.md)
+- [第 2 阶段账号、权限与数据库基础](docs/phase-2-auth-database.md)
 - [API 接口契约](docs/api-contract.md)
 - [阶段路线图](docs/staged-roadmap.md)
 

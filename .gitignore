@@ -17,6 +17,7 @@ __pycache__/
 .pytest_cache/
 *.py[cod]
 .venv/
+backend/runtime/
 
 # 环境变量
 .env

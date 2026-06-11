@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>南京大学仙林校区地图</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="css/main.css?v=area-v5">
+  <link rel="stylesheet" href="css/main.css?v=phase2-v1">
   <link rel="stylesheet" href="css/map.css?v=area-v6">
   <link rel="stylesheet" href="css/indoor.css">
 </head>
@@ -32,6 +32,14 @@
           <ul class="suggestions" id="suggestions-to"></ul>
         </div>
         <button id="btn-route" class="btn-route">规划路线</button>
+      </div>
+    </div>
+    <div class="account">
+      <button type="button" id="btn-account" class="btn-account">登录</button>
+      <div id="account-menu" class="account-menu hidden">
+        <strong id="account-name"></strong>
+        <span id="account-role"></span>
+        <button type="button" id="btn-logout">退出登录</button>
       </div>
     </div>
   </header>
@@ -62,6 +70,30 @@
     </main>
   </div>
 
+  <dialog id="auth-dialog" class="auth-dialog">
+    <div class="auth-dialog-header">
+      <div class="auth-tabs" aria-label="账号操作">
+        <button type="button" id="tab-login" class="active">登录</button>
+        <button type="button" id="tab-register">注册</button>
+      </div>
+      <button type="button" id="btn-close-auth" class="dialog-close" aria-label="关闭">×</button>
+    </div>
+    <p id="auth-status" class="auth-status" aria-live="polite"></p>
+    <form id="login-form" class="auth-form">
+      <label>用户名<input name="username" autocomplete="username" required></label>
+      <label>密码<input name="password" type="password" autocomplete="current-password" required></label>
+      <button type="submit" class="btn-auth-submit">登录</button>
+    </form>
+    <form id="register-form" class="auth-form hidden">
+      <label>用户名<input name="username" minlength="3" maxlength="32" pattern="[A-Za-z0-9_]+" autocomplete="username" required></label>
+      <label>邮箱<input name="email" type="email" autocomplete="email" required></label>
+      <label>显示名称<input name="display_name" maxlength="50" autocomplete="name" required></label>
+      <label>密码<input name="password" type="password" minlength="8" maxlength="128" autocomplete="new-password" required></label>
+      <label>确认密码<input name="password_confirm" type="password" minlength="8" maxlength="128" autocomplete="new-password" required></label>
+      <button type="submit" class="btn-auth-submit">创建账号</button>
+    </form>
+  </dialog>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/config.js?v=phase1-v1"></script>
   <script src="js/data/validator.js?v=area-v4"></script>
@@ -74,5 +106,6 @@
   <script src="js/ui/search.js?v=area-v4"></script>
   <script src="js/ui/panel.js?v=area-v4"></script>
   <script src="js/app.js?v=phase1-v1"></script>
+  <script src="js/auth.js?v=phase2-v1"></script>
 </body>
 </html>

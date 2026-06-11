@@ -4,10 +4,10 @@ import pytest
 from backend.app.main import app
 
 
-async def request(path: str) -> httpx.Response:
+async def request(path: str, method: str = "GET", **kwargs) -> httpx.Response:
     transport = httpx.ASGITransport(app=app)
     async with httpx.AsyncClient(transport=transport, base_url="http://test") as client:
-        return await client.get(path)
+        return await client.request(method, path, **kwargs)
 
 
 @pytest.mark.asyncio

@@ -52,6 +52,144 @@ button { cursor: pointer; }
   white-space: nowrap;
 }
 
+.account {
+  position: relative;
+}
+
+.btn-account {
+  min-width: 72px;
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--primary);
+  background: #fff;
+  white-space: nowrap;
+}
+
+.account-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1200;
+  display: grid;
+  gap: 6px;
+  min-width: 190px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.account-menu span {
+  color: var(--text-light);
+  font-size: 12px;
+}
+
+.account-menu button {
+  padding: 7px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.auth-dialog {
+  width: min(390px, calc(100vw - 24px));
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.auth-dialog::backdrop {
+  background: rgba(25, 38, 48, .45);
+}
+
+.auth-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 0;
+}
+
+.auth-tabs {
+  display: inline-flex;
+  padding: 2px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #f4f7f9;
+}
+
+.auth-tabs button {
+  padding: 6px 18px;
+  border: 0;
+  border-radius: 4px;
+  color: var(--text-light);
+  background: transparent;
+}
+
+.auth-tabs button.active {
+  color: #fff;
+  background: var(--primary);
+}
+
+.dialog-close {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  color: var(--text-light);
+  background: transparent;
+  font-size: 24px;
+}
+
+.auth-status {
+  min-height: 22px;
+  padding: 8px 18px 0;
+  color: var(--success);
+  font-size: 13px;
+}
+
+.auth-status.error {
+  color: #b42318;
+}
+
+.auth-form {
+  display: grid;
+  gap: 12px;
+  padding: 12px 18px 20px;
+}
+
+.auth-form label {
+  display: grid;
+  gap: 4px;
+  color: var(--text-light);
+  font-size: 12px;
+}
+
+.auth-form input {
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+}
+
+.auth-form input:focus {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn-auth-submit {
+  height: 38px;
+  border: 0;
+  border-radius: var(--radius);
+  color: #fff;
+  background: var(--primary);
+}
+
 .search-container { flex: 1; }
 
 .search-row {
@@ -211,6 +349,8 @@ button { cursor: pointer; }
 @media (max-width: 768px) {
   #header { display: block; padding: 7px 8px; }
   .logo { margin-bottom: 5px; font-size: 15px; }
+  .account { position: absolute; top: 7px; right: 8px; }
+  .btn-account { height: 28px; }
   .search-row {
     grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr);
     gap: 5px;

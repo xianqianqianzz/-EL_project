@@ -4,9 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - development
       - master
-      - main
 
 permissions:
   contents: read
