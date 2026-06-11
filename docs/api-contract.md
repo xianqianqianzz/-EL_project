@@ -150,8 +150,55 @@
 
 ## 当前明确不提供的接口
 
-- 用户路径修改申请。
-- 工作人员审核与直接修改主地图。
 - 一键更新 GitHub。
 
-这些能力必须在后续阶段单独设计权限和审核流程，不得临时塞入区域只读接口。
+该能力将在后续阶段单独设计安全策略，不得由普通 Web 请求直接操作代码仓库。
+
+## 路径修改申请
+
+所有申请接口要求 bearer token。申请补丁只能修改路网节点和边，不能覆盖完整区域文件。
+
+### `POST /api/v1/proposals`
+
+提交路径修改申请：
+
+```json
+{
+  "area_id": "outdoor-xianlin",
+  "title": "新增一条可通行路径",
+  "description": "现场确认此处存在可通行道路，请审核。",
+  "changes": {
+    "add_nodes": [
+      { "id": "proposal-node-001", "type": "node", "x": 120, "y": 240 }
+    ],
+    "add_edges": [
+      {
+        "id": "proposal-edge-001",
+        "type": "edge",
+        "from": "outdoor-xianlin-node-001",
+        "to": "proposal-node-001",
+        "walkable": true
+      }
+    ],
+    "remove_edge_ids": []
+  }
+}
+```
+
+后端提交时会预检补丁，但不会修改正式地图。
+
+### `GET /api/v1/proposals/mine`
+
+返回当前用户提交的申请及审核状态。
+
+### `GET /api/v1/proposals`
+
+仅 `staff/admin` 可访问，返回审核队列和历史申请。
+
+### `POST /api/v1/proposals/{proposal_id}/approve`
+
+仅 `staff/admin` 可访问。填写审核意见后，系统基于当前最新正式区域重新应用补丁、完整校验并原子写入。
+
+### `POST /api/v1/proposals/{proposal_id}/reject`
+
+仅 `staff/admin` 可访问。填写拒绝原因并保留审核记录。

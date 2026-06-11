@@ -63,6 +63,7 @@
       <button id="mode-place" type="button">地点 place</button>
       <button id="mode-node" class="active" type="button">节点 node</button>
       <button id="mode-edge" type="button">连边 edge</button>
+      <button id="mode-remove-edge" type="button">删除错误边</button>
     </div>
 
     <div id="place-fields">
@@ -84,6 +85,18 @@
     </div>
     <div id="status" class="status">加载图片后开始标注。node 不需要标签；edge 通过依次点击两个已有节点创建。</div>
 
+    <h2>提交路径修改申请</h2>
+    <div class="buttons">
+      <button id="load-official" type="button">加载当前正式区域</button>
+    </div>
+    <label for="proposal-title">申请标题</label>
+    <input id="proposal-title" maxlength="100" placeholder="简要说明修改内容">
+    <label for="proposal-description">详细说明</label>
+    <textarea id="proposal-description" maxlength="2000" placeholder="说明现场情况、为什么需要新增或删除路径，至少 10 个字"></textarea>
+    <div class="buttons">
+      <button id="submit-proposal" class="primary" type="button">提交修改申请</button>
+    </div>
+
     <h2>导出</h2>
     <div class="buttons">
       <button id="export-json" class="primary" type="button">生成 JSON</button>
@@ -104,7 +117,8 @@
       nodes: [],
       edges: [],
       selectedEdgeNodeId: null,
-      history: []
+      history: [],
+      baseline: { placeIds: new Set(), nodeIds: new Set(), edgeIds: new Set() }
     };
 
     const canvas = document.getElementById('canvas');
@@ -148,14 +162,34 @@
       }
       return result;
     }
+    function pointToSegmentDistance(point, from, to) {
+      const dx = to.x - from.x;
+      const dy = to.y - from.y;
+      if (!dx && !dy) return Math.hypot(point.x - from.x, point.y - from.y);
+      const t = Math.max(0, Math.min(1, ((point.x - from.x) * dx + (point.y - from.y) * dy) / (dx * dx + dy * dy)));
+      return Math.hypot(point.x - (from.x + t * dx), point.y - (from.y + t * dy));
+    }
+    function nearestEdge(point, maxDistance = 18) {
+      let result = null;
+      let distance = maxDistance;
+      for (const edge of state.edges) {
+        const from = state.nodes.find(node => node.id === edge.from);
+        const to = state.nodes.find(node => node.id === edge.to);
+        if (!from || !to) continue;
+        const candidate = pointToSegmentDistance(point, from, to);
+        if (candidate <= distance) { result = edge; distance = candidate; }
+      }
+      return result;
+    }
     function setMode(mode) {
       state.mode = mode;
       state.selectedEdgeNodeId = null;
-      for (const name of ['place', 'node', 'edge']) document.getElementById(`mode-${name}`).classList.toggle('active', name === mode);
+      for (const name of ['place', 'node', 'edge', 'remove-edge']) document.getElementById(`mode-${name}`).classList.toggle('active', name === mode);
       document.getElementById('place-fields').style.display = mode === 'place' ? 'block' : 'none';
       setStatus(mode === 'place' ? '地点模式：填写标签后点击图片；工具会同时创建同位置路网节点。' :
         mode === 'node' ? '节点模式：点击图片创建无标签路网节点。' :
-        '连边模式：依次点击两个已有节点，边的两端将严格使用节点坐标。');
+        mode === 'edge' ? '连边模式：依次点击两个已有节点，边的两端将严格使用节点坐标。' :
+        '删除错误边模式：点击需要移除的现有边。提交申请前不会修改正式地图。');
       render();
     }
     function addNode(point) {
@@ -215,6 +249,15 @@
       state.edges.push(edge);
       state.selectedEdgeNodeId = null;
       setStatus(`已创建边 ${edge.id}：${edge.from} → ${edge.to}`);
+      render();
+    }
+    function removeEdge(point) {
+      const edge = nearestEdge(point);
+      if (!edge) { setStatus('当前点击位置附近没有边。'); return; }
+      if (!confirm(`确认在申请中删除边 ${edge.id}？`)) return;
+      snapshot();
+      state.edges = state.edges.filter(candidate => candidate.id !== edge.id);
+      setStatus(`已在申请中标记删除 ${edge.id}`);
       render();
     }
     function undo() {
@@ -295,16 +338,83 @@
       state.places = (area.places || []).map(place => ({ ...place, type: 'place' }));
       state.nodes = (area.nodes || []).map(node => ({ id: node.id, type: 'node', x: node.x, y: node.y }));
       state.edges = (area.edges || []).map(edge => ({ id: edge.id, from: edge.from, to: edge.to, type: 'edge', walkable: edge.walkable !== false, reviewStatus: edge.reviewStatus || 'draft' }));
+      state.baseline = {
+        placeIds: new Set(state.places.map(place => place.id)),
+        nodeIds: new Set(state.nodes.map(node => node.id)),
+        edgeIds: new Set(state.edges.map(edge => edge.id))
+      };
       state.selectedEdgeNodeId = null;
       render(); setStatus(`已导入：${state.places.length} 地点、${state.nodes.length} 节点、${state.edges.length} 边。`);
     }
 
-    for (const mode of ['place', 'node', 'edge']) document.getElementById(`mode-${mode}`).addEventListener('click', () => setMode(mode));
+    async function loadOfficialArea() {
+      try {
+        const indexResponse = await fetch('/api/v1/areas', { cache: 'no-store' });
+        if (!indexResponse.ok) throw new Error('无法访问后端区域接口');
+        const index = await indexResponse.json();
+        const entry = index.areas.find(area => area.id === index.defaultOutdoorAreaId);
+        if (!entry) throw new Error('没有默认室外区域');
+        const areaResponse = await fetch(entry.dataUrl, { cache: 'no-store' });
+        if (!areaResponse.ok) throw new Error('正式区域数据加载失败');
+        importArea(await areaResponse.json());
+        const image = new Image();
+        image.onload = () => {
+          state.image = image;
+          canvas.width = image.naturalWidth;
+          canvas.height = image.naturalHeight;
+          render();
+          setStatus(`已加载当前正式区域。请标注修改后填写说明并提交申请。`);
+        };
+        image.src = `${entry.mapUrl}?v=${Date.now()}`;
+      } catch (error) {
+        setStatus(`正式区域加载失败：${error.message}`);
+      }
+    }
+    function buildProposalChanges() {
+      return {
+        add_nodes: state.nodes
+          .filter(node => !state.baseline.nodeIds.has(node.id))
+          .map(({ id, x, y }) => ({ id, type: 'node', x, y })),
+        add_edges: state.edges
+          .filter(edge => !state.baseline.edgeIds.has(edge.id))
+          .map(({ id, from, to, walkable }) => ({ id, type: 'edge', from, to, walkable: walkable !== false })),
+        remove_edge_ids: [...state.baseline.edgeIds].filter(id => !state.edges.some(edge => edge.id === id))
+      };
+    }
+    async function submitProposal() {
+      const token = sessionStorage.getItem('nju-campus-map-access-token');
+      if (!token) { setStatus('请先在主网站登录，再进入标注工具提交申请。'); return; }
+      const title = document.getElementById('proposal-title').value.trim();
+      const description = document.getElementById('proposal-description').value.trim();
+      const currentPlaceIds = new Set(state.places.map(place => place.id));
+      if (currentPlaceIds.size !== state.baseline.placeIds.size ||
+          [...currentPlaceIds].some(id => !state.baseline.placeIds.has(id))) {
+        setStatus('路径修改申请不能新增或删除地点；请撤销地点修改后再提交。');
+        return;
+      }
+      const payload = { area_id: fields.areaId.value.trim(), title, description, changes: buildProposalChanges() };
+      try {
+        const response = await fetch('/api/v1/proposals', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.detail || `提交失败：${response.status}`);
+        setStatus(`修改申请 #${result.id} 已提交，状态：待审核。正式地图尚未改变。`);
+      } catch (error) {
+        setStatus(`提交失败：${error.message}`);
+      }
+    }
+
+    for (const mode of ['place', 'node', 'edge', 'remove-edge']) document.getElementById(`mode-${mode}`).addEventListener('click', () => setMode(mode));
     document.getElementById('undo').addEventListener('click', undo);
     document.getElementById('clear-edge-selection').addEventListener('click', () => { state.selectedEdgeNodeId = null; render(); setStatus('已取消当前连边。'); });
     document.getElementById('clear').addEventListener('click', clearAll);
     document.getElementById('export-json').addEventListener('click', exportJson);
     document.getElementById('download-json').addEventListener('click', downloadJson);
+    document.getElementById('load-official').addEventListener('click', loadOfficialArea);
+    document.getElementById('submit-proposal').addEventListener('click', submitProposal);
     document.getElementById('image-input').addEventListener('change', event => {
       const file = event.target.files[0]; if (!file) return;
       const image = new Image();
@@ -319,10 +429,12 @@
       const point = pointFromEvent(event);
       if (state.mode === 'place') addPlace(point);
       else if (state.mode === 'node') addNode(point);
-      else selectEdgeNode(point);
+      else if (state.mode === 'edge') selectEdgeNode(point);
+      else removeEdge(point);
     });
 
     setMode('node');
+    if (location.protocol !== 'file:') loadOfficialArea();
   </script>
 </body>
 </html>

@@ -77,6 +77,16 @@ button { cursor: pointer; }
   white-space: nowrap;
 }
 
+.btn-secondary-nav {
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--primary);
+  background: #fff;
+  white-space: nowrap;
+}
+
 .btn-trips.trip-alert {
   border-color: #b42318;
   background: #b42318;
@@ -481,6 +491,22 @@ button { cursor: pointer; }
 .trip-empty, .trip-error { padding: 8px 2px; color: var(--text-light); font-size: 13px; }
 .trip-error { color: #b42318; }
 
+.proposal-editor-link {
+  display: block;
+  padding: 9px 10px;
+  border-radius: var(--radius);
+  color: #fff;
+  background: var(--primary);
+  font-size: 13px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.proposal-pending { border-left-color: #c88300; }
+.proposal-approved { border-left-color: var(--success); }
+.proposal-rejected { border-left-color: #b42318; }
+.proposal-note { color: var(--text-light); }
+
 @keyframes trip-reminder-pulse {
   50% { box-shadow: 0 0 0 3px rgba(200, 131, 0, .16); }
 }
@@ -524,6 +550,7 @@ button { cursor: pointer; }
   .account { position: absolute; top: 7px; right: 8px; }
   .btn-account { height: 28px; }
   .btn-trips { position: absolute; top: 7px; right: 88px; height: 28px; }
+  .btn-secondary-nav { position: absolute; top: 40px; right: 8px; height: 28px; }
   .search-row {
     grid-template-columns: minmax(0, 1fr) 30px minmax(0, 1fr);
     gap: 5px;
