@@ -1,7 +1,7 @@
 const CONFIG = {
   walkingSpeed: 1.2,
   dataPaths: {
-    areasIndex: 'data/areas/index.json'
+    areasIndex: ['/api/v1/areas', 'data/areas/index.json']
   },
   indoor: {
     pixelsPerMeter: 6,

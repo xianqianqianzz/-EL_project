@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "python -m uvicorn backend.app.main:app --reload --port 8000",
+    "start": "python -m uvicorn backend.app.main:app --port 8000",
     "check:encoding": "node scripts/check-encoding.js",
     "check:syntax": "node scripts/check-syntax.js",
     "validate:data": "node scripts/validate-data.js",
-    "check": "npm run check:encoding && npm run check:syntax && npm run validate:data"
+    "test:backend": "python -m pytest",
+    "check": "npm run check:encoding && npm run check:syntax && npm run validate:data && npm run test:backend"
   }
 }

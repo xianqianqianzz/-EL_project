@@ -2,7 +2,25 @@
 
 项目使用“一个区域文件夹对应一张地图图片和一个 `area.json`”的数据形式。当前演示区域为仙林校区室外总图。
 
-## 启动
+## 首次安装
+
+项目当前使用原生 HTML/CSS/JavaScript + Leaflet 前端，以及 FastAPI 后端。安装后端开发依赖：
+
+```powershell
+python -m pip install -r backend/requirements-dev.txt
+```
+
+## 推荐启动方式
+
+在项目根目录运行：
+
+```powershell
+npm.cmd run dev
+```
+
+打开 `http://localhost:8000/`。后端会托管现有地图前端，并通过 `/api/v1` 提供区域数据接口；接口调试页面位于 `http://localhost:8000/docs`。
+
+## 纯前端应急启动
 
 在项目根目录启动静态服务器：
 
@@ -10,7 +28,7 @@
 python -m http.server 8080
 ```
 
-打开 `http://localhost:8080/index.html`。标注工具位于 `http://localhost:8080/tools/path-editor.html`。
+打开 `http://localhost:8080/index.html`。标注工具位于 `http://localhost:8080/tools/path-editor.html`。此模式没有后端 API，前端会自动回退到静态区域文件。
 
 网站加载区域 JSON 时会主动绕过浏览器缓存。更新 `area.json` 后刷新页面即可看到最新地点和节点；普通路网节点仅在点击“选择起点/终点”后显示。
 
@@ -26,7 +44,14 @@ npm run validate:data
 npm run check
 ```
 
-GitHub Actions 会对 Pull Request 和正式分支推送执行同一套检查。第 0 阶段验收范围见 [docs/phase-0-baseline.md](docs/phase-0-baseline.md)。
+GitHub Actions 会对 Pull Request 和正式分支推送执行同一套检查。检查命令现在也包含后端 API 测试。
+
+阶段说明与接口规范：
+
+- [第 0 阶段基线](docs/phase-0-baseline.md)
+- [第 1 阶段全栈基础](docs/phase-1-foundation.md)
+- [API 接口契约](docs/api-contract.md)
+- [阶段路线图](docs/staged-roadmap.md)
 
 ## 当前数据
 
@@ -46,5 +71,6 @@ data/
 - `node` 只是路网节点，不需要标签。
 - `edge` 连接两个节点，不保存自由折线。
 - 网站默认常驻显示 `place` 圆点，地点名称在悬停时显示；普通 `node` 仅在“选择起点/终点”模式中显示。
+- `area.json` 仍是地图数据的唯一正式来源；后端 API 只读取并发布它，不复制数据。
 
 详细规范见 [docs/data-format.md](docs/data-format.md) 和 [docs/path-data-workflow.md](docs/path-data-workflow.md)。

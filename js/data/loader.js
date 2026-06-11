@@ -11,6 +11,25 @@ class DataLoader {
     return Promise.all(paths.map(p => DataLoader.loadJSON(p)));
   }
 
+  static async loadFirstJSON(paths) {
+    const candidates = Array.isArray(paths) ? paths : [paths];
+    const failures = [];
+    for (const path of candidates) {
+      try {
+        return await DataLoader.loadJSON(path);
+      } catch (error) {
+        failures.push(`${path}: ${error.message}`);
+      }
+    }
+    throw new Error(failures.join('；'));
+  }
+
+  static resolveAssetPath(dataPath, assetPath) {
+    if (/^(?:https?:)?\/\//.test(assetPath) || assetPath.startsWith('/')) return assetPath;
+    const cleanPath = dataPath.split('?')[0];
+    return `${cleanPath.slice(0, cleanPath.lastIndexOf('/') + 1)}${assetPath}`;
+  }
+
   static async loadIndoor(buildingId, areaIndex) {
     const entry = (areaIndex?.areas || []).find(area =>
       area.type === 'indoor' && area.buildingId === buildingId

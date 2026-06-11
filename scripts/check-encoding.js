@@ -4,7 +4,9 @@ const { TextDecoder } = require('util');
 
 const root = path.resolve(__dirname, '..');
 const ignoredDirectories = new Set(['.git', 'node_modules', 'assets', 'lib']);
-const textExtensions = new Set(['.css', '.html', '.js', '.json', '.md', '.txt', '.yml', '.yaml']);
+const textExtensions = new Set([
+  '.css', '.html', '.ini', '.js', '.json', '.md', '.py', '.toml', '.txt', '.yml', '.yaml'
+]);
 const explicitTextFiles = new Set(['.editorconfig', '.gitattributes', '.gitignore']);
 const decoder = new TextDecoder('utf-8', { fatal: true });
 const failures = [];

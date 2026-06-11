@@ -1,5 +1,5 @@
 class OutdoorMap {
-  constructor(containerId, area, areaPath) {
+  constructor(containerId, area, imagePath) {
     this.area = area;
     this.bounds = [[-area.image.height, 0], [0, area.image.width]];
     this.map = L.map(containerId, {
@@ -10,8 +10,7 @@ class OutdoorMap {
       attributionControl: false
     });
 
-    const baseDir = areaPath.slice(0, areaPath.lastIndexOf('/') + 1);
-    L.imageOverlay(`${baseDir}${area.image.path}`, this.bounds).addTo(this.map);
+    L.imageOverlay(imagePath, this.bounds).addTo(this.map);
     this.map.fitBounds(this.bounds, { padding: [12, 12] });
     this.map.setMaxBounds(this.bounds);
 

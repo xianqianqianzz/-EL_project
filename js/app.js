@@ -9,12 +9,15 @@
   let areaEntry;
   let area;
   try {
-    areaIndex = await DataLoader.loadJSON(CONFIG.dataPaths.areasIndex);
+    areaIndex = await DataLoader.loadFirstJSON(CONFIG.dataPaths.areasIndex);
     areaEntry = (areaIndex.areas || []).find(item => item.id === areaIndex.defaultOutdoorAreaId);
     if (!areaEntry) throw new Error('areas/index.json 未指定有效的默认室外区域');
-    area = DataLoader.normalizeOutdoorArea(await DataLoader.loadJSON(areaEntry.path));
+    const areaPath = areaEntry.dataUrl || areaEntry.path;
+    if (!areaPath) throw new Error(`区域 ${areaEntry.id} 未指定有效数据地址`);
+    area = DataLoader.normalizeOutdoorArea(await DataLoader.loadJSON(areaPath));
     const problems = DataValidator.validateArea(area);
     if (problems.length) console.warn('[Area 校验]', problems);
+    areaEntry.resolvedDataPath = areaPath;
   } catch (error) {
     console.error(error);
     emptyPanel.textContent = `区域数据加载失败：${error.message}`;
@@ -23,7 +26,9 @@
 
   const graph = new Graph();
   const graphBuilder = new OutdoorGraphBuilder(graph);
-  const map = new OutdoorMap('outdoor-map', area, areaEntry.path);
+  const imagePath = areaEntry.mapUrl ||
+    DataLoader.resolveAssetPath(areaEntry.resolvedDataPath, area.image.path);
+  const map = new OutdoorMap('outdoor-map', area, imagePath);
   const searchBox = new SearchBox();
   const infoPanel = new InfoPanel();
   const pathRenderer = new PathRenderer();
