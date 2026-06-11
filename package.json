@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "validate:data": "node scripts/validate-data.js"
+    "check:encoding": "node scripts/check-encoding.js",
+    "check:syntax": "node scripts/check-syntax.js",
+    "validate:data": "node scripts/validate-data.js",
+    "check": "npm run check:encoding && npm run check:syntax && npm run validate:data"
   }
 }

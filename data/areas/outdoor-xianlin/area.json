@@ -2804,12 +2804,6 @@
       "y": 3971
     },
     {
-      "id": "outdoor-xianlin-node-282",
-      "type": "node",
-      "x": 2372,
-      "y": 3512
-    },
-    {
       "id": "outdoor-xianlin-node-283",
       "type": "node",
       "x": 2372,
@@ -9889,6 +9883,22 @@
       "id": "outdoor-xianlin-edge-706",
       "from": "outdoor-xianlin-node-521",
       "to": "outdoor-xianlin-node-059",
+      "type": "edge",
+      "walkable": true,
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "outdoor-xianlin-edge-707",
+      "from": "outdoor-xianlin-node-039",
+      "to": "outdoor-xianlin-node-293",
+      "type": "edge",
+      "walkable": true,
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "outdoor-xianlin-edge-708",
+      "from": "outdoor-xianlin-node-040",
+      "to": "outdoor-xianlin-node-293",
       "type": "edge",
       "walkable": true,
       "reviewStatus": "reviewed"

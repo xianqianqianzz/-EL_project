@@ -114,10 +114,11 @@
     if (searchBox.fromNode && searchBox.toNode) doRouteSearch();
   });
   map.onPlaceClick(place => {
-    if (!selectionRole) return;
+    if (!selectionRole) return false;
     const item = searchItems.find(candidate => candidate.id === place.id) ||
       itemByNodeId.get(place.routeNodeId);
     if (item) selectNode(item);
+    return Boolean(item);
   });
 
   console.log(`[App] 已加载 ${area.name}：${area.places.length} places，${area.nodes.length} nodes，${area.edges.length} edges`);

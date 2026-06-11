@@ -32,14 +32,18 @@ class OutdoorMap {
         title: place.label
       }).addTo(this.placeLayer);
       marker.bindTooltip(place.label, {
-        permanent: true,
+        permanent: false,
         direction: 'right',
         offset: [8, 0],
         className: 'place-tooltip'
       });
+      marker.bindPopup(`<strong>${OutdoorMap.escapeHtml(place.label)}</strong>`);
       marker.on('click', event => {
         L.DomEvent.stopPropagation(event);
-        if (this._onPlaceClick) this._onPlaceClick(place);
+        const handled = this._onPlaceClick?.(place);
+        if (!handled) {
+          marker.openPopup();
+        }
       });
     }
   }
@@ -70,5 +74,15 @@ class OutdoorMap {
 
   onPlaceClick(fn) {
     this._onPlaceClick = fn;
+  }
+
+  static escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, character => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    })[character]);
   }
 }
