@@ -12,11 +12,21 @@ python -m http.server 8080
 
 打开 `http://localhost:8080/index.html`。标注工具位于 `http://localhost:8080/tools/path-editor.html`。
 
+网站加载区域 JSON 时会主动绕过浏览器缓存。更新 `area.json` 后刷新页面即可看到最新地点和节点；普通路网节点仅在点击“选择起点/终点”后显示。
+
 运行数据校验：
 
 ```powershell
 npm run validate:data
 ```
+
+提交或创建 Pull Request 前运行完整基线检查：
+
+```powershell
+npm run check
+```
+
+GitHub Actions 会对 Pull Request 和正式分支推送执行同一套检查。第 0 阶段验收范围见 [docs/phase-0-baseline.md](docs/phase-0-baseline.md)。
 
 ## 当前数据
 
@@ -35,5 +45,6 @@ data/
 - `place` 是用户可搜索地点，必须绑定一个 `routeNodeId`。
 - `node` 只是路网节点，不需要标签。
 - `edge` 连接两个节点，不保存自由折线。
+- 网站默认常驻显示 `place` 圆点，地点名称在悬停时显示；普通 `node` 仅在“选择起点/终点”模式中显示。
 
 详细规范见 [docs/data-format.md](docs/data-format.md) 和 [docs/path-data-workflow.md](docs/path-data-workflow.md)。

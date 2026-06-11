@@ -1,6 +1,8 @@
 class DataLoader {
   static async loadJSON(path) {
-    const resp = await fetch(path);
+    const separator = path.includes('?') ? '&' : '?';
+    const requestPath = `${path}${separator}dataVersion=${Date.now()}`;
+    const resp = await fetch(requestPath, { cache: 'no-store' });
     if (!resp.ok) throw new Error(`加载 ${path} 失败：${resp.status}`);
     return resp.json();
   }

@@ -8,4 +8,5 @@
 - [ ] 道路弯折处通过中间节点表达。
 - [ ] 重要地点之间实际可达，路线没有穿过建筑或不可通行区域。
 - [ ] 已运行 `npm run validate:data`，结果为 `0 fatal`。
+- [ ] 已运行 `npm run check`，编码、JavaScript 语法和地图数据检查全部通过。
 - [ ] 已将确认无误的边从 `draft` 改为 `reviewed`。
