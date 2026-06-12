@@ -9,5 +9,7 @@
   const greeting = document.getElementById('header-greeting');
   greeting.textContent = user ? `${user.display_name}，欢迎回来` : '';
   greeting.classList.toggle('hidden', !user);
+  const adminLink = document.getElementById('nav-admin');
+  if (adminLink) adminLink.classList.toggle('hidden', !user || !['staff', 'admin'].includes(user.role));
   document.getElementById('logout-button').addEventListener('click', () => client.logout());
 })();

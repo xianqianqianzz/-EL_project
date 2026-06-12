@@ -11,10 +11,11 @@ class SchedulePage {
   async init() {
     const user = await this.client.restore();
     if (!user) {
-      window.location.replace('login.html?next=schedule');
+      window.location.replace('index.html?next=schedule');
       return;
     }
     document.getElementById('header-greeting').textContent = `${user.display_name}，今天也要从容出发`;
+    document.getElementById('nav-admin').classList.toggle('hidden', !['staff', 'admin'].includes(user.role));
     document.getElementById('logout-button').addEventListener('click', () => this.client.logout());
     this.renderDate();
     await this.loadPlaces();
@@ -165,7 +166,7 @@ class SchedulePage {
     if (!button) return;
     if (button.dataset.action === 'route') {
       sessionStorage.setItem('nju-campus-route-request', JSON.stringify({ from: button.dataset.from, to: button.dataset.to }));
-      window.location.href = 'index.html';
+      window.location.href = 'map.html';
     } else if (button.dataset.action === 'edit') {
       this.openEdit(this.trips.get(button.dataset.id));
     } else if (button.dataset.action === 'delete' && confirm('确定删除这条日程吗？')) {

@@ -1,0 +1,12 @@
+.git
+.env
+.env.local
+.env.production
+__pycache__
+.pytest_cache
+backend/runtime
+node_modules
+*.db
+*.log
+*.tmp
+*.TMP

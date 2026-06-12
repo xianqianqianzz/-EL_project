@@ -28,4 +28,5 @@ backend/runtime/
 
 # 临时文件
 *.tmp
+*.TMP
 *.bak

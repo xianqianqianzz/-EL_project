@@ -3,102 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>仙林校区地图 | 南京大学</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <title>登录 | 仙林校区地图</title>
   <link rel="stylesheet" href="css/main.css?v=ceremony-v1">
-  <link rel="stylesheet" href="css/map.css?v=ceremony-v1">
+  <link rel="stylesheet" href="css/account.css?v=ceremony-v1">
 </head>
-<body class="map-page">
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="返回地图主页">
+<body class="account-page">
+  <header class="account-topbar">
+    <a class="brand" href="map.html">
       <span class="brand-mark">NJU</span>
       <span><strong>南京大学</strong><small>仙林校区地图与日程系统</small></span>
     </a>
-    <nav class="site-nav" aria-label="主导航">
-      <a class="active" href="index.html">校园地图</a>
-      <a id="nav-schedule" class="auth-only hidden" href="schedule.html">我的日程</a>
-      <a id="nav-proposals" class="auth-only hidden" href="tools/path-editor.html">路径反馈</a>
-    </nav>
-    <div class="header-account">
-      <span id="header-greeting" class="header-greeting hidden"></span>
-      <a id="login-link" class="button button-primary" href="login.html">登录</a>
-      <button id="logout-button" class="button button-quiet hidden" type="button">退出</button>
-    </div>
+    <a class="text-link" href="map.html">先浏览校园地图 →</a>
   </header>
 
-  <main class="map-workspace">
-    <section class="route-console" aria-label="路线规划">
-      <div class="console-heading">
-        <div>
-          <span class="eyebrow">仙林校区 · 室外导航</span>
-          <h1>从此刻，向校园出发</h1>
-        </div>
-        <span class="live-badge">地图已就绪</span>
-      </div>
-      <div class="search-row">
-        <div class="search-field">
-          <label for="search-from"><span class="point point-from"></span>起点</label>
-          <div class="search-field-control">
-            <input type="text" id="search-from" placeholder="搜索地点" autocomplete="off">
-            <button type="button" class="btn-select-map" id="btn-select-from">地图选点</button>
-          </div>
-          <ul class="suggestions" id="suggestions-from"></ul>
-        </div>
-        <button class="swap-btn" id="btn-swap" title="交换起终点" aria-label="交换起终点">⇅</button>
-        <div class="search-field">
-          <label for="search-to"><span class="point point-to"></span>终点</label>
-          <div class="search-field-control">
-            <input type="text" id="search-to" placeholder="搜索地点" autocomplete="off">
-            <button type="button" class="btn-select-map" id="btn-select-to">地图选点</button>
-          </div>
-          <ul class="suggestions" id="suggestions-to"></ul>
-        </div>
-        <button id="btn-route" class="button button-primary route-button">规划路线</button>
-      </div>
+  <main class="account-stage">
+    <section class="account-intro">
+      <span class="eyebrow">NANJING UNIVERSITY · XIANLIN</span>
+      <h1>让每次出发，<br>都有明确的方向。</h1>
+      <p>登录后可查看个人日程、建议出发时间与校园步行路线。游客仍可自由浏览地图。</p>
+      <dl class="account-facts">
+        <div><dt>122</dt><dd>个校园地点</dd></div>
+        <div><dt>全天</dt><dd>日程提醒</dd></div>
+        <div><dt>实时</dt><dd>路线规划</dd></div>
+      </dl>
     </section>
 
-    <aside id="info-panel" class="route-panel">
-      <div class="panel-section" id="panel-empty">
-        <span class="eyebrow">路线助手</span>
-        <h2>准备好探索仙林了吗？</h2>
-        <p class="hint">搜索地点，或使用“地图选点”选择路网节点。游客可以完整使用地图导航，登录后可规划个人日程。</p>
-        <a id="guest-schedule-cta" class="text-link" href="login.html">登录后查看个人日程 →</a>
-      </div>
-      <div class="panel-section hidden" id="panel-route">
-        <span class="eyebrow">推荐路线</span>
-        <h2>路线信息</h2>
-        <div class="route-summary">
-          <span class="route-dist"></span>
-          <span class="route-time"></span>
+    <section class="account-card" aria-labelledby="account-title">
+      <div class="account-card-heading">
+        <span class="account-seal">NJU</span>
+        <div>
+          <span class="eyebrow">个人校园助手</span>
+          <h2 id="account-title">欢迎回来</h2>
         </div>
-        <div class="route-segments"></div>
-        <h3>途经节点</h3>
-        <ol class="route-steps"></ol>
       </div>
-    </aside>
-
-    <section id="map-container">
-      <div id="map-selection-banner" class="map-selection-banner hidden">
-        <span id="map-selection-text"></span>
-        <button type="button" id="btn-cancel-selection">取消</button>
+      <div class="account-tabs" role="tablist">
+        <button id="tab-login" class="active" type="button">登录</button>
+        <button id="tab-register" type="button">注册</button>
       </div>
-      <div id="outdoor-map"></div>
+      <p id="auth-status" class="form-status" aria-live="polite"></p>
+      <form id="login-form" class="account-form">
+        <label>用户名<input name="username" autocomplete="username" placeholder="请输入用户名" required></label>
+        <label>密码<input name="password" type="password" autocomplete="current-password" placeholder="请输入密码" required></label>
+        <button type="submit" class="button button-primary">登录并进入地图</button>
+      </form>
+      <form id="register-form" class="account-form hidden">
+        <div class="form-grid">
+          <label>用户名<input name="username" minlength="3" maxlength="32" pattern="[A-Za-z0-9_]+" required></label>
+          <label>显示名称<input name="display_name" maxlength="50" required></label>
+        </div>
+        <label>邮箱<input name="email" type="email" required></label>
+        <label>密码<input name="password" type="password" minlength="8" maxlength="128" required></label>
+        <label>确认密码<input name="password_confirm" type="password" minlength="8" maxlength="128" required></label>
+        <button type="submit" class="button button-primary">创建账号</button>
+      </form>
+      <p class="account-note">首次登录将自动生成三条示例日程，方便立即体验。</p>
     </section>
   </main>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/config.js?v=separated-v1"></script>
   <script src="js/auth-client.js?v=separated-v1"></script>
-  <script src="js/data/validator.js?v=area-v4"></script>
-  <script src="js/data/loader.js?v=separated-v1"></script>
-  <script src="js/nav/graph.js?v=area-v4"></script>
-  <script src="js/nav/astar.js?v=area-v4"></script>
-  <script src="js/nav/outdoor-graph.js?v=area-v4"></script>
-  <script src="js/nav/path-renderer.js?v=area-v4"></script>
-  <script src="js/map/outdoor.js?v=phase1-v1"></script>
-  <script src="js/ui/search.js?v=area-v4"></script>
-  <script src="js/ui/panel.js?v=area-v4"></script>
-  <script src="js/app.js?v=separated-v1"></script>
-  <script src="js/map-session.js?v=separated-v1"></script>
+  <script src="js/login-page.js?v=separated-v1"></script>
 </body>
 </html>

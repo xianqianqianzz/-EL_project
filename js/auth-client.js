@@ -54,7 +54,7 @@ class SessionClient {
     this.token = null;
     this.user = null;
     sessionStorage.removeItem(this.tokenKey);
-    if (redirect) window.location.href = 'index.html';
+    if (redirect) window.location.href = 'map.html';
   }
 }
 

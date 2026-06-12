@@ -14,6 +14,9 @@ from backend.app.models import AreaIndexResponse, HealthResponse
 from backend.app.auth_routes import router as auth_router
 from backend.app.trip_routes import router as trip_router
 from backend.app.proposal_routes import router as proposal_router
+from backend.app.admin_routes import router as admin_router
+from backend.app.config import get_settings
+from backend.app.operations_routes import router as operations_router
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -24,12 +27,10 @@ app = FastAPI(
     description="南京大学校园地图的版本化后端接口。",
     version="0.5.0",
 )
+settings = get_settings()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:8080",
-        "http://127.0.0.1:8080",
-    ],
+    allow_origins=[origin.strip() for origin in settings.allowed_origins.split(",") if origin.strip()],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -37,6 +38,8 @@ app.add_middleware(
 app.include_router(auth_router)
 app.include_router(trip_router)
 app.include_router(proposal_router)
+app.include_router(admin_router)
+app.include_router(operations_router)
 
 
 def api_error(error: Exception) -> HTTPException:
@@ -84,12 +87,12 @@ def frontend() -> FileResponse:
 
 @app.get("/{page_name}.html", include_in_schema=False)
 def frontend_page(page_name: str) -> FileResponse:
-    if page_name not in {"index", "login", "schedule"}:
+    if page_name not in {"index", "login", "map", "schedule"}:
         raise HTTPException(status_code=404, detail="页面不存在")
     return FileResponse(PROJECT_ROOT / f"{page_name}.html", headers={"Cache-Control": "no-store"})
 
 
-for static_directory in ("css", "js", "data", "tools", "assets"):
+for static_directory in ("css", "js", "data", "tools", "assets", "admin"):
     path = PROJECT_ROOT / static_directory
     if path.is_dir():
         app.mount(f"/{static_directory}", StaticFiles(directory=path), name=static_directory)

@@ -11,6 +11,10 @@
 
 前端位于 `http://localhost:8080`，后端 API 位于 `http://localhost:8000`。详细说明见 [前后端分离启动说明](docs/frontend-backend-startup.md)。
 
+也可以直接双击项目根目录的 `一键打开校园地图.exe`，自动启动前后端并打开默认登录页。
+
+服务器管理员可双击 `更新服务器版本.cmd`，在满足安全检查后从 GitHub `master` 快进更新。网站管理后台不会直接执行 Git 命令。
+
 项目使用“一个区域文件夹对应一张地图图片和一个 `area.json`”的数据形式。当前演示区域为仙林校区室外总图。
 
 ## 首次安装
@@ -72,6 +76,7 @@ GitHub Actions 会对 Pull Request 和正式分支推送执行同一套检查。
 - [第 2 阶段账号、权限与数据库基础](docs/phase-2-auth-database.md)
 - [第 3 阶段行程与出发提醒](docs/phase-3-trips-reminders.md)
 - [第 4 阶段路径修改申请与审核合并](docs/phase-4-map-proposals.md)
+- [第 5 阶段管理运维、部署与更新策略](docs/phase-5-operations-deployment.md)
 - [API 接口契约](docs/api-contract.md)
 - [阶段路线图](docs/staged-roadmap.md)
 

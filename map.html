@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>仙林校区地图 | 南京大学</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/main.css?v=ceremony-v1">
+  <link rel="stylesheet" href="css/map.css?v=ceremony-v1">
+</head>
+<body class="map-page">
+  <header class="site-header">
+    <a class="brand" href="map.html" aria-label="返回地图主页">
+      <span class="brand-mark">NJU</span>
+      <span><strong>南京大学</strong><small>仙林校区地图与日程系统</small></span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a class="active" href="map.html">校园地图</a>
+      <a id="nav-schedule" class="auth-only hidden" href="schedule.html">我的日程</a>
+      <a id="nav-proposals" class="auth-only hidden" href="tools/path-editor.html">路径反馈</a>
+      <a id="nav-admin" class="hidden" href="admin/index.html">管理后台</a>
+    </nav>
+    <div class="header-account">
+      <span id="header-greeting" class="header-greeting hidden"></span>
+      <a id="login-link" class="button button-primary" href="index.html">登录</a>
+      <button id="logout-button" class="button button-quiet hidden" type="button">退出</button>
+    </div>
+  </header>
+
+  <main class="map-workspace">
+    <section class="route-console" aria-label="路线规划">
+      <div class="console-heading">
+        <div>
+          <span class="eyebrow">仙林校区 · 室外导航</span>
+          <h1>从此刻，向校园出发</h1>
+        </div>
+        <span class="live-badge">地图已就绪</span>
+      </div>
+      <div class="search-row">
+        <div class="search-field">
+          <label for="search-from"><span class="point point-from"></span>起点</label>
+          <div class="search-field-control">
+            <input type="text" id="search-from" placeholder="搜索地点" autocomplete="off">
+            <button type="button" class="btn-select-map" id="btn-select-from">地图选点</button>
+          </div>
+          <ul class="suggestions" id="suggestions-from"></ul>
+        </div>
+        <button class="swap-btn" id="btn-swap" title="交换起终点" aria-label="交换起终点">⇅</button>
+        <div class="search-field">
+          <label for="search-to"><span class="point point-to"></span>终点</label>
+          <div class="search-field-control">
+            <input type="text" id="search-to" placeholder="搜索地点" autocomplete="off">
+            <button type="button" class="btn-select-map" id="btn-select-to">地图选点</button>
+          </div>
+          <ul class="suggestions" id="suggestions-to"></ul>
+        </div>
+        <button id="btn-route" class="button button-primary route-button">规划路线</button>
+      </div>
+    </section>
+
+    <aside id="info-panel" class="route-panel">
+      <div class="panel-section" id="panel-empty">
+        <span class="eyebrow">路线助手</span>
+        <h2>准备好探索仙林了吗？</h2>
+        <p class="hint">搜索地点，或使用“地图选点”选择路网节点。游客可以完整使用地图导航，登录后可规划个人日程。</p>
+        <a id="guest-schedule-cta" class="text-link" href="index.html">登录后查看个人日程 →</a>
+      </div>
+      <div class="panel-section hidden" id="panel-route">
+        <span class="eyebrow">推荐路线</span>
+        <h2>路线信息</h2>
+        <div class="route-summary">
+          <span class="route-dist"></span>
+          <span class="route-time"></span>
+        </div>
+        <div class="route-segments"></div>
+        <h3>途经节点</h3>
+        <ol class="route-steps"></ol>
+      </div>
+    </aside>
+
+    <section id="map-container">
+      <div id="map-selection-banner" class="map-selection-banner hidden">
+        <span id="map-selection-text"></span>
+        <button type="button" id="btn-cancel-selection">取消</button>
+      </div>
+      <div id="outdoor-map"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/config.js?v=separated-v1"></script>
+  <script src="js/auth-client.js?v=separated-v1"></script>
+  <script src="js/data/validator.js?v=area-v4"></script>
+  <script src="js/data/loader.js?v=separated-v1"></script>
+  <script src="js/nav/graph.js?v=area-v4"></script>
+  <script src="js/nav/astar.js?v=area-v4"></script>
+  <script src="js/nav/outdoor-graph.js?v=area-v4"></script>
+  <script src="js/nav/path-renderer.js?v=area-v4"></script>
+  <script src="js/map/outdoor.js?v=phase1-v1"></script>
+  <script src="js/ui/search.js?v=area-v4"></script>
+  <script src="js/ui/panel.js?v=area-v4"></script>
+  <script src="js/app.js?v=separated-v1"></script>
+  <script src="js/map-session.js?v=separated-v1"></script>
+</body>
+</html>

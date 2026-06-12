@@ -2,9 +2,12 @@
 
 ## 前端页面边界
 
-- `index.html`：公共地图与路线规划，游客可访问。
-- `login.html`：独立登录与注册页面，成功后进入地图。
+- `index.html`：默认登录与注册页面，成功后进入地图。
+- `login.html`：兼容入口，自动跳转至默认登录页。
+- `map.html`：公共地图与路线规划，游客可访问。
 - `schedule.html`：独立个人日程页面，必须登录。
+- `admin/`：工作人员与管理员后台，分为概览、用户状态、日程信息和路径申请页面。
+- `admin/operations.html`：运行状态与备份页面；GitHub 更新不由 Web 请求执行。
 - 前端由 `scripts/start-frontend.*` 独立启动，通过 `CONFIG.apiBase` 调用后端。
 - 后端由 `scripts/start-backend.*` 独立启动，并通过 CORS 允许本地前端开发地址访问。
 
@@ -79,6 +82,14 @@ data/areas/<area-id>/
 - 只有 `staff/admin` 可批准或拒绝；前端按钮不构成权限控制。
 - 批准前备份正式区域，批准后使用原子文件替换写入；审核记录保存在数据库。
 - GitHub 提交与推送不属于批准动作，避免 Web 请求直接操作代码仓库。
+
+## 运维与部署
+
+- `/api/v1/health/ready` 同时检查数据库和正式地图索引，供容器与监控平台判断是否可接收流量。
+- `BackupService` 将正式区域数据与 SQLite 一致性快照写入应用数据目录；只有 `admin` 可创建备份。
+- Docker 部署由 FastAPI 提供同源前端与 API，Caddy 负责域名、HTTPS 和反向代理。
+- 服务器更新脚本只允许干净的 `master` 分支 fast-forward 更新，并在拉取前创建备份。
+- Web 进程不持有 GitHub 写权限，也不执行 Git、部署或服务重启命令。
 
 接口字段与错误规则见 [api-contract.md](api-contract.md)。
 

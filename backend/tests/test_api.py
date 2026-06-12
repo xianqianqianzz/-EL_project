@@ -23,6 +23,18 @@ async def test_health() -> None:
 
 
 @pytest.mark.asyncio
+async def test_readiness_checks_database_and_map_data() -> None:
+    response = await request("/api/v1/health/ready")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "status": "ready",
+        "database": "ok",
+        "map_data": "ok",
+    }
+
+
+@pytest.mark.asyncio
 async def test_area_index_uses_public_api_urls() -> None:
     response = await request("/api/v1/areas")
 
@@ -55,14 +67,14 @@ async def test_unknown_area_returns_404() -> None:
 
 
 @pytest.mark.asyncio
-async def test_backend_serves_redesigned_map_frontend() -> None:
+async def test_backend_root_serves_login_frontend() -> None:
     response = await request("/")
 
     assert response.status_code == 200
     assert response.headers["cache-control"] == "no-store"
     assert "仙林校区地图与日程系统" in response.text
-    assert "login.html" in response.text
-    assert "schedule.html" in response.text
+    assert "欢迎回来" in response.text
+    assert "map.html" in response.text
 
 
 @pytest.mark.asyncio
@@ -72,7 +84,7 @@ async def test_backend_serves_independent_account_and_schedule_pages() -> None:
     missing_response = await request("/unknown.html")
 
     assert login_response.status_code == 200
-    assert "欢迎回来" in login_response.text
+    assert "index.html" in login_response.text
     assert schedule_response.status_code == 200
     assert "今日行程" in schedule_response.text
     assert missing_response.status_code == 404

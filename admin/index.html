@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>运营概览 | 管理后台</title><link rel="stylesheet" href="../css/main.css"><link rel="stylesheet" href="../css/admin.css"></head>
+<body class="admin-page">
+  <header class="admin-header"><a class="admin-brand" href="../map.html"><span class="admin-brand-mark">NJU</span><span><strong>仙林校园管理后台</strong><small>地图、账号与日程运营</small></span></a><div class="admin-account"><span id="admin-user"></span><button id="admin-logout">退出</button></div></header>
+  <main class="admin-shell"><aside class="admin-sidebar"><span class="admin-sidebar-label">后台导航</span><nav class="admin-nav"><a data-page="overview" href="index.html">运营概览</a><a data-page="users" href="users.html">用户状态</a><a data-page="trips" href="trips.html">日程信息</a><a data-page="proposals" href="proposals.html">路径申请</a><a data-page="operations" href="operations.html">系统运维</a></nav><p class="admin-sidebar-note">后台仅展示运营所需的处理后信息，邮箱等敏感数据已脱敏。</p></aside>
+  <section class="admin-content"><div class="admin-heading"><div><span class="admin-eyebrow">CAMPUS OPERATIONS</span><h1>运营概览</h1><p>快速了解账号、日程与地图修改申请的当前状态。</p></div><button class="admin-refresh" id="refresh">刷新数据</button></div><div id="metrics" class="metric-grid"></div><section class="admin-section"><div class="admin-section-heading"><h2>当前关注</h2><span>用于日常运营判断</span></div><div id="attention" class="admin-table-wrap"></div></section></section></main>
+  <script src="../js/config.js"></script><script src="../js/auth-client.js"></script><script src="../js/admin-common.js"></script><script src="../js/admin-overview.js"></script>
+</body></html>

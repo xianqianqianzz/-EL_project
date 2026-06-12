@@ -1,7 +1,7 @@
 (async function setupLoginPage() {
   const client = window.sessionClient;
   if (await client.restore()) {
-    window.location.replace('index.html');
+    window.location.replace('map.html');
     return;
   }
 
@@ -34,7 +34,7 @@
     setStatus('正在整理你的校园日程…');
     try {
       await client.login(form.get('username'), form.get('password'));
-      window.location.replace('index.html');
+      window.location.replace('map.html');
     } catch (error) {
       setStatus(error.message, true);
     }
@@ -52,7 +52,7 @@
     try {
       await client.register(payload);
       await client.login(payload.username, payload.password);
-      window.location.replace('index.html');
+      window.location.replace('map.html');
     } catch (error) {
       setStatus(error.message, true);
     }

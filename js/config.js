@@ -1,5 +1,5 @@
 const CONFIG = {
-  apiBase: 'http://localhost:8000',
+  apiBase: window.location.port === '8080' ? 'http://localhost:8000' : window.location.origin,
   walkingSpeed: 1.2,
   dataPaths: {
     areasIndex: ['http://localhost:8000/api/v1/areas', 'data/areas/index.json']

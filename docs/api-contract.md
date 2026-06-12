@@ -9,6 +9,16 @@
 - 已有日程时返回空数组，不覆盖用户数据。
 - 登录页在登录成功后调用一次，用于首次体验。
 
+## 后台只读运营接口
+
+以下接口仅允许 `staff` 与 `admin` 访问：
+
+- `GET /api/v1/admin/summary`：账号、日程和待审核申请汇总。
+- `GET /api/v1/admin/users`：处理后的用户状态，邮箱已脱敏。
+- `GET /api/v1/admin/trips`：按用户展示日程与路线信息。
+
+路径修改申请继续使用 `/api/v1/proposals` 审核接口。
+
 ## 总则
 
 - 正式前缀：`/api/v1`
@@ -30,6 +40,20 @@
   "apiVersion": "v1"
 }
 ```
+
+### `GET /api/v1/health/ready`
+
+同时检查数据库与正式地图区域索引。全部正常时返回 `200`；任一依赖异常时返回 `503`。容器和外部监控应使用此接口判断服务是否就绪。
+
+## 管理运维
+
+以下接口要求 `staff/admin`，其中创建备份只允许 `admin`：
+
+- `GET /api/v1/admin/operations`：返回服务、数据库、地图数据、备份数量和更新模式。
+- `GET /api/v1/admin/backups`：列出本机备份的文件名、创建时间和大小，不提供任意文件下载。
+- `POST /api/v1/admin/backups`：创建正式地图数据与数据库快照备份。
+
+Web API 不提供 GitHub 拉取、Git 提交、服务重启或环境变量修改接口。
 
 ## 区域列表
 
