@@ -15,6 +15,11 @@ class AdminClient {
       return false;
     }
     document.getElementById('admin-user').textContent = `${this.user.display_name} · ${this.user.role === 'admin' ? '管理员' : '工作人员'}`;
+    const backLink = document.createElement('a');
+    backLink.className = 'admin-back-link';
+    backLink.href = '../map.html';
+    backLink.textContent = '返回主网站';
+    document.querySelector('.admin-account').prepend(backLink);
     document.getElementById('admin-logout').addEventListener('click', () => this.session.logout());
     document.querySelectorAll('.admin-nav a').forEach(link => link.classList.toggle('active', link.dataset.page === activePage));
     return true;

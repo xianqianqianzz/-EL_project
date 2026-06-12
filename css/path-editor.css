@@ -24,7 +24,8 @@
 .submit-proposal { width: 100%; margin-top: 14px; }
 .editor-map { position: relative; min-width: 0; min-height: 0; overflow: hidden; background: #e8ecea; }
 .canvas-wrap { position: absolute; inset: 14px; overflow: auto; border: 1px solid var(--line); background: var(--white); box-shadow: var(--shadow-soft); }
-.canvas-wrap canvas { display: block; transform-origin: top left; cursor: crosshair; }
+.canvas-wrap canvas { display: block; transform-origin: top left; cursor: grab; touch-action: none; }
+.canvas-wrap canvas.dragging { cursor: grabbing; }
 @media (max-width: 900px) {
   .editor-header { grid-template-columns: 1fr auto; }
   .editor-header .site-nav { display: none; }

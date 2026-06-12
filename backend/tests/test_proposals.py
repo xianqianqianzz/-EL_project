@@ -11,6 +11,7 @@ from backend.app.area_merge_service import AreaMergeError, AreaMergeService
 from backend.app.area_repository import AreaRepository
 from backend.app.database import SessionLocal
 from backend.app.main import app
+from backend.app.proposal_model import MapProposal
 from backend.app.proposal_routes import get_merge_service
 from backend.app.user_model import User
 
@@ -144,6 +145,32 @@ async def test_staff_can_approve_and_user_cannot(fake_merge_service) -> None:
     assert approved.json()["status"] == "approved"
     assert approved.json()["merge_summary"]
     assert repeated.status_code == 409
+
+
+@pytest.mark.asyncio
+async def test_unreadable_historical_proposal_text_uses_fallback(fake_merge_service) -> None:
+    user_token = await token_for("proposal_damaged_owner")
+    staff_token = await token_for("proposal_damaged_staff", "staff")
+    created = await request(
+        "/api/v1/proposals",
+        "POST",
+        headers={"Authorization": f"Bearer {user_token}"},
+        json=proposal_payload(),
+    )
+    proposal_id = created.json()["id"]
+    with SessionLocal() as db:
+        proposal = db.get(MapProposal, proposal_id)
+        proposal.title = "????????"
+        proposal.description = "????????????,????"
+        db.commit()
+
+    queue = await request(
+        "/api/v1/proposals",
+        headers={"Authorization": f"Bearer {staff_token}"},
+    )
+    damaged = next(item for item in queue.json() if item["id"] == proposal_id)
+    assert damaged["title"] == f"申请 #{proposal_id}（历史标题不可读）"
+    assert damaged["description"] == "历史申请说明无法读取，请结合修改内容重新核验。"
 
 
 def temporary_repository(tmp_path: Path) -> AreaRepository:

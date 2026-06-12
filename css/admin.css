@@ -29,6 +29,7 @@
 .admin-brand small { display: block; color: var(--admin-muted); font-size: 11px; }
 .admin-account { display: flex; align-items: center; gap: 12px; color: var(--admin-muted); font-size: 13px; }
 .admin-account button { min-height: 36px; padding: 0 13px; border: 1px solid var(--admin-line); border-radius: 5px; color: var(--admin-teal); background: var(--admin-paper); font-weight: 700; }
+.admin-back-link { padding: 7px 10px; border: 1px solid var(--admin-line); border-radius: 5px; color: var(--admin-teal); background: var(--admin-paper); font-weight: 700; text-decoration: none; }
 .admin-shell { display: grid; grid-template-columns: 220px minmax(0, 1fr); min-height: calc(100vh - 70px); }
 .admin-sidebar { display: flex; flex-direction: column; padding: 24px 14px; border-right: 1px solid var(--admin-line); background: var(--admin-paper); }
 .admin-sidebar-label { margin: 0 10px 10px; color: var(--admin-muted); font-size: 11px; font-weight: 800; letter-spacing: .1em; }
@@ -98,6 +99,9 @@
 .user-trip-list article { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 14px; border: 1px solid var(--admin-line); border-radius: 5px; }
 .user-trip-list p, .user-trip-list small { color: var(--admin-muted); font-size: 12px; }
 .user-trip-list article > div:last-child { display: grid; justify-items: end; gap: 5px; }
+.record-number { color: var(--admin-teal); font-size: 12px; font-variant-numeric: tabular-nums; font-weight: 800; }
+.user-record-section + .user-record-section { margin-top: 28px; }
+.user-record-section .admin-section-heading a { color: var(--admin-teal); font-size: 12px; font-weight: 800; text-decoration: none; }
 
 @media (max-width: 900px) {
   .admin-header { padding: 0 14px; }

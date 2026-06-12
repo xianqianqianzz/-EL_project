@@ -1,5 +1,5 @@
 (function setupPathEditor() {
-  const state = { mode: 'node', image: null, nodes: [], edges: [], selected: null, history: [], baseline: null, zoom: 1 };
+  const state = { mode: 'node', image: null, nodes: [], edges: [], selected: null, history: [], baseline: null, zoom: 1, drag: null, suppressClick: false };
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
   const status = document.getElementById('status');
@@ -41,9 +41,16 @@
     document.getElementById('edge-count').textContent = state.edges.filter(edge => !state.baseline.edgeIds.has(edge.id)).length;
     document.getElementById('removed-count').textContent = [...state.baseline.edgeIds].filter(id => !state.edges.some(edge => edge.id === id)).length;
   }
-  function updateZoom(value) {
-    state.zoom = Math.max(.2, Math.min(2, value));
+  function updateZoom(value, focus = null) {
+    const oldZoom = state.zoom;
+    const nextZoom = Math.max(.2, Math.min(2, value));
+    const anchor = focus || { x: wrap.clientWidth / 2, y: wrap.clientHeight / 2 };
+    const contentX = (wrap.scrollLeft + anchor.x) / oldZoom;
+    const contentY = (wrap.scrollTop + anchor.y) / oldZoom;
+    state.zoom = nextZoom;
     canvas.style.width = `${canvas.width * state.zoom}px`; canvas.style.height = `${canvas.height * state.zoom}px`;
+    wrap.scrollLeft = contentX * state.zoom - anchor.x;
+    wrap.scrollTop = contentY * state.zoom - anchor.y;
     document.getElementById('zoom-value').textContent = `${Math.round(state.zoom * 100)}%`;
   }
   async function loadOfficial() {
@@ -57,6 +64,7 @@
     } catch (error) { setStatus(`地图加载失败：${error.message}`); }
   }
   canvas.addEventListener('click', event => {
+    if (state.suppressClick) { state.suppressClick = false; return; }
     const value = point(event);
     if (state.mode === 'node') { snapshot(); state.nodes.push({ id: nextId('node', state.nodes), type: 'node', ...value }); setStatus('已添加节点。'); }
     if (state.mode === 'edge') {
@@ -83,10 +91,35 @@
   document.getElementById('zoom-out').addEventListener('click', () => updateZoom(state.zoom - .15));
   document.getElementById('zoom-fit').addEventListener('click', () => updateZoom(Math.min((wrap.clientWidth - 20) / canvas.width, (wrap.clientHeight - 20) / canvas.height)));
   wrap.addEventListener('wheel', event => {
-    if (!event.ctrlKey) return;
     event.preventDefault();
-    updateZoom(state.zoom + (event.deltaY < 0 ? .1 : -.1));
+    const rect = wrap.getBoundingClientRect();
+    updateZoom(state.zoom + (event.deltaY < 0 ? .1 : -.1), { x: event.clientX - rect.left, y: event.clientY - rect.top });
   }, { passive: false });
+  canvas.addEventListener('pointerdown', event => {
+    if (event.button !== 0) return;
+    state.drag = { x: event.clientX, y: event.clientY, left: wrap.scrollLeft, top: wrap.scrollTop, moved: false };
+    canvas.setPointerCapture(event.pointerId);
+    canvas.classList.add('dragging');
+  });
+  canvas.addEventListener('pointermove', event => {
+    if (!state.drag) return;
+    const dx = event.clientX - state.drag.x;
+    const dy = event.clientY - state.drag.y;
+    if (Math.hypot(dx, dy) > 4) state.drag.moved = true;
+    if (state.drag.moved) {
+      wrap.scrollLeft = state.drag.left - dx;
+      wrap.scrollTop = state.drag.top - dy;
+    }
+  });
+  function stopDrag(event) {
+    if (!state.drag) return;
+    state.suppressClick = state.drag.moved;
+    state.drag = null;
+    canvas.classList.remove('dragging');
+    if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
+  }
+  canvas.addEventListener('pointerup', stopDrag);
+  canvas.addEventListener('pointercancel', stopDrag);
   document.getElementById('submit-proposal').addEventListener('click', submit);
   loadOfficial();
 })();

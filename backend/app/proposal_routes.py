@@ -18,6 +18,21 @@ router = APIRouter(prefix="/api/v1/proposals", tags=["map-proposals"])
 approval_lock = Lock()
 
 
+def readable_text(value: str | None, fallback: str) -> str | None:
+    if value is None:
+        return None
+    stripped = value.strip()
+    if not stripped or set(stripped) <= {"?"} or stripped.count("?") >= max(3, len(stripped) // 2):
+        return fallback
+    try:
+        repaired = value.encode("latin1").decode("utf-8")
+        if repaired != value:
+            return repaired
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        pass
+    return value
+
+
 def get_merge_service() -> AreaMergeService:
     from backend.app.main import PROJECT_ROOT
 
@@ -30,11 +45,11 @@ def proposal_public(proposal: MapProposal) -> ProposalPublic:
         submitter_id=proposal.submitter_id,
         reviewer_id=proposal.reviewer_id,
         area_id=proposal.area_id,
-        title=proposal.title,
-        description=proposal.description,
+        title=readable_text(proposal.title, f"申请 #{proposal.id}（历史标题不可读）"),
+        description=readable_text(proposal.description, "历史申请说明无法读取，请结合修改内容重新核验。"),
         changes=ProposalChanges.model_validate_json(proposal.changes_json),
         status=proposal.status,
-        review_note=proposal.review_note,
+        review_note=readable_text(proposal.review_note, "历史审核意见无法读取。"),
         merge_summary=proposal.merge_summary,
         created_at=proposal.created_at,
         reviewed_at=proposal.reviewed_at,
