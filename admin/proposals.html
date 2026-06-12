@@ -1,7 +1,42 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>路径申请 | 管理后台</title><link rel="stylesheet" href="../css/main.css"><link rel="stylesheet" href="../css/admin.css?v=records-v2"></head>
-<body class="admin-page"><header class="admin-header"><a class="admin-brand" href="../map.html"><span class="admin-brand-mark">NJU</span><span><strong>仙林校园管理后台</strong><small>地图、账号与日程运营</small></span></a><div class="admin-account"><span id="admin-user"></span><button id="admin-logout">退出</button></div></header>
-<main class="admin-shell"><aside class="admin-sidebar"><span class="admin-sidebar-label">后台导航</span><nav class="admin-nav"><a data-page="overview" href="index.html">运营概览</a><a data-page="users" href="users.html">用户状态</a><a data-page="trips" href="trips.html">日程信息</a><a data-page="proposals" href="proposals.html">路径申请</a><a data-page="operations" href="operations.html">系统运维</a></nav><p class="admin-sidebar-note">路径申请功能沿用安全增量合并流程，批准前会重新校验地图连通性。</p></aside>
-<section class="admin-content"><div class="admin-heading"><div><span class="admin-eyebrow">MAP CHANGE REQUESTS</span><h1>路径申请</h1><p>按申请编号、标题或说明查询用户提交的路径修改请求。</p></div><div class="admin-filter"><input id="proposal-search" placeholder="搜索申请编号、标题或说明"><select id="proposal-status"><option value="">全部状态</option><option value="pending">待审核</option><option value="approved">已批准</option><option value="rejected">已拒绝</option></select></div></div><div id="proposal-list" class="proposal-list"></div></section></main>
-<script src="../js/config.js"></script><script src="../js/auth-client.js"></script><script src="../js/admin-common.js?v=records-v2"></script><script src="../js/admin-proposals.js?v=records-v2"></script></body></html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>路径申请 | 管理后台</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/admin.css?v=proposal-preview-v1">
+</head>
+<body class="admin-page">
+  <header class="admin-header">
+    <a class="admin-brand" href="../map.html"><span class="admin-brand-mark">NJU</span><span><strong>仙林校园管理后台</strong><small>地图、账号与日程运营</small></span></a>
+    <div class="admin-account"><span id="admin-user"></span><button id="admin-logout">退出</button></div>
+  </header>
+  <main class="admin-shell">
+    <aside class="admin-sidebar">
+      <span class="admin-sidebar-label">后台导航</span>
+      <nav class="admin-nav"><a data-page="overview" href="index.html">运营概览</a><a data-page="users" href="users.html">用户状态</a><a data-page="trips" href="trips.html">日程信息</a><a data-page="proposals" href="proposals.html">路径申请</a><a data-page="operations" href="operations.html">系统运维</a></nav>
+      <p class="admin-sidebar-note">批准前请先查看地图预览。系统会在合并时重新校验节点引用和地图连通性。</p>
+    </aside>
+    <section class="admin-content">
+      <div class="admin-heading">
+        <div><span class="admin-eyebrow">MAP CHANGE REQUESTS</span><h1>路径申请</h1><p>按申请编号、标题或说明查询用户提交的路径修改请求。</p></div>
+        <div class="admin-filter"><input id="proposal-search" placeholder="搜索申请编号、标题或说明"><select id="proposal-status"><option value="">全部状态</option><option value="pending">待审核</option><option value="approved">已批准</option><option value="rejected">已拒绝</option></select></div>
+      </div>
+      <div id="proposal-list" class="proposal-list"></div>
+    </section>
+  </main>
+
+  <dialog id="proposal-preview" class="proposal-preview">
+    <header><div><span class="admin-eyebrow">MAP COMPARISON</span><h2 id="preview-title">申请地图预览</h2><p id="preview-description"></p></div><button id="preview-close" type="button" aria-label="关闭">×</button></header>
+    <div class="proposal-preview-legend"><span class="legend-original">原有路网</span><span class="legend-added">新增节点与边</span><span class="legend-removed">删除节点与边</span><span class="legend-place">地点</span></div>
+    <div class="proposal-preview-map"><canvas id="proposal-preview-canvas"></canvas></div>
+    <p id="preview-summary" class="proposal-preview-summary"></p>
+  </dialog>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/auth-client.js"></script>
+  <script src="../js/admin-common.js?v=records-v2"></script>
+  <script src="../js/admin-proposals.js?v=proposal-preview-v1"></script>
+</body>
+</html>

@@ -31,6 +31,25 @@ class AreaMergeService:
             raise AreaMergeError(f"待删除边不存在：{', '.join(missing_removals[:5])}")
         edges[:] = [edge for edge in edges if edge["id"] not in set(changes.remove_edge_ids)]
 
+        missing_nodes = sorted(set(changes.remove_node_ids) - node_ids)
+        if missing_nodes:
+            raise AreaMergeError(f"待删除节点不存在：{', '.join(missing_nodes[:5])}")
+        place_node_ids = {place.get("routeNodeId") for place in area.get("places", [])}
+        protected_nodes = sorted(set(changes.remove_node_ids) & place_node_ids)
+        if protected_nodes:
+            raise AreaMergeError(f"地点绑定节点不能删除：{', '.join(protected_nodes[:5])}")
+        removed_node_ids = set(changes.remove_node_ids)
+        referenced_nodes = {
+            node_id
+            for edge in edges
+            for node_id in (edge.get("from"), edge.get("to"))
+            if node_id in removed_node_ids
+        }
+        if referenced_nodes:
+            raise AreaMergeError(f"删除节点前必须同时删除其关联边：{', '.join(sorted(referenced_nodes)[:5])}")
+        nodes[:] = [node for node in nodes if node["id"] not in removed_node_ids]
+        node_ids -= removed_node_ids
+
         node_id_map = {}
         for proposed in changes.add_nodes:
             if proposed.x > image.get("width", -1) or proposed.y > image.get("height", -1):
@@ -69,6 +88,7 @@ class AreaMergeService:
         summary = {
             "addedNodeIds": list(node_id_map.values()),
             "addedEdgeIds": added_edge_ids,
+            "removedNodeIds": changes.remove_node_ids,
             "removedEdgeIds": changes.remove_edge_ids,
         }
         return area, summary

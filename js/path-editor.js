@@ -28,8 +28,9 @@
   });
   function setMode(mode) {
     state.mode = mode; state.selected = null;
-    ['node', 'edge', 'remove-edge'].forEach(name => document.getElementById(`mode-${name}`).classList.toggle('active', name === mode));
-    setStatus(mode === 'node' ? '添加节点：在道路中心线或转折处点击。' : mode === 'edge' ? '连接节点：依次点击起点和终点节点。' : '删除错误边：点击地图中不应通行的边。');
+    ['node', 'edge', 'remove-node', 'remove-edge'].forEach(name => document.getElementById(`mode-${name}`).classList.toggle('active', name === mode));
+    const messages = { node: '添加节点：在道路中心线或转折处点击。', edge: '连接节点：依次点击起点和终点节点。', 'remove-node': '删除错误节点：点击节点，工具会同时移除它连接的边。', 'remove-edge': '删除错误边：点击地图中不应通行的边。' };
+    setStatus(messages[mode]);
     render();
   }
   function render() {
@@ -39,6 +40,7 @@
     state.nodes.forEach(node => { ctx.fillStyle = node.id === state.selected ? '#dd6846' : state.baseline.nodeIds.has(node.id) ? '#0d6f68' : '#17252b'; ctx.beginPath(); ctx.arc(node.x, node.y, node.id === state.selected ? 10 : 6, 0, Math.PI * 2); ctx.fill(); });
     document.getElementById('node-count').textContent = state.nodes.filter(node => !state.baseline.nodeIds.has(node.id)).length;
     document.getElementById('edge-count').textContent = state.edges.filter(edge => !state.baseline.edgeIds.has(edge.id)).length;
+    document.getElementById('removed-node-count').textContent = [...state.baseline.nodeIds].filter(id => !state.nodes.some(node => node.id === id)).length;
     document.getElementById('removed-count').textContent = [...state.baseline.edgeIds].filter(id => !state.edges.some(edge => edge.id === id)).length;
   }
   function updateZoom(value, focus = null) {
@@ -73,6 +75,16 @@
       else if (state.selected !== node.id && !state.edges.some(edge => [edge.from, edge.to].includes(state.selected) && [edge.from, edge.to].includes(node.id))) { snapshot(); state.edges.push({ id: nextId('edge', state.edges), type: 'edge', from: state.selected, to: node.id, walkable: true }); state.selected = null; setStatus('已连接两个节点。'); }
     }
     if (state.mode === 'remove-edge') { const edge = edgeNear(value); if (!edge) return setStatus('附近没有可删除的边。'); snapshot(); state.edges = state.edges.filter(item => item.id !== edge.id); setStatus('已标记删除该边。'); }
+    if (state.mode === 'remove-node') {
+      const node = nodeNear(value);
+      if (!node) return setStatus('附近没有可删除的节点。');
+      const incidentCount = state.edges.filter(edge => edge.from === node.id || edge.to === node.id).length;
+      snapshot();
+      state.edges = state.edges.filter(edge => edge.from !== node.id && edge.to !== node.id);
+      state.nodes = state.nodes.filter(item => item.id !== node.id);
+      state.selected = null;
+      setStatus(`已标记删除节点，并同步移除 ${incidentCount} 条关联边。地点绑定和连通性将在提交时校验。`);
+    }
     render();
   });
   async function submit() {
@@ -80,11 +92,12 @@
     const payload = { area_id: state.areaId, title: document.getElementById('proposal-title').value.trim(), description: document.getElementById('proposal-description').value.trim(), changes: {
       add_nodes: state.nodes.filter(node => !state.baseline.nodeIds.has(node.id)).map(({ id, x, y }) => ({ id, type: 'node', x, y })),
       add_edges: state.edges.filter(edge => !state.baseline.edgeIds.has(edge.id)).map(({ id, from, to }) => ({ id, type: 'edge', from, to, walkable: true })),
+      remove_node_ids: [...state.baseline.nodeIds].filter(id => !state.nodes.some(node => node.id === id)),
       remove_edge_ids: [...state.baseline.edgeIds].filter(id => !state.edges.some(edge => edge.id === id))
     }};
     try { const response = await fetch(api('/api/v1/proposals'), { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }); const result = await response.json().catch(() => ({})); if (!response.ok) throw new Error(result.detail || `提交失败（${response.status}）`); setStatus(`申请 #${result.id} 已提交，工作人员审核后才会更新正式地图。`); } catch (error) { setStatus(error.message); }
   }
-  ['node', 'edge', 'remove-edge'].forEach(mode => document.getElementById(`mode-${mode}`).addEventListener('click', () => setMode(mode)));
+  ['node', 'edge', 'remove-node', 'remove-edge'].forEach(mode => document.getElementById(`mode-${mode}`).addEventListener('click', () => setMode(mode)));
   document.getElementById('undo').addEventListener('click', () => { const previous = state.history.pop(); if (!previous) return setStatus('没有可撤销的操作。'); Object.assign(state, JSON.parse(previous)); render(); });
   document.getElementById('clear-edge-selection').addEventListener('click', () => { state.selected = null; render(); setStatus('已取消当前连边。'); });
   document.getElementById('zoom-in').addEventListener('click', () => updateZoom(state.zoom + .15));

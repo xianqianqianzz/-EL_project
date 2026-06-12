@@ -35,17 +35,19 @@ class ProposedEdge(BaseModel):
 class ProposalChanges(BaseModel):
     add_nodes: list[ProposedNode] = Field(default_factory=list, max_length=200)
     add_edges: list[ProposedEdge] = Field(default_factory=list, max_length=300)
+    remove_node_ids: list[str] = Field(default_factory=list, max_length=200)
     remove_edge_ids: list[str] = Field(default_factory=list, max_length=300)
 
     model_config = ConfigDict(extra="forbid")
 
     @model_validator(mode="after")
     def non_empty_and_unique(self):
-        if not self.add_nodes and not self.add_edges and not self.remove_edge_ids:
+        if not self.add_nodes and not self.add_edges and not self.remove_node_ids and not self.remove_edge_ids:
             raise ValueError("申请至少需要包含一项路网修改")
         for values, label in (
             ([node.id for node in self.add_nodes], "新增节点"),
             ([edge.id for edge in self.add_edges], "新增边"),
+            (self.remove_node_ids, "删除节点"),
             (self.remove_edge_ids, "删除边"),
         ):
             if len(values) != len(set(values)):

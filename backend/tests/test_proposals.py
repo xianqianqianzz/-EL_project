@@ -255,3 +255,60 @@ def test_merge_service_rejects_removing_edge_that_disconnects_place(tmp_path) ->
 
     with pytest.raises(AreaMergeError):
         service.preview("outdoor-xianlin", changes)
+
+
+def test_merge_service_removes_node_with_incident_edges_and_reconnects_neighbors(tmp_path) -> None:
+    repository = temporary_repository(tmp_path)
+    service = AreaMergeService(repository)
+    area = repository.get_area("outdoor-xianlin")
+    place_nodes = {place["routeNodeId"] for place in area["places"]}
+    incident = {
+        node["id"]: [edge for edge in area["edges"] if node["id"] in (edge["from"], edge["to"])]
+        for node in area["nodes"]
+    }
+    removable = next(node_id for node_id, edges in incident.items() if node_id not in place_nodes and len(edges) == 2)
+    neighbors = [
+        edge["to"] if edge["from"] == removable else edge["from"]
+        for edge in incident[removable]
+    ]
+    from backend.app.proposal_models import ProposalChanges
+
+    changes = ProposalChanges.model_validate(
+        {
+            "remove_node_ids": [removable],
+            "remove_edge_ids": [edge["id"] for edge in incident[removable]],
+            "add_edges": [{"id": "replacement", "type": "edge", "from": neighbors[0], "to": neighbors[1]}],
+        }
+    )
+    candidate, summary = service.preview("outdoor-xianlin", changes)
+
+    assert removable not in {node["id"] for node in candidate["nodes"]}
+    assert summary["removedNodeIds"] == [removable]
+
+
+def test_merge_service_rejects_removing_place_node(tmp_path) -> None:
+    repository = temporary_repository(tmp_path)
+    service = AreaMergeService(repository)
+    area = repository.get_area("outdoor-xianlin")
+    place_node = area["places"][0]["routeNodeId"]
+    incident_edges = [edge["id"] for edge in area["edges"] if place_node in (edge["from"], edge["to"])]
+    from backend.app.proposal_models import ProposalChanges
+
+    changes = ProposalChanges.model_validate({"remove_node_ids": [place_node], "remove_edge_ids": incident_edges})
+
+    with pytest.raises(AreaMergeError, match="地点绑定节点不能删除"):
+        service.preview("outdoor-xianlin", changes)
+
+
+def test_merge_service_rejects_removing_node_without_all_incident_edges(tmp_path) -> None:
+    repository = temporary_repository(tmp_path)
+    service = AreaMergeService(repository)
+    area = repository.get_area("outdoor-xianlin")
+    place_nodes = {place["routeNodeId"] for place in area["places"]}
+    removable = next(node["id"] for node in area["nodes"] if node["id"] not in place_nodes)
+    from backend.app.proposal_models import ProposalChanges
+
+    changes = ProposalChanges.model_validate({"remove_node_ids": [removable]})
+
+    with pytest.raises(AreaMergeError, match="删除节点前必须同时删除其关联边"):
+        service.preview("outdoor-xianlin", changes)

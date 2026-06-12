@@ -239,3 +239,7 @@ Web API 不提供 GitHub 拉取、Git 提交、服务重启或环境变量修改
 ### `POST /api/v1/proposals/{proposal_id}/reject`
 
 仅 `staff/admin` 可访问。填写拒绝原因并保留审核记录。
+
+### 节点删除补丁
+
+`changes.remove_node_ids` 是待删除正式节点 ID 数组。删除节点的申请必须同时在 `remove_edge_ids` 中包含其全部关联边；不得删除任何地点的 `routeNodeId`。提交和批准时都会基于当前正式 `area.json` 校验这些约束及整体连通性。

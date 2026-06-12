@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>路径反馈 | 南京大学仙林校区地图</title>
   <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/path-editor.css?v=pan-zoom-v1">
+  <link rel="stylesheet" href="../css/path-editor.css?v=remove-node-v1">
 </head>
 <body class="editor-page">
   <header class="site-header editor-header">
@@ -27,10 +27,11 @@
         <div class="mode-grid">
           <button id="mode-node" class="active" type="button"><strong>添加节点</strong><span>在道路转折处点击</span></button>
           <button id="mode-edge" type="button"><strong>连接节点</strong><span>依次点击两个节点</span></button>
+          <button id="mode-remove-node" type="button"><strong>删除错误节点</strong><span>点击节点并同时移除关联边</span></button>
           <button id="mode-remove-edge" type="button"><strong>删除错误边</strong><span>点击不应通行的边</span></button>
         </div>
         <div class="editor-actions"><button id="undo" type="button">撤销</button><button id="clear-edge-selection" type="button">取消当前连边</button></div>
-        <div class="counts"><span>新增节点 <b id="node-count">0</b></span><span>新增边 <b id="edge-count">0</b></span><span>删除边 <b id="removed-count">0</b></span></div>
+        <div class="counts"><span>新增节点 <b id="node-count">0</b></span><span>新增边 <b id="edge-count">0</b></span><span>删除节点 <b id="removed-node-count">0</b></span><span>删除边 <b id="removed-count">0</b></span></div>
         <p id="status" class="editor-status">正在加载正式地图…</p>
       </section>
       <section>
@@ -45,6 +46,6 @@
     </section>
   </main>
   <script src="../js/config.js"></script>
-  <script src="../js/path-editor.js?v=pan-zoom-v1"></script>
+  <script src="../js/path-editor.js?v=remove-node-v1"></script>
 </body>
 </html>
