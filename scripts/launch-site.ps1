@@ -25,7 +25,7 @@ if (-not (Test-Url "http://localhost:8080/index.html")) {
 
 for ($attempt = 0; $attempt -lt 15; $attempt++) {
   if ((Test-Url "http://localhost:8000/api/v1/health") -and (Test-Url "http://localhost:8080/index.html")) {
-    Start-Process "http://localhost:8080/"
+    Start-Process "http://localhost:8000/"
     exit 0
   }
   Start-Sleep -Milliseconds 600

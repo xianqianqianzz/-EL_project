@@ -9,7 +9,12 @@ class SessionClient {
     const headers = new Headers(options.headers || {});
     if (this.token) headers.set('Authorization', `Bearer ${this.token}`);
     const url = path.startsWith('http') ? path : `${CONFIG.apiBase}${path}`;
-    const response = await fetch(url, { ...options, headers });
+    let response;
+    try {
+      response = await fetch(url, { ...options, headers });
+    } catch {
+      throw new Error('无法连接后端服务。请确认后端已启动，或访问 http://localhost:8000/ 使用同源入口。');
+    }
     if (!response.ok) {
       const payload = await response.json().catch(() => ({}));
       throw new Error(payload.detail || `请求失败（${response.status}）`);
@@ -38,7 +43,11 @@ class SessionClient {
     this.token = token.access_token;
     sessionStorage.setItem(this.tokenKey, this.token);
     this.user = await this.request('/api/v1/users/me');
-    await this.request('/api/v1/trips/demo', { method: 'POST' });
+    try {
+      await this.request('/api/v1/trips/demo', { method: 'POST' });
+    } catch (error) {
+      console.warn('示例日程初始化失败，不影响登录。', error);
+    }
     return this.user;
   }
 
