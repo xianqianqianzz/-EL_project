@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>仙林校区地图 | 南京大学</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="css/main.css?v=ceremony-v1">
+  <link rel="stylesheet" href="css/main.css?v=route-schedule-v1">
   <link rel="stylesheet" href="css/map.css?v=ceremony-v1">
 </head>
 <body class="map-page">
@@ -73,6 +73,7 @@
           <span class="route-time"></span>
         </div>
         <div class="route-segments"></div>
+        <button id="create-trip-from-route" class="button button-primary route-schedule-button hidden" type="button">用这条路线创建日程</button>
         <h3>途经节点</h3>
         <ol class="route-steps"></ol>
       </div>
@@ -99,7 +100,7 @@
   <script src="js/map/outdoor.js?v=phase1-v1"></script>
   <script src="js/ui/search.js?v=area-v4"></script>
   <script src="js/ui/panel.js?v=area-v4"></script>
-  <script src="js/app.js?v=separated-v1"></script>
+  <script src="js/app.js?v=route-schedule-v1"></script>
   <script src="js/map-session.js?v=separated-v1"></script>
 </body>
 </html>

@@ -34,6 +34,8 @@
   const infoPanel = new InfoPanel();
   const pathRenderer = new PathRenderer();
   const placeByNodeId = new Map(area.places.map(place => [place.routeNodeId, place]));
+  const createTripButton = document.getElementById('create-trip-from-route');
+  let currentRoutePlaces = null;
 
   const selectableNodes = area.nodes.map((node, index) => {
     const place = placeByNodeId.get(node.id);
@@ -106,6 +108,12 @@
     }
     pathRenderer.drawOutdoor(map.map, result.path);
     infoPanel.showRoute({ ...result, totalDistance: result.distance });
+    const fromPlace = area.places.find(place => place.id === searchBox.fromNode?.id) ||
+      placeByNodeId.get(fromId);
+    const toPlace = area.places.find(place => place.id === searchBox.toNode?.id) ||
+      placeByNodeId.get(toId);
+    currentRoutePlaces = fromPlace && toPlace ? { fromPlace, toPlace } : null;
+    createTripButton.classList.toggle('hidden', !currentRoutePlaces);
   }
 
   searchBox.onChange(() => {
@@ -118,6 +126,16 @@
   document.getElementById('btn-swap').addEventListener('click', () => {
     searchBox.swap();
     if (searchBox.fromNode && searchBox.toNode) doRouteSearch();
+  });
+  createTripButton.addEventListener('click', () => {
+    if (!currentRoutePlaces) return;
+    sessionStorage.setItem('nju-campus-trip-draft', JSON.stringify({
+      areaId: area.areaId,
+      fromPlaceId: currentRoutePlaces.fromPlace.id,
+      toPlaceId: currentRoutePlaces.toPlace.id,
+      title: `${currentRoutePlaces.fromPlace.label} → ${currentRoutePlaces.toPlace.label}`
+    }));
+    window.location.href = window.sessionClient?.user ? 'schedule.html?create=route' : 'index.html?next=schedule';
   });
   map.onPlaceClick(place => {
     if (!selectionRole) return false;

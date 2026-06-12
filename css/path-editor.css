@@ -1,0 +1,34 @@
+.editor-page { height: 100vh; overflow: hidden; background: var(--canvas); }
+.editor-header { grid-template-columns: minmax(260px, 1fr) auto minmax(260px, 1fr); }
+.zoom-controls { display: flex; align-items: center; justify-content: flex-end; gap: 6px; }
+.zoom-controls button { min-width: 38px; min-height: 38px; padding: 0 10px; border: 1px solid var(--line); border-radius: 5px; color: var(--nju); background: var(--paper); font-weight: 800; }
+.zoom-controls span { min-width: 52px; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; text-align: center; }
+.editor-shell { display: grid; grid-template-columns: 330px minmax(0, 1fr); height: calc(100vh - 76px); }
+.editor-panel { overflow-y: auto; padding: 25px 22px 40px; border-right: 1px solid var(--line); background: var(--paper); }
+.editor-intro { padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.editor-intro h1 { margin: 5px 0 8px; font-family: "Noto Serif SC", "Songti SC", serif; font-size: 26px; }
+.editor-intro p, .editor-status { color: var(--muted); font-size: 13px; line-height: 1.7; }
+.editor-panel section { margin-top: 25px; }
+.editor-panel h2 { margin-bottom: 12px; font-family: "Noto Serif SC", "Songti SC", serif; font-size: 18px; }
+.mode-grid { display: grid; gap: 7px; }
+.mode-grid button { display: grid; gap: 2px; padding: 11px 12px; border: 1px solid var(--line); border-left: 3px solid transparent; border-radius: 5px; color: var(--ink); background: var(--white); text-align: left; }
+.mode-grid button span { color: var(--muted); font-size: 12px; }
+.mode-grid button.active { border-left-color: var(--nju); color: var(--nju); background: var(--nju-soft); }
+.editor-actions, .counts { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+.editor-actions button { padding: 7px 9px; border: 1px solid var(--line); border-radius: 4px; color: var(--nju); background: var(--paper); }
+.counts span { padding: 5px 7px; border-radius: 4px; color: var(--muted); background: var(--canvas); font-size: 12px; }
+.editor-status { min-height: 58px; margin-top: 12px; padding: 10px; border-left: 3px solid var(--nju); background: var(--nju-soft); }
+.editor-panel label { display: grid; gap: 5px; margin-top: 11px; color: var(--muted); font-size: 13px; font-weight: 700; }
+.editor-panel input, .editor-panel textarea { width: 100%; padding: 10px; border: 1px solid var(--line); border-radius: 5px; background: var(--white); font: inherit; }
+.editor-panel textarea { min-height: 116px; resize: vertical; }
+.submit-proposal { width: 100%; margin-top: 14px; }
+.editor-map { position: relative; min-width: 0; min-height: 0; overflow: hidden; background: #e8ecea; }
+.canvas-wrap { position: absolute; inset: 14px; overflow: auto; border: 1px solid var(--line); background: var(--white); box-shadow: var(--shadow-soft); }
+.canvas-wrap canvas { display: block; transform-origin: top left; cursor: crosshair; }
+@media (max-width: 900px) {
+  .editor-header { grid-template-columns: 1fr auto; }
+  .editor-header .site-nav { display: none; }
+  .editor-shell { display: block; height: calc(100vh - 68px); }
+  .editor-panel { max-height: 44%; border-right: 0; border-bottom: 1px solid var(--line); }
+  .editor-map { height: 56%; }
+}

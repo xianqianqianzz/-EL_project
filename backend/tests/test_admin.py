@@ -75,6 +75,23 @@ async def test_ordinary_user_cannot_read_admin_information() -> None:
 
 
 @pytest.mark.asyncio
+async def test_admin_user_list_falls_back_from_unreadable_display_name() -> None:
+    admin_token = await token_for("readable_admin", "admin")
+    await token_for("damaged_name")
+    with SessionLocal() as db:
+        user = db.scalar(select(User).where(User.username == "damaged_name"))
+        user.display_name = "???????"
+        db.commit()
+
+    response = await request(
+        "/api/v1/admin/users",
+        headers={"Authorization": f"Bearer {admin_token}"},
+    )
+    damaged = next(user for user in response.json() if user["username"] == "damaged_name")
+    assert damaged["display_name"] == "damaged_name"
+
+
+@pytest.mark.asyncio
 async def test_admin_can_create_and_list_backups(tmp_path) -> None:
     from backend.app.config import get_settings
 

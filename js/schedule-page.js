@@ -21,6 +21,7 @@ class SchedulePage {
     await this.loadPlaces();
     this.bindEvents();
     await this.refresh();
+    this.openRouteDraft();
   }
 
   renderDate() {
@@ -127,6 +128,22 @@ class SchedulePage {
     this.form.elements.end_date.disabled = true;
     document.getElementById('trip-dialog-title').textContent = '添加日程';
     this.dialog.showModal();
+  }
+
+  openRouteDraft() {
+    const raw = sessionStorage.getItem('nju-campus-trip-draft');
+    if (!raw) return;
+    sessionStorage.removeItem('nju-campus-trip-draft');
+    try {
+      const draft = JSON.parse(raw);
+      this.openCreate();
+      this.form.elements.title.value = draft.title || '';
+      this.form.elements.from_place_id.value = draft.fromPlaceId || '';
+      this.form.elements.to_place_id.value = draft.toPlaceId || '';
+      document.getElementById('trip-dialog-title').textContent = '由地图路线创建日程';
+    } catch (error) {
+      console.warn('无法读取地图日程草稿', error);
+    }
   }
 
   openEdit(trip) {

@@ -18,6 +18,18 @@ from backend.app.user_model import User
 router = APIRouter(prefix="/api/v1/admin", tags=["admin"])
 
 
+def readable_text(value: str, fallback: str) -> str:
+    if not value or set(value.strip()) <= {"?"}:
+        return fallback
+    try:
+        repaired = value.encode("latin1").decode("utf-8")
+        if repaired != value:
+            return repaired
+    except (UnicodeEncodeError, UnicodeDecodeError):
+        pass
+    return value
+
+
 def masked_email(email: str) -> str:
     local, separator, domain = email.partition("@")
     if not separator:
@@ -59,7 +71,7 @@ def admin_users(
         AdminUserSummary(
             id=user.id,
             username=user.username,
-            display_name=user.display_name,
+            display_name=readable_text(user.display_name, user.username),
             masked_email=masked_email(user.email),
             role=user.role,
             status="正常" if user.is_active else "已停用",
@@ -88,8 +100,8 @@ def admin_trips(
                 id=trip.id,
                 user_id=user.id,
                 username=user.username,
-                display_name=user.display_name,
-                title=trip.title,
+                display_name=readable_text(user.display_name, user.username),
+                title=readable_text(trip.title, "未命名日程"),
                 area_id=trip.area_id,
                 from_place_id=trip.from_place_id,
                 from_label=estimate.from_label,

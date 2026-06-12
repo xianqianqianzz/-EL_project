@@ -182,6 +182,7 @@ a { color: inherit; }
 .route-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
 .route-summary span, .route-segments div { padding: 10px; border-radius: 5px; background: var(--nju-soft); color: var(--nju-dark); font-size: 14px; font-weight: 700; }
 .route-steps { padding-left: 24px; color: var(--muted); font-size: 14px; line-height: 1.9; }
+.route-schedule-button { width: 100%; margin-top: 16px; }
 #map-container { position: relative; min-width: 0; min-height: 0; overflow: hidden; }
 #outdoor-map { width: 100%; height: 100%; }
 
