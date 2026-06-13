@@ -70,12 +70,6 @@ function Invoke-Python([hashtable]$Python, [string[]]$Arguments) {
   }
 }
 
-if (Test-Url "http://localhost:8000/api/v1/health") {
-  Write-LauncherLog "Existing backend is healthy; opening site."
-  if (-not $NoBrowser) { Start-Process "http://localhost:8000/" }
-  exit 0
-}
-
 $python = Find-Python
 if (-not $python) {
   Show-LauncherError "Python 3 was not found. Install Python 3.10 or newer from python.org and enable Add Python to PATH."
@@ -99,6 +93,19 @@ $migrationArguments = @("-m", "alembic", "-c", (Join-Path $projectRoot "alembic.
 $migrationResult = Invoke-Python -Python $python -Arguments $migrationArguments
 if ($migrationResult -ne 0) {
   Show-LauncherError "Database initialization failed. Check the Alembic error in the log."
+}
+
+Write-LauncherLog "Creating development evaluation accounts."
+$seedArguments = @((Join-Path $projectRoot "scripts\seed_evaluation_accounts.py"))
+$seedResult = Invoke-Python -Python $python -Arguments $seedArguments
+if ($seedResult -ne 0) {
+  Show-LauncherError "Evaluation accounts could not be created. Check the detailed log."
+}
+
+if (Test-Url "http://localhost:8000/api/v1/health") {
+  Write-LauncherLog "Existing backend is healthy and evaluation accounts are ready; opening site."
+  if (-not $NoBrowser) { Start-Process "http://localhost:8000/" }
+  exit 0
 }
 
 Remove-Item -LiteralPath $backendOut, $backendError -Force -ErrorAction SilentlyContinue

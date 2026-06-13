@@ -171,7 +171,7 @@ data/areas/<area-id>/
 | `admin` | `staff` 权限及创建系统备份 |
 
 - 公开注册只能创建 `user`，不能自行获得管理权限。
-- 仓库不应分发默认管理员账号；管理员角色由部署者在数据库中授权。
+- 开发和评测环境提供固定测试账号；生产环境不会创建默认管理员。
 - 密码仅保存 Argon2 哈希。
 - 浏览器 token 存于 `sessionStorage`。
 - 生产部署必须修改 `NJU_JWT_SECRET` 并使用 HTTPS。
@@ -259,25 +259,15 @@ npm.cmd run dev
 4. 审核路径申请前先打开地图预览。
 5. 管理员可在系统运维页创建地图和数据库备份。
 
-仓库不预置高权限账号。仅在本地评测环境中，可先注册用户名为 `evaluator` 的普通账号，再由部署者在项目根目录执行以下命令授权：
+Windows 一键启动、`npm.cmd run dev` 和 `npm.cmd run start` 会在非生产环境创建或重置以下评测账号：
 
-```powershell
-@'
-from sqlalchemy import select
-from backend.app.database import SessionLocal
-from backend.app.user_model import User
+| 角色 | 用户名 | 密码 |
+|---|---|---|
+| 普通用户 | `evaluator_user` | `NjuMapUser2026!` |
+| 管理员 | `evaluator_admin` | `NjuMapAdmin2026!` |
 
-with SessionLocal() as db:
-    user = db.scalar(select(User).where(User.username == "evaluator"))
-    if not user:
-        raise SystemExit("请先在网页注册 evaluator 账号")
-    user.role = "admin"
-    db.commit()
-    print("evaluator 已授权为 admin")
-'@ | python -
-```
-
-生产环境应由受控的运维流程授权，不应开放公共角色修改接口。
+也可手动运行 `npm.cmd run seed:evaluation`。脚本检测到 `NJU_ENVIRONMENT=production` 时会拒绝执行，生产环境应由受控运维流程授权管理员。
+非生产环境每次启动都会将评测账号恢复为上述固定密码，因此项目复制到其他电脑并完成首次启动后可直接登录。
 
 ## 9. 服务器部署
 
