@@ -1,103 +1,143 @@
-# 南京大学校园地图
+# 南京大学仙林校区地图
 
-## 前后端分离启动
+面向南京大学仙林校区的校园导航、日程提醒与路径共建网站。项目以校园地图图片和人工标注路网为基础，为重要建筑与户外设施提供步行路线规划；登录用户可管理行程，用户发现路径问题后可提交地图修改申请，由工作人员审核后安全合并。
 
-开发时分别启动前端与后端：
+完整设计、数据规范、使用和部署说明见：[综合项目说明](docs/project-guide.md)。
 
-```powershell
-.\scripts\start-backend.ps1
-.\scripts\start-frontend.ps1
+## 作品目标
+
+- 构建可搜索、可规划路线的仙林校区室外地图。
+- 以“一张区域底图 + 一个 `area.json`”规范管理地图、地点和路网数据。
+- 支持个人日程、预计通行时间、建议出发时间与站内提醒。
+- 建立用户路径反馈、管理员地图预览审核和安全合并流程。
+- 为未来建筑室内导航、服务器部署和长期数据维护保留扩展能力。
+
+## 完成进度
+
+| 功能 | 状态 |
+|---|---|
+| 仙林校区室外地图、地点选择和路径规划 | 已完成主要功能 |
+| 像素坐标地图数据规范与自动校验 | 已完成 |
+| 注册、登录和角色权限 | 已完成 |
+| 一次性及周期日程、路线估时和出发提醒 | 已完成主要功能 |
+| 用户路径反馈、节点和边增删 | 已完成主要功能 |
+| 管理后台、地图叠加审核、安全合并和备份 | 已完成主要功能 |
+| Windows 一键启动与 Docker/Caddy 部署 | 已完成基础能力 |
+| 建筑室内导航 | 尚未建设 |
+
+当前路线效果取决于人工标注路网的准确性，仍需要持续现场核验。
+
+## 快速评测
+
+### 环境要求
+
+- Python 3.10 或更高版本
+- Node.js 与 npm，用于运行完整检查
+- 首次安装依赖需要网络
+
+### Windows 一键启动
+
+双击项目根目录：
+
+```text
+一键打开校园地图.exe
 ```
 
-前端位于 `http://localhost:8080`，后端 API 位于 `http://localhost:8000`。详细说明见 [前后端分离启动说明](docs/frontend-backend-startup.md)。
+启动器会检查 Python、安装缺失依赖、初始化数据库并打开：
 
-也可以直接双击项目根目录的 `一键打开校园地图.exe`，自动检查并安装缺失依赖、初始化数据库、启动同源服务并打开默认登录页 `http://localhost:8000/`。目标电脑需要预先安装 Python 3.10 或更高版本；首次运行需要联网。该地址由后端同源提供前端和 API，可避免部分浏览器拦截跨端口请求。
+```text
+http://localhost:8000/
+```
 
-服务器管理员可双击 `更新服务器版本.cmd`，在满足安全检查后从 GitHub `master` 快进更新。网站管理后台不会直接执行 Git 命令。
+启动失败时查看 `%LOCALAPPDATA%\nju-campus-map\launcher.log`。
 
-项目使用“一个区域文件夹对应一张地图图片和一个 `area.json`”的数据形式。当前演示区域为仙林校区室外总图。
-
-## 首次安装
-
-项目当前使用原生 HTML/CSS/JavaScript + Leaflet 前端，以及 FastAPI 后端。安装后端开发依赖：
+### 命令行启动
 
 ```powershell
 python -m pip install -r backend/requirements-dev.txt
-```
-
-## 推荐启动方式
-
-在项目根目录运行：
-
-```powershell
+npm.cmd run db:upgrade
 npm.cmd run dev
 ```
 
-打开 `http://localhost:8000/`。后端会托管现有地图前端，并通过 `/api/v1` 提供区域数据接口；接口调试页面位于 `http://localhost:8000/docs`。
+常用地址：
 
-首次启动或数据库结构更新后，运行迁移：
+- 网站：`http://localhost:8000/`
+- API 文档：`http://localhost:8000/docs`
+- 就绪检查：`http://localhost:8000/api/v1/health/ready`
 
-```powershell
-npm.cmd run db:upgrade
-```
-
-复制 [.env.example](.env.example) 中需要的设置到本地 `.env`。部署前必须替换 `NJU_JWT_SECRET`；`.env` 和数据库运行文件不会进入 Git。Windows 默认数据库位于 `%LOCALAPPDATA%\nju-campus-map\app.db`，可通过 `NJU_DATABASE_URL` 改为 PostgreSQL 等正式数据库。
-
-## 纯前端应急启动
-
-在项目根目录启动静态服务器：
+运行完整检查：
 
 ```powershell
-python -m http.server 8080
+npm.cmd run check
 ```
 
-打开 `http://localhost:8080/index.html`。标注工具位于 `http://localhost:8080/tools/path-editor.html`。此模式没有后端 API，前端会自动回退到静态区域文件。
+## 使用指南
 
-网站加载区域 JSON 时会主动绕过浏览器缓存。更新 `area.json` 后刷新页面即可看到最新地点和节点；普通路网节点仅在点击“选择起点/终点”后显示。
+### 游客
 
-运行数据校验：
+打开地图页即可选择起点和终点、查看路线和预计步行时间。未登录时不能查看个人日程。
 
-```powershell
-npm run validate:data
+### 登录用户
+
+1. 在首页注册并登录。
+2. 在地图规划路线，或将路线带入日程页面。
+3. 创建一次性、每天、每周或每月行程。
+4. 在“我的日程”查看预计通行时间、建议出发时间和提醒状态。
+5. 发现路径问题时，在“路径反馈”中标注并提交修改申请。
+
+### 工作人员与管理员
+
+使用部署者授权的 `staff/admin` 账号进入 `/admin/index.html`，可查看用户、日程和路径申请。审核路径申请时可在地图上比较原有、新增和删除路网；管理员还可创建系统备份。
+
+公开注册只创建普通用户，仓库不分发默认管理员账号。本地评测需要管理员权限时，请先注册用户名 `evaluator`，再按照[综合项目说明中的本地授权步骤](docs/project-guide.md#83-工作人员和管理员)授权。
+
+## 部署指南
+
+本地展示推荐使用 Windows 一键启动或 `npm.cmd run dev`。
+
+服务器部署推荐使用 Docker Compose 与 Caddy：
+
+1. 将 `.env.production.example` 复制为 `.env.production`。
+2. 设置强随机 `NJU_JWT_SECRET`、真实域名和允许来源。
+3. 将域名解析到服务器，并开放 `80/443` 端口。
+4. 执行：
+
+```bash
+docker compose up -d --build
 ```
 
-提交或创建 Pull Request 前运行完整基线检查：
+Caddy 会自动配置 HTTPS。详细部署、备份和更新策略见[综合项目说明](docs/project-guide.md#9-服务器部署)。
 
-```powershell
-npm run check
-```
-
-GitHub Actions 会对 Pull Request 和正式分支推送执行同一套检查。检查命令现在也包含后端 API 测试。
-
-阶段说明与接口规范：
-
-- [第 0 阶段基线](docs/phase-0-baseline.md)
-- [第 1 阶段全栈基础](docs/phase-1-foundation.md)
-- [第 2 阶段账号、权限与数据库基础](docs/phase-2-auth-database.md)
-- [第 3 阶段行程与出发提醒](docs/phase-3-trips-reminders.md)
-- [第 4 阶段路径修改申请与审核合并](docs/phase-4-map-proposals.md)
-- [第 5 阶段管理运维、部署与更新策略](docs/phase-5-operations-deployment.md)
-- [API 接口契约](docs/api-contract.md)
-- [阶段路线图](docs/staged-roadmap.md)
-
-## 当前数据
+## 项目结构
 
 ```text
-data/
-└─ areas/
-   ├─ index.json
-   └─ outdoor-xianlin/
-      ├─ map.png
-      └─ area.json
+admin/              管理后台
+backend/            FastAPI、数据库模型和测试
+data/areas/         地图底图与 area.json
+css/、js/           前端页面样式和交互
+scripts/            启动、检查、备份和更新脚本
+tools/              路径反馈标注工具
+docs/               项目说明与历史设计记录
 ```
 
-- `map.png` 是该区域唯一的标注底图。
-- `area.json` 同时保存地点、路网节点和边。
-- 所有坐标都是底图原始尺寸上的图片像素坐标，不使用经纬度。
-- `place` 是用户可搜索地点，必须绑定一个 `routeNodeId`。
-- `node` 只是路网节点，不需要标签。
-- `edge` 连接两个节点，不保存自由折线。
-- 网站默认常驻显示 `place` 圆点，地点名称在悬停时显示；普通 `node` 仅在“选择起点/终点”模式中显示。
-- `area.json` 仍是地图数据的唯一正式来源；后端 API 只读取并发布它，不复制数据。
+## 人员分工
 
-详细规范见 [docs/data-format.md](docs/data-format.md) 和 [docs/path-data-workflow.md](docs/path-data-workflow.md)。
+请在提交评测前填写真实成员与贡献。
+
+| 成员 | 主要职责 | 具体完成内容 | 工作比例 |
+|---|---|---|---|
+| 成员 1：________ | ________ | ________ | ________ |
+| 成员 2：________ | ________ | ________ | ________ |
+| 成员 3：________ | ________ | ________ | ________ |
+| 成员 4：________ | ________ | ________ | ________ |
+
+## 数据说明
+
+当前正式演示区域为 `data/areas/outdoor-xianlin/`：
+
+```text
+map.png       区域唯一底图
+area.json     地点、节点、边和区域属性
+```
+
+地图使用图片像素坐标，不使用经纬度。`place` 是用户可选择的地点，`node` 是无标签路网节点，`edge` 连接两个节点。详细规则见[综合项目说明](docs/project-guide.md#4-地图与路网数据规范)。
